@@ -1,0 +1,4 @@
+C:\Gits\TI Sbox\Lightweight SBox wih TI\bin\Release\Lightweight SBox wih TI.exe
+C:\Gits\TI Sbox\Lightweight SBox wih TI\bin\Release\Lightweight SBox wih TI.pdb
+C:\Gits\TI Sbox\Lightweight SBox wih TI\obj\x86\Release\Lightweight SBox wih TI.exe
+C:\Gits\TI Sbox\Lightweight SBox wih TI\obj\x86\Release\Lightweight SBox wih TI.pdb

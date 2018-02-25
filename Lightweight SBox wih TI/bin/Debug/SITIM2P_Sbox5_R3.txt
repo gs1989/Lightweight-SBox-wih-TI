@@ -1,0 +1,2 @@
+round=3,size=5,shift=3
+mindiff=8,max non-linear=0

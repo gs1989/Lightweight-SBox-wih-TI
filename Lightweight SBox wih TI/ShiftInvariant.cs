@@ -355,18 +355,18 @@ namespace Lightweight_SBox_wih_TI
                 //检查含有x0
                 if (!Checkx0(ANF, size))
                     return;
-                //Interlocked.Increment(ref count_x0);
+                Interlocked.Increment(ref count_x0);
                 //从ANF获得真值表
                 byte[] TT = InvMoebiusTrans(size, ANF);
 
                 //检查比特平衡性
                 if (!CheckBalanced(size, TT))
                     return;
-                //Interlocked.Increment(ref count_balanced);
+                Interlocked.Increment(ref count_balanced);
                 //检查置换性
                 if (!CheckPerm(size, TT))
                     return;
-                //Interlocked.Increment(ref count_perm);
+                Interlocked.Increment(ref count_perm);
                 //CheckPerm(size, TT);
                 //检查TI
                 SharedTransformation sf = new SharedTransformation(degree + 1, size, ANF);
@@ -377,7 +377,7 @@ namespace Lightweight_SBox_wih_TI
                 //检查TI后某个bit的S个share的平衡性
                 if (!sf.SharedBitBalance())
                     return;
-               // Interlocked.Increment(ref count_ti_balanced_shares);
+                Interlocked.Increment(ref count_ti_balanced_shares);
                 if (!sf.Permutation())
                     return;
 
@@ -395,12 +395,12 @@ namespace Lightweight_SBox_wih_TI
                 //}
 
             });
-            
-            //写出最终的统计结果
-            System.Console.WriteLine("x0F={0},BalancedF={1},PermF={2},TI_BalancedF={4},TI_BalancedSharesF={5},TI_PermF={6},Allf={3}", count_x0, count_balanced, count_perm, count, count_ti_balanced_bit, count_ti_balanced_shares, count_ti_perm);
-            //sw.WriteLine("x0F={0},BalancedF={1},PermF={2},Allf={3}", count_x0, count_balanced, count_perm, count);
             Thread.Sleep(10000);
             td.Abort();
+            //写出最终的统计结果
+            System.Console.WriteLine("x0F={0},BalancedF={1},PermF={2},TI_BalancedF={4},TI_BalancedSharesF={5},TI_PermF={6},Allf={3}", count_x0, count_balanced, count_perm, count_ti_perm, count_ti_balanced_bit, count_ti_balanced_shares, count_ti_perm);
+            //sw.WriteLine("x0F={0},BalancedF={1},PermF={2},Allf={3}", count_x0, count_balanced, count_perm, count);
+           
             bw.Close();
             fs.Close();
         }

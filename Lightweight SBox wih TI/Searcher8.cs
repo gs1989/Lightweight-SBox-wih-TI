@@ -44,6 +44,8 @@ namespace Lightweight_SBox_wih_TI
         /// <param name="input"></param>
         /// <param name="pos"></param>
         /// <returns></returns>
+        //Basic Tools
+        #region
         public int GetBit(int input, int pos)
         {
             return ((input >> pos) & 0x1);
@@ -106,18 +108,37 @@ namespace Lightweight_SBox_wih_TI
                 return (long)(baseNum * Power(baseNum, expNum - 1));
             }
         }
-        /// <summary>
-        /// 计算S盒的差分均匀度，sbox是其真值表表示，size是其比特级规模
-        /// </summary>
-        /// <param name="sbox"></param>
-        /// <param name="size"></param>
-        /// <returns></returns>
-        ///         /// <summary>
-        /// 对于大小为（2^size）的table，返回其中的最大值
-        /// </summary>
-        /// <param name="table"></param>
-        /// <param name="size"></param>
-        /// <returns></returns>
+
+        //小数量的阶乘函数
+        public int factorial(int x)
+        {
+            int result = 1;
+            for (int i = 1; i <= x; i++)
+                result *= i;
+            return result;
+        }
+        //从序号换算8比特置换表
+        //
+
+        //计算HW
+        public int HW(int x, int len)
+        {
+            int c = 0;
+            for(int i=0;i<len;i++)
+                if(GetBit(x,i)!=0)
+                   c++;
+            return c;
+        }
+        public int RotatedShift(int x, int s, int bitlen)
+        {
+            int sl = s % bitlen;
+            int mask = (0x1 << bitlen) - 1;
+            return ((x << sl) & mask) | (x >> (bitlen - sl));
+        }
+        #endregion
+
+        //Crypto Tools
+        #region
         public int MaxTable(int[] table)
         {
             int maxValue = 0;
@@ -191,7 +212,7 @@ namespace Lightweight_SBox_wih_TI
         /// <param name="sbox"></param>
         /// <param name="size"></param>
         /// <returns></returns>
-        public int Nonlinear(int[] sbox,int size)
+        public int Nonlinear(int[] sbox, int size)
         {
             //一系列Walsh谱值,由于遍历u，v，所以一共大约2^(2*size)个Walsh谱绝对值
             int[] walsh = new int[Power(2, 2 * size)];
@@ -300,553 +321,6 @@ namespace Lightweight_SBox_wih_TI
             return func;
         }
 
-        //4分支，每个分支2比特
-        public void OneRoundTrans(int[] table, long func)
-        {
-            int newX0, newX1, newX2, newX3;
-
-            for (int i = 0; i < len; i++)
-            {
-                int Fin = table[i] >> 2;
-                int Fout1 = GetBit(func, Fin);
-                int mask = (0x01 << (shift)) - 1;
-                int Fout2 = GetBit(func, ((Fin>>(shift))|((Fin&mask)<<(6-shift))));
-                int Fout = (Fout2 << 1) | Fout1;
-                int x0 = (GetBit(table[i], 1) << 1) | GetBit(table[i], 0);
-                int x1 = (GetBit(table[i], 3) << 1) | GetBit(table[i], 2);
-                int x2 = (GetBit(table[i], 5) << 1) | GetBit(table[i], 4);
-                int x3 = (GetBit(table[i], 7) << 1) | GetBit(table[i], 6);
-                newX3 = Fout ^ x0;
-                newX2 = x3;
-                newX1 = x2;
-                newX0 = x1;
-                table[i] = ((newX3 << 6) | (newX2 << 4) | (newX1 << 2) | newX0);
-            }
-        }
-
-        //5-3卡方函数+拉线P+固定常数C
-        public void OneRoundTrans_X2_BitP_FixC(int[] table, int[] Ptable,int C)
-        {
-            int xl,xr;//xl为5bit,xr为3bit
-            int xl1, xl2, xr1, xr2;//循环移位结果
-            int y,yl, yr;
-            int pout;
-            for (int i = 0; i < len; i++)
-            {
-                //拆分
-                xl = (table[i]) >> 3;
-                xr = table[i] & 0x07;
-                //卡方函数
-                xl1 = ((xl << 1) | (xl >> 4))&0x1f;
-                xl2 = ((xl << 2) | (xl >> 3))&0x1f;
-                xr1 = ((xr << 1) | (xr >> 2))&0x07;
-                xr2 = ((xr << 2) | (xr >> 1))&0x07;
-
-                yl = xl ^ ((xl1 ^ 0x1f) & xl2);
-                yr = xr ^ ((xr1 ^ 0x07) & xr2);
-                //合并
-                y = (yl << 3) | yr;
-                //bitP
-                pout = 0;
-                for (int j = 0; j < 8; j++)
-                    if (GetBit(y, Ptable[j]) == 1)
-                        pout=SetBit(pout, j);
-                //加常数
-                table[i] = pout^C;
-            }
-        }
-        //两个4bit ShiftInvariant置换+8bit SI P
-        public void OneRoundTrans_ShiftInvariant_SPN(int[] table, int[] Ptable,int[] Stable1,int[] Stable2)
-        {
-            int xl, xr;//xl为5bit,xr为3bit
-            int Sout = 0;
-            for (int i = 0; i < len; i++)
-            {
-                //拆分
-                xl = (table[i]) >> 4;
-                xr = table[i] & 0x0f;
-                //S
-                Sout = (Stable1[xl] << 4) | Stable2[xr];
-                //P
-                table[i] = Ptable[Sout];
-            }
-        }
-        //5bit+3bit ShiftInvariant置换+8bit SI P
-        public void OneRoundTrans_ShiftInvariant_53SPN(int[] table, int[] Ptable, int[] Stable5, int[] Stable3)
-        {
-            int xl, xr;//xl为5bit,xr为3bit
-            int Sout = 0;
-            for (int i = 0; i < len; i++)
-            {
-                //拆分
-                xl = (table[i]) >> 3;
-                xr = table[i] & 0x07;
-                //S
-                Sout = (Stable5[xl] << 3) | Stable3[xr];
-                //P
-                table[i] = Ptable[Sout];
-            }
-        }
-        //5bit+3bit ShiftInvariant置换+8bit BitP
-        public void OneRoundTrans_ShiftInvariant_53SBitP(int[] table, int[] Ptable, int[] Stable5, int[] Stable3)
-        {
-            int xl, xr;//xl为5bit,xr为3bit
-            int Sout = 0;
-            for (int i = 0; i < len; i++)
-            {
-                //拆分
-                xl = (table[i]) >> 3;
-                xr = table[i] & 0x07;
-                //S
-                Sout = (Stable5[xl] << 3) | Stable3[xr];
-                //P
-                table[i] = Ptable[Sout];
-               
-            }
-        }
-        //5bit+3bit ShiftInvariant置换+8bit BitP_固定常数C
-        public void OneRoundTrans_ShiftInvariant_53SBitP_FixC(int[] table, int[] Ptable, int[] Stable5, int[] Stable3, int C)
-        {
-            int xl, xr;//xl为5bit,xr为3bit
-            int Sout = 0;
-            for (int i = 0; i < len; i++)
-            {
-                //拆分
-                xl = (table[i]) >> 3;
-                xr = table[i] & 0x07;
-                //S
-                Sout = (Stable5[xl] << 3) | Stable3[xr];
-                //P
-                table[i] = Ptable[Sout];
-                table[i] = table[i] ^ C;
-            }
-        }
-        //5-3卡方函数+拉线P
-        public void OneRoundTrans_X2_BitP(int[] table, int[] Ptable)
-        {
-            int xl, xr;//xl为5bit,xr为3bit
-            int xl1, xl2, xr1, xr2;//循环移位结果
-            int y, yl, yr;
-            int pout;
-            for (int i = 0; i < len; i++)
-            {
-                //拆分
-                xl = (table[i]) >> 3;
-                xr = table[i] & 0x07;
-                //卡方函数
-                xl1 = ((xl << 1) | (xl >> 4))&0x1f;
-                xl2 = ((xl << 2) | (xl >> 3))&0x1f;
-                xr1 = ((xr << 1) | (xr >> 2))&0x07;
-                xr2 = ((xr << 2) | (xr >> 1))&0x07;
-
-                yl = xl ^ ((xl1 ^ 0x1f) & xl2);
-                yr = xr ^ ((xr1 ^ 0x07) & xr2);
-                //合并
-                y = (yl << 3) | yr;
-                //bitP
-                pout = 0;
-                for (int j = 0; j < 8; j++)
-                    if (GetBit(y, Ptable[j]) == 1)
-                        pout = SetBit(pout, j);
-                //加常数
-                table[i] = pout;
-            }
-        }
-        //2分支，每个分支4比特
-        public void OneRoundTrans_balanced(int[] table, long func,long func1)
-        {
-            int newX0, newX1;
-            
-            for (int i = 0; i < len; i++)
-            {
-                int X0 = table[i] >> 4;
-                int X1 = table[i] & 0xf;
-                int Fin = table[i] >> 4;
-                int Fout = 0;
-                for (int shift = 0; shift < 2; shift=shift+1)
-                {
-                    int mask = (0x01 << shift) - 1;
-                    Fout = Fout | GetBit(func, ((Fin >> (shift)) | ((Fin & mask) << (4 - shift))));
-                        Fout = Fout << 1;
-                }
-                for (int shift = 0; shift <2; shift=shift+2)
-                {
-                    int mask = (0x01 << shift) - 1;
-                    Fout = Fout | GetBit(func1, ((Fin >> (shift)) | ((Fin & mask) << (4 - shift))));
-                    if (shift != 1)
-                        Fout = Fout << 1;
-                }
-
-
-                newX1 = X0 ;
-                newX0 = X1^Fout;
-                table[i] = ((newX0 << 4) | (newX1));
-            }
-        }
-
-        //2分支，每个分支4比特
-        public void OneRoundTrans_balanced1(int[] table, long func)
-        {
-            int newX0, newX1;
-
-            for (int i = 0; i < len; i++)
-            {
-                int X0 = table[i] >> 4;
-                int X1 = table[i] & 0xf;
-                int Fin = table[i] >> 4;
-                int Fout = 0;
-                for (int shift = 0; shift < 4; shift++)
-                {
-                    int mask = (0x01 << shift) - 1;
-                    Fout = Fout | GetBit(func, ((Fin >> (shift)) | ((Fin & mask) << (4 - shift))));
-                    if (shift != 3)
-                        Fout = Fout << 1;
-                }
-
-                newX1 = X0;
-                newX0 = X1 ^ Fout;
-                table[i] = ((newX0 << 4) | (newX1));
-            }
-        }
-        //2分支，每个分支4比特
-        public void OneRoundTrans_balanced_WithP(int[] table, long func,int[][] Pmatrix)
-        {
-            int newX0, newX1;
-
-            for (int i = 0; i < len; i++)
-            {
-                int X0 = table[i] >> 4;
-                int X1 = table[i] & 0xf;
-                int Fin = table[i] >> 4;
-                int[] Sout = new int[4];
-                for (int shift = 0; shift < 4; shift++)
-                {
-                    int mask = (0x01 << shift) - 1;
-                    Sout[shift]= GetBit(func, ((Fin >> (shift)) | ((Fin & mask) << (4 - shift))));
-                }
-                int Fout = 0;
-                //矩阵乘
-                for (int r = 0; r < 4; r++)
-                {
-                    for (int j = 0; j < 4; j++)
-                    {
-                        Fout = Fout ^ (Pmatrix[r][j] * Sout[j]);
-                    }
-                    if (r != 3)
-                        Fout = Fout << 1;
-                }
-
-
-                newX1 = X0;
-                newX0 = X1 ^ Fout;
-                table[i] = ((newX0 << 4) | (newX1));
-            }
-        }
-
-        //2分支，每个分支4比特
-        public void OneRoundTrans_balanced_WithP_BitPerm(int[] table, long func,int[][] Pmatrix, int[] Ptable)
-        {
-            int newX0, newX1;
-
-            for (int i = 0; i < len; i++)
-            {
-                int X0 = table[i] >> 4;
-                int X1 = table[i] & 0xf;
-                int Fin = table[i] >> 4;
-                int[] Sout = new int[4];
-                int temp = Fin;
-                for (int shift = 0; shift < 4; shift++)
-                {
-                    Sout[shift] = GetBit(func, temp);
-                    temp = Ptable[temp];
-                }
-                int Fout = 0;
-                //矩阵乘
-                for (int r = 0; r < 4; r++)
-                {
-                    for (int j = 0; j < 4; j++)
-                    {
-                        Fout = Fout ^ (Pmatrix[r][j] * Sout[j]);
-                    }
-                    if (r != 3)
-                        Fout = Fout << 1;
-                }
-
-
-                newX1 = X0;
-                newX0 = X1 ^ Fout;
-                table[i] = ((newX0 << 4) | (newX1));
-            }
-        }
-        //
-        public void OneRoundTrans_Type2(int[] table, long[] func)
-        {
-            int newX0, newX1, newX2, newX3;
-
-            for (int i = 0; i < len; i++)
-            {
-               
-                int x0 = (GetBit(table[i], 1) << 1) | GetBit(table[i], 0);
-                int x1 = (GetBit(table[i], 3) << 1) | GetBit(table[i], 2);
-                int x2 = (GetBit(table[i], 5) << 1) | GetBit(table[i], 4);
-                int x3 = (GetBit(table[i], 7) << 1) | GetBit(table[i], 6);
-                int F1out = (GetBit(func[3], x3) << 1) | GetBit(func[2], x3);
-                int F0out = (GetBit(func[1], x1) << 1) | GetBit(func[0], x1);
-
-                newX3 = F1out ^ x2;
-                newX2 = x1;
-                newX1 = F0out ^ x0;
-                newX0 = x3;
-                table[i] = ((newX3 << 6) | (newX2 << 4) | (newX1 << 2) | newX0);
-            }
-        }
-
-        public void OneRoundTrans_Type2_AddConstant(int[] table, long[] func,int rc)
-        {
-            int newX0, newX1, newX2, newX3;
-
-            for (int i = 0; i < len; i++)
-            {
-
-                int x0 = (GetBit(table[i], 1) << 1) | GetBit(table[i], 0);
-                int x1 = (GetBit(table[i], 3) << 1) | GetBit(table[i], 2);
-                int x2 = (GetBit(table[i], 5) << 1) | GetBit(table[i], 4);
-                int x3 = (GetBit(table[i], 7) << 1) | GetBit(table[i], 6);
-                int F1out = (GetBit(func[3], x3 ^ ((rc >> 2) & 0x3)) << 1) | GetBit(func[2], x3 ^ ((rc >> 2) & 0x3));
-                int F0out = (GetBit(func[1], x1 ^ (rc & 0x3)) << 1) | GetBit(func[0], x1 ^ (rc & 0x3));
-
-                newX3 = F1out ^ x2;
-                newX2 = x1 ;
-                newX1 = F0out ^ x0 ;
-                newX0 = x3 ;
-                table[i] = ((newX3 << 6) | (newX2 << 4) | (newX1 << 2) | newX0);
-            }
-        }
-        //
-        public void OneRoundTrans_Type3(int[] table, long[] func)
-        {
-            int newX0, newX1, newX2, newX3;
-
-            for (int i = 0; i < len; i++)
-            {
-
-                int x0 = (GetBit(table[i], 1) << 1) | GetBit(table[i], 0);
-                int x1 = (GetBit(table[i], 3) << 1) | GetBit(table[i], 2);
-                int x2 = (GetBit(table[i], 5) << 1) | GetBit(table[i], 4);
-                int x3 = (GetBit(table[i], 7) << 1) | GetBit(table[i], 6);
-                int F2out = (GetBit(func[5], x3) << 1) | GetBit(func[4], x3);
-                int F1out = (GetBit(func[3], x2) << 1) | GetBit(func[2], x2);
-                int F0out = (GetBit(func[1], x1) << 1) | GetBit(func[0], x1);
-                newX3 = F2out ^ x2;
-                newX2 = F1out ^ x1;
-                newX1 = F0out ^ x0;
-                newX0 = x3;
-                table[i] = ((newX3 << 6) | (newX2 << 4) | (newX1 << 2) | newX0);
-            }
-        }
-
-        public void OneRoundTrans_Type3_AddConstant(int[] table, long[] func,int rc)
-        {
-            int newX0, newX1, newX2, newX3;
-
-            for (int i = 0; i < len; i++)
-            {
-
-                int x0 = (GetBit(table[i], 1) << 1) | GetBit(table[i], 0);
-                int x1 = (GetBit(table[i], 3) << 1) | GetBit(table[i], 2);
-                int x2 = (GetBit(table[i], 5) << 1) | GetBit(table[i], 4);
-                int x3 = (GetBit(table[i], 7) << 1) | GetBit(table[i], 6);
-                int F2out = (GetBit(func[5], x3 ^ ((rc >> 4) & 0x3)) << 1) | GetBit(func[4], x3 ^ ((rc >> 4) & 0x3));
-                int F1out = (GetBit(func[3], x2 ^ ((rc >> 2) & 0x3)) << 1) | GetBit(func[2], x2 ^ ((rc >> 2) & 0x3));
-                int F0out = (GetBit(func[1], x1 ^ ((rc >> 0) & 0x3)) << 1) | GetBit(func[0], x1 ^ ((rc >> 0) & 0x3));
-                newX3 = F2out ^ x2;
-                newX2 = F1out ^ x1;
-                newX1 = F0out ^ x0;
-                newX0 = x3;
-                table[i] = ((newX3 << 6) | (newX2 << 4) | (newX1 << 2) | newX0);
-            }
-        }
-        public void OneRoundTrans_balanced_BitPerm(int[] table, long func,int[] Ptable)
-        {
-            int newX0, newX1;
-
-            for (int i = 0; i < len; i++)
-            {
-                int X0 = table[i] >> 4;
-                int X1 = table[i] & 0xf;
-                int Fin = table[i] >> 4;
-                int Fout = 0;
-                int temp=Fin;
-                for (int j = 0;j < 4; j++)
-                {
-                    Fout = Fout | GetBit(func, temp);
-                    temp=Ptable[temp];
-                    if (j != 3)
-                        Fout = Fout << 1;
-                }
-
-                newX1 = X0;
-                newX0 = X1 ^ Fout;
-                table[i] = ((newX0 << 4) | (newX1));
-            }
-        }
-        
-        //2分支，每个分支4比特
-        public void OneRoundTrans_balanced_PS(int[] table, long func, int[][] Pmatrix)
-        {
-            int newX0, newX1;
-
-            for (int i = 0; i < len; i++)
-            {
-                int X0 = table[i] >> 4;
-                int X1 = table[i] & 0xf;
-                int Fin = table[i] >> 4;
-                int[] Finb = new int[4];
-                for (int j = 0; j < 4; j++)
-                    Finb[j] = GetBit(Fin, j);
-                //P
-                int Pout =0;
-                //矩阵乘
-                for (int r = 0; r < 4; r++)
-                {
-                    for (int j = 0; j < 4; j++)
-                    {
-                      Pout  = Pout ^ (Pmatrix[r][j] * Finb[j]);
-                    }
-                    if (r != 3)
-                        Pout = Pout << 1;
-                }
-                int Fout = 0;
-
-                for (int shift = 0; shift < 4; shift++)
-                {
-                    int mask = (0x01 << shift) - 1;
-                    Fout = GetBit(func, ((Pout >> (shift)) | ((Pout & mask) << (4 - shift))));
-                    if (shift != 3)
-                        Fout = Fout << 1;
-                }
-                
-
-                newX1 = X0;
-                newX0 = X1 ^ Fout;
-                table[i] = ((newX0 << 4) | (newX1));
-            }
-        }
-        /// <summary>
-        /// 寻找最优S盒：
-        /// table表示S盒的真值表 (6进2出4分支)
-        /// </summary>
-        /// <param name="table"></param>
-        /// <param name="size"></param>
-        /// <param name="round"></param>
-        /// <param name="optimalDiff"></param>
-        /// <param name="optimalNonlinear"></param>
-        /// <returns></returns>
-        public int[] SearchOptimal(string filename, string scriptfilename, int optimalDiff, int optimalNonlinear)
-        {
-            int[] table = new int[len];
-            int[] errorTable = new int[len];
-            int count = 0;
-            long[] item = new long[round];
-
-            //fsScript = new FileStream(scriptfilename, FileMode.Create);
-            //swScript = new StreamWriter(fsScript);
-
-            //写Script头
-            //swScript.WriteLine("set search_path \"/eda/synopsys/B-2008.09/dpaTest /eda/synopsys/B-2008.09/dw/sim_ver /eda/synopsys/B-2008.09/dw/syn_ver /eda/synopsys/B-2008.09/libraries/syn\"");
-            //swScript.WriteLine("set synthetic_library generic.sdb");
-            //swScript.WriteLine("set target_library \"fast.db slow.db\"");
-            //swScript.WriteLine("set link_library \"fast.db slow.db dw_foundation.sldb\"");
-
-
-
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
-
-            //每轮的布尔函数都是一样的
-            int varNum =4;
-            int[] ANF = new int[Power(2, varNum)];
-            int terms = 1 + varNum + varNum * (varNum - 1) / 2;//ANF项数量，1+6+6C2
-            int limit =0x1<<terms;
-            for (int num = 0; num < limit; num++)
-            {
-               // if (num % 65536 == 0)
-                //    System.Console.WriteLine("num={0:x}", num);
-                //从num中获取ANF
-                for (int i = 0; i < terms; i++)
-                {
-                    if (GetBit(num, i) == 1)
-                        ANF[RankTable[i]] = 1;
-                    else
-                        ANF[RankTable[i]] = 0;
-                }
-                //从ANF获得真值表
-                long func = InvMoebiusTrans(varNum, ANF);
-
-                //table初始化为恒等变换
-                for (int i = 0; i < len; i++)
-                {
-                    table[i] = i;
-                }
-
-                //根据num的值，确定轮函数
-                for (int i = 0; i < round; i++)
-                {
-                    item[i] = func;
-                }
-
-                for (int i = 0; i < round; i++)
-                {
-                    OneRoundTrans(table, item[i]);
-                }
-
-                //求解最终S盒的差分均匀度、非线性度
-                int diff = DiffUniform(table, size);
-                
-                if((num&0xffff)==0)
-                System.Console.WriteLine("diff={0},num={1:x}", diff, num);
-                
-                if (diff <= optimalDiff)
-                {
-                    int nonLinear = Nonlinear(table, size);
-                    System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                    if (nonLinear >= optimalNonlinear)
-                    {
-                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        count++;
-                        sw.WriteLine("******************");
-                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        sw.WriteLine("输出表：");
-                        for (int j = 0; j < 256; j++)
-                            sw.Write("{0:x2}\t", table[j]);
-                        sw.WriteLine("\n");
-                        sw.WriteLine("内部函数真值表={0:x}",func);
-                        sw.WriteLine("******************");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.Flush();
-                        //swScript.WriteLine("read_file -format verilog {\"/mnt/hgfs/share/Circular/F_I6O1_D2_" + Convert.ToString(func,16) + ".v\"}");
-                        //swScript.WriteLine("compile -exact_map");
-                        //swScript.WriteLine("report_area > \"/mnt/hgfs/share/Circular/areareports/areareport_" + num + ".txt\"");
-                        //swScript.WriteLine("remove_design -designs");
-                        //return table;
-                    }
-                    
-                }
-            }
-            System.Console.WriteLine("共有{0}个可行解", count);
-            sw.Close();
-            fs.Close();
-
-            //swScript.WriteLine("quit");
-            //swScript.Close();
-            //fsScript.Close();
-
-            return errorTable;
-            //释放item
-        }
         //检验是否为置换
         public bool CheckPermutaion(int[] table)
         {
@@ -858,16 +332,23 @@ namespace Lightweight_SBox_wih_TI
                     return false;
             return true;
         }
-        //小数量的阶乘函数
-        public int factorial(int x)
+        //根据ANF算最大次数,v表示变量个数
+        public int MaxDegree(int[] ANF, int v)
         {
-            int result = 1;
-            for (int i = 1; i <= x; i++)
-                result *= i;
-            return result;
+            int maxd = 0;
+            for (int i = 0; i < ANF.Length; i++)
+            {
+                if (ANF[i] == 1)
+                {
+                    int d = HW(i, v);
+                    if (d > maxd)
+                        maxd = d;
+                }
+            }
+            return maxd;
         }
-        //从序号换算8比特置换表
-        //
+
+
         public int[] GetBitPerm8(int no)
         {
             int[] BitP = new int[8];
@@ -902,6 +383,84 @@ namespace Lightweight_SBox_wih_TI
             }
             return BitP;
         }
+
+        //由bitP构造P的table
+        public int[] GetBitPTable(int[] P)
+        {
+            int[] Ptable = new int[0x1 << P.Length];
+            for (int i = 0; i < Ptable.Length; i++)
+            {
+                Ptable[i] = 0;
+                for (int j = 0; j < 8; j++)
+                {
+                    if (GetBit(i, P[j]) == 1)
+                        Ptable[i] = SetBit(Ptable[i], j);
+                }
+            }
+            return Ptable;
+        }
+        public int[] CreatePermTable(int l, int[] Perm)
+        {
+            int len = (int)Math.Pow(2, l);
+            int[] table = new int[len];
+            for (int i = 0; i < len; i++)
+            {
+                table[i] = 0;
+                for (int j = 0; j < l; j++)
+                    if (GetBit(i, j) != 0)
+                        table[i] = SetBit(table[i], Perm[j]);
+            }
+
+            //检查
+            //Array.Sort(table);
+            //for (int i = 0; i < len - 1; i++)
+            //    if (table[i] == table[i + 1])
+            //        return null;
+            //检查结束
+            return table;
+        }
+
+        //Linear Transformation
+        public int LinearP(int[][] PMatrix, int x,int size)
+        {
+            int y=0;
+            for (int i = 0; i < size; i++)
+            {
+                int t = 0;
+                for (int j = 0; j < size; j++)
+                {
+                    t = PMatrix[i][j] * GetBit(x, j) ^ t;
+                }
+                if (t == 1)
+                    y=SetBit(y, i);
+            }
+            return y;
+        }
+        //Linear Transformation:Field Mulitiplication
+        public int FieldMultiplication(int x,int FieldNo,int MultiNo)
+        {
+            int y = 0;
+            for (int i = size - 1; i > -1; i--)
+            {
+                if (GetBit(MultiNo, i) > 0)
+                    y = y ^ x;
+                if(i!=0)
+                    y = FieldM2(y, FieldNo);
+            }
+            return y;
+        }
+        //Field M2
+        public int FieldM2(int x, int FieldNo)
+        {
+            int y = 0;
+            if ((x >> (size - 1)) > 0)
+                y = ((x << 1) & ((0x1 << size) - 1)) ^ ((FieldNo << 1) ^ 0x01);
+            else
+                y = ((x << 1) & ((0x1 << size) - 1));
+            return y;
+        }
+        #endregion
+
         /// <summary>
         /// 寻找最优S盒：SP结构，5-3 X2函数做S，P为比特置换，加固定常数
         /// 复杂度：8！*2^8
@@ -912,659 +471,6 @@ namespace Lightweight_SBox_wih_TI
         /// <param name="optimalDiff"></param>
         /// <param name="optimalNonlinear"></param>
         /// <returns></returns>
-        public int[] SearchOptimal_X2_BitP_FixC(string filename, string scriptfilename, int optimalDiff, int optimalNonlinear)
-        {
-            int[] table = new int[len];
-            int[] errorTable = new int[len];
-            int count = 0;
-            long[] item = new long[round];
-            int mindiff = 256;
-            int maxnL = 0;
-            //fsScript = new FileStream(scriptfilename, FileMode.Create);
-            //swScript = new StreamWriter(fsScript);
-
-            //写Script头
-            //swScript.WriteLine("set search_path \"/eda/synopsys/B-2008.09/dpaTest /eda/synopsys/B-2008.09/dw/sim_ver /eda/synopsys/B-2008.09/dw/syn_ver /eda/synopsys/B-2008.09/libraries/syn\"");
-            //swScript.WriteLine("set synthetic_library generic.sdb");
-            //swScript.WriteLine("set target_library \"fast.db slow.db\"");
-            //swScript.WriteLine("set link_library \"fast.db slow.db dw_foundation.sldb\"");
-
-
-
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
-
-            for (int num = 0; num < 40320*256; num++)
-            {
-                if (num % 65536 == 0)
-                {
-                    System.Console.WriteLine("num={0:x},percent={1}%", num, num/(40320 * 2.56));
-                }
-                //从num中获取常数C和比特置换P
-                int P = num >> 8;
-                int C = num & 0xff;
-                //从P中获取置换表
-                int[] Ptable = GetBitPerm8(P);
-
-                //table初始化为恒等变换
-                for (int i = 0; i < len; i++)
-                {
-                    table[i] = i;
-                }
-
-                for (int i = 0; i < round; i++)
-                {
-                    OneRoundTrans_X2_BitP_FixC(table, Ptable,C);
-                }
-                //if (!CheckPermutaion(table))
-                //{
-                //    System.Console.WriteLine("None permuataion!");
-                //    return errorTable;
-                //};
-                //求解最终S盒的差分均匀度、非线性度
-                int diff = DiffUniform(table, size);
-
-                if (diff < mindiff)
-                    mindiff = diff;
-
-                if ((num & 0xffff) == 0)
-                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
-
-                if (diff <= optimalDiff)
-                {
-                    int nonLinear = Nonlinear(table, size);
-                    //System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                    if (nonLinear > maxnL)
-                        maxnL = nonLinear;
-                    if (nonLinear >= optimalNonlinear)
-                    {
-                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        count++;
-                        sw.WriteLine("******************");
-                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        sw.WriteLine("输出表：");
-                        for (int j = 0; j < 256; j++)
-                            sw.Write("{0:x2}\t", table[j]);
-                        sw.WriteLine("\n");
-                        sw.WriteLine("内部函数={0:x}", num);
-                        sw.WriteLine("******************");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.Flush();
-                        //swScript.WriteLine("read_file -format verilog {\"/mnt/hgfs/share/Circular/F_I6O1_D2_" + Convert.ToString(func,16) + ".v\"}");
-                        //swScript.WriteLine("compile -exact_map");
-                        //swScript.WriteLine("report_area > \"/mnt/hgfs/share/Circular/areareports/areareport_" + num + ".txt\"");
-                        //swScript.WriteLine("remove_design -designs");
-                        //return table;
-                    }
-
-                }
-            }
-            System.Console.WriteLine("number of possible solutions: {0}", count);
-            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.Close();
-            fs.Close();
-
-            //swScript.WriteLine("quit");
-            //swScript.Close();
-            //fsScript.Close();
-
-            return errorTable;
-        }
-        public int[] SearchOptimal_X2_BitP(string filename, string scriptfilename, int optimalDiff, int optimalNonlinear)
-        {
-            int[] table = new int[len];
-            int[] errorTable = new int[len];
-            int count = 0;
-            long[] item = new long[round];
-            int mindiff = 256;
-            int maxnL = 0;
-            //fsScript = new FileStream(scriptfilename, FileMode.Create);
-            //swScript = new StreamWriter(fsScript);
-
-            //写Script头
-            //swScript.WriteLine("set search_path \"/eda/synopsys/B-2008.09/dpaTest /eda/synopsys/B-2008.09/dw/sim_ver /eda/synopsys/B-2008.09/dw/syn_ver /eda/synopsys/B-2008.09/libraries/syn\"");
-            //swScript.WriteLine("set synthetic_library generic.sdb");
-            //swScript.WriteLine("set target_library \"fast.db slow.db\"");
-            //swScript.WriteLine("set link_library \"fast.db slow.db dw_foundation.sldb\"");
-
-
-
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
-
-            for (int num = 0; num < 40320; num++)
-            {
-                if (num % 65536 == 0)
-                    System.Console.WriteLine("num={0:x}", num);
-                //从num中获取常数C和比特置换P
-                int P = num ;
-
-                //从P中获取置换表
-                int[] Ptable = GetBitPerm8(P);
-
-                //table初始化为恒等变换
-                for (int i = 0; i < len; i++)
-                {
-                    table[i] = i;
-                }
-
-                for (int i = 0; i < round; i++)
-                {
-                    OneRoundTrans_X2_BitP(table, Ptable);
-                    //if (!CheckPermutaion(table))
-                    //{
-                    //    System.Console.WriteLine("None permuataion!");
-                    //    return errorTable;
-                    //};
-                }
-                if (!CheckPermutaion(table))
-                {
-                    System.Console.WriteLine("None permuataion!");
-                    return errorTable;
-                };
-                //求解最终S盒的差分均匀度、非线性度
-                int diff = DiffUniform(table, size);
-
-                if (diff < mindiff)
-                    mindiff = diff;
-
-                if ((num & 0xffff) == 0)
-                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
-
-                if (diff <= optimalDiff)
-                {
-                    int nonLinear = Nonlinear(table, size);
-                    System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                    if (nonLinear > maxnL)
-                        maxnL = nonLinear;
-                    if (nonLinear >= optimalNonlinear)
-                    {
-                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        count++;
-                        sw.WriteLine("******************");
-                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        sw.WriteLine("输出表：");
-                        for (int j = 0; j < 256; j++)
-                            sw.Write("{0:x2}\t", table[j]);
-                        sw.WriteLine("\n");
-                        sw.WriteLine("内部函数={0:x}", num);
-                        sw.WriteLine("******************");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.Flush();
-                        //swScript.WriteLine("read_file -format verilog {\"/mnt/hgfs/share/Circular/F_I6O1_D2_" + Convert.ToString(func,16) + ".v\"}");
-                        //swScript.WriteLine("compile -exact_map");
-                        //swScript.WriteLine("report_area > \"/mnt/hgfs/share/Circular/areareports/areareport_" + num + ".txt\"");
-                        //swScript.WriteLine("remove_design -designs");
-                        //return table;
-                    }
-
-                }
-            }
-            System.Console.WriteLine("number of possible solutions: {0}", count);
-            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.Close();
-            fs.Close();
-
-            //swScript.WriteLine("quit");
-            //swScript.Close();
-            //fsScript.Close();
-
-            return errorTable;
-            //释放item
-        }
-        public int[] SearchOptimal_Type2(string filename, string scriptfilename, int optimalDiff, int optimalNonlinear)
-        {
-            int[] table = new int[len];
-            int[] errorTable = new int[len];
-            int count = 0;
-            long[] item = new long[round];
-            int mindiff=256;
-            int maxnL = 0;
-
-            //fsScript = new FileStream(scriptfilename, FileMode.Create);
-            //swScript = new StreamWriter(fsScript);
-
-            //写Script头
-            //swScript.WriteLine("set search_path \"/eda/synopsys/B-2008.09/dpaTest /eda/synopsys/B-2008.09/dw/sim_ver /eda/synopsys/B-2008.09/dw/syn_ver /eda/synopsys/B-2008.09/libraries/syn\"");
-            //swScript.WriteLine("set synthetic_library generic.sdb");
-            //swScript.WriteLine("set target_library \"fast.db slow.db\"");
-            //swScript.WriteLine("set link_library \"fast.db slow.db dw_foundation.sldb\"");
-
-
-
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
-
-            //每轮的布尔函数都是一样的
-          
-            int limit = 0x1 << 16;
-             long[] func = new long[4];
-            for (int num = 0; num < limit; num++)
-            {
-                
-                //获得真值表
-                func[0] = num & 0xf;
-                func[1] = (num >> 4) & 0xf;
-                func[2] = (num >> 8) & 0xf;
-                func[3] = (num >> 12) & 0xf;
-
-                //table初始化为恒等变换
-                for (int i = 0; i < len; i++)
-                {
-                    table[i] = i;
-                }
-
-                //根据num的值，确定轮函数
-
-                for (int i = 0; i < round; i++)
-                {
-                    OneRoundTrans_Type2(table, func);
-                }
-
-                //求解最终S盒的差分均匀度、非线性度
-                int diff = DiffUniform(table, size);
-
-                if (diff < mindiff)
-                    mindiff = diff;
-
-                if ((num & 0xff) == 0)
-                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
-
-                if (diff <= optimalDiff)
-                {
-                    int nonLinear = Nonlinear(table, size);
-                    System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                    if (nonLinear > maxnL)
-                        maxnL = nonLinear;
-                    if (nonLinear >= optimalNonlinear)
-                    {
-                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        count++;
-                        sw.WriteLine("******************");
-                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        sw.WriteLine("输出表：");
-                        for (int j = 0; j < 256; j++)
-                            sw.Write("{0:x2}\t", table[j]);
-                        sw.WriteLine("\n");
-                        sw.WriteLine("内部函数真值表={0:x}", func);
-                        sw.WriteLine("******************");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.Flush();
-                        //swScript.WriteLine("read_file -format verilog {\"/mnt/hgfs/share/Circular/F_I6O1_D2_" + Convert.ToString(func,16) + ".v\"}");
-                        //swScript.WriteLine("compile -exact_map");
-                        //swScript.WriteLine("report_area > \"/mnt/hgfs/share/Circular/areareports/areareport_" + num + ".txt\"");
-                        //swScript.WriteLine("remove_design -designs");
-                        //return table;
-                    }
-
-                }
-            }
-            System.Console.WriteLine("number of possible solutions: {0}", count);
-            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.Close();
-            fs.Close();
-
-            //swScript.WriteLine("quit");
-            //swScript.Close();
-            //fsScript.Close();
-
-            return errorTable;
-            //释放item
-        }
-
-        public int[] SearchOptimal_Type2_AddConstant(string filename, string scriptfilename, int optimalDiff, int optimalNonlinear)
-        {
-            int[] table = new int[len];
-            int[] errorTable = new int[len];
-            int count = 0;
-            long[] item = new long[round];
-            int mindiff = 256;
-            int maxnL = 0;
-            int Constant = 1;
-            int rc=0;
-            //fsScript = new FileStream(scriptfilename, FileMode.Create);
-            //swScript = new StreamWriter(fsScript);
-
-            //写Script头
-            //swScript.WriteLine("set search_path \"/eda/synopsys/B-2008.09/dpaTest /eda/synopsys/B-2008.09/dw/sim_ver /eda/synopsys/B-2008.09/dw/syn_ver /eda/synopsys/B-2008.09/libraries/syn\"");
-            //swScript.WriteLine("set synthetic_library generic.sdb");
-            //swScript.WriteLine("set target_library \"fast.db slow.db\"");
-            //swScript.WriteLine("set link_library \"fast.db slow.db dw_foundation.sldb\"");
-
-
-
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
-
-            //每轮的布尔函数都是一样的
-
-            int limit = 0x1 << 16;
-            long[] func = new long[4];
-            for (int num = 0; num < limit; num++)
-            {
-
-                //获得真值表
-                func[0] = num & 0xf;
-                func[1] = (num >> 4) & 0xf;
-                func[2] = (num >> 8) & 0xf;
-                func[3] = (num >> 12) & 0xf;
-
-                //table初始化为恒等变换
-                for (int i = 0; i < len; i++)
-                {
-                    table[i] = i;
-                }
-
-                //根据num的值，确定轮函数
-
-                rc = Constant;
-
-                for (int i = 0; i < round; i++)
-                {
-                    OneRoundTrans_Type2_AddConstant(table, func,rc);
-                    rc = (rc >> 1) | (rc & 0x1) << 3;
-                }
-
-                //求解最终S盒的差分均匀度、非线性度
-                int diff = DiffUniform(table, size);
-
-                if (diff < mindiff)
-                    mindiff = diff;
-
-                if ((num & 0xff) == 0)
-                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
-
-                if (diff <= optimalDiff)
-                {
-                    int nonLinear = Nonlinear(table, size);
-                    System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                    if (nonLinear > maxnL)
-                        maxnL = nonLinear;
-                    if (nonLinear >= optimalNonlinear)
-                    {
-                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        count++;
-                        sw.WriteLine("******************");
-                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        sw.WriteLine("输出表：");
-                        for (int j = 0; j < 256; j++)
-                            sw.Write("{0:x2}\t", table[j]);
-                        sw.WriteLine("\n");
-                        sw.WriteLine("内部函数真值表={0:x}", func);
-                        sw.WriteLine("******************");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.Flush();
-                        //swScript.WriteLine("read_file -format verilog {\"/mnt/hgfs/share/Circular/F_I6O1_D2_" + Convert.ToString(func,16) + ".v\"}");
-                        //swScript.WriteLine("compile -exact_map");
-                        //swScript.WriteLine("report_area > \"/mnt/hgfs/share/Circular/areareports/areareport_" + num + ".txt\"");
-                        //swScript.WriteLine("remove_design -designs");
-                        //return table;
-                    }
-
-                }
-            }
-            System.Console.WriteLine("number of possible solutions: {0}", count);
-            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.Close();
-            fs.Close();
-
-            //swScript.WriteLine("quit");
-            //swScript.Close();
-            //fsScript.Close();
-
-            return errorTable;
-            //释放item
-        }
-
-        public int[] SearchOptimal_Type3(string filename, string scriptfilename, int optimalDiff, int optimalNonlinear)
-        {
-            int[] table = new int[len];
-            int[] errorTable = new int[len];
-            int count = 0;
-            long[] item = new long[round];
-            int mindiff = 256;
-            int maxnL = 0;
-
-            //fsScript = new FileStream(scriptfilename, FileMode.Create);
-            //swScript = new StreamWriter(fsScript);
-
-            //写Script头
-            //swScript.WriteLine("set search_path \"/eda/synopsys/B-2008.09/dpaTest /eda/synopsys/B-2008.09/dw/sim_ver /eda/synopsys/B-2008.09/dw/syn_ver /eda/synopsys/B-2008.09/libraries/syn\"");
-            //swScript.WriteLine("set synthetic_library generic.sdb");
-            //swScript.WriteLine("set target_library \"fast.db slow.db\"");
-            //swScript.WriteLine("set link_library \"fast.db slow.db dw_foundation.sldb\"");
-
-
-
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
-
-            //每轮的布尔函数都是一样的
-
-            int limit = 0x1 << 24;
-            long[] func = new long[6];
-            for (int num = 0; num < limit; num++)
-            {
-                if ((num & 0xffff) == 0)
-                    System.Console.WriteLine("mindiff={0},num={1:x}", mindiff, num);
-                //获得真值表
-                func[0] = num & 0xf;
-                func[1] = (num >> 4) & 0xf;
-                func[2] = (num >> 8) & 0xf;
-                func[3] = (num >> 12) & 0xf;
-                func[4] = (num >> 16) & 0xf;
-                func[5] = (num >> 20) & 0xf;
-                bool remove=false;
-                for (int i = 0; i < 6; i++)
-                {
-                    if (func[i] == 0 || func[i] == 15)
-                    {
-                        remove = true;
-                        break;
-                    }
-                }
-                if (remove)
-                    continue;
-                //table初始化为恒等变换
-                for (int i = 0; i < len; i++)
-                {
-                    table[i] = i;
-                }
-
-                //根据num的值，确定轮函数
-
-                for (int i = 0; i < round; i++)
-                {
-                    OneRoundTrans_Type3(table, func);
-                }
-
-                //求解最终S盒的差分均匀度、非线性度
-                int diff = DiffUniform(table, size);
-
-                if (diff < mindiff)
-                    mindiff = diff;
-
-
-
-                if (diff <= optimalDiff)
-                {
-                    int nonLinear = Nonlinear(table, size);
-                    System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                    if (nonLinear > maxnL)
-                        maxnL = nonLinear;
-                    if (nonLinear >= optimalNonlinear)
-                    {
-                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        count++;
-                        sw.WriteLine("******************");
-                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        sw.WriteLine("输出表：");
-                        for (int j = 0; j < 256; j++)
-                            sw.Write("{0:x2}\t", table[j]);
-                        sw.WriteLine("\n");
-                        sw.WriteLine("内部函数真值表={0:x}", func);
-                        sw.WriteLine("******************");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.Flush();
-                        //swScript.WriteLine("read_file -format verilog {\"/mnt/hgfs/share/Circular/F_I6O1_D2_" + Convert.ToString(func,16) + ".v\"}");
-                        //swScript.WriteLine("compile -exact_map");
-                        //swScript.WriteLine("report_area > \"/mnt/hgfs/share/Circular/areareports/areareport_" + num + ".txt\"");
-                        //swScript.WriteLine("remove_design -designs");
-                        //return table;
-                    }
-
-                }
-            }
-            System.Console.WriteLine("number of possible solutions: {0}", count);
-            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.Close();
-            fs.Close();
-
-            //swScript.WriteLine("quit");
-            //swScript.Close();
-            //fsScript.Close();
-
-            return errorTable;
-            //释放item
-        }
-
-        public int[] SearchOptimal_Type3_AddConstant(string filename, string scriptfilename, int optimalDiff, int optimalNonlinear,int Constant)
-        {
-            int[] table = new int[len];
-            int[] errorTable = new int[len];
-            int count = 0;
-            long[] item = new long[round];
-            int rc = 0;
-            int mindiff = 256;
-            int maxnL = 0;
-
-            //fsScript = new FileStream(scriptfilename, FileMode.Create);
-            //swScript = new StreamWriter(fsScript);
-
-            //写Script头
-            //swScript.WriteLine("set search_path \"/eda/synopsys/B-2008.09/dpaTest /eda/synopsys/B-2008.09/dw/sim_ver /eda/synopsys/B-2008.09/dw/syn_ver /eda/synopsys/B-2008.09/libraries/syn\"");
-            //swScript.WriteLine("set synthetic_library generic.sdb");
-            //swScript.WriteLine("set target_library \"fast.db slow.db\"");
-            //swScript.WriteLine("set link_library \"fast.db slow.db dw_foundation.sldb\"");
-
-
-
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
-
-            //每轮的布尔函数都是一样的
-
-            int limit = 0x1 << 24;
-            long[] func = new long[6];
-            for (int num = 0; num < limit; num++)
-            {
-                if ((num & 0xffff) == 0)
-                    System.Console.WriteLine("mindiff={0},num={1:x}", mindiff, num);
-                //获得真值表
-                func[0] = num & 0xf;
-                func[1] = (num >> 4) & 0xf;
-                func[2] = (num >> 8) & 0xf;
-                func[3] = (num >> 12) & 0xf;
-                func[4] = (num >> 16) & 0xf;
-                func[5] = (num >> 20) & 0xf;
-                bool remove = false;
-                for (int i = 0; i < 6; i++)
-                {
-                    if (func[i] == 0 || func[i] == 15)
-                    {
-                        remove = true;
-                        break;
-                    }
-                }
-                if (remove)
-                    continue;
-                //table初始化为恒等变换
-                for (int i = 0; i < len; i++)
-                {
-                    table[i] = i;
-                }
-                rc = Constant;
-                //根据num的值，确定轮函数
-
-                for (int i = 0; i < round; i++)
-                {
-                    OneRoundTrans_Type3_AddConstant(table, func,rc);
-                    rc = (rc >> 1) | ((rc & 0x1) << 5);
-                }
-
-                //求解最终S盒的差分均匀度、非线性度
-                int diff = DiffUniform(table, size);
-
-                if (diff < mindiff)
-                    mindiff = diff;
-
-
-
-                if (diff <= optimalDiff)
-                {
-                    int nonLinear = Nonlinear(table, size);
-                    System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                    if (nonLinear > maxnL)
-                        maxnL = nonLinear;
-                    if (nonLinear >= optimalNonlinear)
-                    {
-                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        count++;
-                        sw.WriteLine("******************");
-                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        sw.WriteLine("输出表：");
-                        for (int j = 0; j < 256; j++)
-                            sw.Write("{0:x2}\t", table[j]);
-                        sw.WriteLine("\n");
-                        sw.WriteLine("内部函数真值表={0:x}", func);
-                        sw.WriteLine("******************");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.Flush();
-                        //swScript.WriteLine("read_file -format verilog {\"/mnt/hgfs/share/Circular/F_I6O1_D2_" + Convert.ToString(func,16) + ".v\"}");
-                        //swScript.WriteLine("compile -exact_map");
-                        //swScript.WriteLine("report_area > \"/mnt/hgfs/share/Circular/areareports/areareport_" + num + ".txt\"");
-                        //swScript.WriteLine("remove_design -designs");
-                        //return table;
-                    }
-
-                }
-            }
-            System.Console.WriteLine("number of possible solutions: {0}", count);
-            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.Close();
-            fs.Close();
-
-            //swScript.WriteLine("quit");
-            //swScript.Close();
-            //fsScript.Close();
-
-            return errorTable;
-            //释放item
-        }
         //二元阵求逆
         #region
         //
@@ -1575,7 +481,7 @@ namespace Lightweight_SBox_wih_TI
 
             int rank = 0;
 
-            int startcol, currrow, postrow=0;
+            int startcol, currrow, postrow = 0;
 
             startcol = 0;   //从矩阵的第[0,0]位置开始实施消元算法
 
@@ -1647,7 +553,7 @@ namespace Lightweight_SBox_wih_TI
 
             for (i = 0; i < dim; i++)
             {
-                tempM[i] = new int[dim*2];
+                tempM[i] = new int[dim * 2];
             }
 
             for (i = 0; i < dim; i++)
@@ -1677,462 +583,14 @@ namespace Lightweight_SBox_wih_TI
 
             else
             {
-              
+
                 return 1;
             }
         }
         #endregion
 
-        public int[] CreatePermTable(int l, int[] Perm)
-        {
-            int len = (int)Math.Pow(2, l);
-            int[] table=new int[len];
-            for (int i = 0; i < len; i++)
-            {
-                table[i] = 0;
-                for (int j = 0; j < l; j++)
-                    if (GetBit(i, j) != 0)
-                       table[i]= SetBit(table[i], Perm[j]);
-            }
-
-            //检查
-            //Array.Sort(table);
-            //for (int i = 0; i < len - 1; i++)
-            //    if (table[i] == table[i + 1])
-            //        return null;
-            //检查结束
-            return table;
-        }
-        public int[] SearchOptimal_WithP_BitPerm(string filename, int optimalDiff, int optimalNonlinear)
-        {
-            //重新生成ranktable
-            int mindiff = 256;
-            int maxNl = 0;
-            int nsize = size / 4 * 2;
-            int m = 1 + nsize + nsize * (nsize - 1) / 2 ;
-            RankTable = new int[m];
-            RankTable[0] = 0;
-            HammingWeight hw = new HammingWeight(nsize);
-            int i = 1;
-            while (i < m)
-            {
-                //  hw.PrintState();
-                RankTable[i] = hw.ReturnNum();
-                hw.HwNext();
-                i++;
-            }
-
-
-            //-----------
-
-
-            int[] table = new int[len];
-            int[] errorTable = new int[len];
-            int count = 0;
-            long[] item = new long[round];
-
-
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine("round={0},size={1}", round, size);
-
-            //每轮的布尔函数都是一样的
-            int varNum = 4;
-            int[] ANF = new int[Power(2, varNum)];
-            int terms = m+4*4;//ANF项数量，1+4+4C2
-            int limit = 0x1 << terms;
-            long num=0;
-            for (int pind =0; pind < (0x1 << 8); pind++)
-            {
-
-                //生成比特置换组
-                int[] Perm = new int[varNum];
-                int[] Perm_Copy = new int[varNum];
-                int temp = pind;
-                for (i = 0; i < varNum; i++)
-                {
-                    Perm[i] = (int)(temp & 0x03);
-                    Perm_Copy[i] = Perm[i];
-                    temp = temp >> 2;
-                }
-                Array.Sort(Perm_Copy);
-                //检查是否有重复
-                bool Pvalid = true;
-                for (i = 0; i < varNum - 1; i++)
-                    if (Perm_Copy[i] == Perm_Copy[i + 1])
-                    {
-                        Pvalid = false;
-                        break;
-                    }
-                if (!Pvalid)
-                    continue;
-                //生成P对应的置换表
-                int[] Ptable = CreatePermTable(varNum, Perm);
-
-                System.Console.WriteLine("mindiff={0},pind={1:x}", mindiff,pind);
-                for (long pnum = 0; pnum < (0x1 << 16); pnum++)
-                {
-                    // if (num % 65536 == 0)
-                    //    System.Console.WriteLine("num={0:x}", num);
-
-                    int[][] Pmatrix = new int[varNum][];
-                    for (i = 0; i < varNum; i++)
-                    {
-                        Pmatrix[i] = new int[varNum];
-                        for (int j = 0; j < varNum; j++)
-                            Pmatrix[i][j] = GetBit(pnum, i * varNum + j);
-                    }
-                    //矩阵不可逆时跳过
-                    if (ReverseM(Pmatrix, varNum) == 0)
-                        continue;
-                    System.Console.WriteLine("mindiff={0},pnum={1:x}", mindiff, pnum);
-                    for (long snum = 0; snum < (0x1 << m); snum++)
-                    {
-                        num = (snum << 24) |(pnum<<8)|((long)pind);
-                        //从num中获取ANF
-                        for (i = 0; i < m; i++)
-                        {
-                            if (GetBit(snum, i) == 1)
-                                ANF[RankTable[i]] = 1;
-                            else
-                                ANF[RankTable[i]] = 0;
-                        }
-
-
-
-                        //从ANF获得真值表
-                        long func = InvMoebiusTrans(varNum, ANF);
-
-                        //table初始化为恒等变换
-                        for (i = 0; i < len; i++)
-                        {
-                            table[i] = i;
-                        }
-
-                        //根据num的值，确定轮函数
-                        for (i = 0; i < round; i++)
-                        {
-                            item[i] = func;
-                        }
-
-                        for (i = 0; i < round; i++)
-                        {
-                            OneRoundTrans_balanced_WithP_BitPerm(table, item[i], Pmatrix, Ptable);
-                        }
-
-                        //求解最终S盒的差分均匀度、非线性度
-                        int diff = DiffUniform(table, size);
-                        if (diff < mindiff)
-                            mindiff = diff;
-                        //if ((num & 0xffff000000) == 0)
-                       //     System.Console.WriteLine("diff={0},num={1:x}", diff, num);
-
-                        if (diff <= optimalDiff)
-                        {
-                            int nonLinear = Nonlinear(table, size);
-                            if (nonLinear > maxNl)
-                                maxNl = nonLinear;
-                            System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                            if (nonLinear >= optimalNonlinear)
-                            {
-                                System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                                count++;
-                                sw.WriteLine("******************");
-                                sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                                sw.WriteLine("输出表：");
-                                for (int j = 0; j < 256; j++)
-                                    sw.Write("{0:x2}\t", table[j]);
-                                sw.WriteLine("\n");
-                                sw.WriteLine("内部函数真值表={0:x}", func);
-                                sw.WriteLine("******************");
-                                sw.WriteLine("\n");
-                                sw.WriteLine("\n");
-                                sw.WriteLine("\n");
-                                sw.Flush();
-
-                            }
-
-                        }
-                    }
-                }
-            }
-            System.Console.WriteLine("共有{0}个可行解", count);
-            System.Console.WriteLine("最小差分={0},最大非线性={1}", mindiff,maxNl);
-            sw.WriteLine("最小差分={0},最大非线性={1}", mindiff, maxNl);
-            sw.Close();
-            fs.Close();
-
-            //swScript.WriteLine("quit");
-            //swScript.Close();
-            //fsScript.Close();
-
-            return errorTable;
-            //释放item
-        }
-
-        public int[] SearchOptimal_BitPerm(string filename, int optimalDiff, int optimalNonlinear)
-        {
-            //重新生成ranktable
-            int mindiff = 256;
-            int maxNl = 0;
-            int nsize = size / 4 * 2;
-            int m = 1 + nsize + nsize * (nsize - 1) / 2;
-            RankTable = new int[m];
-            RankTable[0] = 0;
-            HammingWeight hw = new HammingWeight(nsize);
-            int i = 1;
-            while (i < m)
-            {
-                //  hw.PrintState();
-                RankTable[i] = hw.ReturnNum();
-                hw.HwNext();
-                i++;
-            }
-
-
-            //-----------
-
-
-            int[] table = new int[len];
-            int[] errorTable = new int[len];
-            int count = 0;
-            long[] item = new long[round];
-
-
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine("round={0},size={1}", round, size);
-
-            //每轮的布尔函数都是一样的
-            int varNum = 4;
-            int[] ANF = new int[Power(2, varNum)];
-            int terms = m + 8;//ANF项数量，1+4+4C2
-            int limit = 0x1 << terms;
-            long num = 0;
-            for (long pnum = 0; pnum < (0x1 <<8); pnum++)
-            {
-                // if (num % 65536 == 0)
-                //    System.Console.WriteLine("num={0:x}", num);
-                //生成比特置换组
-                int[] Perm = new int[varNum];
-                int[] Perm_Copy = new int[varNum];
-                long temp=pnum;
-                for (i = 0; i < varNum; i++)
-                {
-                    Perm[i] = (int)(temp&0x03);
-                    Perm_Copy[i] = Perm[i];
-                    temp = temp >> 2;
-                }
-                Array.Sort(Perm_Copy);
-                //检查是否有重复
-                bool Pvalid=true;
-                for(i=0;i<varNum-1;i++)
-                    if (Perm_Copy[i] == Perm_Copy[i + 1])
-                    {
-                        Pvalid = false;
-                        break;
-                    }
-                if (!Pvalid)
-                    continue;
-                //生成P对应的置换表
-                int[] Ptable = CreatePermTable(varNum, Perm);
-
-                for (long snum = 0; snum < (0x1 << m); snum++)
-                {
-                    num = (snum << 8) | pnum;
-                    //从num中获取ANF
-                    for (i = 0; i < m; i++)
-                    {
-                        if (GetBit(snum, i) == 1)
-                            ANF[RankTable[i]] = 1;
-                        else
-                            ANF[RankTable[i]] = 0;
-                    }
-
-
-
-                    //从ANF获得真值表
-                    long func = InvMoebiusTrans(varNum, ANF);
-
-                    //table初始化为恒等变换
-                    for (i = 0; i < len; i++)
-                    {
-                        table[i] = i;
-                    }
-
-                    //根据num的值，确定轮函数
-                    for (i = 0; i < round; i++)
-                    {
-                        item[i] = func;
-                    }
-
-                    for (i = 0; i < round; i++)
-                    {
-                        OneRoundTrans_balanced_BitPerm(table, item[i],Ptable);
-                        //OneRoundTrans_balanced1(table, item[i]);
-                    }
-
-                    //求解最终S盒的差分均匀度、非线性度
-                    int diff = DiffUniform(table, size);
-                    if (diff < mindiff)
-                        mindiff = diff;
-                    if ((snum & 0xffff) == 0)
-                        System.Console.WriteLine("diff={0},num={1:x}", diff, num);
-
-                    if (diff <= optimalDiff)
-                    {
-                        int nonLinear = Nonlinear(table, size);
-                        if (nonLinear > maxNl)
-                            maxNl = nonLinear;
-                        System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        if (nonLinear >= optimalNonlinear)
-                        {
-                            System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                            count++;
-                            sw.WriteLine("******************");
-                            sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                            sw.WriteLine("输出表：");
-                            for (int j = 0; j < 256; j++)
-                                sw.Write("{0:x2}\t", table[j]);
-                            sw.WriteLine("\n");
-                            sw.WriteLine("内部函数真值表={0:x}", func);
-                            sw.WriteLine("******************");
-                            sw.WriteLine("\n");
-                            sw.WriteLine("\n");
-                            sw.WriteLine("\n");
-                            sw.Flush();
-
-                        }
-
-                    }
-                }
-            }
-            System.Console.WriteLine("共有{0}个可行解", count);
-            System.Console.WriteLine("最小差分={0},最大非线性={1}", mindiff, maxNl);
-            sw.WriteLine("最小差分={0},最大非线性={1}", mindiff, maxNl);
-            sw.Close();
-            fs.Close();
-
-            //swScript.WriteLine("quit");
-            //swScript.Close();
-            //fsScript.Close();
-
-            return errorTable;
-            //释放item
-        }
-        //计算HW
-        public int HW(int x, int len)
-        {
-            int c = 0;
-            for(int i=0;i<len;i++)
-                if(GetBit(x,i)!=0)
-                   c++;
-            return c;
-        }
-        //根据ANF算最大次数,v表示变量个数
-        public int MaxDegree(int[] ANF,int v)
-        {
-            int maxd = 0;
-            for (int i = 0; i < ANF.Length; i++)
-            {
-                if (ANF[i] == 1)
-                {
-                    int d = HW(i, v);
-                    if (d > maxd)
-                        maxd = d;
-                }
-            }
-            return maxd;
-        }
-        public int[] SearchOptimal_balanced1(string filename, int optimalDiff, int optimalNonlinear)
-        {
-            int[] table = new int[len];
-            int[] errorTable = new int[len];
-            int count = 0;
-            int[] item = new int[round];
-             int mindiff = 256;
-            int maxNl = 0;
-            int count1 = 0;
-
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-
-
-            //每轮的布尔函数都是一样的
-            int varNum = 4;
-            int[] ANF = new int[Power(2, varNum)];
-
-            for (int num = 0; num < 256*256; num++)
-            {
-                MoebiusTrans(varNum, num, ANF);//真值表换ANF
-                int maxd = MaxDegree(ANF, varNum);
-                if (maxd > 2)
-                    continue;//次数大于2的不算
-                count1++;
-                //table初始化为恒等变换
-                for (int i = 0; i < len; i++)
-                {
-                    table[i] = i;
-                }
-
-                //根据num的值，确定轮函数
-                for (int i = 0; i < round; i++)
-                {
-                    item[i] = num;
-                }
-
-                for (int i = 0; i < round; i++)
-                {
-                    OneRoundTrans_balanced1(table, item[i]);
-                }
-
-                 //求解最终S盒的差分均匀度、非线性度
-                int diff = DiffUniform(table, size);
-                if (diff < mindiff)
-                    mindiff = diff;
-                if ((num & 0xffff) == 0)
-                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
-
-                if (diff <= optimalDiff)
-                {
-                    int nonLinear = Nonlinear(table, size);
-                    if (nonLinear > maxNl)
-                        maxNl = nonLinear;
-                    System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                    if (nonLinear >= optimalNonlinear)
-                    {
-                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        count++;
-                        sw.WriteLine("******************");
-                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        sw.WriteLine("输出表：");
-                        for (int j = 0; j < 256; j++)
-                            sw.Write("{0:x2}\t", table[j]);
-                        sw.WriteLine("\n");
-                        sw.WriteLine("内部函数真值表={0:x}", num);
-                        sw.WriteLine("******************");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.WriteLine("\n");
-                        sw.Flush();
-
-                    }
-
-                }
-            }
-            System.Console.WriteLine("共有{0}个可行解", count);
-            System.Console.WriteLine("最小差分={0},最大非线性={1}", mindiff,maxNl);
-            
-            System.Console.WriteLine("共有{0}个次数<=2的ANF", count1);
-            sw.Close();
-            fs.Close();
-
-
-
-            return errorTable;
-            //释放item
-        }
-
+        //Specific tools
+        #region
         //从DC的areareport中提取areacost
         public double ReadAreaCost(string filename)
         {
@@ -2174,7 +632,7 @@ namespace Lightweight_SBox_wih_TI
             fs.Close();
         }
 
-        //根据SI规则构造完整真值表
+        //根据SI规则构造完整置换表
         public int[] ShiftInvariantTT(byte[] TT, int bitlen)
         {
             int len = 0x1 << bitlen;
@@ -2194,7 +652,7 @@ namespace Lightweight_SBox_wih_TI
             return table;
         }
 
-        //两个4bit SI Sbox+8bit SI 线性变换
+        //从SI TI的bit真值表中构造置换表
         public int[][] ReadShiftInvariantTT(string TTfile, int bitlen)
         {
             int tablelen = 0x1 << bitlen;
@@ -2220,8 +678,100 @@ namespace Lightweight_SBox_wih_TI
             fs.Close();
             return table;
         }
-        //两个4bit SI Sbox+8bit SI 线性变换
-        public int[] SearchOptimal_ShiftInvariant_4SPN(string Sbinfile, string Pbinfile, string filename, int optimalDiff, int optimalNonlinear)
+
+        //根据编号构造*2的线性变换
+        public int[][] BuildM2PMatrix(int Pno, int size)
+        {
+            int[][] Pmatrix = new int[size][];
+            for (int i = 0; i < size; i++)
+            {
+                Pmatrix[i] = new int[size];
+                for (int j = 0; j < size; j++)
+                    if (j == (i + 1) % size)
+                        Pmatrix[i][j] = 1;
+            }
+            //根据Pno确定第一列前n-1个值
+            for (int i = 0; i < size - 1; i++)
+            {
+                Pmatrix[i][0] = GetBit(Pno, i);
+            }
+            return Pmatrix;
+        }
+        //根据编号构造任意线性变换
+        public int[][] BuildAnyPMatrix(long Pno, int size)
+        {
+            int[][] Pmatrix = new int[size][];
+            for (int i = 0; i < size; i++)
+            {
+                Pmatrix[i] = new int[size];
+                for (int j = 0; j < size; j++)
+                        Pmatrix[i][j] = GetBit(Pno,i*size+j);
+            }
+            return Pmatrix;
+        }
+        #endregion
+
+
+
+        //SITI+C
+        public void OneRoundTrans_SITIC(int[] table, int[] S, int C)
+        {
+
+            for (int i = 0; i < len; i++)
+            {
+                table[i] = S[table[i]] ^ C;
+            }
+        }
+
+        //SITI+*2P(左移位)
+        public void OneRoundTrans_SITIM2P(int[] table, int[] S, int Pno)
+        {
+
+            for (int i = 0; i < len; i++)
+            {
+                table[i] = S[table[i]];
+                if ((table[i] >> (size - 1)) > 0)
+                    table[i] = ((table[i] << 1)&((0x1<<size)-1)) ^ ((Pno << 1) ^ 0x01);
+                else
+                    table[i] = ((table[i] << 1) & ((0x1 << size) - 1));
+            }
+        }
+        //SITI+MatrixP
+        public void OneRoundTrans_SITIMatrixP(int[] table, int[] S, int FieldNo,int MultiNo)
+        {
+
+            for (int i = 0; i < len; i++)
+            {
+                table[i] = S[table[i]];
+                table[i] = FieldMultiplication(table[i], FieldNo, MultiNo);
+            }
+        }
+        //SITI+*2P(右移位)
+        public void OneRoundTrans_SITIM2P_Right(int[] table, int[] S, int Pno)
+        {
+
+            for (int i = 0; i < len; i++)
+            {
+                table[i] = S[table[i]];
+                if ((table[i]&0x01) > 0)
+                    table[i] = ((table[i] >> 1) ) ^ ((Pno) ^ (0x1<<(size-1)));
+                else
+                    table[i] = ((table[i] >> 1) );
+            }
+        }
+        //SITI+AnyP
+        public void OneRoundTrans_SITIAnyP(int[] table, int[] S, int[][] PMatrix)
+        {
+
+            for (int i = 0; i < len; i++)
+            {
+                table[i] = S[table[i]];
+                table[i] = LinearP(PMatrix, table[i], size);
+            }
+        }
+        //SITI 4 bit Sbox搜索,添加常数
+        //Results: 存在15-15的定差分，无论增加多少轮，如何增加常数或者增加线性变换，都不能破坏定差分
+        public void SearchOptimal_SIConstant_4(string Sbinfile, string filename, int optimalDiff, int optimalNonlinear)
         {
             int[] table = new int[len];
             int[] errorTable = new int[len];
@@ -2231,28 +781,23 @@ namespace Lightweight_SBox_wih_TI
             int maxnL = 0;
             //读取所有有直接TI的4bit SI 2次置换
             int[][] Stable = ReadShiftInvariantTT(Sbinfile, 4);
-            //读取所有有直接TI的8bit SI 线性置换
-            int[][] Ptable = ReadShiftInvariantTT(Pbinfile, 8);
 
 
             FileStream fs = new FileStream(filename, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
-            long length = Stable.Length * Stable.Length * Ptable.Length;
-            for (long num = Stable.Length * Stable.Length; num < length; num++)
+            long length = Stable.Length*16 ;
+            for (long num =0; num < length; num++)
             {
-                if ((num&0xffff) == 0)
+                if ((num&0xff) == 0)
                 {
                     System.Console.WriteLine("num={0:x},percent={1}%", num, 100.0*num / length);
                 }
-                //从num中获取P的序号
-                int Pno = (int)(num / (Stable.Length * Stable.Length));
-                int Sno = (int)(num % (Stable.Length * Stable.Length));
-                int Sno1 = Sno / Stable.Length;
-                int Sno2 = Sno % Stable.Length;
-                //从P中获取置换表
-                //int[] Ptable = GetBitPerm8(P);
-
+                //从num中获取S的序号
+                int Sno = (int)(num /16);
+                int C = (int)(num % 16);
+                //int C = 1;
+                //int Sno = (int)num;
                 //table初始化为恒等变换
                 for (int i = 0; i < len; i++)
                 {
@@ -2261,13 +806,9 @@ namespace Lightweight_SBox_wih_TI
 
                 for (int i = 0; i < round; i++)
                 {
-                    OneRoundTrans_ShiftInvariant_SPN(table, Ptable[Pno], Stable[Sno1],Stable[Sno2]);
+                    OneRoundTrans_SITIC(table,Stable[Sno],C);
                 }
-                //if (!CheckPermutaion(table))
-                //{
-                //    System.Console.WriteLine("None permuataion!");
-                //    return errorTable;
-                //};
+
                 //求解最终S盒的差分均匀度、非线性度
                 int diff = DiffUniform(table, size);
 
@@ -2310,11 +851,12 @@ namespace Lightweight_SBox_wih_TI
             sw.Close();
             fs.Close();
 
-
-            return errorTable;
         }
-        //5bit/3bit SI Sbox+8bit SI 线性变换
-        public int[] SearchOptimal_ShiftInvariant_53SPN(string S5binfile, string S3binfile, string Pbinfile, string filename, int optimalDiff, int optimalNonlinear)
+
+
+        //SITI 4 bit Sbox搜索,添加线性层(*2线性层)
+        //Results: 4轮能找到16个最优的
+        public void SearchOptimal_SIP_4(string Sbinfile, string filename, int optimalDiff, int optimalNonlinear)
         {
             int[] table = new int[len];
             int[] errorTable = new int[len];
@@ -2322,32 +864,30 @@ namespace Lightweight_SBox_wih_TI
             long[] item = new long[round];
             int mindiff = 256;
             int maxnL = 0;
-            //读取所有有直接TI的5bit SI 2次置换
-            int[][] S5table = ReadShiftInvariantTT(S5binfile, 5);
-            //读取所有有直接TI的3bit SI 2次置换
-            int[][] S3table = ReadShiftInvariantTT(S3binfile, 3);
-            //读取所有有直接TI的8bit SI 线性置换
-            int[][] Ptable = ReadShiftInvariantTT(Pbinfile, 8);
+            //读取所有有直接TI的4bit SI 2次置换
+            int[][] Stable = ReadShiftInvariantTT(Sbinfile, 4);
 
 
             FileStream fs = new FileStream(filename, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
-            long length = S5table.Length * S3table.Length * Ptable.Length;
-            for (long num = S5table.Length * S3table.Length; num < length; num++)
+            int Psize=0x1<<(size-1);
+            long length = Stable.Length * (Psize);
+            for (long num = 0; num < length; num++)
             {
                 if ((num & 0xff) == 0)
                 {
                     System.Console.WriteLine("num={0:x},percent={1}%", num, 100.0 * num / length);
                 }
-                //从num中获取P的序号
-                int Pno = (int)(num / (S5table.Length * S3table.Length));
-                int Sno = (int)(num % (S5table.Length * S3table.Length));
-                int Sno5 = Sno / S3table.Length;
-                int Sno3 = Sno % S3table.Length;
-                //从P中获取置换表
-                //int[] Ptable = GetBitPerm8(P);
-
+                //从num中获取S的序号
+                int Sno = (int)(num / Psize);
+                int Pno = (int)(num % Psize);
+                int[][] PMatrix=BuildM2PMatrix(Pno, size);
+                //检验可逆性
+                if (ReverseM(PMatrix, size) == 0)//不可逆
+                    continue;
+                //int C = 1;
+                //int Sno = (int)num;
                 //table初始化为恒等变换
                 for (int i = 0; i < len; i++)
                 {
@@ -2356,13 +896,92 @@ namespace Lightweight_SBox_wih_TI
 
                 for (int i = 0; i < round; i++)
                 {
-                    OneRoundTrans_ShiftInvariant_53SPN(table, Ptable[Pno], S5table[Sno5], S3table[Sno3]);
+                    OneRoundTrans_SITIM2P_Right(table, Stable[Sno],Pno);
                 }
-                //if (!CheckPermutaion(table))
-                //{
-                //    System.Console.WriteLine("None permuataion!");
-                //    return errorTable;
-                //};
+
+                //求解最终S盒的差分均匀度、非线性度
+                int diff = DiffUniform(table, size);
+
+                if (diff < mindiff)
+                    mindiff = diff;
+
+                if ((num & 0xffff) == 0)
+                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
+
+                if (diff <= optimalDiff)
+                {
+                    int nonLinear = Nonlinear(table, size);
+                    //System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                    if (nonLinear > maxnL)
+                        maxnL = nonLinear;
+                    if (nonLinear >= optimalNonlinear)
+                    {
+                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                        count++;
+                        sw.WriteLine("******************");
+                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                        sw.WriteLine("输出表：");
+                        for (int j = 0; j <(0x1<<size); j++)
+                            sw.Write("{0:x2}\t", table[j]);
+                        sw.WriteLine("\n");
+                        sw.WriteLine("内部函数={0:x}", num);
+                        sw.WriteLine("******************");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.Flush();
+
+                    }
+
+                }
+            }
+            System.Console.WriteLine("number of possible solutions: {0}", count);
+            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
+            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
+            sw.Close();
+            fs.Close();
+
+        }
+        //SITI 5 bit Sbox搜索,添加常数
+        //Results: 一部分为32的定差分，另一半有16的定差分
+        public void SearchOptimal_SIConstant_5(string Sbinfile, string filename, int optimalDiff, int optimalNonlinear)
+        {
+            int[] table = new int[len];
+            int[] errorTable = new int[len];
+            int count = 0;
+            long[] item = new long[round];
+            int mindiff = 256;
+            int maxnL = 0;
+            //读取所有有直接TI的5bit SI 2次置换
+            int[][] Stable = ReadShiftInvariantTT(Sbinfile, 5);
+
+
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
+            long length = Stable.Length*32;
+            for (long num = 0; num < length; num++)
+            {
+                if ((num & 0xff) == 0)
+                {
+                    System.Console.WriteLine("num={0:x},percent={1}%", num, 100.0 * num / length);
+                }
+                //从num中获取S的序号
+                int Sno = (int)(num /32);
+                int C = (int)(num % 32);
+                //int C = 1;
+                //int Sno = (int)num;
+                //table初始化为恒等变换
+                for (int i = 0; i < len; i++)
+                {
+                    table[i] = i;
+                }
+
+                for (int i = 0; i < round; i++)
+                {
+                    OneRoundTrans_SITIC(table, Stable[Sno], C);
+                }
+
                 //求解最终S盒的差分均匀度、非线性度
                 int diff = DiffUniform(table, size);
 
@@ -2405,22 +1024,11 @@ namespace Lightweight_SBox_wih_TI
             sw.Close();
             fs.Close();
 
-
-            return errorTable;
-        }
-        //检查P是否会将两个Sbox部分交互
-        public bool Check53P(int[] Ptable)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                if (Ptable[i] >= 3)
-                    return true;
-            }
-            return false;
         }
 
-        //5bit/3bit SI Sbox+8bit BitP 线性变换
-        public int[] SearchOptimal_ShiftInvariant_53SBitP(string S5binfile, string S3binfile, string filename, int optimalDiff, int optimalNonlinear)
+        //SITI 8 bit Sbox搜索
+        //Results: 
+        public void SearchOptimal_SI_8(string Sbinfile, string filename, int optimalDiff, int optimalNonlinear)
         {
             int[] table = new int[len];
             int[] errorTable = new int[len];
@@ -2429,33 +1037,21 @@ namespace Lightweight_SBox_wih_TI
             int mindiff = 256;
             int maxnL = 0;
             //读取所有有直接TI的5bit SI 2次置换
-            int[][] S5table = ReadShiftInvariantTT(S5binfile, 5);
-            //读取所有有直接TI的3bit SI 2次置换
-            int[][] S3table = ReadShiftInvariantTT(S3binfile, 3);
-
+            int[][] Stable = ReadShiftInvariantTT(Sbinfile, 8);
 
 
             FileStream fs = new FileStream(filename, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
-            long length = S5table.Length * S3table.Length * 40320;
-            for (long num = S5table.Length * S3table.Length; num < length; num++)
+            long length = Stable.Length;
+            for (long num = 0; num < length; num++)
             {
-                if ((num & 0xffff) == 0)
+                if ((num & 0xff) == 0)
                 {
                     System.Console.WriteLine("num={0:x},percent={1}%", num, 100.0 * num / length);
                 }
-                //从num中获取P的序号
-                int Pno = (int)(num / (S5table.Length * S3table.Length));
-                int Sno = (int)(num % (S5table.Length * S3table.Length));
-                int Sno5 = Sno / S3table.Length;
-                int Sno3 = Sno % S3table.Length;
-                //从P中获取置换表
-                int[] Ptable = GetBitPerm8(Pno);
-                //检查是否P会交互两个S
-                if (!Check53P(Ptable))
-                    continue;
-
+                //从num中获取S的序号
+                int Sno = (int)(num);
                 //table初始化为恒等变换
                 for (int i = 0; i < len; i++)
                 {
@@ -2464,13 +1060,9 @@ namespace Lightweight_SBox_wih_TI
 
                 for (int i = 0; i < round; i++)
                 {
-                    OneRoundTrans_ShiftInvariant_53SBitP(table, Ptable, S5table[Sno5], S3table[Sno3]);
+                    OneRoundTrans_SITIC(table, Stable[Sno], 0);
                 }
-                //if (!CheckPermutaion(table))
-                //{
-                //    System.Console.WriteLine("None permuataion!");
-                //    return errorTable;
-                //};
+
                 //求解最终S盒的差分均匀度、非线性度
                 int diff = DiffUniform(table, size);
 
@@ -2478,7 +1070,7 @@ namespace Lightweight_SBox_wih_TI
                     mindiff = diff;
 
                 if ((num & 0xffff) == 0)
-                    System.Console.WriteLine("mindiff={0},num={1:x}", mindiff, num);
+                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
 
                 if (diff <= optimalDiff)
                 {
@@ -2513,28 +1105,12 @@ namespace Lightweight_SBox_wih_TI
             sw.Close();
             fs.Close();
 
-
-            return errorTable;
         }
 
-        //由bitP构造P的table
-        public int[] GetBitPTable(int[] P)
-        {
-            int[] Ptable = new int[0x1 << P.Length];
-            for (int i = 0; i < Ptable.Length; i++)
-            {
-                Ptable[i] = 0;
-                for (int j = 0; j < 8; j++)
-                {
-                    if (GetBit(i, P[j]) == 1)
-                      Ptable[i] = SetBit(Ptable[i], j);
-                }
-            }
-            return Ptable;
-        }
 
-        //5bit/3bit SI Sbox+8bit BitP 线性变换+固定常数
-        public int[] SearchOptimal_ShiftInvariant_53SBitP_FixC(string S5binfile, string S3binfile, string filename, int optimalDiff, int optimalNonlinear)
+        //SITI 5 bit Sbox搜索,添加线性层(*2线性层)
+        //Results: 4轮差分为6有144个
+        public void SearchOptimal_SIP_5(string Sbinfile, string filename, int optimalDiff, int optimalNonlinear)
         {
             int[] table = new int[len];
             int[] errorTable = new int[len];
@@ -2542,114 +1118,425 @@ namespace Lightweight_SBox_wih_TI
             long[] item = new long[round];
             int mindiff = 256;
             int maxnL = 0;
-            //读取所有有直接TI的5bit SI 2次置换
-            int[][] S5table = ReadShiftInvariantTT(S5binfile, 5);
-            //读取所有有直接TI的3bit SI 2次置换
-            int[][] S3table = ReadShiftInvariantTT(S3binfile, 3);
-            //int mindiff5 = 32;
-            //for (int i = 0; i < S5table.Length; i++)
-            //{
-            //    int diff = DiffUniform(S5table[i], 5);
-            //    System.Console.WriteLine("{1}:\t{0}\t{2}", diff,i);
-            //    if (diff < mindiff5)
-            //        mindiff5 = diff;
-            //}
-            //System.Console.WriteLine("Sbox5:\tmindiff={0}", mindiff5);
-            //int mindiff3 = 8;
-            //for (int i = 0; i < S3table.Length; i++)
-            //{
-            //    int diff = DiffUniform(S3table[i], 3);
-            //    System.Console.WriteLine("{1}:\t{0}", diff, i);
-            //    if (diff < mindiff3)
-            //        mindiff3 = diff;
-            //}
+            //读取所有有直接TI的4bit SI 2次置换
+            int[][] Stable = ReadShiftInvariantTT(Sbinfile, size);
+
+
             FileStream fs = new FileStream(filename, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
+            int Psize = 0x1 << (size - 1);
+            long length = Stable.Length * (Psize);
+            for (long num = 0; num < length; num++)
+            {
+                if ((num & 0xff) == 0)
+                {
+                    System.Console.WriteLine("num={0:x},percent={1}%", num, 100.0 * num / length);
+                }
+                //从num中获取S的序号
+                int Sno = (int)(num / Psize);
+                int Pno = (int)(num % Psize);
+                int[][] PMatrix = BuildM2PMatrix(Pno, size);
+                //检验可逆性
+                if (ReverseM(PMatrix, size) == 0)//不可逆
+                    continue;
+                //int C = 1;
+                //int Sno = (int)num;
+                //table初始化为恒等变换
+                for (int i = 0; i < len; i++)
+                {
+                    table[i] = i;
+                }
 
-            long length = 40320 * (S5table.Length * S3table.Length);
+                for (int i = 0; i < round; i++)
+                {
+                    OneRoundTrans_SITIM2P(table, Stable[Sno], Pno);
+                }
+                //求解最终S盒的差分均匀度、非线性度
+                int diff = DiffUniform(table, size);
+
+                if (diff < mindiff)
+                    mindiff = diff;
+
+                if ((num & 0xffff) == 0)
+                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
+
+                if (diff <= optimalDiff)
+                {
+                    int nonLinear = Nonlinear(table, size);
+                    //System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                    if (nonLinear > maxnL)
+                        maxnL = nonLinear;
+                    if (nonLinear >= optimalNonlinear)
+                    {
+                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                        count++;
+                        sw.WriteLine("******************");
+                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                        sw.WriteLine("输出表：");
+                        for (int j = 0; j < (0x1 << size); j++)
+                            sw.Write("{0:x2}\t", table[j]);
+                        sw.WriteLine("\n");
+                        sw.WriteLine("内部函数={0:x}", num);
+                        sw.WriteLine("******************");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.Flush();
+
+                    }
+
+                }
+            }
+            System.Console.WriteLine("number of possible solutions: {0}", count);
+            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
+            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
+            sw.Close();
+            fs.Close();
+
+        }
+        //SITI 任意bit Sbox搜索,添加线性层(*2线性层)
+        public void SearchOptimal_SIP(string Sbinfile, string filename, int optimalDiff, int optimalNonlinear)
+        {
+            int[] table = new int[len];
+            int[] errorTable = new int[len];
+            int count = 0;
+            long[] item = new long[round];
+            int mindiff = 256;
+            int maxnL = 0;
+            //读取所有有直接TI的4bit SI 2次置换
+            int[][] Stable = ReadShiftInvariantTT(Sbinfile, size);
+
+
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
+            int Psize = 0x1 << (size - 1);
+            long length = Stable.Length * (Psize);
+            for (long num = 0; num < length; num++)
+            {
+                if ((num & 0xff) == 0)
+                {
+                    System.Console.WriteLine("num={0:x},percent={1}%", num, 100.0 * num / length);
+                }
+                //从num中获取S的序号
+                int Sno = (int)(num / Psize);
+                int Pno = (int)(num % Psize);
+                int[][] PMatrix = BuildM2PMatrix(Pno, size);
+                //检验可逆性
+                if (ReverseM(PMatrix, size) == 0)//不可逆
+                    continue;
+                //int C = 1;
+                //int Sno = (int)num;
+                //table初始化为恒等变换
+                for (int i = 0; i < len; i++)
+                {
+                    table[i] = i;
+                }
+
+                for (int i = 0; i < round; i++)
+                {
+                    OneRoundTrans_SITIM2P(table, Stable[Sno], Pno);
+                }
+                //求解最终S盒的差分均匀度、非线性度
+                int diff = DiffUniform(table, size);
+
+                if (diff < mindiff)
+                    mindiff = diff;
+
+                if ((num & 0xffff) == 0)
+                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
+
+                if (diff <= optimalDiff)
+                {
+                    int nonLinear = Nonlinear(table, size);
+                    //System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                    if (nonLinear > maxnL)
+                        maxnL = nonLinear;
+                    if (nonLinear >= optimalNonlinear)
+                    {
+                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                        count++;
+                        sw.WriteLine("******************");
+                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                        sw.WriteLine("输出表：");
+                        for (int j = 0; j < (0x1 << size); j++)
+                            sw.Write("{0:x2}\t", table[j]);
+                        sw.WriteLine("\n");
+                        sw.WriteLine("内部函数={0:x}", num);
+                        sw.WriteLine("******************");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.Flush();
+
+                    }
+
+                }
+            }
+            System.Console.WriteLine("number of possible solutions: {0}", count);
+            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
+            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
+            sw.Close();
+            fs.Close();
+
+        }
+        //SITI 任意bit Sbox搜索,添加任意线性层
+        public void SearchOptimal_SIAnyP(string Sbinfile, string filename, int optimalDiff, int optimalNonlinear)
+        {
+            int[] table = new int[len];
+            int[] errorTable = new int[len];
+            int count = 0;
+            long[] item = new long[round];
+            int mindiff = 256;
+            int maxnL = 0;
+            //读取所有有直接TI的4bit SI 2次置换
+            int[][] Stable = ReadShiftInvariantTT(Sbinfile, size);
+
+
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
+            long Psize = 0x1 << (size*size);
+            long length = Stable.Length * (Psize);
+            for (long num = 0; num < length; num++)
+            {
+                if ((num & 0xffff) == 0)
+                {
+                    System.Console.WriteLine("num={0:x},percent={1}%", num, 100.0 * num / length);
+                }
+                //从num中获取S的序号
+                long Pno = (num / Stable.Length);
+                int[][] PMatrix = BuildAnyPMatrix(Pno, size);
+                //检验可逆性
+                if (ReverseM(PMatrix, size) == 0)//不可逆
+                    continue;
+
+                int Sno = (int)(num % Stable.Length);
+                //table初始化为恒等变换
+                for (int i = 0; i < len; i++)
+                {
+                    table[i] = i;
+                }
+
+                for (int i = 0; i < round; i++)
+                {
+                    OneRoundTrans_SITIAnyP(table, Stable[Sno], PMatrix);
+                }
+
+                //求解最终S盒的差分均匀度、非线性度
+                int diff = DiffUniform(table, size);
+
+                if (diff < mindiff)
+                    mindiff = diff;
+
+                if ((num & 0xffff) == 0)
+                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
+
+                if (diff <= optimalDiff)
+                {
+                    int nonLinear = Nonlinear(table, size);
+                    //System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                    if (nonLinear > maxnL)
+                        maxnL = nonLinear;
+                    if (nonLinear >= optimalNonlinear)
+                    {
+                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                        count++;
+                        sw.WriteLine("******************");
+                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                        sw.WriteLine("输出表：");
+                        for (int j = 0; j < (0x1 << size); j++)
+                            sw.Write("{0:x2}\t", table[j]);
+                        sw.WriteLine("\n");
+                        sw.WriteLine("内部函数={0:x}", num);
+                        sw.WriteLine("******************");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.Flush();
+
+                    }
+
+                }
+            }
+            System.Console.WriteLine("number of possible solutions: {0}", count);
+            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
+            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
+            sw.Close();
+            fs.Close();
+
+        }
+        //SITI 任意bit Sbox搜索,添加线性层(有限域乘法)
+        public void SearchOptimal_SIMatrixP(string Sbinfile, string filename, int optimalDiff, int optimalNonlinear)
+        {
+            int[] table = new int[len];
+            int[] errorTable = new int[len];
+            int count = 0;
+            long[] item = new long[round];
+            int mindiff = 256;
+            int maxnL = 0;
+            //读取所有有直接TI的4bit SI 2次置换
+            int[][] Stable = ReadShiftInvariantTT(Sbinfile, size);
+
+
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
+            long Psize = (0x1 << (size - 1))*((0x1<<size)-2);//前一个是选择P的域，后一个选择域元素，去除0和1
+            long length = Stable.Length * (Psize);
+            for (long num = 0; num < length; num++)
+            {
+                if ((num & 0xffff) == 0)
+                {
+                    System.Console.WriteLine("num={0:x},percent={1}%", num, 100.0 * num / length);
+                }
+                //从num中获取S的序号
+                int Sno = (int)(num % Stable.Length);
+                long Pno = (num / Stable.Length);
+                int FieldPno =(int)( Pno % (0x1 << (size - 1)));//域选择
+                int MultiPno = (int) (Pno / (0x1 << (size - 1)));//域元素
+                MultiPno = MultiPno + 2;
+                int[][] PMatrix = BuildM2PMatrix(FieldPno, size);
+                //检验可逆性
+                if (ReverseM(PMatrix, size) == 0)//不可逆
+                    continue;
+                //int C = 1;
+                //int Sno = (int)num;
+                //table初始化为恒等变换
+                for (int i = 0; i < len; i++)
+                {
+                    table[i] = i;
+                }
+
+                for (int i = 0; i < round; i++)
+                {
+                    OneRoundTrans_SITIMatrixP(table, Stable[Sno], FieldPno, MultiPno);
+                }
+                if (!CheckPermutaion(table))
+                    continue;
+                //求解最终S盒的差分均匀度、非线性度
+                int diff = DiffUniform(table, size);
+
+                if (diff < mindiff)
+                    mindiff = diff;
+
+                if ((num & 0xffff) == 0)
+                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
+
+                if (diff <= optimalDiff)
+                {
+                    int nonLinear = Nonlinear(table, size);
+                    //System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                    if (nonLinear > maxnL)
+                        maxnL = nonLinear;
+                    if (nonLinear >= optimalNonlinear)
+                    {
+                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x},multi={3:x}", diff, nonLinear, num,MultiPno);
+                        count++;
+                        sw.WriteLine("******************");
+                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                        sw.WriteLine("输出表：");
+                        for (int j = 0; j < (0x1 << size); j++)
+                            sw.Write("{0:x2}\t", table[j]);
+                        sw.WriteLine("\n");
+                        sw.WriteLine("内部函数={0:x}", num);
+                        sw.WriteLine("******************");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.Flush();
+
+                    }
+
+                }
+            }
+            System.Console.WriteLine("number of possible solutions: {0}", count);
+            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
+            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
+            sw.Close();
+            fs.Close();
+
+        }
+
+        //SITI 8 bit Sbox搜索,添加线性层(*2线性层)
+        //Results: 
+        public void SearchOptimal_SIP_8(string Sbinfile, string filename, int optimalDiff, int optimalNonlinear)
+        {
+            int[] table = new int[len];
+            int[] errorTable = new int[len];
+            int count = 0;
+            long[] item = new long[round];
+            int mindiff = 256;
+            int maxnL = 0;
+            //读取所有有直接TI的4bit SI 2次置换
+            int[][] Stable = ReadShiftInvariantTT(Sbinfile, size);
+
+
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
+            int Psize = 0x1 << (size - 1);
+            long length = Stable.Length * (Psize);
             for (long num = 0; num < length; num++)
             {
                 if ((num & 0xffff) == 0)
                 {
                     System.Console.WriteLine("num={0:x},percent={1}%,mindiff={2}", num, 100.0 * num / length,mindiff);
                 }
-                //从num中获取P的序号
-                //int Pno = (int)(num / (S5table.Length * S3table.Length));
-                //int Sno = (int)(num % (S5table.Length * S3table.Length));
-                //int Sno5 = Sno / (S3table.Length);
-                //int Sno3 = Sno % (S3table.Length);
-
-                int Sno = (int)(num / 40320);
-                int Pno = (int)(num % 40320);
-                int Sno5 = Sno / (S3table.Length);
-                int Sno3 = Sno % (S3table.Length);
-              
-
-
-                //从P中获取置换表
-                int[] Ptable = GetBitPerm8(Pno);
-                //检查是否P会交互两个S
-                if (!Check53P(Ptable))
+                //从num中获取S的序号
+                int Sno = (int)(num / Psize);
+                int Pno = (int)(num % Psize);
+                int[][] PMatrix = BuildM2PMatrix(Pno, size);
+                //检验可逆性
+                if (ReverseM(PMatrix, size) == 0)//不可逆
                     continue;
-                //将bit置换做表
-                Ptable = GetBitPTable(Ptable);
-                for (int C = 1; C < 2; C++)
+                //int C = 1;
+                //int Sno = (int)num;
+                //table初始化为恒等变换
+                for (int i = 0; i < len; i++)
                 {
-                    //table初始化为恒等变换
-                    for (int i = 0; i < len; i++)
+                    table[i] = i;
+                }
+
+                for (int i = 0; i < round; i++)
+                {
+                    OneRoundTrans_SITIM2P(table, Stable[Sno], Pno);
+                }
+                //求解最终S盒的差分均匀度、非线性度
+                int diff = DiffUniform(table, size);
+
+                if (diff < mindiff)
+                    mindiff = diff;
+
+                if ((num & 0xffff) == 0)
+                    System.Console.WriteLine("diff={0},num={1:x}", diff, num);
+
+                if (diff <= optimalDiff)
+                {
+                    int nonLinear = Nonlinear(table, size);
+                    //System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                    if (nonLinear > maxnL)
+                        maxnL = nonLinear;
+                    if (nonLinear >= optimalNonlinear)
                     {
-                        table[i] = i;
+                        System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                        count++;
+                        sw.WriteLine("******************");
+                        sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
+                        sw.WriteLine("输出表：");
+                        for (int j = 0; j < (0x1 << size); j++)
+                            sw.Write("{0:x2}\t", table[j]);
+                        sw.WriteLine("\n");
+                        sw.WriteLine("内部函数={0:x}", num);
+                        sw.WriteLine("******************");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.WriteLine("\n");
+                        sw.Flush();
+
                     }
 
-                    for (int i = 0; i < round; i++)
-                    {
-                        OneRoundTrans_ShiftInvariant_53SBitP_FixC(table, Ptable, S5table[Sno5], S3table[Sno3], C);
-                    }
-                    //if (!CheckPermutaion(table))
-                    //{
-                    //    System.Console.WriteLine("None permuataion!");
-                    //    return errorTable;
-                    //};
-                    //求解最终S盒的差分均匀度、非线性度
-                    int diff = DiffUniform(table, size);
-                    //sw.WriteLine("{0}\t{1}",Pno,diff);
-                   
-                    if (diff < mindiff)
-                        mindiff = diff;
-
-                    if(C==1 &&((num&0xff)==0))
-                        System.Console.WriteLine("num={0:x},C={3},percent={1}%,mindiff={2}", num, 100.0 * num / length, mindiff,C);
-
-                    if (diff <= optimalDiff)
-                    {
-                        int nonLinear = Nonlinear(table, size);
-                        //System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        if (nonLinear > maxnL)
-                            maxnL = nonLinear;
-                        if (nonLinear >= optimalNonlinear)
-                        {
-                            System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                            count++;
-                            sw.WriteLine("******************");
-                            sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                            sw.WriteLine("输出表：");
-                            for (int j = 0; j < 256; j++)
-                                sw.Write("{0:x2}\t", table[j]);
-                            sw.WriteLine("\n");
-                            sw.WriteLine("内部函数={0:x}", num);
-                            sw.WriteLine("******************");
-                            sw.WriteLine("\n");
-                            sw.WriteLine("\n");
-                            sw.WriteLine("\n");
-                            sw.Flush();
-
-                        }
-
-                    }
-                    //差分大于16的就不考虑常数了
-                    if (C == 0 && diff > 16)
-                        break;
                 }
             }
             System.Console.WriteLine("number of possible solutions: {0}", count);
@@ -2658,105 +1545,6 @@ namespace Lightweight_SBox_wih_TI
             sw.Close();
             fs.Close();
 
-
-            return errorTable;
-        }
-
-        public int RotatedShift(int x, int s, int bitlen)
-        {
-            int sl = s % bitlen;
-            int mask=(0x1<<bitlen)-1;
-            return ((x << sl) & mask) | (x >> (bitlen - sl));
-        }
-            //5bit/3bit SI Sbox+8bit BitP 线性变换+固定常数
-        public void SearchOptimal_ShiftInvariant_53SBitP_ShiftC(string S5binfile, string S3binfile, string filename, int optimalDiff, int optimalNonlinear)
-        {
-            
-            int count = 0;
-            int mindiff = 256;
-            int maxnL = 0;
-            //读取所有有直接TI的5bit SI 2次置换
-            int[][] S5table = ReadShiftInvariantTT(S5binfile, 5);
-            //读取所有有直接TI的3bit SI 2次置换
-            int[][] S3table = ReadShiftInvariantTT(S3binfile, 3);
-
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
-            long length = 40320 * (S5table.Length * S3table.Length);
-            Parallel.For(0, length, new ParallelOptions { MaxDegreeOfParallelism = 4 }, num =>
-                {
-                    if ((num & 0xffff) == 0)
-                    {
-                        System.Console.WriteLine("num={0:x},percent={1}%,mindiff={2}", num, 100.0 * num / length, mindiff);
-                    }
-                    int Sno = (int)(num / 40320);
-                    int Pno = (int)(num % 40320);
-                    int Sno5 = Sno / (S3table.Length);
-                    int Sno3 = Sno % (S3table.Length);
-                    //从P中获取置换表
-                    int[] Ptable = GetBitPerm8(Pno);
-                    //检查是否P会交互两个S
-                    if (!Check53P(Ptable))
-                        return;
-                    //将bit置换做表
-                    Ptable = GetBitPTable(Ptable);
-                    int[] table = new int[len];
-                    //table初始化为恒等变换
-                    for (int i = 0; i < len; i++)
-                    {
-                        table[i] = i;
-                    }
-                    for (int i = 0; i < round; i++)
-                    {
-                        OneRoundTrans_ShiftInvariant_53SBitP_FixC(table, Ptable, S5table[Sno5], S3table[Sno3], RotatedShift(0x78,i, size));
-                    }
-                    //求解最终S盒的差分均匀度、非线性度
-                    int diff = DiffUniform(table, size);
-                    //sw.WriteLine("{0}\t{1}",Pno,diff);
-
-                    if (diff < mindiff)
-                        Interlocked.Exchange(ref mindiff, diff);
-
-
-                    if (diff <= optimalDiff)
-                    {
-                        int nonLinear = Nonlinear(table, size);
-                        //System.Console.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                        if (nonLinear > maxnL)
-                            Interlocked.Exchange(ref maxnL, nonLinear); 
-                        if (nonLinear >= optimalNonlinear)
-                        {
-                            lock(sw)
-                            {
-                            System.Console.WriteLine("*********diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                            count++;
-                            sw.WriteLine("******************");
-                            sw.WriteLine("diff={0},nL={1},num={2:x}", diff, nonLinear, num);
-                            sw.WriteLine("输出表：");
-                            for (int j = 0; j < 256; j++)
-                                sw.Write("{0:x2}\t", table[j]);
-                            sw.WriteLine("\n");
-                            sw.WriteLine("内部函数={0:x}", num);
-                            sw.WriteLine("******************");
-                            sw.WriteLine("\n");
-                            sw.WriteLine("\n");
-                            sw.WriteLine("\n");
-                            sw.Flush();
-                            }
-                        }
-
-                    }
-                });
-
-            System.Console.WriteLine("number of possible solutions: {0}", count);
-            System.Console.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.WriteLine("mindiff={0},max non-linear={1}", mindiff, maxnL);
-            sw.Close();
-            fs.Close();
-
-
-            return;
         }
     }
 }

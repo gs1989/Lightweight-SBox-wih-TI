@@ -28,16 +28,14 @@ namespace Lightweight_SBox_wih_TI
         }
         static void Main(string[] args)
         {
-            int size = 8;
-            int round =5;
-            //Searcher8 se = new Searcher8(size, round, 3);
-            //se.SearchOptimal_ShiftInvariant_53SBitP_ShiftC("ShiftTIInvariant_n5_d2.bin", "ShiftTIInvariant_n3_d2.bin", "ShiftInvariant_53SBitP_ShiftC_R5.txt", 8, 96);
-            //se.SearchOptimal("In6Out2_R6_shift3.txt", "FI6O2.sh", 8, 96);
-
+            int size =5;
+            int round =2;
+            Searcher8 se = new Searcher8(size, round, 3);
+            se.SearchOptimal_SIAnyP("ShiftTIInvariant_n5_d2.bin", "SITIAnyP_Sbox5_R2.txt", 4,4);
            // se.SearchOptimal_WithP_BitPerm("In4Out4_R6_WithP_BitPerm.txt", 8, 100);
             //se.SearchOptimal_X2_BitP_FixC("X2_BitP_FixC_R10.txt", "X2_BitP_FixC_R10.sh", 8, 90);
-            ShiftInvariant si = new ShiftInvariant(8, 2);//5 bit 2次函数
-            si.SearchTIPermutation("ShiftTIInvariant_n8_d2_new.bin");
+            //ShiftInvariant si = new ShiftInvariant(4, 2);//5 bit 2次函数
+            //si.SearchTIPermutation("ShiftTIInvariant_n4_d2.bin");
             //FileStream fs = new FileStream("In6Out2_R6_shift3.txt", FileMode.Open);
             //StreamReader sr = new StreamReader(fs);
 
