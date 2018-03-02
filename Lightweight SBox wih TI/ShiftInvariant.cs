@@ -334,7 +334,7 @@ namespace Lightweight_SBox_wih_TI
             Thread td=new Thread(()=>{this.WriteFlush(bw,cq,ref count_ti_perm);});
             td.Start();
             //主循环
-            Parallel.For(0, SearchSpace, new ParallelOptions { MaxDegreeOfParallelism = 10 }, num =>
+            Parallel.For(0, SearchSpace, new ParallelOptions { MaxDegreeOfParallelism = 1 }, num =>
             {
                 int[] ANF = new int[(0x1 << size)];
                 //过程输出
@@ -350,7 +350,7 @@ namespace Lightweight_SBox_wih_TI
                     else
                         ANF[RankTable[i]] = 0;
                 }
-                if (ANFdegree(ANF, size) < degree)
+                if (ANFdegree(ANF, size) != degree)
                     return;
                 //检查含有x0
                 if (!Checkx0(ANF, size))

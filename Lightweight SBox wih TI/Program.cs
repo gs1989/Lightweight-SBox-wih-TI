@@ -28,11 +28,12 @@ namespace Lightweight_SBox_wih_TI
         }
         static void Main(string[] args)
         {
-            int size =5;
-            int round =2;
+            int size =8;
+            int round =4;
             Searcher8 se = new Searcher8(size, round, 3);
-            se.SearchOptimal_SIAnyP("ShiftTIInvariant_n5_d2.bin", "SITIAnyP_Sbox5_R2.txt", 4,4);
-           // se.SearchOptimal_WithP_BitPerm("In4Out4_R6_WithP_BitPerm.txt", 8, 100);
+            se.SearchOptimal_SIM4P("ShiftTIInvariant_n8_d2.bin", "SITIM4P_Sbox8_R4.txt", 8,90, "C:\\Gits\\TI Sbox\\Lightweight SBox wih TI\\M4PR4_S8_TI1b\\", "M4PR4_S8_TI1b_Script.txt", "M4PR4_S8_TI1b", "STI");
+            //se.GetCost_GE("C:\\毕业电脑资料\\虚拟机\\share\\Circular\\areareports\\M4PR4_S8_TI1b\\", "C:\\Gits\\TI Sbox\\Lightweight SBox wih TI\\M4PR4_S8_TI1b\\GEcost.txt");
+            // se.SearchOptimal_WithP_BitPerm("In4Out4_R6_WithP_BitPerm.txt", 8, 100);
             //se.SearchOptimal_X2_BitP_FixC("X2_BitP_FixC_R10.txt", "X2_BitP_FixC_R10.sh", 8, 90);
             //ShiftInvariant si = new ShiftInvariant(4, 2);//5 bit 2次函数
             //si.SearchTIPermutation("ShiftTIInvariant_n4_d2.bin");

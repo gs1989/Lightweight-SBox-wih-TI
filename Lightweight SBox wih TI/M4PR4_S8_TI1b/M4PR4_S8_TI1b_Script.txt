@@ -1,0 +1,52 @@
+set search_path "/eda/synopsys/B-2008.09/dpaTest /eda/synopsys/B-2008.09/dw/sim_ver /eda/synopsys/B-2008.09/dw/syn_ver /eda/synopsys/B-2008.09/libraries/syn"
+set synthetic_library generic.sdb
+set target_library "fast.db slow.db"
+set link_library "fast.db slow.db dw_foundation.sldb"
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_13921880.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_13921880.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_14793828.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_14793828.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_6373470.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_6373470.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_15130507.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_15130507.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_10900305.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_10900305.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_11240208.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_11240208.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_16059900.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_16059900.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_16386041.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_16386041.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_12663840.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_12663840.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_17584326.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_17584326.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_17809574.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_17809574.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR4_S8_TI1b/STI8_R4_17918229.v"}
+compile -exact_map
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR4_S8_TI1b/areareport_17918229.txt"
+remove_design -designs

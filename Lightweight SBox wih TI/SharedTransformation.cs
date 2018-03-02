@@ -38,13 +38,18 @@ namespace Lightweight_SBox_wih_TI
         {
             int t = 0;
             int mask=(0x1<<(s-1))-1;
+            int[] temp = new int[v];
+            //保证[0]为高位
             for (int i = 0; i < v; i++)
             {
-                t =t| (x & mask);
-                if (i == v - 1)
-                    break;
+                temp[v-1-i]= (x & mask);
                 x = x >> s;
-                t = t << (s-1);
+            }
+            for (int i = 0; i < v; i++)
+            {
+                t = t ^ temp[i];
+                if (i != v - 1)
+                    t = t << (s-1);
             }
             return TT1[t];
 
@@ -54,50 +59,51 @@ namespace Lightweight_SBox_wih_TI
         {
             int mask = (0x1 << s)-1;
             int[] xb = new int[v];
-            //split to v variables
-            for(int i=0;i<v;i++)
-            {
-                xb[i] = x & mask;
-                x = x >> s;
-            }
-            //Shift Right 1
+            //保证[0]为高位
             for (int i = 0; i < v; i++)
             {
-                xb[i] = (xb[i] >> 1) | ((xb[i] & 0x01) << (s - 1));
+                xb[v - 1 - i] = x & mask;
+                x = x >> s;
+            }
+            //Shift Left 1
+            for (int i = 0; i < v; i++)
+            {
+                xb[i] = ((xb[i] << 1)&mask) | (xb[i]>> (s - 1));
             }
             //paste back to one
             int y = 0;
-            for (int i = v - 1; i > -1; i--)
+            for (int i = 0; i < v; i++)
             {
                 y = y | xb[i];
-                if(i!=0)
-                   y = y << s;
+                if (i != v-1)
+                    y = y << s;
             }
             return y;
         }
-        //原始输入bit向右循环移位1
+        //原始输入bit向左循环移位1
         public int ShiftBit(int x)
         {
             int mask = (0x1 << s) - 1;
             int[] xb = new int[v];
             int[] yb = new int[v];
             //split to v variables
+            //保证[0]为高位
             for (int i = 0; i < v; i++)
             {
-                xb[i] = x & mask;
+                xb[v-1-i] = x & mask;
                 x = x >> s;
             }
-            //Shift Right 1
+            //Shift Left 1
             for (int i = 0; i < v; i++)
             {
                 yb[i] = xb[(i + 1) % v];
             }
             //paste back to one
             int y = 0;
-            for (int i = v - 1; i > -1; i--)
+            for (int i = 0; i <v; i++)
             {
                 y = y | yb[i];
-                if (i != 0)
+                if (i != v-1)
                     y = y << s;
             }
             return y;
@@ -184,5 +190,55 @@ namespace Lightweight_SBox_wih_TI
             }
             return true;
         }
+
+        //Get TI permutation
+        public int[] GetTIPermutation()
+        {
+            int limit = 0x1 << (s * v);
+            int[] Bit1Table = new int[limit];
+            int result = 0;
+            int xt = 0;
+            //Generate bit 1 Table
+            for (int x = 0; x < limit; x++)
+            {
+                result = 0;
+                xt = x;
+                for (int i = 0; i < s; i++)
+                {
+                    //计算当前F1的输出
+                    result |= ComputeF1(xt);
+                    if (i != s - 1)
+                    {
+                        //移动x
+                        xt = ShiftShares(xt);
+                        //移动result
+                        result = result << 1;
+                    }
+                }
+                Bit1Table[x] = result;
+            }
+            //根据Bit1Table算出剩余的置换
+            int[] TIPerm = new int[limit];
+            for (int x = 0; x < limit; x++)
+            {
+                result = 0;
+                xt = x;
+                for (int i = 0; i < v; i++)
+                {
+                    //计算当前F1的输出
+                    result |= Bit1Table[xt];
+                    if (i != v - 1)
+                    {
+                        //移动x
+                        xt = ShiftBit(xt);
+                        //移动result
+                        result = result << s;
+                    }
+                }
+                TIPerm[x] = result;
+            }
+            return TIPerm;
+        }
+
     }
 }

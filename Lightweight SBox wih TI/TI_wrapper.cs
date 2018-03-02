@@ -204,6 +204,7 @@ namespace Lightweight_SBox_wih_TI
                 TruthTable[i] = -1;
             for (int input = 0; input < max; input++)
             {
+                //按bit排序
                 for (int i = 0; i < v; i++)
                 {
                     for (int j = 1; j < s; j++)
@@ -211,6 +212,7 @@ namespace Lightweight_SBox_wih_TI
                         var_shared[i][j] = GetBit(input, i * (s - 1) + j - 1);
                     }
                 }
+                
                 int newv = Compute_TruthValue(var_shared);
                 TruthTable[input] = newv;
             }
