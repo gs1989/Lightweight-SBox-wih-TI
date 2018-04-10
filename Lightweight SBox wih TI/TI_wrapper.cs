@@ -188,7 +188,7 @@ namespace Lightweight_SBox_wih_TI
             sw.Close();
             fs.Close();
         }
-
+        //返回真值表，以bit分组，每个组里为s个shares
         public int[] Get_TruthTable_F1()
         {
             int len = v * (s - 1);
@@ -213,6 +213,36 @@ namespace Lightweight_SBox_wih_TI
                     }
                 }
                 
+                int newv = Compute_TruthValue(var_shared);
+                TruthTable[input] = newv;
+            }
+            return TruthTable;
+        }
+        //返回真值表，以shares分组，每个分组为v个比特
+        public int[] Get_TruthTable_F1_SharesGroup()
+        {
+            int len = v * (s - 1);
+            int max = (int)Math.Pow(2, len);
+            int[][] var_shared = new int[v][];
+            int[] var = new int[v];
+            int[] TruthTable = new int[(int)Math.Pow(2, v * (s - 1))];
+            for (int i = 0; i < v; i++)
+            {
+                var_shared[i] = new int[s];
+            }
+            for (int i = 0; i < TruthTable.Length; i++)
+                TruthTable[i] = -1;
+            for (int input = 0; input < max; input++)
+            {
+                //按bit排序
+                for (int i = 0; i < v; i++)
+                {
+                    for (int j = 1; j < s; j++)
+                    {
+                        var_shared[i][j] = GetBit(input, (j-1) * v +i);//第i bit第j个shares，位置应为(j-1)*v+i
+                    }
+                }
+
                 int newv = Compute_TruthValue(var_shared);
                 TruthTable[input] = newv;
             }
@@ -286,7 +316,8 @@ namespace Lightweight_SBox_wih_TI
                 }
                 TI_Searcher ts = new TI_Searcher(d, s);
                 ts.ComputeCoef();
-
+                //2018.3.26 Ensure y0 contains x0,x1, do not have x2
+                //ts.Shift1();
 
 
                 int[] tempTI = ts.GetCorrectTerm(con, v);
