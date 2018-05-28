@@ -28,11 +28,11 @@ namespace Lightweight_SBox_wih_TI
         }
         static void Main(string[] args)
         {
-            int size =8;
-            int round =3;
+            int size =4;
+            int round =2;
             Searcher8 se = new Searcher8(size, round, 3);
-            //se.SearchOptimal_SIM4P("ShiftTIInvariant_n4_d2.bin", "SITIM4P_Sbox4_R2.txt", 4,4, "..\\..\\M4PR2_S4_TI1b\\", "M4PR2_S4_TI1b_Script.txt", "M4PR2_S4_TI1b", "STI");
-            se.SearchOptimal_SIM4P("ShiftTIInvariant_n8_d2.bin", "SITIM4P_Sbox8_R3.txt", 8, 90, "..\\..\\M4PR3_S8_TI1b\\", "M4PR3_S8_TI1b_Script.txt", "M4PR3_S8_TI1b", "STI");
+            se.SearchOptimal_SIM4P("ShiftTIInvariant_n4_d2.bin", "SITIM4P_Sbox4_R2.txt", 4,4, "..\\..\\M4PR2_S4_TI1b\\", "M4PR2_S4_TI1b_Script.txt", "M4PR2_S4_TI1b", "STI");
+            //se.SearchOptimal_SIM4P("ShiftTIInvariant_n8_d2.bin", "SITIM4P_Sbox8_R3.txt", 8, 90, "..\\..\\M4PR3_S8_TI1b\\", "M4PR3_S8_TI1b_Script.txt", "M4PR3_S8_TI1b", "STI");
             //se.GetCost_GE("C:\\毕业电脑资料\\虚拟机\\share\\Circular\\areareports\\M4PR4_S8_TI1b\\", "C:\\Gits\\TI Sbox\\Lightweight SBox wih TI\\M4PR4_S8_TI1b\\GEcost.txt");
             // se.SearchOptimal_WithP_BitPerm("In4Out4_R6_WithP_BitPerm.txt", 8, 100);
             //se.SearchOptimal_X2_BitP_FixC("X2_BitP_FixC_R10.txt", "X2_BitP_FixC_R10.sh", 8, 90);

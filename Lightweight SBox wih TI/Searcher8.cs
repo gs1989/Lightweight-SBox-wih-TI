@@ -1692,6 +1692,54 @@ namespace Lightweight_SBox_wih_TI
             sw.Close();
             fs.Close();
         }
+        //Write the S function in Sbox
+        public void WriteVerilog_S(StreamWriter sw, int shares, byte[] TT)
+        {
+            int[] ANF = MoebiusTrans(size * (shares - 1), TT);
+            //Compute ANF terms
+            ANFterm[] anf = ConvertANF(ANF, shares);
+            sw.WriteLine("input in[{0}:0];", (shares - 1) * size);
+            sw.WriteLine("output out;");
+            sw.WriteLine("wire out;");
+            for (int i = 0; i < anf.Length; i++)
+                sw.WriteLine("wire term_{0};", i);
+            
+            Array.Sort(anf);
+            for (int i = 0; i < anf.Length; i++)
+            {
+                if (anf[i].d == 1)//linear term
+                {
+                    sw.WriteLine("assign term_{0}=in[{1}];", i,anf[i].base_index);
+                }
+                else//only deal with degree 2 funcitons
+                {
+                    sw.WriteLine("assign term_{0}=in[{1}]&in[{2}];", i, anf[i].base_index, anf[i].base_index+anf[i].other_index[0]);
+                }
+            }
+            sw.Write("assign out=");
+            for (int i = 0; i < anf.Length; i++)
+                if (i != anf.Length - 1)
+                    sw.Write("term_{0}^", i);
+                else
+                    sw.WriteLine("term_{0};\n", i);
+            sw.Write("endmodule");
+        }
+        //用Verilog写出硬件实现TI的代码
+        //用sharesgroup分组
+        public void Print_TI1b_Verilog(string path, long num, string sname, int shares, byte[] TT, int Pno)
+        {
+
+            //Write the ASM
+            String filename = String.Format(path + sname + "{0}_R{1}_{2}.v", size, round, num);
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            String modulename = String.Format(sname + "{0}_R{1}_{2}", size, round, num);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine("module  {0}(in,out);", modulename);
+            WriteVerilog_S(sw, shares, TT);
+            //WriteASM_P_Shares(sw, shares);
+            sw.Close();
+            fs.Close();
+        }
         //用C写出软件实现TI的代码
         public void Print_TI1b_C(string path, long num, string sname, int shares, byte[] TT)
         {
@@ -2746,7 +2794,7 @@ namespace Lightweight_SBox_wih_TI
             sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
             int Psize = 0x1 << (size - 1);
             long length = Stable.Length * (Psize);
-            Parallel.For(34433786, length, new ParallelOptions { MaxDegreeOfParallelism = 1 }, num =>
+            Parallel.For(7, length, new ParallelOptions { MaxDegreeOfParallelism = 1 }, num =>
             {
                 if ((num & 0xffff) == 0)
                 {
@@ -2841,7 +2889,8 @@ namespace Lightweight_SBox_wih_TI
                         fss.Close();
                          //Write ASM TI implementation
                        // Print_TI1b_ASM(path, num, sname, 3, TITTb);
-                        Print_TI1b_ASM_SharesGroup(path, num, sname, 3, TITTb,Pno);
+                       // Print_TI1b_ASM_SharesGroup(path, num, sname, 3, TITTb,Pno);
+                        Print_TI1b_Verilog(path, num, sname, 3, TITTb, Pno);
                        
                         //评估代价
                         WriteSIM4PCost_TI1b(sw, TITTb, Pno);
