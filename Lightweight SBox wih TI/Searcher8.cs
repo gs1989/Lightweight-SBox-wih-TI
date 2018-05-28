@@ -1103,6 +1103,154 @@ namespace Lightweight_SBox_wih_TI
             return res;
         }
         //Write the S function in Sbox
+        //2018.5.10 Shift all shares at once
+        public void WriteASM_S_8(StreamWriter sw, int shares, byte[] TT)
+        {
+            int[] ANF = MoebiusTrans(size * (shares - 1), TT);
+            //Compute ANF terms
+            ANFterm[] anf = ConvertANF(ANF, shares);
+
+            int len_r = size * (shares - 1);
+            int len_e = size * (shares + 1);
+            sw.WriteLine(".func TI_S");
+            sw.WriteLine("TI_S:");
+            sw.WriteLine("push {lr}");
+            sw.WriteLine("push {r4-r7}");
+            for (int i = 0; i < 8; i++)
+                sw.WriteLine("nop");
+            //r0 is the input register, contains shared data like x00x01x02x00x10x11x12x10....
+            //Compute the shift version
+            //Pass r0 as input
+            //Pass r1 as memory space that contains x>>>0 to x>>>15
+            //Pass r2 as ShareMask2=0xcccc...c
+            //Pass r3 as ShareMask1=0x2222...2
+            //Use r4 as temp1
+            //Use r5 as constant 4
+            //Use r6 as AndMask (if needed)
+            //Use r7 as temp
+            if (len_e < 32)//Create AndMask
+            {
+                sw.WriteLine("   movs r6,#1");
+                sw.WriteLine("   lsls r6,#{0}",len_e);
+                sw.WriteLine("   subs r6,#1", len_e);
+            }
+                //Store x0
+                sw.WriteLine("   str r0,[r1,#0]");
+                //Compute Shift 1
+                //Higher two shares
+                sw.WriteLine("   mov r7,r0");//r7=x
+                sw.WriteLine("   ands r7,r2");//r7=x&ShareMask2
+                sw.WriteLine("   lsrs r7,#1");//temp=r0>>1;
+                //Lower one share
+                sw.WriteLine("   mov r4,r0");//r4=x
+                sw.WriteLine("   ands r4,r3");//r4=x&ShareMask1
+                sw.WriteLine("   lsrs r4,#1");//r4=(x&ShareMask1)>>1
+                sw.WriteLine("   lsls r5,r4,#3");//r5=(x&ShareMask1)<<2
+                sw.WriteLine("   eors r5,r4");//r5=((x&ShareMask1)<<2)^((x&ShareMask1)>>1)
+                //Paste together
+                sw.WriteLine("   eors r7,r5");//r7=(x>>>1share)
+               //Store x1
+                sw.WriteLine("   nop");
+                sw.WriteLine("   str r7,[r1,#4]");
+               //Set constant
+                sw.WriteLine("   movs r5,#4");
+
+                //Start from i=2
+                for (int i = 2; i < len_r; i++)
+                {
+                    if ((i % (shares - 1) == 0))
+                    {
+                        //Shift r0 by 4
+                        if (len_e == 32)
+                            sw.WriteLine("   rors r0,r5");//r0=r0>>>4
+                        else//Do not have ror
+                        {
+                            sw.WriteLine("   lsls r4,r0,#12");//r4=r0<<12
+                            sw.WriteLine("   ands r4,r6");//r4=(r0<<12)&AndMask
+                            sw.WriteLine("   lsrs r0,r5");//r0=r0>>4
+                            sw.WriteLine("   eors r0,r4");//r0=((r0<<12)&AndMask)^(r0>>4)=(r0>>>4)
+                        }
+                        //Store x[i*4]
+                        sw.WriteLine("   nop");
+                        sw.WriteLine("   str r0,[r1,#{0}]", i * 4);
+                    }
+                    else
+                    {
+                        //Shift r7 by 4
+                        if (len_e == 32)
+                            sw.WriteLine("   rors r7,r5");//r7=r7>>>4
+                        else//Do not have ror
+                        {
+                            sw.WriteLine("   movs r4,#0");//Clear temp1
+                            sw.WriteLine("   lsls r4,r7,#12");//r4=r7<<12
+                            sw.WriteLine("   ands r4,r6");//r4=(r7<<12)&AndMask
+                            sw.WriteLine("   lsrs r7,r5");//r7=r7>>4
+                            sw.WriteLine("   eors r7,r4");//r7=((r7<<12)&AndMask)^(r7>>4)=(r7>>>4)
+                        }
+                        //Store x[i*4]
+                        sw.WriteLine("   nop");
+                        sw.WriteLine("   str r7,[r1,#{0}]", i * 4);
+                    }
+                }
+            
+
+            //Sort anf as degree and delta_index
+            Array.Sort(anf);
+            //Use r0 as result
+            //Use r2 as temp1
+            //Use r3 as temp2
+            sw.WriteLine("   movs r0,#0");
+            for (int i = 0; i < anf.Length; i++)
+            {
+
+                if (anf[i].d == 1)//linear term
+                {
+                    //Clear Op2 before another LDR
+                    sw.WriteLine("   nop");
+                    sw.WriteLine("   ldr r2,[r1,#{0}]", anf[i].base_index * 4);//temp1=reg[];
+                   
+                   
+                    //if ((anf[i].base_index & 0x01) == 0)
+                    //    sw.WriteLine("   mov  r2,r4");//r2=x
+                    //else
+                    //    sw.WriteLine("   mov  r2,r5");//r2=x>>>1
+                    //sw.WriteLine("   movs r6,#{0}", 4*anf[i].base_index / 2);
+                    //sw.WriteLine("   rors r2,r6");//r2>>>anf[i].base_index
+                }
+                else//only deal with degree 2 funcitons
+                {
+                    //Clear Op2 before another LDR
+                    sw.WriteLine("   nop");
+                    sw.WriteLine("   ldr r2,[r1,#{0}]", anf[i].base_index * 4);//temp1=reg[];
+                    //Clear Op2 before another LDR
+                    sw.WriteLine("   nop");
+                    sw.WriteLine("   ldr r3,[r1,#{0}]", (anf[i].base_index + anf[i].other_index[0]) * 4);//temp2=reg[];
+                    sw.WriteLine("   ands r2,r3");//temp1=temp1&temp2
+                    //if ((anf[i].base_index & 0x01) == 0)
+                    //    sw.WriteLine("   mov  r2,r4");//r2=x
+                    //else
+                    //    sw.WriteLine("   mov  r2,r5");//r2=x>>>1
+                    //sw.WriteLine("   movs r6,#{0}", 4 * (anf[i].base_index / 2));
+                    //sw.WriteLine("   rors r2,r6");//r2>>>anf[i].base_index
+                    //if (((anf[i].base_index + anf[i].other_index[0]) & 0x01) == 0)
+                    //    sw.WriteLine("   mov  r3,r4");//r3=x
+                    //else
+                    //    sw.WriteLine("   mov  r3,r5");//r3=x>>>1
+                    //sw.WriteLine("   movs r6,#{0}", 4 * ((anf[i].base_index + anf[i].other_index[0]) / 2));
+                    //sw.WriteLine("   rors r3,r6");//r3>>>(anf[i].base_index + anf[i].other_index[0])
+                    ////And
+                    //sw.WriteLine("   ands r2,r3");//temp1=temp1&temp2
+                }
+                //Xor temp to result
+                sw.WriteLine("   eors r0,r2");
+            }
+            for (int i = 0; i < 8; i++)
+                sw.WriteLine("nop");
+            sw.WriteLine("pop {r4-r7}");
+            sw.WriteLine("pop {pc}");
+            sw.WriteLine(".endfunc");
+        }
+        //Write the S function in Sbox
         public void WriteASM_S(StreamWriter sw, int shares, byte[] TT)
         {
             int[] ANF = MoebiusTrans(size * (shares - 1), TT);
@@ -1134,70 +1282,138 @@ namespace Lightweight_SBox_wih_TI
             //Use r{len_r+6} as ShareMask2:0b'1100110011001100
             //Use r{len_r+4} as ShareMask1:0b'0010001000100010
             //Save Masks
-            sw.WriteLine("   mov r{0},r3", len_r + 3);
             sw.WriteLine("   mov r{0},r1", len_r + 6);
             sw.WriteLine("   mov r{0},r2", len_r + 4);
+            sw.WriteLine("   mov r{0},r3", len_r + 3);
             //Get Shift results
-            sw.WriteLine("   mov r3,r0");
+            //sw.WriteLine("   mov r3,r0");
+            sw.WriteLine("  ands r1,r0");//r1=x&ShareMask2
+            sw.WriteLine("  ands r3,r0");// mov r3=r0
+            //Clear ALU
+            sw.WriteLine("  movs r2,#0");//mov r2,#0
+            //Entering the higher two shares
             for (int i = 1; i < len_r; i++)
             {
                 if ((i % (shares - 1) == 0) && (i > 1))
                 {
-                    //Clean R0 to avoid leakage
-                    sw.WriteLine("   mov r0,#0");//
-                    //Right shift varables=Rotated shift by 4
-                    sw.WriteLine("   mov r0,r{0}", i + 1);//temp=reg[i+1];
-                    sw.WriteLine("   lsl r1,r0,#{0}", len_e - 4);//temp1=temp<<12
-                    sw.WriteLine("   lsr r0,#4");//temp=temp>>4;
-                    sw.WriteLine("   eor r0,r1");//temp=temp^temp1;
-                    if (len_e != 32)
-                    {
-                        sw.WriteLine("   mov r1,r{0}", len_r + 3);//temp1=Andmask;
-                        sw.WriteLine("   and r0,r1");//temp=temp&Andmask;
-                    }
-                    sw.WriteLine("   mov r{0},r0", i + 3);//r{i+3}=temp;
+                    sw.WriteLine("   lsrs r2,r1,#4");//r2=r1>>4
+                    sw.WriteLine("   lsls r1,#12");//r1=r1<<12
+                    sw.WriteLine("   eors r1,r2");//r1=(r1>>4)^(r1<<12)
+                    sw.WriteLine("   mov r2,r{0}", len_r + 3);//r2=AndMask
+                    sw.WriteLine("   ands r1,r2");//r1=AndMask&r1
+                    sw.WriteLine("   mov r{0},r1", i + 3);//r{i+3}=r1;
                 }
                 else
                 {
                     //Right shift shares by 1=Rotated shift shares by 1
-                    sw.WriteLine("   mov r0,r{0}", i + 2);//temp=reg[i+2];
-                    //Get high two bits
-                    sw.WriteLine("   mov r1,r{0}", len_r + 6);//temp1=ShareMask2;
-                    sw.WriteLine("   and r1,r0");//temp1=reg[i+2]&ShareMask2
-                    sw.WriteLine("   lsr r1,#1");//temp1=temp1>>1
-                    //Change to low 1 bit
-                    sw.WriteLine("   mov r2,r{0}", len_r + 4);//temp2=ShareMask1;
-                    sw.WriteLine("   mov r0,r{0}", i + 2);//temp=reg[i+2];
-                    sw.WriteLine("   and r0,r2");//temp=ShareMask1&reg[i+2];
-                    sw.WriteLine("   lsr r0,#1");//temp=temp>>1
-                    //Left shift 3
-                    sw.WriteLine("   lsl r2,r0,#3");//temp2=temp<<3;
-                    sw.WriteLine("   eor r0,r2");//temp=temp^(temp<<3);
-                    //Paste together
-                    sw.WriteLine("   eor r0,r1");//temp=temp2^temp1
-                    sw.WriteLine("   mov r{0},r0", i + 3);//r{i+3}=temp;
+                    if (i + 3 > 7)
+                    {
+                        sw.WriteLine("   lsrs r2,r1,#1", i + 2);//r2=r1>>1
+                        sw.WriteLine("   mov r{0},r2", i + 3);//r{i+3}=r2;
+                    }
+                    else
+                    {
+                        sw.WriteLine("   lsrs r{0},r1,#1", i + 3);//r{i+3}=r1>>1
+                    }
                 }
             }
+            //
+            sw.WriteLine("   mov r1,r{0}", len_r + 4);//ShareMask1
+            sw.WriteLine("   lsrs r2,r1,#1");//r2=ShareMask1>>1
+            sw.WriteLine("   eors r1,r2");//r1=ShareMask^(ShareMask1>>1)
+            sw.WriteLine("  ands r1,r0");//r1=x&(ShareMask^(ShareMask1>>1))
+            //Entering the lower one share
+            for (int i = 1; i < len_r; i++)
+            {
+                if ((i % (shares - 1) == 0) && (i > 1))
+                {
+                    sw.WriteLine("   lsrs r2,r1,#4");//r2=r1>>4
+                    sw.WriteLine("   lsls r1,#12");//r1=r1<<12
+                    sw.WriteLine("   eors r1,r2");//r1=(r1>>4)^(r1<<12)
+                    sw.WriteLine("   mov r2,r{0}", len_r + 3);//r2=AndMask
+                    sw.WriteLine("   ands r1,r2");//r1=AndMask&r1
+                    if (i + 3 > 7)
+                    {
+                        sw.WriteLine("   movs r0,#0");//r0=0;
+                        sw.WriteLine("   mov r0,r{0}", i + 3);//r0=r{i + 3};
+                        sw.WriteLine("   eors r0,r1");//r0=r0^r1;
+                        sw.WriteLine("   mov r{0},r0", i + 3);//r0=r{i + 3};
+                    }
+                    else
+                    {
+                        sw.WriteLine("   eors r{0},r1", i + 3);//r0=r0^r1;
+                    }
+                }
+                else
+                {
+                    sw.WriteLine("   mov r0,r{0}", len_r + 4);//ShareMask1
+                    sw.WriteLine("   ands r0,r1");//r0=r1&ShareMask1
+                    //Right shift shares by 1=Rotated shift shares by 1
+                    if (i + 3 > 7)
+                    {
+                        sw.WriteLine("   lsrs r2,r0,#1");//r2=r0>>1
+                        sw.WriteLine("   lsls r0,#2");//r0=r0<<2
+                        sw.WriteLine("   eors r2,r0");//r2=(r1<<2)^(r1>>1)
+                        sw.WriteLine("   movs r0,#0");//r0=0;
+                        sw.WriteLine("   mov r0,r{0}", i + 3);//r0=r{i + 3};
+                        sw.WriteLine("   eors r0,r2");//r0=r0^r2;
+                        sw.WriteLine("   mov r{0},r0", i + 3);//r0=r{i + 3};
+                    }
+                    else
+                    {
+                        sw.WriteLine("   lsrs r2,r0,#1", i + 2);//r2=r0>>1
+                        sw.WriteLine("   lsls r0,#2");//r0=r0<<2
+                        sw.WriteLine("   eors r2,r0");//r2=(r1<<2)^(r1>>1)
+                        sw.WriteLine("   eors r{0},r2", i + 3);//r{i+3}=(r1>>1)^r{i+3}
+                    }
+                }
+            }
+            //Getting the lower 1 bits
+
             //Sort anf as degree and delta_index
             Array.Sort(anf);
             //Use r{0} as result
             //Use r{1} as temp1
             //Use r{2} as temp2
-            sw.WriteLine("   mov r0,#0");
+            sw.WriteLine("   movs r0,#0");
             for (int i = 0; i < anf.Length; i++)
             {
+
                 if (anf[i].d == 1)//linear term
                 {
+                    /**No Add**/
+                    //if (anf[i].base_index + 3 > 7)
+                    //    sw.WriteLine("   mov r1,r{0}", anf[i].base_index + 3);//temp1=reg[];
+                    //else
+                    //{
+                    //    sw.WriteLine("   mov r1,r{0}", len_r + 3);//temp1=Andmask;
+                    //    sw.WriteLine("   ands r1,r{0}", anf[i].base_index + 3);//temp1=reg[];
+                    //}
                     sw.WriteLine("   mov r1,r{0}", anf[i].base_index + 3);//temp1=reg[];
-                    sw.WriteLine("   eor r0,r1");
+                    sw.WriteLine("   eors r0,r1");
                 }
                 else//only deal with degree 2 funcitons
                 {
+                    /**No Add**/
+                    //if (anf[i].base_index + 3 > 7)
+                    //    sw.WriteLine("   mov r1,r{0}", anf[i].base_index + 3);//temp1=reg[];
+                    //else
+                    //{
+                    //    sw.WriteLine("   mov r1,r{0}", len_r + 3);//temp2=Andmask;
+                    //    sw.WriteLine("   ands r1,r{0}", anf[i].base_index + 3);//temp1=reg[];
+                    //}
+                    //if (anf[i].base_index + anf[i].other_index[0] + 3 > 7)
+                    //    sw.WriteLine("   mov r2,r{0}", anf[i].base_index + anf[i].other_index[0] + 3);//temp2=reg[];
+                    //else
+                    //{
+                    //    sw.WriteLine("   mov r2,r{0}", len_r + 3);//temp2=Andmask;
+                    //    sw.WriteLine("   ands r2,r{0}", anf[i].base_index + anf[i].other_index[0] + 3);//temp2=reg[];
+                    //}
                     sw.WriteLine("   mov r1,r{0}", anf[i].base_index + 3);//temp1=reg[];
                     sw.WriteLine("   mov r2,r{0}", anf[i].base_index + anf[i].other_index[0] + 3);//temp2=reg[];
-                    sw.WriteLine("   and r1,r2");//temp1=temp1&temp2
+                    sw.WriteLine("   ands r1,r2");//temp1=temp1&temp2
                     //Xor temp to result
-                    sw.WriteLine("   eor r0,r1");
+                    sw.WriteLine("   eors r0,r1");
 
                 }
             }
@@ -1214,85 +1430,101 @@ namespace Lightweight_SBox_wih_TI
             //Compute ANF terms
             ANFterm[] anf = ConvertANF(ANF, shares);
 
-            int len_r = size * (shares - 1);
-            int len_e = 2*size * (shares);
-            sw.WriteLine(".func TI_S");
-            sw.WriteLine("TI_S:");
+            int slice_block = 32/size ;
+            sw.WriteLine(".func TI_S_Shares");
+            sw.WriteLine("TI_S_:");
             sw.WriteLine("push {lr}");
             sw.WriteLine("push {r4-r7}");
             for (int i = 0; i < 8; i++)
                 sw.WriteLine("nop");
-            //r0 is the input register, contains shared data like x00x10x20x30....
-            //Compute the shift version
-            //Pass r0 as input
-            //Pass r1 as GetMask
-            //Pass r2 as AndMask
+            //Pass r0 as the first share
+            //Pass r1 as the second share
             //Note that and/eor/lsl/lsr do not work with high regs
 
-            //Use r{0} as temp
-            //Use r{1} as temp1
-            //Use r{2} as temp2
-            //Use r{3-(len_r+2)} as shift results 0-7
-            //Use r{len_r+3} as AndMask:0x00ffffff
-            //Can not use r13 in Cortex M0, so leave r{len_r+5}
-            //Use r{len_r+4} as GetMask:0x000f0f0f
-            //Save Masks
-            sw.WriteLine("   mov r{0},r1", len_r + 4);
-            sw.WriteLine("   mov r{0},r2", len_r + 3);
-            //Get Shift results
-            sw.WriteLine("   mov r3,r0");
-            for (int i = 1; i < len_r; i++)
-            {
-                if (i % (size) == 0)//shift shares
-                {
-                    //Right shift shares==shift 2*size
-                    sw.WriteLine("   mov r0,r{0}", i - size + 3);//temp=reg[i -size+3];
-                    sw.WriteLine("   lsl r1,r0,#{0}", len_e - 2 * size);//temp1=temp<<16
-                    sw.WriteLine("   lsr r0,#{0}",2*size);//temp=temp>>8;
-                    sw.WriteLine("   eor r0,r1");//temp=temp^temp1;
-                    if (len_e != 32)
-                    {
-                        sw.WriteLine("   mov r1,r{0}", len_r + 3);//temp1=Andmask;
-                        sw.WriteLine("   and r0,r1");//temp=temp&Andmask;
-                    }
-                    sw.WriteLine("   mov r{0},r0", i + 3);//r{i+3}=temp;
-
-                }
-                else//shift bits
-                {
-                    ///Right shift bits by 1
-                    sw.WriteLine("   mov r0,r{0}", i + 2);//temp=reg[i+2];
-                    sw.WriteLine("   lsr r1,r0,#1");//temp1=temp>>1
-                    sw.WriteLine("   mov r2,r{0}", len_r + 4);//temp2=GetMask;
-                    sw.WriteLine("   and r2,r1");//temp2=temp1&GetMask
-                    sw.WriteLine("   lsl r0,r2,#{0}",size);//temp=temp2<<4
-                    sw.WriteLine("   eor r0,r2");//temp=temp^temp2
-                    sw.WriteLine("   mov r{0},r0", i + 3);//r{i+3}=temp;
-                }
-            }
+            //Use r3 as result
+            //Use r4 as temp1
+            //Use r5 as temp2
+            //Use r6 as temp3
             //Sort anf as degree and delta_index
             Array.Sort(anf);
-            //Use r{0} as result
-            //Use r{1} as temp1
-            //Use r{2} as temp2
-            sw.WriteLine("   mov r0,#0");
+            int sub = 0;//indicate the cycle save when using ARM instructions
+            sw.WriteLine("   movs r3,#0");
             for (int i = 0; i < anf.Length; i++)
             {
                 if (anf[i].d == 1)//linear term
                 {
-                    sw.WriteLine("   mov r1,r{0}", anf[i].base_index + 3);//temp1=reg[];
-                    sw.WriteLine("   eor r0,r1");
+                    if (anf[i].base_index >= 4)//share 1
+                    {
+                        sw.WriteLine("   mov r4,r1");
+                        if(anf[i].base_index!=4)
+                        {
+                            sw.WriteLine("   movs r6,#{0}",(anf[i].base_index-4)*slice_block);
+                            sw.WriteLine("   rors r4,r6");
+                            sub++;
+                        }
+                    }
+                    else//share 0
+                    {
+                         sw.WriteLine("   mov r4,r0");
+                        if(anf[i].base_index!=0)
+                        {
+                            sw.WriteLine("   movs r6,#{0}",(anf[i].base_index)*slice_block);
+                            sw.WriteLine("   rors r4,r6");
+                            sub++;
+                        }
+                    }
+                    sw.WriteLine("   eors r3,r4");
                 }
                 else//only deal with degree 2 funcitons
                 {
-                    sw.WriteLine("   mov r1,r{0}", anf[i].base_index + 3);//temp1=reg[];
-                    sw.WriteLine("   mov r2,r{0}", anf[i].base_index + anf[i].other_index[0] + 3);//temp2=reg[];
-                    sw.WriteLine("   and r1,r2");//temp1=temp1&temp2
+                    if (anf[i].base_index >= 4)//share 1
+                    {
+                        sw.WriteLine("   mov r4,r1");
+                        if (anf[i].base_index != 4)
+                        {
+                            sw.WriteLine("   movs r6,#{0}", (anf[i].base_index - 4) * slice_block);
+                            sw.WriteLine("   rors r4,r6");
+                            sub++;
+                        }
+                    }
+                    else//share 0
+                    {
+                        sw.WriteLine("   mov r4,r0");
+                        if (anf[i].base_index != 0)
+                        {
+                            sw.WriteLine("   movs r6,#{0}", (anf[i].base_index) * slice_block);
+                            sw.WriteLine("   rors r4,r6");
+                            sub++;
+                        }
+                    }
+                    if ((anf[i].base_index + anf[i].other_index[0]) >= 4)//share 1
+                    {
+                        sw.WriteLine("   mov r5,r1");
+                        if ((anf[i].base_index + anf[i].other_index[0]) != 4)
+                        {
+                            sw.WriteLine("   movs r6,#{0}", ((anf[i].base_index + anf[i].other_index[0]) - 4) * slice_block);
+                            sw.WriteLine("   rors r5,r6");
+                            sub++;
+                        }
+                    }
+                    else//share 0
+                    {
+                        sw.WriteLine("   mov r5,r0");
+                        if ((anf[i].base_index + anf[i].other_index[0]) != 0)
+                        {
+                            sw.WriteLine("   movs r6,#{0}", (anf[i].base_index + anf[i].other_index[0]) * slice_block);
+                            sw.WriteLine("   rors r5,r6");
+                            sub++;
+                        }
+                    }
+                   
+                    sw.WriteLine("   ands r4,r5");//temp1=temp1&temp2
                     //Xor temp to result
-                    sw.WriteLine("   eor r0,r1");
+                    sw.WriteLine("   eors r3,r4");
 
                 }
             }
+            sw.WriteLine("mov r0,r3");
             for (int i = 0; i < 8; i++)
                 sw.WriteLine("nop");
             sw.WriteLine("pop {r4-r7}");
@@ -1305,44 +1537,150 @@ namespace Lightweight_SBox_wih_TI
             sw.WriteLine(".func TI_P");
             sw.WriteLine("TI_P:");
             sw.WriteLine("push {lr}");
-            sw.WriteLine("push {r4-r5}");
             int len_e = size * (shares + 1);
             //r0 as the sharedinput
-            //r1 as the address of PMaskTable
-            //r2 as AndMask
-            //r3 as temp1
-            //r4 as temp2
-            //Do Pmatrix
-            sw.WriteLine("   lsl r3,r0,#4");//temp1=result<<4;
-            sw.WriteLine("   and r3,r2 ");//temp1=temp1&AndMask;
-            sw.WriteLine("   lsr r0,#{0}",len_e - 4);//result=result>>12;
-            sw.WriteLine("   mov r4,#7");//cannot and a constant, use a reg instead
-            sw.WriteLine("   and r0,r4");//result=result&0x07;
-            sw.WriteLine("   lsl r0,#2");//result=result*4;
-            sw.WriteLine("   ldr r0,[r1,r0]");//result=PMTable[resullt];
-            sw.WriteLine("   eor r0,r3");//result=temp1^result;
-
-            sw.WriteLine("pop {r4-r5}");
+            //r1 as the highest bit version of Pmask 0'b1000 1000 1000 1000 1000
+            //r2 as the highest bit mask 0'b1000 0000 0000 0000
+            //r3 as temp
+            //r4 as temp1
+            //r5 as temp2
+            sw.WriteLine("   movs r5,#0 ");
+            for (int i = 0; i < shares+1; i++)
+            {
+                //Do Pmatrix
+                sw.WriteLine("   mov r4,r1 ");
+                sw.WriteLine("   mov r3,r2 ");//r3=highest bit mask
+                sw.WriteLine("   ands r4,r0 ");//r4=x&r1
+                //Using a full share in the previous one, so the next instruction cannot be ADD or mov rl
+                sw.WriteLine("   ands r3,r4 ");//r3=x&highest bit mask;
+                sw.WriteLine("   lsrs r3,#{0} ", len_e - 1 - i);//r3=r3>>(len_e-i);
+                sw.WriteLine("   muls r3,r1 ");
+                sw.WriteLine("   lsls r4,#4 ");//r4=r4<<4;
+                sw.WriteLine("   eors r4,r3 ");//r4=r3^r4;
+                sw.WriteLine("   eors r5,r4 ");//r0=r0^r4;
+                if (i != shares)
+                {
+                    //shift r1 and r2
+                    sw.WriteLine("   lsrs r1,#1 ");
+                    sw.WriteLine("   lsrs r2,#1 ");
+                }
+            }
+            sw.WriteLine("   mov r0,r5 ");
+           
             sw.WriteLine("pop {pc}");
             sw.WriteLine(".endfunc");
         }
+        //Write the P function in Sbox
+        public void WriteASM_P_Shares(StreamWriter sw, int shares)
+        {
+            sw.WriteLine(".func TI_P_shares");
+            sw.WriteLine("TI_P_shares:");
+            sw.WriteLine("push {lr}");
+            sw.WriteLine("push {r4-r7}");
+            int sliceblock = 32/size;
+            //r0 as the sharedinput
+            //r1 as the lowest bit version of Pmask 0'x01010101
+            //r2 as the highest block bits of r0 
+            //r3 as the mask created by Pmask
+            //r4 as temp
+            //r5 as temp1
+            sw.WriteLine("   movs r3,#0 ");
+            sw.WriteLine("   movs r2,#1 ");
+            sw.WriteLine("   lsls r2,#{0} ",sliceblock);
+            sw.WriteLine("   subs r2,#1 ");
+            sw.WriteLine("   lsls r2,#{0} ", 32-sliceblock);
+            sw.WriteLine("   ands r2,r0 ");//get high bit
+            sw.WriteLine("   lsrs r2,#{0} ", 32 - sliceblock);//get back to low bit
+            sw.WriteLine("   movs r4,#1 ");
+            for (int i = 0; i < sliceblock; i++)
+            {
+                sw.WriteLine("   movs r5,r2 ");//get high bits
+                sw.WriteLine("   ands r5,r4 ");//get one high bit
+                sw.WriteLine("   muls r5,r1 ");//multiply pmask
+                sw.WriteLine("   eors r3,r5 ");//eor to temp mask
+                sw.WriteLine("   lsls r1,#1 ");//shift pmask
+                sw.WriteLine("   lsrs r2,#1 ");//shift high bits
+            }
+            sw.WriteLine("   lsls r0,#{0} ",sliceblock);
+            
+            sw.WriteLine("   eors r0,r3 ");
+            sw.WriteLine("pop {r4-r7}");
+            sw.WriteLine("pop {pc}");
+            sw.WriteLine(".endfunc");
+        }
+        //Write the P function in Sbox
+        public void WriteASM_P_8(StreamWriter sw, int shares,int Pno)
+        {
+            
+            int len_e = size * (shares + 1);
+            int P = (Pno<<1)^0x01;
+            int Pmask = 0;
+            int t = P;
+            for (int i = 0; i < size; i++)
+            {
+                if ((t & 0x01) == 1)
+                {
+                    Pmask = Pmask ^ (0x8 << (i * 4));
+                }
+                t = t >> 1;
+            }
+            if(4*size<32)
+                Pmask = Pmask ^ (0x8 << (size * 4));
+            sw.WriteLine("Pmask={0:x}",Pmask);
+            sw.WriteLine(".func TI_P");
+            sw.WriteLine("TI_P:");
+            sw.WriteLine("push {lr}");
+            //r0 as the sharedinput
+            //r1 as the highest bit version of Pmask 0'b1000 1000 1000 1000 1000
+            //r2 as the highest bit mask 0'b1000 0000 0000 0000
+            //r3 as the high bit mask    0'b1000 1000 1000 1000
+            //r4 as temp1
+            //r5 as temp2
+            //r6 as temp
+            sw.WriteLine("   movs r5,#0 ");
+            for (int i = 0; i < shares+1; i++)
+            {
+                //Do Pmatrix
+                sw.WriteLine("   mov r4,r3 ");
+                sw.WriteLine("   mov r6,r2 ");//r6=highest bit mask
+                sw.WriteLine("   ands r4,r0 ");//r4=high bits of x
+                //Using a full share in the previous one, so the next instruction cannot be ADD or mov rl
+                sw.WriteLine("   ands r6,r4 ");//r6=x&highest bit mask;
+                sw.WriteLine("   lsrs r6,#{0} ", len_e - 1 - i);//r6=r6>>(len_e-i);
+                sw.WriteLine("   muls r6,r1 ");
+                sw.WriteLine("   lsls r4,#4 ");//r4=r4<<4;
+                sw.WriteLine("   eors r4,r6 ");//r4=r6^r4;
+                sw.WriteLine("   eors r5,r4 ");//r0=r0^r4;
+                if (i != shares)
+                {
+                    //shift r1 and r2
+                    sw.WriteLine("   lsrs r1,#1 ");
+                    sw.WriteLine("   lsrs r2,#1 ");
+                    sw.WriteLine("   lsrs r3,#1 ");
+                }
+            }
+            sw.WriteLine("   mov r0,r5 ");
 
+            sw.WriteLine("pop {pc}");
+            sw.WriteLine(".endfunc");
+        }
         //用ASM写出软件实现TI的代码
-        public void Print_TI1b_ASM(string path, long num, string sname, int shares,byte[] TT)
+        public void Print_TI1b_ASM(string path, long num, string sname, int shares,byte[] TT,int Pno)
         {
             
             //Write the ASM
             String filename = String.Format(path + sname + "{0}_R{1}_{2}.S", size, round, num);
             FileStream fs = new FileStream(filename, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
-            WriteASM_S(sw, shares, TT);
-            WriteASM_P(sw, shares);
+            WriteASM_S_8(sw, shares, TT);
+            WriteASM_P_8(sw, shares,Pno);
             sw.Close();
             fs.Close();
         }
         //用ASM写出软件实现TI的代码
         //用sharesgroup分组
-        public void Print_TI1b_ASM_SharesGroup(string path, long num, string sname, int shares, byte[] TT)
+        //按照相同bit进行slice，用不同寄存器存储shares
+        public void Print_TI1b_ASM_SharesGroup(string path, long num, string sname, int shares, byte[] TT, int Pno)
         {
 
             //Write the ASM
@@ -1350,7 +1688,7 @@ namespace Lightweight_SBox_wih_TI
             FileStream fs = new FileStream(filename, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             WriteASM_S_SharesGroup(sw, shares, TT);
-            //WriteASM_P(sw, shares);
+            WriteASM_P_Shares(sw, shares);
             sw.Close();
             fs.Close();
         }
@@ -1607,6 +1945,100 @@ namespace Lightweight_SBox_wih_TI
             }
             
             return true;
+        }
+        //写出高位地址被AES Sbox obfuscated 的Large shares Sbox
+        public void WriteObfuscatedTable_SharedGroup(int[] TITT, string outfile, int shares)
+        {
+            int full = shares * size;
+            int[] sbox = {
+  //0     1    2      3     4    5     6     7      8    9     A      B    C     D     E     F
+  0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
+  0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0,
+  0xb7, 0xfd, 0x93, 0x26, 0x36, 0x3f, 0xf7, 0xcc, 0x34, 0xa5, 0xe5, 0xf1, 0x71, 0xd8, 0x31, 0x15,
+  0x04, 0xc7, 0x23, 0xc3, 0x18, 0x96, 0x05, 0x9a, 0x07, 0x12, 0x80, 0xe2, 0xeb, 0x27, 0xb2, 0x75,
+  0x09, 0x83, 0x2c, 0x1a, 0x1b, 0x6e, 0x5a, 0xa0, 0x52, 0x3b, 0xd6, 0xb3, 0x29, 0xe3, 0x2f, 0x84,
+  0x53, 0xd1, 0x00, 0xed, 0x20, 0xfc, 0xb1, 0x5b, 0x6a, 0xcb, 0xbe, 0x39, 0x4a, 0x4c, 0x58, 0xcf,
+  0xd0, 0xef, 0xaa, 0xfb, 0x43, 0x4d, 0x33, 0x85, 0x45, 0xf9, 0x02, 0x7f, 0x50, 0x3c, 0x9f, 0xa8,
+  0x51, 0xa3, 0x40, 0x8f, 0x92, 0x9d, 0x38, 0xf5, 0xbc, 0xb6, 0xda, 0x21, 0x10, 0xff, 0xf3, 0xd2,
+  0xcd, 0x0c, 0x13, 0xec, 0x5f, 0x97, 0x44, 0x17, 0xc4, 0xa7, 0x7e, 0x3d, 0x64, 0x5d, 0x19, 0x73,
+  0x60, 0x81, 0x4f, 0xdc, 0x22, 0x2a, 0x90, 0x88, 0x46, 0xee, 0xb8, 0x14, 0xde, 0x5e, 0x0b, 0xdb,
+  0xe0, 0x32, 0x3a, 0x0a, 0x49, 0x06, 0x24, 0x5c, 0xc2, 0xd3, 0xac, 0x62, 0x91, 0x95, 0xe4, 0x79,
+  0xe7, 0xc8, 0x37, 0x6d, 0x8d, 0xd5, 0x4e, 0xa9, 0x6c, 0x56, 0xf4, 0xea, 0x65, 0x7a, 0xae, 0x08,
+  0xba, 0x78, 0x25, 0x2e, 0x1c, 0xa6, 0xb4, 0xc6, 0xe8, 0xdd, 0x74, 0x1f, 0x4b, 0xbd, 0x8b, 0x8a,
+  0x70, 0x3e, 0xb5, 0x66, 0x48, 0x03, 0xf6, 0x0e, 0x61, 0x35, 0x57, 0xb9, 0x86, 0xc1, 0x1d, 0x9e,
+  0xe1, 0xf8, 0x98, 0x11, 0x69, 0xd9, 0x8e, 0x94, 0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28, 0xdf,
+  0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16 };
+            FileStream fs = new FileStream(outfile, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            
+            int[] SharedSbox = new int[(0x1 << full)];
+            sw.WriteLine("uint_8 SharedSbox[{0}]={{", SharedSbox.Length);
+            for (int i = 0; i < (0x1 << full); i++)
+            {
+                int[] sharedinput = new int[shares];
+                int[] sharedoutput = new int[shares];
+                //Get input as an array
+                int mask = (0x1 << (size)) - 1;
+                int temp = i;
+                for (int j = 0; j < shares; j++)
+                {
+                    //sharedinput[shares-1-j] = temp & mask;
+                    sharedinput[shares - 1 - j] = temp & mask;
+                    temp = temp >> size;
+                }
+                //Compute for each share
+                for (int j = 0; j < shares; j++)
+                {
+                    sharedoutput[j] = 0;
+                    //Get each bit
+                    for (int k = 0; k < size; k++)
+                    {
+                        //Get input
+                        int t = 0;
+                        for (int m = 0; m < shares - 1; m++)
+                        {
+                            t = t ^ sharedinput[(m + j + shares - 2) % shares];
+                            if (m != shares - 2)
+                                t = t << size;
+                        }
+                        //Compute output
+                        if (TITT[t] == 1)
+                            sharedoutput[j] = SetBit(sharedoutput[j], k);
+                        //right shift bits by 1
+                        for (int m = 0; m < shares; m++)
+                        {
+                            sharedinput[m] = (sharedinput[m] >> 1) ^ ((sharedinput[m] & 0x01) << (size - 1));
+                        }
+                    }
+                }
+                //Mark as Used
+                int tempv = 0;
+                for (int j = 0; j < shares; j++)
+                {
+                    tempv = tempv ^ sharedoutput[j];
+                    if (j != shares - 1)
+                        tempv = tempv << size;
+                }
+                //input=i,output=tempv
+                int high_addr = (0xff0&i)>>4;
+                int new_high_addr = sbox[high_addr];
+                SharedSbox[(new_high_addr << 4) ^ (i & 0xf)] = tempv;
+            }
+            for (int i = 0; i < (0x1 << full); i++)
+            {
+                if (i == (0x1 << full) - 1)
+                    sw.WriteLine("{0}}};", SharedSbox[i]);
+                else
+                {
+                    if (i % 16 == 15)
+                        sw.WriteLine("{0},", SharedSbox[i]);
+                    else
+                        sw.Write("{0},\t", SharedSbox[i]);
+                }
+            }
+            sw.Close();
+            fs.Close();
+            
         }
         //验证TITable还原后能否得到原始表
         //按同一个shares放在一起的方式处理
@@ -2314,7 +2746,7 @@ namespace Lightweight_SBox_wih_TI
             sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
             int Psize = 0x1 << (size - 1);
             long length = Stable.Length * (Psize);
-             Parallel.For(0, length, new ParallelOptions { MaxDegreeOfParallelism =8 }, num =>
+            Parallel.For(34433786, length, new ParallelOptions { MaxDegreeOfParallelism = 1 }, num =>
             {
                 if ((num & 0xffff) == 0)
                 {
@@ -2382,18 +2814,34 @@ namespace Lightweight_SBox_wih_TI
                         //Compute the TI form from ANF
                         TI_wrapper tw = new TI_wrapper(size, shares, ANF);
                         tw.Compute_From_ANF();
-                        int[] TITT = tw.Get_TruthTable_F1();
-                        if (!VerifyTITable(TITT, Stable[Sno], shares))
+                       
+                        //int[] TITT = tw.Get_TruthTable_F1();
+                        int[] TITT = tw.Get_TruthTable_F1_SharesGroup();
+                        if (!VerifyTITable_SharesGroup(TITT, Stable[Sno], shares))
+                        //if (!VerifyTITable(TITT, Stable[Sno], shares))
                         {
                             System.Console.WriteLine("TI Sbox results Incorrect!");
                             return;
                         }
+                        //WriteObfuscatedTable_SharedGroup(TITT, "SharedSbox.c", shares);
 
-
-                        byte[] TITTb=TTTransformation(TITT);
+                        FileStream fss = new FileStream("tt.txt", FileMode.Create);
+                        StreamWriter sws = new StreamWriter(fss);
+                       //Inverse Indexes in TITT for ABC synthesis
+                        int[] TITT1 = new int[TITT.Length];
+                        for (int m = 0; m < TITT.Length; m++)
+                        {
+                            TITT1[TITT.Length - 1 - m] = TITT[m];
+                        }
+                        byte[] TITTb=TTTransformation(TITT1);
+                        string q = BitConverter.ToString(TITTb).Replace("-", string.Empty);
+                        sws.WriteLine("{0}", q);
+                        TITTb = TTTransformation(TITT);
+                        sws.Close();
+                        fss.Close();
                          //Write ASM TI implementation
                        // Print_TI1b_ASM(path, num, sname, 3, TITTb);
-                        //Print_TI1b_ASM(path, num, sname, 3, TITTb);
+                        Print_TI1b_ASM_SharesGroup(path, num, sname, 3, TITTb,Pno);
                        
                         //评估代价
                         WriteSIM4PCost_TI1b(sw, TITTb, Pno);

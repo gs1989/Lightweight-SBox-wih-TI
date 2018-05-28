@@ -1,0 +1,3665 @@
+round=7,size=8,shift=3
+******************
+diff=8,nL=96,Sno=197d3,Pno=15
+输出表：
+00	75	cc	5c	91	15	e3	de	e5	76	64	4d	9f	45	3a	19	6c	bb	ac	b9	dd	97	56	37	43	c2	c6	90	24	03	20	c4	bc	9b	61	c9	da	3d	14	1f	fe	72	0c	73	ad	ba	c8	39	51	68	a5	8e	67	1a	38	d5	b8	29	d9	09	b2	f7	2f	78	a2	f1	13	b1	52	0e	fb	e6	23	ae	1d	36	27	99	e2	46	a4	4b	79	9d	4f	d2	8a	e0	95	8c	18	6a	e1	ce	7c	4a	34	06	bf	31	a9	22	c0	48	92	5f	47	f5	6b	2a	54	71	05	5a	e9	96	8f	1e	26	cf	81	b0	1c	d6	d7	4c	9e	9a	88	65	4e	3f	df	44	cd	62	2e	77	04	7f	b4	af	07	5b	25	ed	b3	c5	0a	bd	d1	3e	f0	8d	80	dc	55	35	0d	6d	a6	5e	7b	f4	a0	ff	0b	a1	16	01	5d	f3	93	db	87	40	be	2d	32	7a	83	2c	0f	42	10	d3	d0	82	70	b7	33	2b	60	86	aa	50	e7	6e	9c	94	d4	89	f2	ef	21	fd	ee	c1	41	28	02	98	6f	ec	85	7d	a7	eb	12	d8	1b	11	8b	b5	e8	74	84	7e	a3	17	69	a8	49	f6	c7	e4	08	3b	cb	59	57	30	ca	ab	f8	53	66	63	c3	fc	ea	f9	58	b6	3c	fa	
+
+内部函数=13363605
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4606
+Overall GE=19031.46
+Software Cycles: AND=252,XOR=294,RotatedShift=497,Other=28
+Overall cycles with Rotated Shift=1071, without Rotated Shift=2065
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=58
+Overall GE=214.98
+Software Cycles: AND=36,XOR=42,RotatedShift=71,Other=4
+Overall cycles with Rotated Shift=153, without Rotated Shift=295
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=938
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=189,Other=28
+Overall cycles with Rotated Shift=427, without Rotated Shift=805
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=134
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=27,Other=4
+Overall cycles with Rotated Shift=61, without Rotated Shift=115
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=65b40,Pno=2c
+输出表：
+00	22	07	5a	72	27	6c	7a	28	bd	bc	c7	e5	d9	6d	8e	4c	21	73	a6	01	a5	05	cf	c8	99	08	a1	b1	d3	77	0f	7f	61	3e	48	53	0c	e6	4d	1b	23	74	5e	7c	24	6f	14	98	83	2a	be	12	80	1a	ab	ed	46	39	40	56	ad	0b	45	17	b4	c5	db	f4	03	c9	da	dd	3b	e1	68	63	7b	ba	43	f5	9a	fa	57	d5	9d	b0	b6	34	d0	b7	8b	fc	58	11	04	e8	4b	65	02	95	3d	b8	b3	30	44	d1	d7	c2	37	fb	ce	dc	f3	3a	cd	f1	88	25	79	84	52	f6	d8	93	bf	96	bb	ee	0d	8a	15	6e	2b	50	de	f8	d6	4f	8c	67	b2	36	9f	e0	29	90	c0	64	42	8f	54	85	e3	a8	49	5b	8d	c3	9c	6a	66	eb	33	fd	6b	41	c6	1f	97	a9	7e	75	55	f0	a0	5d	0e	59	b5	f9	2f	e9	16	ac	af	d2	7d	2d	10	76	82	89	9e	c1	09	3f	cb	e7	3c	ca	18	b9	e4	5c	62	70	c4	71	86	2c	4a	a3	a4	fe	e2	60	94	35	a7	38	13	ae	aa	31	ea	92	f7	81	32	0a	f2	06	26	1c	df	ff	51	1e	2e	87	19	1d	69	ef	cc	d4	78	ec	91	47	4e	9b	a2	20	5f	
+
+内部函数=53321772
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4382
+Overall GE=18433.38
+Software Cycles: AND=252,XOR=280,RotatedShift=483,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2009
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=56
+Overall GE=209.64
+Software Cycles: AND=36,XOR=40,RotatedShift=69,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=287
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=826
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=399, without Rotated Shift=749
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=118
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=57, without Rotated Shift=107
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=7271d,Pno=6d
+输出表：
+00	0a	ad	c6	75	d9	8c	f7	24	31	2e	96	47	e5	1a	d5	e6	11	20	23	71	15	16	81	84	29	b3	6d	1c	98	88	c4	5a	cf	5b	61	5d	26	60	df	e8	05	d3	2b	fd	5e	7c	9a	bf	d0	4d	4e	c3	12	52	bd	08	ca	c0	02	6b	3e	14	0e	4a	e1	9d	09	44	38	55	9f	b6	46	66	56	3b	ce	e4	3a	a9	69	dd	c9	54	73	0c	97	58	33	0f	ee	5c	ea	de	2a	63	7f	91	34	e9	a0	99	a2	fc	07	ac	a8	36	a3	49	eb	70	0b	7d	bb	21	ae	e2	b4	95	13	7a	43	79	62	0d	d6	27	89	92	7e	a7	93	74	f3	3f	dc	2c	8b	1b	a5	77	17	4f	7b	b8	82	94	c8	be	59	51	b5	9c	10	78	b7	8e	35	45	a6	39	a1	f5	53	42	d1	72	19	18	9b	af	86	ba	1e	b0	da	ed	ab	fe	25	67	30	64	37	bc	b9	cd	f2	ec	b1	6c	01	c5	8f	57	90	40	cc	1f	fb	f9	cb	65	50	fa	e7	d2	d7	2d	03	d4	85	4c	c2	32	9e	41	2f	ef	aa	f0	80	e0	d8	b2	68	8a	28	3d	6a	6e	1d	22	c1	87	e3	8d	ff	5f	f1	48	c7	f4	3c	f6	04	f8	76	6f	db	4b	06	a4	83	
+
+内部函数=60002029
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4914
+Overall GE=19853.82
+Software Cycles: AND=252,XOR=308,RotatedShift=511,Other=28
+Overall cycles with Rotated Shift=1099, without Rotated Shift=2121
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=72
+Overall GE=252.36
+Software Cycles: AND=36,XOR=44,RotatedShift=73,Other=4
+Overall cycles with Rotated Shift=157, without Rotated Shift=303
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=1078
+Overall GE=3813.6
+Software Cycles: AND=84,XOR=140,RotatedShift=203,Other=28
+Overall cycles with Rotated Shift=455, without Rotated Shift=861
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=154
+Overall GE=544.8
+Software Cycles: AND=12,XOR=20,RotatedShift=29,Other=4
+Overall cycles with Rotated Shift=65, without Rotated Shift=123
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=3fbbf,Pno=7c
+输出表：
+00	28	42	c7	6a	07	1b	cb	9c	6b	fa	fe	ea	b3	c0	5f	fd	20	a7	84	08	f1	d6	a4	59	26	af	83	db	71	f2	e9	94	b6	c8	d9	b0	55	10	99	12	4f	dc	33	17	d5	66	b9	f5	41	49	e0	05	ec	81	ed	95	ad	04	e5	f4	2b	8d	6e	a2	14	88	dd	ef	b7	2e	0b	6c	ce	51	24	3c	9d	2a	5a	64	0d	4b	19	9e	d4	09	a1	54	f3	72	5e	c5	a5	63	fc	68	ee	27	9a	d0	7d	6d	3d	d8	87	1f	ac	57	e6	32	01	06	a3	7f	4a	3b	f0	3a	c1	7c	ae	44	bf	ff	47	0f	34	7a	1a	69	3e	11	c4	b8	c6	bd	4d	22	d7	e8	a9	4e	02	38	3f	89	d1	67	30	9b	65	80	e7	79	21	31	0c	a0	50	4c	cf	1e	36	0e	eb	b1	bb	f9	70	5b	b2	46	cd	aa	1d	1c	37	74	29	bc	8e	18	60	85	b4	c9	25	2d	92	90	de	43	53	e1	cc	8f	d3	62	e3	be	d2	77	9f	df	ca	e2	8a	7b	58	2f	52	a8	fb	ab	97	15	61	23	5c	93	48	16	35	40	b5	91	8b	75	56	f8	39	e4	8c	13	7e	76	f7	a6	f6	c2	45	98	96	78	86	0a	73	da	82	c3	ba	5d	6f	2c	03	
+
+内部函数=33415164
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4690
+Overall GE=19255.74
+Software Cycles: AND=252,XOR=294,RotatedShift=518,Other=28
+Overall cycles with Rotated Shift=1092, without Rotated Shift=2128
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=70
+Overall GE=247.02
+Software Cycles: AND=36,XOR=42,RotatedShift=74,Other=4
+Overall cycles with Rotated Shift=156, without Rotated Shift=304
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=966
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=196,Other=28
+Overall cycles with Rotated Shift=434, without Rotated Shift=826
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=138
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=28,Other=4
+Overall cycles with Rotated Shift=62, without Rotated Shift=118
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=2692c,Pno=29
+输出表：
+00	30	50	7c	32	db	4c	ed	36	51	a4	a1	24	5c	55	d7	c1	52	2e	fe	ca	e0	71	d1	9e	35	56	03	99	96	da	a8	e1	cc	40	bb	a9	1f	c9	28	6e	e5	7b	a6	ab	2c	25	8d	b7	b4	8f	89	21	b5	b0	e3	fb	01	72	68	47	22	9f	58	a7	66	67	54	65	bc	d5	1a	f3	e4	cf	d6	b9	08	16	a2	86	31	10	6b	be	3f	07	0a	0e	2a	fa	4a	26	b6	98	d9	cb	de	6c	ff	19	09	f9	f0	9d	92	88	7e	6a	41	f7	bf	2d	7d	81	53	78	2f	ac	5d	3d	34	38	33	ea	ee	3e	4b	ec	ef	fc	df	d0	44	59	8c	46	7f	e9	d2	3c	3a	45	2b	49	91	ad	42	4d	80	18	0c	5a	1e	97	f6	23	8b	9b	93	c4	a3	d4	15	aa	ae	fd	1c	1d	05	27	f8	70	02	c8	13	c5	f4	0d	8e	57	5f	e7	95	af	a5	a0	06	79	1b	74	90	eb	39	64	62	48	3b	b3	85	29	9c	c7	77	4f	76	dd	17	14	dc	84	75	61	c6	5b	8a	20	e8	c2	e6	0b	63	4e	c0	60	11	ba	b8	04	6d	9a	69	ce	43	37	bd	6f	5e	82	f5	d3	f2	0f	b1	83	87	b2	94	e2	12	73	c3	7a	d8	cd	f1	
+
+内部函数=20223529
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5502
+Overall GE=23668.26
+Software Cycles: AND=336,XOR=350,RotatedShift=637,Other=28
+Overall cycles with Rotated Shift=1351, without Rotated Shift=2625
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=66
+Overall GE=256.38
+Software Cycles: AND=48,XOR=50,RotatedShift=91,Other=4
+Overall cycles with Rotated Shift=193, without Rotated Shift=375
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=938
+Overall GE=3888.64
+Software Cycles: AND=112,XOR=126,RotatedShift=217,Other=28
+Overall cycles with Rotated Shift=483, without Rotated Shift=917
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=134
+Overall GE=555.52
+Software Cycles: AND=16,XOR=18,RotatedShift=31,Other=4
+Overall cycles with Rotated Shift=69, without Rotated Shift=131
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=19d87,Pno=5e
+输出表：
+00	13	71	7c	7d	04	96	9f	d4	cf	93	7a	58	1d	e1	3c	fb	6d	0f	b9	b7	c5	9d	80	4a	4b	54	f0	5a	47	ee	27	7b	60	23	ba	3f	ca	cc	6b	b3	c7	88	06	30	28	8b	e6	d8	95	ea	75	32	c1	d3	f3	f4	12	94	11	61	a7	86	5d	49	65	bf	84	97	81	d6	85	52	8e	fd	8c	cb	22	a3	55	a1	e9	a9	f5	f9	d9	98	53	62	0c	67	63	bc	9e	14	91	02	36	d2	66	fa	b8	45	de	f1	c2	64	c0	29	35	e4	1c	33	b4	50	73	4f	2d	f7	3d	40	09	dc	e0	ed	b6	df	72	e5	31	1f	16	1b	a8	51	e3	69	10	5f	01	46	c3	1a	6c	db	2b	6a	a0	8d	8a	77	dd	74	39	25	c9	38	ac	f6	9c	e2	0a	ab	07	ec	05	6f	fc	5e	99	2e	42	b0	17	be	c4	c6	57	b1	2a	70	15	20	6e	9b	0e	87	79	4d	aa	2f	eb	44	fe	7e	8f	43	f2	ce	3b	92	ef	26	59	5b	5c	21	34	0d	f8	d1	d7	ae	4e	2c	d0	4c	3e	a6	78	3a	76	82	03	b5	48	41	18	bb	68	89	0b	ff	cd	37	7f	08	24	a2	a5	56	83	d5	1e	ad	a4	da	af	b2	e8	e7	19	9a	90	c8	bd	
+
+内部函数=13550558
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4690
+Overall GE=19255.74
+Software Cycles: AND=252,XOR=294,RotatedShift=490,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2044
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=70
+Overall GE=247.02
+Software Cycles: AND=36,XOR=42,RotatedShift=70,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=292
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=966
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=420, without Rotated Shift=784
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=138
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=60, without Rotated Shift=112
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=d692,Pno=26
+输出表：
+00	e6	e1	9a	5a	e0	33	4b	4f	ce	3f	0e	f9	ae	79	20	57	92	40	37	8f	ee	df	d9	5d	e5	a4	aa	c6	35	23	04	bb	e7	b7	ca	cf	a8	61	86	85	6f	5f	a1	02	17	88	af	10	9c	c9	28	f3	91	ed	be	48	41	d2	44	38	fc	16	89	09	b1	30	93	ff	ad	24	52	98	8a	15	12	a0	74	cb	a5	b0	18	f1	d3	58	08	d8	6c	a7	f0	b4	4c	7c	6d	b9	e4	2e	06	3c	1c	03	72	d4	73	8b	bd	0d	fa	e2	b3	97	21	f2	fb	94	07	11	ab	99	b6	66	2c	3e	7e	32	b2	8d	bf	c2	6b	1e	22	1d	19	8e	b8	2b	0a	7d	dc	c3	c5	a3	9b	de	45	80	d0	26	9e	fd	82	5b	da	f8	2a	05	fe	13	42	96	b5	c0	f4	78	ec	75	77	1f	f6	90	ea	4a	d5	50	c8	a6	c4	bc	36	25	ba	56	c7	3b	2f	54	ef	49	1a	62	47	71	31	0c	64	8c	84	39	81	27	f7	5e	0b	46	55	87	3a	7f	eb	f5	e8	65	70	4e	01	67	51	d6	60	6e	76	69	34	53	db	7a	2d	d7	ac	63	83	0f	14	c1	1b	5c	a9	59	68	cc	29	3d	cd	95	9d	dd	9f	6a	43	e3	a2	e9	d1	7b	4d	
+
+内部函数=7031078
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=651,Other=28
+Overall cycles with Rotated Shift=1379, without Rotated Shift=2681
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=93,Other=4
+Overall cycles with Rotated Shift=197, without Rotated Shift=383
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=231,Other=28
+Overall cycles with Rotated Shift=511, without Rotated Shift=973
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=33,Other=4
+Overall cycles with Rotated Shift=73, without Rotated Shift=139
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=1707,Pno=31
+输出表：
+00	74	aa	af	92	80	81	c9	61	1f	bd	88	44	79	27	9f	e0	d8	d3	c8	ab	99	da	d2	46	4b	73	de	35	2b	91	6f	62	3d	8e	02	e2	07	8b	68	65	b4	43	64	d6	a7	7b	7e	13	8d	ee	6e	98	ea	a0	fd	2d	f0	75	36	6b	b9	48	1a	52	9c	d7	d1	3e	67	82	11	06	7c	83	ca	49	31	fa	5c	b8	51	60	c5	b0	ad	a1	84	fe	ac	22	cc	0d	8f	b1	0a	40	05	86	9e	1d	3b	47	be	b6	e8	b5	5f	2c	9b	e1	cf	38	41	95	25	ba	a5	69	9d	85	53	8a	72	26	37	ec	45	f2	55	33	c3	e5	f9	a6	d0	18	d5	94	d9	5b	6c	93	77	08	1b	03	23	f8	db	16	4e	f5	4c	19	e9	14	01	42	34	4a	15	c1	57	32	3a	17	c2	c0	0e	6a	c6	a3	24	1c	2e	b3	10	5d	f6	87	c7	54	b2	2f	29	ed	f3	3f	1e	0f	c4	20	56	04	90	a8	3c	71	e3	30	7d	7f	50	dc	70	ef	0b	66	2a	97	e4	78	96	5a	bc	fc	a2	f4	f7	21	bb	f1	8c	bf	cd	4d	59	d4	e6	df	ce	ff	58	eb	7a	63	e7	a4	5e	12	28	9a	dd	fb	6d	4f	89	a9	ae	b7	0c	cb	76	39	09	
+
+内部函数=754609
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4382
+Overall GE=18433.38
+Software Cycles: AND=252,XOR=280,RotatedShift=483,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2009
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=56
+Overall GE=209.64
+Software Cycles: AND=36,XOR=40,RotatedShift=69,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=287
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=826
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=399, without Rotated Shift=749
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=118
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=57, without Rotated Shift=107
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=98,Sno=73555,Pno=23
+输出表：
+00	06	34	9e	8e	76	8f	ca	0b	bc	fd	d9	62	14	93	c0	cb	fc	45	e7	c4	6c	7e	3e	ef	7a	a2	15	48	71	cf	6f	ed	b4	54	dc	4b	59	21	b9	64	b3	79	75	6e	13	1d	30	44	56	1e	df	c8	f4	3d	ab	be	6b	10	47	46	23	7c	72	07	8d	ad	dd	18	67	4e	70	78	7d	c6	69	f2	f0	40	4d	22	85	cd	a3	e9	80	cc	8b	c3	32	2b	35	c2	ae	39	3c	a6	9d	8a	5e	65	91	4f	84	b1	e2	fb	98	e5	fa	e6	f3	f7	f5	ce	b6	ff	da	d5	99	31	5a	ac	89	97	9c	b5	73	2e	e0	bf	61	12	5b	f6	7b	1b	c7	01	a9	03	5c	68	24	04	9b	82	11	09	d0	ec	53	0a	1a	2c	86	19	d7	81	55	37	9a	74	05	95	fe	4c	02	db	49	c9	57	d2	d6	ea	aa	58	c5	7f	36	52	0e	50	bb	d1	88	43	0d	1c	af	90	ba	ee	2f	2d	6d	de	b7	1f	66	a5	87	3b	bd	5d	33	8c	e1	17	a1	3a	f9	e8	0f	20	d4	f8	e4	63	b2	83	f1	eb	77	d3	a7	a0	a4	e3	27	25	41	d8	0c	51	a8	29	96	60	38	b8	92	42	6a	5f	9f	28	3f	c1	b0	08	4a	16	94	26	2a	
+
+内部函数=60467875
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4382
+Overall GE=18433.38
+Software Cycles: AND=252,XOR=280,RotatedShift=483,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2009
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=56
+Overall GE=209.64
+Software Cycles: AND=36,XOR=40,RotatedShift=69,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=287
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=826
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=399, without Rotated Shift=749
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=118
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=57, without Rotated Shift=107
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=4068c,Pno=5d
+输出表：
+00	02	3b	be	a2	79	6a	73	38	1e	07	83	24	72	57	78	6c	d2	51	03	d8	65	d4	20	9d	31	11	0f	d7	44	fc	97	7a	f2	66	0e	55	30	a4	71	5f	6d	da	6b	d0	fd	3d	a3	77	86	ce	41	e4	17	a6	c6	0b	9c	b0	2d	de	ca	c0	16	7d	a1	f0	15	2a	7e	37	1a	ad	e5	bd	b5	34	1f	21	47	ac	69	ee	b6	93	08	62	cb	5a	c2	94	a5	9b	01	40	c1	46	ba	b2	4d	28	e7	a8	a9	e3	c9	ec	4e	ff	52	68	e1	13	84	12	09	96	fb	0c	05	91	2f	18	45	6f	7f	33	d5	9a	32	80	eb	53	6e	88	bb	f9	f7	75	e9	43	3e	d3	04	95	e6	f6	4a	c3	d6	8f	e0	f1	ed	ab	5e	ea	aa	5c	26	76	98	48	a7	b9	9f	dd	3c	d1	f4	7c	50	22	0a	b4	81	bc	df	4c	ef	56	4f	35	c5	27	c7	fe	39	dc	7b	23	99	2e	5d	bf	06	82	8a	f3	b8	59	d9	c4	3a	cc	2b	87	90	1b	cd	60	b1	67	8c	64	1d	14	5b	db	af	58	10	36	19	4b	9e	0d	3f	e2	29	54	ae	c8	e8	1c	2c	25	b7	63	49	8e	42	92	cf	74	70	fa	85	8d	8b	a0	61	b3	f5	89	f8	
+
+内部函数=33769053
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=483,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2009
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=69,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=287
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=399, without Rotated Shift=749
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=57, without Rotated Shift=107
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=66e0e,Pno=4
+输出表：
+00	25	82	a4	34	f2	d8	c1	1b	61	db	87	1c	36	0a	ad	85	f9	0e	da	52	6e	32	b1	4a	7c	8b	2d	2e	b5	64	01	27	81	9d	88	8d	8f	e0	cc	4e	c5	30	0d	95	79	f1	e1	23	9f	1a	50	35	74	13	96	de	ca	fd	0b	89	b8	29	d0	5c	8e	41	cd	3a	9b	e3	fb	4c	f7	06	39	7d	c3	42	43	18	f6	c4	f3	b2	07	17	f4	7e	d3	b6	fa	c0	6b	bb	0f	1e	e7	93	08	2a	a1	5b	a5	49	83	a2	dc	57	b0	6c	6a	76	22	c8	a9	55	ed	8c	28	5e	1f	3e	31	69	04	cb	73	98	62	66	7a	bc	2c	d1	af	ea	63	ee	33	9c	e4	3c	c6	26	ab	45	78	c9	4d	71	54	38	f8	0c	05	37	24	10	75	91	d2	7b	77	4f	e8	4b	8a	53	03	bd	ae	1d	aa	67	a3	47	b3	5f	3b	f5	dd	15	2f	65	46	d4	80	d5	44	70	51	5d	2b	d7	a7	90	fc	84	ac	b9	a6	68	b7	14	ce	59	86	f0	ba	e6	20	fe	94	e9	e5	df	12	58	7f	9e	eb	9a	d6	ec	e2	3f	21	b4	09	5a	3d	cf	ef	bf	d9	be	56	c2	99	ff	02	48	16	a8	19	92	6d	72	a0	97	40	11	c7	60	6f	
+
+内部函数=53937924
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4522
+Overall GE=18807.18
+Software Cycles: AND=252,XOR=294,RotatedShift=525,Other=28
+Overall cycles with Rotated Shift=1099, without Rotated Shift=2149
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=46
+Overall GE=182.94
+Software Cycles: AND=36,XOR=42,RotatedShift=75,Other=4
+Overall cycles with Rotated Shift=157, without Rotated Shift=307
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=910
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=203,Other=28
+Overall cycles with Rotated Shift=441, without Rotated Shift=847
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=130
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=29,Other=4
+Overall cycles with Rotated Shift=63, without Rotated Shift=121
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=5aaf5,Pno=13
+输出表：
+00	ea	d4	57	5f	68	65	a8	59	f7	ca	f2	91	02	73	75	30	de	ff	04	01	7d	8c	1c	52	72	fa	7f	66	c3	b8	4f	a9	b9	e2	f3	f8	b7	b1	20	41	6e	33	d3	f0	19	fb	74	aa	15	31	ee	fd	03	84	8d	3a	b4	a7	c9	97	3b	9a	dc	e1	e7	5d	51	cf	a1	44	0b	e8	4c	49	2c	8f	36	6d	2b	63	3d	e3	06	45	08	d2	25	f4	a0	b3	9f	17	a3	81	0d	cc	22	24	c5	37	ab	d8	be	ae	26	cb	c2	92	8e	9b	76	78	ce	1f	1a	99	3c	7a	4b	e5	7e	5b	27	50	c4	dd	db	34	e4	8b	70	2a	32	bc	05	13	69	0f	29	ed	88	f1	90	d0	ba	93	18	82	6a	14	bb	85	47	2f	77	e9	9e	58	10	9c	d1	94	bd	ef	4e	ec	0a	9d	98	09	6c	95	ac	48	5e	f9	e6	71	89	8a	43	83	56	62	67	12	d7	b0	fc	d6	1d	b2	64	da	a6	60	07	6b	2e	53	5c	39	a2	4a	b5	a5	a4	ad	16	e0	d5	35	eb	61	fe	f5	1e	40	23	86	80	0e	1b	4d	28	11	5a	af	c7	6f	bf	7c	38	87	2d	42	96	cd	d9	df	3f	f6	c8	21	54	0c	b6	c6	c1	7b	3e	55	46	c0	79	
+
+内部函数=47544979
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=623,Other=28
+Overall cycles with Rotated Shift=1351, without Rotated Shift=2597
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=89,Other=4
+Overall cycles with Rotated Shift=193, without Rotated Shift=371
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=217,Other=28
+Overall cycles with Rotated Shift=497, without Rotated Shift=931
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=31,Other=4
+Overall cycles with Rotated Shift=71, without Rotated Shift=133
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=4dfc6,Pno=2f
+输出表：
+00	88	53	32	62	da	75	41	64	fe	81	40	d0	98	7f	26	b1	7b	0e	6b	8c	90	5e	83	61	c1	c6	4f	d3	e3	34	28	d9	1c	54	6a	67	ff	ab	6d	80	e8	ae	51	77	9a	b8	78	5a	f8	6c	7d	ed	3b	3a	fd	68	f5	7c	5c	24	37	bb	14	9f	71	29	23	a5	66	a8	59	0f	e9	4b	13	0a	a7	bd	ee	cd	1f	4c	55	1a	60	5b	c9	8e	b3	5f	69	eb	63	c2	de	b7	94	6f	f9	b5	03	e2	48	ad	f2	15	45	2d	be	2b	3f	5d	4e	35	ba	25	c4	4a	e7	4d	c7	7e	cc	1e	92	9e	73	d5	9c	50	65	16	e4	b6	7a	b2	cf	3c	30	87	3e	84	ec	f1	20	ca	ac	70	05	df	99	09	57	72	a2	46	8a	52	fa	d6	10	dc	0c	b9	89	1d	c8	d7	c0	e6	82	a6	c3	af	a3	1b	2f	cb	2e	d2	fc	3d	91	38	8b	31	22	bf	97	93	a4	96	36	19	ef	d1	11	39	02	42	2c	12	18	85	f7	17	d8	07	d4	b0	01	f0	8d	c5	a9	f6	49	e0	fb	04	79	08	6e	ce	aa	b4	bc	e5	44	0b	a1	f3	76	db	f4	dd	06	58	8f	21	e1	0d	27	a0	9d	2a	95	47	ea	43	33	86	74	9b	56	
+
+内部函数=40887087
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=6720,XOR=7154
+Overall GE=30323.58
+Software Cycles: AND=420,XOR=448,RotatedShift=791,Other=28
+Overall cycles with Rotated Shift=1687, without Rotated Shift=3269
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=60,XOR=92
+Overall GE=345.84
+Software Cycles: AND=60,XOR=64,RotatedShift=113,Other=4
+Overall cycles with Rotated Shift=241, without Rotated Shift=467
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=1120,XOR=1302
+Overall GE=5159.84
+Software Cycles: AND=140,XOR=168,RotatedShift=273,Other=28
+Overall cycles with Rotated Shift=609, without Rotated Shift=1155
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=160,XOR=186
+Overall GE=737.12
+Software Cycles: AND=20,XOR=24,RotatedShift=39,Other=4
+Overall cycles with Rotated Shift=87, without Rotated Shift=165
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=1a47,Pno=6b
+输出表：
+00	40	3f	ef	55	92	2d	e0	79	c2	97	a7	70	f8	50	c9	b1	b0	e3	8e	44	8a	61	d4	f6	df	22	0b	2e	37	cb	9c	d1	64	fb	36	e7	a9	a2	cd	ae	25	89	ba	a0	5c	57	a6	be	39	33	1c	81	62	ca	c8	7a	c1	5b	cf	19	fd	46	bd	e5	73	e1	14	2c	45	d3	4f	d6	66	13	8c	b8	a4	e8	31	76	51	05	c7	ea	ee	2b	94	58	34	52	a5	63	78	d7	4d	83	77	dd	f3	41	21	fe	9b	68	47	aa	7c	10	6d	96	3d	7f	32	02	ec	a8	f9	6f	16	67	01	17	b6	b9	88	7d	bf	09	43	5f	c4	e4	6a	99	4c	d0	24	db	f0	de	82	23	65	2a	6e	03	d9	af	e9	dc	27	3b	87	3e	71	80	e6	5a	5d	7e	a1	b3	1f	06	5e	11	4e	54	38	98	1e	8b	4a	c6	f7	f2	74	20	91	9d	28	04	cc	8f	bb	d8	48	42	15	95	84	ed	75	93	4b	0f	a3	6c	72	85	30	18	bc	3c	1b	b5	35	eb	da	b7	0c	d2	d5	7b	6b	fc	fa	0d	3a	69	07	b4	ad	9e	9f	26	0e	ac	08	8d	c3	b2	29	1a	2f	9a	f5	ce	86	f4	f1	59	ab	e2	1d	49	c0	c5	12	53	0a	90	60	ff	56	
+
+内部函数=861163
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5586
+Overall GE=23892.54
+Software Cycles: AND=336,XOR=350,RotatedShift=609,Other=28
+Overall cycles with Rotated Shift=1323, without Rotated Shift=2541
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=78
+Overall GE=288.42
+Software Cycles: AND=48,XOR=50,RotatedShift=87,Other=4
+Overall cycles with Rotated Shift=189, without Rotated Shift=363
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=966
+Overall GE=3888.64
+Software Cycles: AND=112,XOR=126,RotatedShift=203,Other=28
+Overall cycles with Rotated Shift=469, without Rotated Shift=875
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=138
+Overall GE=555.52
+Software Cycles: AND=16,XOR=18,RotatedShift=29,Other=4
+Overall cycles with Rotated Shift=67, without Rotated Shift=125
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=dec3,Pno=31
+输出表：
+00	44	65	fc	82	d0	84	d6	0c	12	93	b3	0a	35	0d	83	68	f7	3b	54	a2	a4	4e	c4	c1	6c	1c	88	1a	4a	15	2b	7b	d3	fb	9c	7d	76	f0	d7	c5	08	c2	26	a9	51	74	11	ff	10	2f	8b	8e	20	e8	09	8c	28	29	f2	f4	61	73	b7	e3	f3	e4	64	de	b9	e7	b5	8d	6b	d8	52	25	cb	7a	dd	17	86	9d	78	13	a1	f5	7e	8f	e2	23	99	18	5c	fa	45	97	a8	24	fe	55	da	01	ce	ef	85	1d	3c	f6	90	40	9b	4d	91	75	58	36	72	1f	47	2e	e6	ad	2d	92	80	66	4f	a3	14	04	06	49	c6	59	ab	57	d4	5a	27	38	ec	94	cc	81	bb	ac	33	dc	df	9f	c0	c3	cf	db	32	69	4b	e9	d9	16	d1	39	6e	af	f8	be	bd	22	2c	b1	87	96	fd	77	e1	2a	62	02	b6	ca	bf	ee	f9	3f	cd	60	7f	a5	0b	b4	5b	1e	71	98	eb	6f	0e	ea	d5	48	a7	a0	30	1b	31	f1	5e	70	e5	c7	05	9e	d2	8a	21	7c	ed	c8	03	b0	56	3d	19	79	0f	07	5d	c9	6a	34	46	4c	63	89	95	53	aa	50	5f	ba	ae	bc	a6	b2	37	3a	67	9a	42	e0	3e	43	b8	41	6d	
+
+内部函数=7299505
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=637,Other=28
+Overall cycles with Rotated Shift=1379, without Rotated Shift=2653
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=91,Other=4
+Overall cycles with Rotated Shift=197, without Rotated Shift=379
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=231,Other=28
+Overall cycles with Rotated Shift=525, without Rotated Shift=987
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=33,Other=4
+Overall cycles with Rotated Shift=75, without Rotated Shift=141
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=1ab5b,Pno=15
+输出表：
+00	71	7d	66	4f	c8	93	72	14	1a	f5	8b	ee	2e	e8	4a	9d	63	ba	b5	f4	e3	fd	05	cc	1f	cd	35	4b	6c	75	52	f2	36	a3	5e	46	a2	a7	87	10	2d	9b	80	88	d9	47	ca	6b	31	18	03	96	8c	d0	3b	f3	13	38	ab	c4	de	5d	84	53	e5	ae	c6	41	d1	8e	26	c2	48	50	54	27	16	62	65	7a	45	2c	5f	28	37	8d	61	d5	2b	e4	7e	77	7c	1b	aa	76	f7	0c	c9	3e	5c	db	f8	f0	ea	98	19	08	39	d2	b0	ce	42	da	e0	c7	f1	86	30	0f	b2	f6	bd	69	af	22	11	a8	8f	6e	bc	33	97	17	e2	44	8a	0a	9e	1e	c5	fa	b4	85	25	24	cb	70	01	94	64	f9	b7	cf	d7	68	07	73	4e	ad	ed	21	95	ff	32	c0	89	b8	fb	12	40	eb	d6	d3	6d	57	3f	55	bb	a1	d4	ac	02	e6	59	09	dd	43	15	a4	fe	b3	6f	4d	0d	90	b6	29	06	9a	4c	60	a6	0b	51	d8	be	dc	83	67	a5	2a	ec	0e	81	7f	b1	ef	b9	e9	e7	9c	a0	82	99	5b	1c	3a	23	a9	3d	56	91	5a	74	bf	49	3c	c3	58	6a	9f	fc	20	92	e1	df	79	c1	7b	04	2f	1d	34	78	
+
+内部函数=14003605
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=651,Other=28
+Overall cycles with Rotated Shift=1379, without Rotated Shift=2681
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=93,Other=4
+Overall cycles with Rotated Shift=197, without Rotated Shift=383
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=231,Other=28
+Overall cycles with Rotated Shift=511, without Rotated Shift=973
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=33,Other=4
+Overall cycles with Rotated Shift=73, without Rotated Shift=139
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=3508d,Pno=62
+输出表：
+00	ac	3f	35	d5	1f	42	68	ca	df	6d	d0	6f	82	0a	03	92	60	a5	07	56	65	1b	5e	10	bc	c9	d8	80	fc	83	2d	61	b9	b8	51	12	08	55	5c	1c	64	f5	87	2c	eb	75	e2	8c	ce	05	a1	95	7b	bd	86	14	7f	7d	9a	19	46	52	3a	a0	b5	33	fa	31	c5	bf	45	e8	18	97	9c	a8	fb	6c	c8	be	2b	e9	44	57	0f	b2	4e	58	16	99	85	72	13	e6	db	d1	8f	c1	e3	b4	7e	17	0c	8a	21	23	ed	3d	f6	5b	c7	34	fe	a7	9d	01	fd	a3	3e	da	39	e1	a9	81	a2	28	de	9f	6e	a6	98	f1	47	4d	bb	27	e5	ba	71	22	d7	f0	cb	93	5a	e0	b7	94	e7	69	d4	59	36	62	2a	48	c6	dc	cc	ae	4a	02	3b	a4	70	32	50	f8	5f	d3	b6	25	1a	29	0e	b0	9b	0d	37	c2	ee	ff	90	11	ef	15	43	e4	30	ea	49	cd	f9	79	88	53	1d	40	b1	8d	4c	f3	26	cf	4b	d6	84	77	73	41	b3	66	c3	2e	09	6a	aa	c0	8b	7a	54	af	96	ad	ab	24	91	67	38	63	78	d9	06	6b	f2	8e	20	74	ec	7c	04	5d	f7	f4	0b	d2	89	1e	4f	c4	76	3c	2f	9e	dd	
+
+内部函数=27805410
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=658,Other=28
+Overall cycles with Rotated Shift=1400, without Rotated Shift=2716
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=94,Other=4
+Overall cycles with Rotated Shift=200, without Rotated Shift=388
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=238,Other=28
+Overall cycles with Rotated Shift=532, without Rotated Shift=1008
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=34,Other=4
+Overall cycles with Rotated Shift=76, without Rotated Shift=144
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=74149,Pno=31
+输出表：
+00	14	d4	d7	ca	56	b6	ac	8c	bc	59	89	68	71	f0	8a	f6	66	7d	be	98	30	6f	0c	81	a4	6d	2a	f3	f9	29	e5	41	d0	fa	32	85	65	d2	18	78	86	a6	d3	7c	21	aa	8f	1a	92	74	f2	45	70	1d	84	dd	09	fe	5c	6c	13	ce	04	ff	96	a8	33	02	c7	3f	0a	25	82	cf	63	3b	e2	3a	ef	ba	f5	72	fb	bf	dc	76	23	2f	7e	4e	40	8b	1e	d1	f7	97	e1	bd	e8	ae	15	9a	9e	2c	b0	77	26	62	c3	80	b7	b4	fd	5a	38	08	d6	37	07	5b	49	88	39	87	3d	cd	ed	a7	69	48	ab	b5	d9	9d	d5	7f	4c	83	34	52	f8	9c	e9	73	6b	19	27	16	55	c9	e0	e6	42	57	75	0e	46	47	0f	df	a0	06	44	f1	e3	60	c5	db	01	53	cb	f4	2e	35	1c	5f	3e	43	b1	10	95	e4	6a	2d	fc	12	9f	0d	58	94	cc	1b	28	da	0b	54	91	a3	c8	64	6e	67	c4	24	5d	7b	4a	4d	b2	a1	61	b3	ea	8d	50	5e	51	b9	7a	c0	36	a5	ee	05	4f	1f	90	b8	4b	c1	3c	d8	a2	8e	c2	11	af	20	17	9b	a9	93	ad	22	bb	2b	eb	e7	03	79	99	c6	de	ec	31	
+
+内部函数=60859569
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=637,Other=28
+Overall cycles with Rotated Shift=1379, without Rotated Shift=2653
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=91,Other=4
+Overall cycles with Rotated Shift=197, without Rotated Shift=379
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=231,Other=28
+Overall cycles with Rotated Shift=525, without Rotated Shift=987
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=33,Other=4
+Overall cycles with Rotated Shift=75, without Rotated Shift=141
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=41166,Pno=45
+输出表：
+00	58	9c	7d	1c	a9	93	e0	cb	e1	50	ed	05	18	e7	15	56	0f	9d	c6	d8	5b	41	75	8c	3a	36	db	99	90	cd	d9	6a	eb	c4	69	d6	b8	df	03	21	ee	c1	1a	a5	e2	70	24	f4	bf	fb	55	d1	be	5a	a2	a1	e4	af	6e	bb	0b	40	cf	52	5d	c2	87	44	66	d2	ef	4c	16	f7	23	c9	74	dd	8d	9e	f5	47	e3	c3	4b	0a	45	11	0e	f6	bc	98	65	a6	2d	b1	07	e8	1d	01	64	13	aa	95	ca	48	d0	76	09	32	a7	f3	2b	26	d7	da	e5	10	c5	08	5f	2e	22	f2	94	e6	06	6f	a8	02	77	85	fa	4e	4f	88	5c	ac	c8	49	bd	7b	2f	12	1e	3f	a4	b6	b2	3d	8b	97	3b	86	f0	9a	1b	37	7a	82	f9	63	5e	c7	73	ce	ab	b3	0c	43	d4	68	9f	91	51	a0	72	7e	4d	6d	30	96	60	e9	61	c0	d5	fe	2c	78	de	42	29	57	4a	71	34	19	7f	27	1f	38	83	cc	84	81	f1	67	ad	b7	7c	28	31	ae	8f	14	89	33	ea	8e	04	b9	b4	2a	79	59	20	fd	35	6c	ba	25	3e	d3	a3	54	92	9b	17	f8	62	ff	6b	46	80	3c	0d	ec	b0	dc	b5	8a	53	39	fc	
+
+内部函数=34124613
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=658,Other=28
+Overall cycles with Rotated Shift=1400, without Rotated Shift=2716
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=94,Other=4
+Overall cycles with Rotated Shift=200, without Rotated Shift=388
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=238,Other=28
+Overall cycles with Rotated Shift=532, without Rotated Shift=1008
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=34,Other=4
+Overall cycles with Rotated Shift=76, without Rotated Shift=144
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=6773d,Pno=29
+输出表：
+00	b0	1a	92	55	50	42	34	6c	9f	33	e6	1e	e8	47	e9	ab	44	bc	72	a2	40	10	81	1b	0d	36	51	6d	b4	a4	8c	7a	e5	e2	c2	63	5d	85	13	2d	6e	04	82	54	f9	26	5f	29	0e	76	2a	0c	f2	ec	71	df	d1	20	07	58	f8	0b	da	2f	9a	84	eb	25	3b	60	d5	cc	9d	24	09	80	2c	a6	4a	ef	3e	ff	c0	45	4f	a0	c4	e4	57	64	97	01	f1	7b	9b	e7	4b	87	c1	f3	77	74	03	d4	d8	ba	18	15	8e	ca	22	d3	de	db	ce	cf	08	94	23	aa	5e	90	7c	af	e1	91	06	a5	8f	be	d9	a3	fa	59	f0	dc	83	37	e3	b2	14	dd	c3	6a	38	68	70	fd	d7	88	49	52	16	a8	cb	1d	79	fc	5a	b1	ed	48	4e	ee	fe	c5	c9	46	65	b3	12	3a	5c	56	95	d0	3c	39	4d	27	4c	9e	a1	21	05	a7	c6	73	c7	61	43	f4	bf	7f	7e	17	99	93	bb	53	d6	28	f6	0f	bd	cd	86	66	35	b9	11	c8	b8	62	89	2b	98	9c	d2	3d	6b	ac	f7	1f	8d	1c	69	ea	75	b7	2e	8b	ad	e0	02	0a	6f	b5	30	8a	fb	3f	19	f5	67	31	a9	78	ae	32	7d	41	b6	96	5b	
+
+内部函数=54238889
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4606
+Overall GE=19031.46
+Software Cycles: AND=252,XOR=294,RotatedShift=525,Other=28
+Overall cycles with Rotated Shift=1099, without Rotated Shift=2149
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=58
+Overall GE=214.98
+Software Cycles: AND=36,XOR=42,RotatedShift=75,Other=4
+Overall cycles with Rotated Shift=157, without Rotated Shift=307
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=938
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=203,Other=28
+Overall cycles with Rotated Shift=441, without Rotated Shift=847
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=134
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=29,Other=4
+Overall cycles with Rotated Shift=63, without Rotated Shift=121
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=e21d,Pno=43
+输出表：
+00	7d	ac	67	5a	ab	7a	77	48	87	33	2c	99	51	45	5f	42	1f	c2	79	c7	a2	28	f8	75	e3	09	ef	24	c3	bd	13	9d	b3	cb	c4	ba	2b	d0	6f	1b	57	32	70	fc	93	a5	31	49	82	56	5d	23	1a	f5	6d	61	a4	9b	8a	69	f3	64	40	fe	1e	a6	90	c1	12	47	bb	44	63	fb	35	ea	3e	dc	f2	bf	27	06	37	ee	b2	43	01	2f	55	7e	1c	be	df	71	91	e7	4c	86	6a	36	b0	16	07	3f	ed	f7	f0	a0	85	8c	b1	53	b7	f9	d5	b6	0d	e4	05	e2	7f	7b	10	4a	03	97	aa	50	9c	a8	0e	4e	5b	84	81	6e	58	52	d7	e0	d8	ec	c0	29	8f	8d	f1	b9	d6	d2	98	02	cf	9f	eb	08	34	89	ad	6c	59	e6	b8	0a	19	7c	1d	e5	d1	18	5e	38	c5	30	ff	db	c8	d4	17	5c	e8	15	74	e9	e1	94	f4	83	fd	65	0c	26	c9	d3	d9	54	2d	fa	95	c6	72	dd	a3	cc	60	78	25	3b	9e	73	92	41	4d	2a	da	b4	a7	76	8e	96	0f	3d	ca	62	bc	cd	6b	8b	22	39	80	9a	ae	de	af	21	66	04	3c	20	88	0b	2e	3a	a9	ce	a1	4b	4f	46	f6	68	11	b5	14	
+
+内部函数=7409347
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=644,Other=28
+Overall cycles with Rotated Shift=1372, without Rotated Shift=2660
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=92,Other=4
+Overall cycles with Rotated Shift=196, without Rotated Shift=380
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=224,Other=28
+Overall cycles with Rotated Shift=504, without Rotated Shift=952
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=32,Other=4
+Overall cycles with Rotated Shift=72, without Rotated Shift=136
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=5bcdc,Pno=7
+输出表：
+00	2f	e5	e8	9f	79	58	92	08	17	51	f6	63	f2	4a	1a	33	5d	81	48	a5	64	c5	1b	38	9e	c0	3d	21	96	d3	25	13	dd	5e	02	2a	2b	87	23	c4	1e	47	69	3a	1c	b5	30	8c	73	24	3c	c8	45	97	37	90	57	4f	a9	6e	2c	fe	7b	32	8f	b0	d2	01	f1	36	b1	e4	e3	39	4b	26	d5	c6	bf	19	f7	5b	ae	a8	8a	99	44	7f	bc	cf	a1	8b	f3	59	7d	34	cc	0e	85	db	7e	14	fd	83	b9	5a	6b	d8	86	27	c3	0f	c2	a4	e6	61	53	65	3b	31	b4	6f	bd	fa	15	eb	46	09	cd	82	c1	ea	d9	a0	80	56	41	84	f4	ad	ff	9a	4d	ee	8d	ba	29	40	7c	0b	c7	b6	94	04	b8	03	d6	de	d4	55	a7	8e	4e	93	62	10	98	b3	fc	a6	e0	50	9c	ec	be	28	d7	43	77	78	4c	74	b7	68	66	c9	f8	76	ed	0c	da	0d	ca	f9	b2	1f	3e	88	67	9d	5f	52	35	1d	06	ce	60	22	49	e1	20	12	91	f0	af	71	5c	75	a2	07	ab	95	dc	ac	fb	ef	a3	6a	54	18	2d	3f	e7	aa	cb	f5	11	d1	89	05	9b	d0	e2	bb	df	72	16	e9	70	6d	6c	0a	42	7a	2e	
+
+内部函数=48131591
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=658,Other=28
+Overall cycles with Rotated Shift=1400, without Rotated Shift=2716
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=94,Other=4
+Overall cycles with Rotated Shift=200, without Rotated Shift=388
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=238,Other=28
+Overall cycles with Rotated Shift=532, without Rotated Shift=1008
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=34,Other=4
+Overall cycles with Rotated Shift=76, without Rotated Shift=144
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=4f33c,Pno=5d
+输出表：
+00	0c	d3	8c	bb	0a	dc	1b	16	9d	cd	2e	37	2b	d4	44	ab	78	9a	f8	e9	41	85	80	65	b6	4a	83	a9	d9	ef	e6	2c	32	e7	c3	a3	1a	1d	45	50	59	c1	a5	6c	c0	73	03	1e	bc	19	a8	97	12	ec	b8	d1	99	04	2d	ea	0b	90	de	63	33	b1	94	e5	4e	c9	3d	60	a7	f3	81	cb	c8	d6	86	70	36	c7	5c	9c	92	d5	9f	dd	3a	c5	30	7b	25	79	49	24	52	96	ee	7d	01	21	cf	c6	f4	9e	a1	31	4b	88	15	b0	bf	17	cc	8a	a4	c2	68	f5	48	54	8f	07	05	ff	0d	10	a2	ad	be	55	61	46	08	e3	4f	02	f0	d8	7a	7c	b7	ca	56	42	ba	5b	db	09	67	7e	d2	0e	d7	34	aa	28	74	8e	38	57	9b	06	3f	82	ac	64	b4	6d	29	e2	2a	53	6f	fd	18	98	14	d0	6e	7f	84	ae	4c	0f	40	e4	66	bd	2f	df	5d	58	6a	f6	23	e1	fc	20	fa	fb	95	3c	f7	77	6b	93	47	ed	da	b3	27	22	a0	89	35	eb	26	76	f1	62	e0	71	72	a6	75	af	f9	69	3b	f2	91	c4	b9	39	b5	e8	8b	fe	87	13	5e	51	43	ce	1c	3e	1f	b2	4d	5a	8d	5f	11	
+
+内部函数=41524829
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4690
+Overall GE=19255.74
+Software Cycles: AND=252,XOR=294,RotatedShift=497,Other=28
+Overall cycles with Rotated Shift=1071, without Rotated Shift=2065
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=70
+Overall GE=247.02
+Software Cycles: AND=36,XOR=42,RotatedShift=71,Other=4
+Overall cycles with Rotated Shift=153, without Rotated Shift=295
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=966
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=189,Other=28
+Overall cycles with Rotated Shift=427, without Rotated Shift=805
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=138
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=27,Other=4
+Overall cycles with Rotated Shift=61, without Rotated Shift=115
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=41309,Pno=45
+输出表：
+00	48	4d	3d	eb	d3	f4	4f	bd	f8	d5	b3	8e	e5	9b	86	42	c8	75	78	d8	45	ff	26	e4	fd	62	43	ab	61	7b	b0	98	5e	57	db	e9	f2	1f	6f	31	f9	a0	76	e6	b5	95	ec	46	9f	f5	30	20	7c	10	79	8a	4c	f0	c1	34	ae	33	a7	85	71	b7	e3	44	90	60	04	49	36	82	83	a3	64	ce	bb	56	d7	fb	b6	5b	f7	4a	3c	7a	7e	f1	47	de	d2	f3	68	a4	53	5d	9d	7f	c0	8f	18	0b	bf	02	67	4e	35	af	92	32	e0	b4	12	25	ad	0c	19	a1	fc	5a	ac	6c	be	b2	81	05	b8	11	41	80	da	3b	ef	88	aa	1e	23	9e	91	0e	4b	54	a9	6a	e1	dd	c2	3a	70	0f	87	c6	89	52	39	8b	2f	ba	c5	fe	6b	59	06	84	1c	cd	a8	df	66	7d	cb	24	d1	3e	58	2a	ca	c4	93	e2	ee	16	29	dc	09	3f	e7	ea	1b	c9	d4	2b	d9	07	2d	9c	21	d0	65	5f	2c	cc	94	50	b1	55	5c	01	15	40	f6	fa	17	14	97	8d	b9	9a	c3	51	0a	69	2e	bc	e8	ed	22	0d	d6	1a	74	13	cf	a6	27	08	a5	77	c7	8c	03	6d	28	63	a2	1d	72	96	6e	38	73	37	99	
+
+内部函数=34178245
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=644,Other=28
+Overall cycles with Rotated Shift=1372, without Rotated Shift=2660
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=92,Other=4
+Overall cycles with Rotated Shift=196, without Rotated Shift=380
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=224,Other=28
+Overall cycles with Rotated Shift=504, without Rotated Shift=952
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=32,Other=4
+Overall cycles with Rotated Shift=72, without Rotated Shift=136
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=35cdb,Pno=57
+输出表：
+00	94	d3	79	3d	c4	b3	60	97	91	33	b9	57	95	5c	22	bb	e1	92	c3	65	16	20	25	86	8f	4c	29	18	24	7a	07	69	7b	5d	09	17	ca	a8	a1	2f	ec	bd	e8	9d	19	73	3b	63	7f	7c	48	9c	3a	81	76	c7	68	be	ae	a5	55	c6	a6	0e	1c	71	61	a3	b5	98	ce	4a	a0	46	8c	54	75	d2	83	87	b7	dc	2b	9f	4f	fa	bc	f5	e0	13	ef	f4	58	35	80	51	ee	72	12	d7	fc	26	37	3f	6e	1e	42	ab	43	f6	47	fb	da	ac	9e	b4	d9	0f	ad	bf	27	03	ed	02	6c	4b	d6	67	89	70	b2	e9	d4	8a	90	52	7e	39	6b	cc	36	b8	a9	fe	a7	fd	31	28	b0	4d	6d	f8	e6	eb	41	1d	38	c1	56	dd	88	2e	40	44	c8	2c	aa	06	0d	d8	f3	e3	34	d0	6f	c9	e5	23	5e	1a	49	1b	b6	e2	0a	af	78	f7	3c	15	4e	c2	14	8d	f9	45	5f	ff	53	7d	f0	e7	82	f1	2a	df	08	11	30	c5	2d	96	1f	0c	05	e4	d5	21	77	de	cf	59	b1	8e	04	cb	9b	db	f2	01	cd	8b	d1	85	93	ba	84	50	99	5a	6a	a2	64	c0	0b	66	62	74	a4	ea	5b	3e	32	9a	10	
+
+内部函数=28208599
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=6034
+Overall GE=25088.7
+Software Cycles: AND=336,XOR=378,RotatedShift=658,Other=28
+Overall cycles with Rotated Shift=1400, without Rotated Shift=2716
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=82
+Overall GE=299.1
+Software Cycles: AND=48,XOR=54,RotatedShift=94,Other=4
+Overall cycles with Rotated Shift=200, without Rotated Shift=388
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1190
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=238,Other=28
+Overall cycles with Rotated Shift=532, without Rotated Shift=1008
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=170
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=34,Other=4
+Overall cycles with Rotated Shift=76, without Rotated Shift=144
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=3232,Pno=45
+输出表：
+00	56	75	3f	21	be	95	b8	13	47	0d	5e	d4	49	b3	60	b4	73	d1	af	e3	43	8c	7e	ea	25	9c	b5	a7	8d	64	35	57	87	ab	90	ba	10	51	36	77	ec	4b	37	72	99	66	33	fd	0f	20	9b	53	06	9f	97	d3	ac	c5	40	0a	ef	3c	39	4c	fb	31	e1	17	80	38	ff	71	1f	8e	b6	a5	08	82	c3	79	59	41	30	81	da	e6	5c	7b	2c	2f	b2	7a	cb	96	46	a0	c2	92	34	f2	03	52	76	1e	89	2e	a9	f1	c8	68	e5	78	28	f8	26	69	4a	e8	74	67	6b	24	98	16	d5	dd	1d	c9	05	ca	c1	f4	a8	eb	9d	a4	14	3b	58	15	94	5b	22	55	f3	6f	6d	ee	19	6c	e4	09	c7	c0	2b	27	cd	83	6e	a6	b7	0e	de	91	11	62	88	ad	6a	86	0c	cf	93	0b	7d	d7	2d	12	e7	8f	44	ce	1c	61	bd	9e	65	bb	fc	32	1b	2a	a2	7f	db	9a	c4	3e	e2	f6	70	1a	b9	dc	23	3a	54	c6	ed	7c	18	fa	04	d2	bc	ae	d6	d8	b0	8a	63	a1	aa	e9	5f	50	cc	5d	f7	3d	01	e0	f5	fe	df	5a	d0	f0	85	45	f9	42	02	4f	8b	84	d9	4d	a3	bf	29	48	b1	07	4e	
+
+内部函数=1644869
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4606
+Overall GE=19031.46
+Software Cycles: AND=252,XOR=294,RotatedShift=518,Other=28
+Overall cycles with Rotated Shift=1092, without Rotated Shift=2128
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=58
+Overall GE=214.98
+Software Cycles: AND=36,XOR=42,RotatedShift=74,Other=4
+Overall cycles with Rotated Shift=156, without Rotated Shift=304
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=938
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=196,Other=28
+Overall cycles with Rotated Shift=434, without Rotated Shift=826
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=134
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=28,Other=4
+Overall cycles with Rotated Shift=62, without Rotated Shift=118
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=e21d,Pno=61
+输出表：
+00	1c	47	ef	68	be	3e	90	62	4b	36	86	55	af	84	51	46	c3	4a	89	78	70	06	bc	31	9b	41	9e	6b	0f	fb	10	fa	f7	8c	d6	32	08	30	63	8b	59	04	34	c6	f8	69	3c	0d	49	d0	d8	53	92	02	0c	db	a9	df	66	64	e8	7b	c8	0a	14	a6	bb	2a	60	ac	77	88	d9	5b	81	48	7a	ec	95	4c	e3	e4	bf	5a	cf	07	f1	24	99	1e	1a	72	a7	6e	79	e7	2b	de	33	15	38	18	f0	ea	5d	b3	75	a0	ee	ba	7d	ab	b7	65	f6	f2	4e	3d	7c	5c	44	20	98	3a	40	1f	ce	dc	50	54	a4	82	05	cd	35	85	b1	b4	1b	96	d2	a8	a3	a1	4d	09	d5	7f	5e	7e	57	42	b2	9f	ca	37	e6	fe	e9	6c	13	f5	b8	fc	ed	f4	2f	21	d1	52	80	b0	26	94	6a	25	03	d4	29	e2	f3	83	74	ad	dd	56	c9	87	b9	f9	e5	ae	d3	73	93	9c	e1	ff	b6	76	23	11	c0	cc	12	16	61	fd	da	bd	58	8d	cb	71	67	4f	eb	01	8e	22	97	b5	27	3f	5f	45	1d	d7	c1	a2	c4	9a	c5	0e	6f	6d	aa	8f	43	a5	3b	9d	2e	c2	2c	8a	17	0b	c7	39	91	e0	2d	28	19	
+
+内部函数=7409377
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=644,Other=28
+Overall cycles with Rotated Shift=1372, without Rotated Shift=2660
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=92,Other=4
+Overall cycles with Rotated Shift=196, without Rotated Shift=380
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=224,Other=28
+Overall cycles with Rotated Shift=504, without Rotated Shift=952
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=32,Other=4
+Overall cycles with Rotated Shift=72, without Rotated Shift=136
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=74be6,Pno=51
+输出表：
+00	28	15	df	50	6f	6e	11	a4	2d	0c	a8	46	dc	ba	b3	73	c4	10	36	7f	f7	1a	38	43	f0	09	4d	2f	75	c5	4c	3b	3c	a7	eb	54	13	47	2a	cc	f6	84	ca	ad	a3	72	fb	07	fd	5c	2b	c9	0a	5d	42	a2	5a	e9	3e	cd	1c	39	3d	5b	9e	b4	58	1b	7d	63	98	b1	34	f8	78	c6	8e	bb	95	35	96	66	6a	a1	9d	b0	7c	e4	48	64	21	cf	76	4b	ce	e2	ea	81	01	90	d4	c3	aa	55	ff	02	d3	20	18	af	85	1e	b5	27	e5	23	d2	f9	49	db	9a	fe	2e	08	3a	1f	8a	4e	06	71	6b	32	e3	fc	6d	68	c0	de	70	0f	dd	1d	ef	24	4a	94	e7	62	0b	c2	a0	89	5f	a6	91	99	6c	e1	12	ed	9c	2c	51	d7	8b	da	bf	ab	83	88	b2	82	14	4f	d0	9f	ac	f3	3f	56	a9	c1	be	25	5e	7b	bd	c8	86	87	45	cb	40	9b	30	74	59	d9	b9	0e	b8	d5	37	26	05	16	f5	52	8f	04	f4	ee	79	17	d8	57	f2	97	e8	65	d1	e6	53	60	ae	8d	b7	b6	61	80	d6	ec	93	bc	f1	fa	e0	03	19	41	33	69	29	92	a5	77	44	7e	67	8c	22	c7	31	0d	7a	
+
+内部函数=61207377
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4382
+Overall GE=18433.38
+Software Cycles: AND=252,XOR=280,RotatedShift=504,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2072
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=56
+Overall GE=209.64
+Software Cycles: AND=36,XOR=40,RotatedShift=72,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=296
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=826
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=406, without Rotated Shift=770
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=118
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=58, without Rotated Shift=110
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=1be10,Pno=79
+输出表：
+00	fa	f9	53	8d	ab	24	81	44	a6	d4	a2	32	b6	46	1c	06	9e	2e	f6	4a	88	50	9f	1a	52	09	e9	11	54	62	c2	22	a3	ce	dc	c5	58	65	3a	ba	08	d1	1b	ee	04	66	ed	7c	5d	6f	78	6a	bb	25	da	16	8b	c7	e8	98	ac	86	bd	cb	1e	5f	3c	56	fc	12	b2	8f	fb	f2	6d	a8	f3	a0	e5	94	36	60	79	5a	91	77	3f	71	e0	a7	51	c4	0a	e1	74	e6	2d	a4	ae	ec	85	9c	49	2b	cd	90	d0	89	5b	b3	9d	f7	f0	76	eb	13	3b	d5	bc	31	8a	0d	69	af	19	6e	0c	97	2c	18	67	82	2a	7d	83	02	d7	99	df	ea	c9	6c	39	95	8e	37	70	7a	17	84	cf	f4	cc	9b	b9	4b	a9	0b	ef	42	4d	41	57	03	14	35	ca	7f	ff	f8	64	05	e3	fe	d6	61	c1	43	75	45	d9	5e	38	10	a5	d2	47	20	7e	a1	30	dd	2f	5c	4f	48	8c	e4	96	55	23	73	7b	07	87	ad	15	b1	e7	c8	db	72	93	6b	e2	1f	b8	33	d3	b7	21	b0	3e	c0	f5	01	80	1d	0e	92	f1	40	59	68	63	b5	d8	4e	c3	4c	de	fd	28	bf	3d	27	34	9a	29	26	be	c6	b4	aa	0f	
+
+内部函数=14616697
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5586
+Overall GE=23892.54
+Software Cycles: AND=336,XOR=350,RotatedShift=609,Other=28
+Overall cycles with Rotated Shift=1323, without Rotated Shift=2541
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=78
+Overall GE=288.42
+Software Cycles: AND=48,XOR=50,RotatedShift=87,Other=4
+Overall cycles with Rotated Shift=189, without Rotated Shift=363
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=966
+Overall GE=3888.64
+Software Cycles: AND=112,XOR=126,RotatedShift=203,Other=28
+Overall cycles with Rotated Shift=469, without Rotated Shift=875
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=138
+Overall GE=555.52
+Software Cycles: AND=16,XOR=18,RotatedShift=29,Other=4
+Overall cycles with Rotated Shift=67, without Rotated Shift=125
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=5c3a4,Pno=54
+输出表：
+00	3e	2c	81	28	96	c4	e9	8d	8a	c5	5b	7a	89	60	66	a3	99	e5	35	22	72	cf	41	da	ff	bb	7e	4b	4d	24	73	11	8e	37	4f	eb	36	9b	c7	01	b3	f0	0a	a0	04	f9	d7	df	90	48	0c	0e	70	b5	ee	6b	38	d0	ba	61	e7	63	58	82	10	3c	6d	9f	a1	14	b8	1d	f2	1a	18	31	e2	0f	64	47	b7	a6	ab	bd	d9	aa	e0	52	7f	ca	23	c6	80	f1	68	9a	dd	98	f6	ce	15	43	5d	78	39	d5	2f	b9	7d	3f	ef	1b	76	74	69	ea	5e	be	fd	f5	1c	d2	a8	9d	c3	c0	57	4e	5f	bc	87	46	79	3d	e6	cc	54	19	49	c1	4a	84	2b	8c	8f	59	ec	91	a7	30	44	d3	bf	b1	3a	42	05	b2	e1	06	33	94	83	1f	4c	92	55	fc	16	ed	e8	6a	7c	12	e3	88	85	77	0b	fe	5c	b0	40	af	de	d6	1e	ac	97	cb	27	21	ad	86	95	75	cd	e4	6e	53	25	32	a5	67	56	13	9e	93	3b	6c	8b	09	fa	62	07	2d	65	b6	2a	17	fb	26	03	a9	d1	20	f7	d4	c9	a2	dc	34	45	f4	9c	db	08	0d	d8	29	c2	c8	6f	5a	a4	f3	ae	b4	71	7b	f8	50	02	2e	51	
+
+内部函数=48353876
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=644,Other=28
+Overall cycles with Rotated Shift=1372, without Rotated Shift=2660
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=92,Other=4
+Overall cycles with Rotated Shift=196, without Rotated Shift=380
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=224,Other=28
+Overall cycles with Rotated Shift=504, without Rotated Shift=952
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=32,Other=4
+Overall cycles with Rotated Shift=72, without Rotated Shift=136
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=4fa48,Pno=32
+输出表：
+00	af	53	9c	41	3e	93	20	45	ae	3d	bd	71	80	9d	1a	6f	7e	22	86	c8	63	d5	3b	c3	f7	b3	75	4a	79	42	8f	30	82	60	1b	31	8e	d9	5b	b1	bf	84	a9	8b	d4	76	97	6d	cf	21	da	28	cb	c1	6c	66	fb	59	68	a2	7c	92	4c	62	ea	ee	c5	b5	e7	0e	35	70	15	e4	13	7b	27	50	54	9f	32	ac	88	5a	f8	aa	2c	73	38	b4	57	83	52	67	25	e2	0b	06	90	48	d0	1e	40	a8	04	2d	a0	cd	4b	bc	5c	f0	d3	f1	db	2b	ab	49	9a	94	d8	2a	7f	01	91	de	be	4f	6e	f4	87	46	61	55	1c	df	24	08	a7	fe	29	5f	81	ed	1f	89	b0	05	1d	fc	37	a3	2e	f6	12	47	d7	16	e5	96	e1	b9	c4	5d	ef	0f	b6	11	8a	4e	33	fd	c9	dd	98	43	0a	a5	19	0d	18	c0	f9	02	6a	e9	a1	bb	ec	8d	85	69	14	ba	d6	8c	95	39	64	c7	09	03	6b	3c	d1	23	f3	b2	17	f5	f2	56	9b	65	99	07	9e	77	10	5e	26	ff	74	b7	3f	a6	ad	fa	d2	36	2f	dc	e0	b8	58	eb	cc	7a	e3	7d	34	0c	e6	51	a4	4d	ce	e8	ca	c6	72	3a	78	c2	44	
+
+内部函数=41755698
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4606
+Overall GE=19031.46
+Software Cycles: AND=252,XOR=294,RotatedShift=518,Other=28
+Overall cycles with Rotated Shift=1092, without Rotated Shift=2128
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=58
+Overall GE=214.98
+Software Cycles: AND=36,XOR=42,RotatedShift=74,Other=4
+Overall cycles with Rotated Shift=156, without Rotated Shift=304
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=938
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=196,Other=28
+Overall cycles with Rotated Shift=434, without Rotated Shift=826
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=134
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=28,Other=4
+Overall cycles with Rotated Shift=62, without Rotated Shift=118
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=2b3ec,Pno=13
+输出表：
+00	fa	f4	54	ca	aa	9a	b7	a3	5d	ec	5f	45	cd	dd	27	01	18	ff	96	e6	15	e4	b0	43	f0	a0	4a	f3	9e	f8	89	7b	ee	e1	56	a5	24	d0	d2	8c	d3	2e	88	bc	68	e0	ba	44	f9	b6	55	46	59	16	05	82	af	8b	ef	39	5a	b9	98	1b	1c	0f	7a	bb	9f	7f	28	1f	53	3c	a1	77	cf	79	80	0d	14	7e	de	08	17	3b	07	c7	d9	4b	2d	0e	c2	b4	fc	da	3d	30	41	34	11	6c	38	c8	95	c1	fe	36	0a	0b	b1	ce	91	09	13	8d	25	dc	1e	6d	cb	d5	32	20	8e	83	06	ae	35	1d	7d	87	51	bf	04	f7	75	65	5b	02	8a	3e	df	74	5c	d1	94	a9	90	e2	d8	4f	64	9d	2a	52	50	85	40	4c	76	37	86	62	71	4e	10	81	78	e9	23	12	7c	b5	d4	fd	69	26	c3	47	e8	8f	67	db	c9	fb	b2	33	f5	b8	97	21	57	2c	60	6b	3a	a8	e7	c5	29	99	49	73	22	eb	6f	84	e3	b3	ac	2b	92	58	cc	31	19	9c	63	61	3f	c6	ab	6a	a2	48	42	f2	e5	a4	c4	66	c0	0c	6e	93	1a	9b	a7	ea	03	2f	72	5e	bd	be	f1	ed	ad	d7	f6	70	a6	d6	4d	
+
+内部函数=22672915
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4382
+Overall GE=18433.38
+Software Cycles: AND=252,XOR=280,RotatedShift=483,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2009
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=56
+Overall GE=209.64
+Software Cycles: AND=36,XOR=40,RotatedShift=69,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=287
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=826
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=399, without Rotated Shift=749
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=118
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=57, without Rotated Shift=107
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=362ce,Pno=25
+输出表：
+00	30	33	19	74	9f	83	a7	99	a6	70	25	f6	b3	9e	52	03	92	fc	34	06	80	b7	82	36	ee	8c	73	bb	b8	bf	e4	eb	7b	8d	7a	ac	ad	23	da	66	a4	5f	5d	97	fe	f9	9b	bc	6c	c4	31	f5	55	d2	ea	85	2f	12	e1	6f	ec	c0	ae	01	e3	f2	4f	16	f1	f8	b6	2d	53	89	4c	61	26	b5	a3	78	ff	f0	c1	5e	35	c8	4b	49	e7	6e	cb	13	02	4e	91	84	05	f4	c3	de	81	17	11	1d	51	b1	8e	df	2a	d0	86	47	64	95	fb	24	08	b0	7e	4a	22	c2	b9	88	a0	fa	54	d5	65	0a	c7	1b	ed	18	fd	6a	0e	dc	20	37	2c	e9	db	ce	6b	a5	c5	75	96	b2	c9	1a	0b	42	90	dd	3f	ef	d1	59	87	d8	c6	5a	d3	e5	3a	44	bd	be	3d	60	0c	3b	14	f7	3c	a9	2b	77	7f	72	1e	ca	69	a2	28	cf	cc	71	09	3e	e6	4d	04	6d	93	58	39	57	27	2e	50	ba	10	94	40	29	63	0f	1c	d7	e2	62	d4	98	68	7c	15	ab	9c	aa	7d	8f	5c	d6	41	76	5b	56	e8	48	38	67	a8	79	a1	8b	8a	45	cd	af	b4	46	d9	0d	1f	21	9d	f3	32	9a	07	43	e0	
+
+内部函数=28403493
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=665,Other=28
+Overall cycles with Rotated Shift=1407, without Rotated Shift=2737
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=95,Other=4
+Overall cycles with Rotated Shift=201, without Rotated Shift=391
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=245,Other=28
+Overall cycles with Rotated Shift=539, without Rotated Shift=1029
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=35,Other=4
+Overall cycles with Rotated Shift=77, without Rotated Shift=147
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=68ee8,Pno=51
+输出表：
+00	01	02	03	04	29	77	26	08	79	a6	53	df	5e	54	ad	10	11	9c	d0	f9	28	31	bd	bf	07	22	9d	91	38	88	ff	20	61	ab	8b	af	1a	34	a7	60	e6	dd	51	1f	ae	ca	67	1c	3e	4d	4e	43	8a	2a	cc	ef	42	65	81	13	50	55	b8	40	e1	71	7a	44	5d	14	6f	6c	a8	c4	de	c3	18	e4	b1	21	2e	23	57	f5	83	f0	12	5a	d7	0f	e3	5c	d6	4a	52	16	d9	30	4c	64	9b	99	d1	a1	7f	3a	d3	36	3f	6e	e2	ac	86	7d	f6	4b	15	fc	b4	1d	2c	d5	37	1b	92	7e	8f	80	49	62	bb	cf	8e	6a	7b	b7	6b	c0	c6	89	a5	7c	f4	0c	95	e9	82	87	68	be	da	74	45	58	98	78	2b	cd	09	b5	69	41	a3	a4	db	8c	f8	d2	47	90	ee	25	fd	56	1e	ba	a2	48	b3	0e	c8	fa	fe	4f	f1	66	c1	2f	9a	94	b2	ce	c7	c5	f7	3d	b6	b0	35	70	0b	6d	5b	ed	46	97	17	72	33	2d	19	d4	76	e8	32	c2	05	39	c9	85	aa	84	59	9e	d8	24	e0	f2	e5	06	eb	63	f3	cb	b9	ec	a0	8d	bc	5f	0a	dc	3b	0d	3c	75	9f	27	fb	e7	96	a9	93	ea	73	
+
+内部函数=55014481
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4158
+Overall GE=17835.3
+Software Cycles: AND=252,XOR=266,RotatedShift=497,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2037
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=54
+Overall GE=204.3
+Software Cycles: AND=36,XOR=38,RotatedShift=71,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=291
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=714
+Overall GE=2916.48
+Software Cycles: AND=84,XOR=98,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=385, without Rotated Shift=735
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=102
+Overall GE=416.64
+Software Cycles: AND=12,XOR=14,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=55, without Rotated Shift=105
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=e364,Pno=43
+输出表：
+00	ac	b4	e9	0a	be	11	6f	98	e1	36	59	ea	05	1f	15	5a	c3	f1	06	78	6b	ba	42	8d	81	e6	16	f7	52	bf	5e	ed	aa	c8	f0	56	62	12	63	47	ee	f5	4c	ae	70	01	a7	a4	dd	79	d8	87	83	8a	3a	f6	65	02	6d	ec	44	c7	e2	2c	14	20	0c	a2	94	9e	1b	82	97	48	4d	9c	50	64	c2	c4	f8	45	61	ce	03	53	27	75	1a	1e	54	e5	43	41	3d	f4	09	fc	33	29	1d	d4	92	c6	d5	b0	d1	a0	95	2a	74	4f	31	a9	c0	25	2d	58	38	90	24	d9	b8	17	04	18	db	26	f2	10	3e	88	af	37	f9	0d	de	8b	77	32	d2	6a	5c	72	13	bd	5d	e3	99	b2	d0	22	7e	8f	cd	73	eb	ca	fb	6c	49	40	7d	f3	21	3b	3c	fa	7c	da	cb	2b	80	4a	a6	86	cf	5b	66	2e	b3	b7	dc	7a	c1	28	c9	9f	7b	35	19	55	9d	89	93	84	4b	ff	e0	96	67	b6	bb	cc	b1	60	ab	e8	0f	71	df	b9	2f	c5	23	0b	6e	e4	34	8e	d3	0e	b5	30	5f	69	fd	d7	9b	fe	bc	76	e7	1c	a3	51	7f	07	08	a5	3f	a8	8c	ad	68	57	46	ef	d6	39	a1	85	4e	9a	91	
+
+内部函数=7451203
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=665,Other=28
+Overall cycles with Rotated Shift=1407, without Rotated Shift=2737
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=95,Other=4
+Overall cycles with Rotated Shift=201, without Rotated Shift=391
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=245,Other=28
+Overall cycles with Rotated Shift=539, without Rotated Shift=1029
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=35,Other=4
+Overall cycles with Rotated Shift=77, without Rotated Shift=147
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=42445,Pno=26
+输出表：
+00	2b	d7	e4	cb	bc	d9	87	19	dd	5d	8e	5a	75	a0	ad	30	18	05	63	a5	76	1e	8c	1d	81	43	24	b7	95	f3	d6	db	11	f9	85	de	46	e3	34	e7	d4	31	44	35	be	a3	3d	da	12	cf	6d	0b	96	41	62	3c	3e	2f	6f	fa	c0	b0	9d	8a	f2	d5	f6	ef	40	90	97	38	9c	a2	23	8f	03	42	5b	36	84	f7	56	22	c9	45	33	54	d2	80	14	ec	74	1c	68	0f	37	bf	ba	17	bd	d1	21	3b	b4	70	ab	83	bb	e5	20	99	6a	7f	58	01	5e	59	16	a4	51	6c	fb	5c	8d	4d	39	0a	27	f1	10	89	aa	1a	e0	b6	c1	9f	b2	c4	72	a6	98	32	6e	c5	6b	ea	c3	df	b5	48	e1	2c	08	7d	b1	2d	d3	4c	ae	1b	73	82	fc	e2	b3	69	55	7c	d0	a9	9a	67	66	50	0e	4f	d8	c2	0c	60	7e	53	4a	57	65	2a	ca	94	cd	3a	e6	04	61	fd	eb	52	06	7b	28	93	a8	f0	13	2e	3f	47	b9	ac	a7	fe	ee	4e	64	ce	f4	4b	e8	5f	79	cc	1f	49	09	7a	c7	8b	a1	af	9e	07	9b	29	92	e9	ff	91	b8	15	25	f8	c8	77	c6	dc	86	02	ed	26	f5	71	0d	78	88	
+
+内部函数=34742950
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4606
+Overall GE=19031.46
+Software Cycles: AND=252,XOR=294,RotatedShift=490,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2044
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=58
+Overall GE=214.98
+Software Cycles: AND=36,XOR=42,RotatedShift=70,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=292
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=938
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=420, without Rotated Shift=784
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=134
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=60, without Rotated Shift=112
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=3c2f,Pno=6b
+输出表：
+00	f0	9d	52	af	e1	c9	41	0d	de	23	d8	74	3d	4c	cf	ac	7e	72	56	50	64	1c	16	6a	e8	2e	22	02	0e	28	d2	f5	10	d3	dc	aa	1a	3e	90	58	1d	49	a5	cd	4a	c3	0f	f9	5f	9a	8f	c5	5a	ab	84	54	f3	59	e2	3a	34	35	f7	97	a0	ea	0c	89	4f	c0	91	b8	6c	a7	9b	b3	85	39	ad	32	86	66	38	c4	bf	69	62	6f	03	d4	b4	da	68	70	f1	df	60	be	25	42	75	e5	6e	6d	3f	9e	c1	d1	77	e4	2d	73	07	43	7a	83	a4	65	d6	05	2c	7c	ed	d0	96	5b	a9	48	24	5d	0a	b1	7d	1b	f2	5e	ff	eb	11	71	88	92	fb	12	c8	33	db	47	98	e3	8c	4d	4b	3c	95	f4	e0	82	1f	61	4e	27	bd	93	e9	09	13	e7	dd	0b	15	8b	ec	ca	78	1e	18	81	8d	63	bb	99	fa	a8	06	b6	d7	2b	d9	67	f8	fe	ce	8e	6b	2a	c7	ba	b7	b2	e6	fc	5c	21	fd	a1	53	76	b5	80	26	37	87	c6	30	57	40	3b	14	a3	20	ee	9f	cc	94	31	cb	a2	08	2f	bc	c2	ef	36	55	01	19	17	9c	8a	29	44	d5	ae	46	7f	45	b9	04	f6	b0	7b	51	a6	79	
+
+内部函数=1972203
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5810
+Overall GE=24490.62
+Software Cycles: AND=336,XOR=364,RotatedShift=644,Other=28
+Overall cycles with Rotated Shift=1372, without Rotated Shift=2660
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=80
+Overall GE=293.76
+Software Cycles: AND=48,XOR=52,RotatedShift=92,Other=4
+Overall cycles with Rotated Shift=196, without Rotated Shift=380
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1078
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=224,Other=28
+Overall cycles with Rotated Shift=504, without Rotated Shift=952
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=154
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=32,Other=4
+Overall cycles with Rotated Shift=72, without Rotated Shift=136
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=1c4ae,Pno=3d
+输出表：
+00	73	40	82	71	87	e9	4a	21	dd	0f	35	52	30	4f	5e	dc	f6	ca	99	c5	6a	3c	81	1b	19	a8	bb	07	a4	56	84	05	a5	8d	61	d8	89	ef	d2	62	68	7c	33	fd	9b	7e	e0	d0	c3	1c	ec	f5	e8	ce	d6	e5	2a	63	5c	76	27	1d	cd	97	43	91	a3	5b	8f	e1	94	5d	f8	aa	9c	bd	74	58	cc	24	b5	bf	28	08	f7	c6	9e	32	57	7b	60	ed	b6	fb	af	18	2f	9a	17	22	42	98	d4	8a	83	b8	3d	6b	34	9d	4b	55	b3	93	47	d1	0a	e6	5a	86	12	78	d7	14	c8	9f	ad	50	f1	ae	6c	0e	df	a6	4c	0c	b1	f3	3b	7d	44	3e	bc	11	16	a7	04	6d	d3	b4	d9	6e	88	70	db	ea	e3	95	26	e2	75	fa	a1	8b	a0	7f	fc	69	f0	f9	2c	39	c7	29	64	92	fe	a2	ba	b2	46	ab	7a	be	51	01	b0	02	31	2b	03	4e	79	1a	da	f2	36	59	eb	8e	96	77	6f	c1	de	85	65	67	20	c0	66	e4	80	4d	1f	f4	48	37	2d	49	cf	ac	3f	0b	a9	23	ff	d5	10	06	0d	c9	b9	41	53	38	c4	2e	13	09	cb	8c	ee	e7	1e	b7	90	15	c2	54	3a	25	45	5f	72	
+
+内部函数=14833469
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=6034
+Overall GE=25088.7
+Software Cycles: AND=336,XOR=378,RotatedShift=665,Other=28
+Overall cycles with Rotated Shift=1407, without Rotated Shift=2737
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=82
+Overall GE=299.1
+Software Cycles: AND=48,XOR=54,RotatedShift=95,Other=4
+Overall cycles with Rotated Shift=201, without Rotated Shift=391
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1190
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=245,Other=28
+Overall cycles with Rotated Shift=539, without Rotated Shift=1029
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=170
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=35,Other=4
+Overall cycles with Rotated Shift=77, without Rotated Shift=147
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=98,Sno=5c674,Pno=62
+输出表：
+00	80	fa	91	e7	fb	0b	1b	0d	fd	08	f2	4a	4d	03	a4	69	a7	c7	a8	d9	04	aa	c2	19	0c	d3	ce	4b	d0	53	dc	b5	8a	de	ca	31	f5	ab	df	71	8c	2c	32	eb	92	f8	e4	5a	70	66	a6	33	2a	38	95	02	db	14	1a	87	65	c3	2d	b9	ee	5d	7c	3b	4f	25	16	e0	8d	e3	21	b0	f0	45	81	79	18	6a	46	d6	39	60	8e	01	1d	43	63	ac	06	bb	55	88	93	bc	74	d2	fc	ba	99	34	9b	49	d7	5c	7f	f3	ae	56	b2	f1	a3	3c	be	b8	af	48	41	36	58	6c	cf	c1	78	24	dd	b1	ed	12	64	68	42	30	0a	c4	47	a0	f6	ec	fe	4e	5e	a9	10	96	76	9c	86	50	11	bf	cd	23	b6	a2	c9	8f	5b	2e	82	b3	2b	1c	cc	d5	f7	9f	57	26	37	05	15	c5	7e	72	85	5f	e9	52	07	d1	97	83	c6	ff	2f	1f	75	13	e1	90	7b	09	1e	20	e5	51	e8	40	67	6d	f9	22	9e	a1	a5	3f	d8	bd	28	29	98	ef	17	ad	4c	61	c0	3a	59	f4	73	cb	7d	b7	84	54	6e	8b	d4	44	94	9a	b4	6b	ea	62	e6	0e	77	0f	27	9d	da	35	c8	89	3d	6f	7a	3e	e2	
+
+内部函数=48446050
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4606
+Overall GE=19031.46
+Software Cycles: AND=252,XOR=294,RotatedShift=490,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2044
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=58
+Overall GE=214.98
+Software Cycles: AND=36,XOR=42,RotatedShift=70,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=292
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=938
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=420, without Rotated Shift=784
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=134
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=60, without Rotated Shift=112
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=75f4c,Pno=3b
+输出表：
+00	37	35	82	18	3d	47	03	d3	a3	ee	1a	e5	24	87	36	f1	77	33	c5	7f	fc	2d	85	43	5d	b4	aa	d5	c7	70	31	4f	3e	dd	bb	8b	28	ce	e2	40	1c	b0	e1	e6	09	12	30	cb	83	f0	b6	99	b2	6a	a4	cf	b1	ba	57	de	68	4e	9c	63	b3	9d	ef	c9	d1	51	6e	9b	e9	0f	8c	fe	4a	86	f7	ed	6c	e3	48	06	ec	08	6b	3c	69	0e	af	56	c2	be	ca	15	96	d0	cd	79	c0	cc	02	bc	39	c6	1e	a0	f2	26	a1	e7	45	2f	5b	0a	38	55	a5	6d	75	76	20	7d	61	49	60	93	f4	a6	5f	d4	f9	ea	e8	21	e0	a9	7a	0b	14	d9	50	da	78	98	46	04	22	c8	8f	df	34	16	84	17	fd	27	3b	5a	97	7b	07	81	0d	b8	4b	3a	8a	92	52	32	1d	f8	59	ab	01	53	ff	bf	65	c1	25	a8	bd	54	d7	d2	5c	10	fb	7c	c3	05	74	9e	13	d8	90	41	c4	72	94	66	1f	a2	4c	1b	2c	5e	2e	9f	dc	e4	db	23	9a	2a	fa	29	f5	2b	64	89	91	3f	4d	0c	a7	b5	95	f3	11	80	f6	8d	44	88	6f	58	b9	ac	b7	8e	67	eb	d6	ae	73	42	7e	19	62	ad	71	
+
+内部函数=61843003
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=511,Other=28
+Overall cycles with Rotated Shift=1071, without Rotated Shift=2093
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=73,Other=4
+Overall cycles with Rotated Shift=153, without Rotated Shift=299
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=189,Other=28
+Overall cycles with Rotated Shift=413, without Rotated Shift=791
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=27,Other=4
+Overall cycles with Rotated Shift=59, without Rotated Shift=113
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=3643e,Pno=57
+输出表：
+00	ec	ef	92	23	13	9a	03	b7	db	0a	1b	9b	90	c9	f0	d9	83	0b	73	d4	be	ad	f9	77	47	3b	c6	37	cc	98	30	d3	bb	9f	39	4d	89	70	df	c8	2a	96	fc	1d	53	f7	a4	e6	8f	f8	1c	cb	74	18	f4	0d	59	80	b8	25	3d	44	8e	09	ba	a1	48	1e	45	b6	de	e5	16	cd	e9	6e	d5	31	e7	50	b4	b5	9d	d2	15	58	34	60	f3	63	bf	ca	5e	c4	54	85	a6	17	7d	84	55	aa	41	33	eb	c3	95	88	91	fb	e8	1a	71	56	40	79	3c	14	2e	a7	9c	cf	a9	26	f6	3a	ae	fa	8c	6a	46	21	20	8b	c0	6d	bd	81	d8	2c	11	5a	dd	10	0f	3e	f5	6b	82	49	04	da	4a	72	ce	f2	97	2f	67	07	5c	24	ff	e3	57	36	0e	38	e2	43	93	87	b9	19	06	d1	65	8a	b3	02	75	e1	7f	a2	68	d0	fd	b0	a5	22	62	61	4b	8d	c2	94	ab	a0	12	66	2b	a3	5d	01	e4	ac	3f	08	52	c1	0c	4f	05	b2	64	c5	27	78	c7	dc	99	2d	b1	32	51	f1	1f	7c	86	fe	6c	35	76	69	28	7a	d7	29	4c	7b	7e	42	5b	ee	bc	ea	9e	6f	a8	4e	e0	d6	5f	af	ed	
+
+内部函数=28450647
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4914
+Overall GE=19853.82
+Software Cycles: AND=252,XOR=308,RotatedShift=532,Other=28
+Overall cycles with Rotated Shift=1120, without Rotated Shift=2184
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=72
+Overall GE=252.36
+Software Cycles: AND=36,XOR=44,RotatedShift=76,Other=4
+Overall cycles with Rotated Shift=160, without Rotated Shift=312
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=1078
+Overall GE=3813.6
+Software Cycles: AND=84,XOR=140,RotatedShift=210,Other=28
+Overall cycles with Rotated Shift=462, without Rotated Shift=882
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=154
+Overall GE=544.8
+Software Cycles: AND=12,XOR=20,RotatedShift=30,Other=4
+Overall cycles with Rotated Shift=66, without Rotated Shift=126
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=691fc,Pno=43
+输出表：
+00	06	e5	99	75	0a	c8	a6	1b	db	c9	88	6d	60	fe	87	65	ce	e7	97	f0	63	de	7e	ed	2f	fb	cd	1f	61	86	35	92	40	02	e4	3e	4d	ee	c0	8f	ff	81	5d	62	3d	a2	04	4e	b5	df	28	5e	46	01	5a	b1	89	a7	7a	e0	29	25	9f	12	79	eb	53	47	b2	23	fa	33	52	aa	9d	17	ab	39	0b	c7	f3	13	84	0e	2c	ec	31	e9	36	c3	70	c2	83	22	bb	9a	e2	8a	e8	43	26	20	59	af	07	6f	95	a3	1e	b3	82	6a	19	d0	d5	08	10	2e	a9	94	71	ac	03	a8	76	a5	a0	d2	bf	5f	14	1a	5b	f4	41	d1	cb	64	66	da	55	d4	c1	fd	16	b0	2d	1c	4a	6e	f7	f2	68	8d	e6	3f	f5	2a	38	7d	c4	a4	cf	f1	2b	0d	7f	7b	ef	b9	8c	6c	d3	ad	3c	74	73	85	cc	fc	ea	bc	f8	80	c5	32	78	54	8e	ae	dc	37	67	4f	b6	b7	b4	0f	7c	27	50	a1	9e	c6	5c	d6	44	f9	4c	e3	d9	58	48	57	8b	0c	11	90	ba	4b	3b	45	b8	d8	6b	05	72	93	09	dd	51	77	3a	96	34	30	9c	e1	be	f6	18	49	69	56	24	98	91	d7	bd	9b	21	ca	1d	42	15	
+
+内部函数=55115331
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=630,Other=28
+Overall cycles with Rotated Shift=1372, without Rotated Shift=2632
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=90,Other=4
+Overall cycles with Rotated Shift=196, without Rotated Shift=376
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=224,Other=28
+Overall cycles with Rotated Shift=518, without Rotated Shift=966
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=32,Other=4
+Overall cycles with Rotated Shift=74, without Rotated Shift=138
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=e364,Pno=61
+输出表：
+00	de	da	ad	ba	ef	dd	0c	50	2d	33	7a	62	1f	bf	5f	ee	5b	79	eb	83	27	cd	42	41	07	bd	ab	31	16	71	94	a1	66	43	8f	56	09	c2	a3	1b	0d	6e	08	f3	93	89	d1	2c	e1	e4	d5	c7	0b	f5	5d	0e	e0	46	db	69	f7	51	e2	5a	1e	64	6f	49	7d	78	d7	4e	c9	01	f9	10	9c	98	68	fb	2a	32	25	8e	7e	53	06	b3	92	b2	9b	6d	81	c5	19	7c	ea	58	a6	ed	1d	9e	4c	30	21	38	e3	a0	df	39	74	4b	75	35	29	61	11	9a	05	2e	3f	4f	b8	e9	cf	18	e5	84	b6	20	59	44	15	97	4d	e6	ac	60	bb	c6	d8	6a	77	be	6b	a2	b5	e8	55	d2	d6	96	03	cb	3d	80	2f	28	73	6c	22	76	b1	26	91	7f	b9	d9	f4	d4	3c	2b	e7	12	ff	f6	8c	d3	02	90	88	ec	54	3e	82	f1	b0	67	7b	a9	3a	99	63	48	9d	ae	87	fa	4a	a4	72	f2	5c	cc	d0	8b	23	a7	c3	37	dc	fd	57	8d	52	b4	bc	ca	70	8a	0f	86	45	0a	34	a5	f0	47	95	c8	f8	fe	c4	fc	af	36	3b	40	1a	a8	24	b7	04	17	65	13	aa	9f	5e	ce	c0	c1	85	1c	14	
+
+内部函数=7451233
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=665,Other=28
+Overall cycles with Rotated Shift=1407, without Rotated Shift=2737
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=95,Other=4
+Overall cycles with Rotated Shift=201, without Rotated Shift=391
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=245,Other=28
+Overall cycles with Rotated Shift=539, without Rotated Shift=1029
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=35,Other=4
+Overall cycles with Rotated Shift=77, without Rotated Shift=147
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=2c33a,Pno=64
+输出表：
+00	cf	ea	1f	b7	63	b9	e4	a5	25	2f	d6	35	83	53	10	02	0b	d7	81	33	a2	95	e2	8c	1e	3f	9d	e5	58	c7	a6	76	46	98	6e	56	7b	cb	34	f8	37	f6	85	24	bf	1b	4b	20	23	e8	40	f4	3e	f0	4e	96	ee	92	8b	d0	0a	e6	b8	f3	a7	ad	65	9f	7c	9c	08	1d	ba	55	bc	ae	ec	94	d3	47	e0	8d	50	12	6f	c8	27	db	03	72	a0	48	9e	88	21	b6	26	67	fd	0f	3d	0e	0d	2d	77	f2	f9	51	87	e9	59	07	4a	f1	9a	29	f5	fa	4f	38	93	80	d5	90	2e	3c	c0	b2	cc	fe	01	79	89	b3	c4	41	06	28	ce	a3	b4	e1	2c	d1	ff	eb	1c	5e	5b	7d	15	57	84	ef	7a	5f	30	bb	22	6d	8e	99	fb	dd	c5	a1	b0	e7	aa	09	73	c9	39	82	86	04	71	44	c1	2b	a9	ed	31	42	70	4c	66	68	7f	c2	54	75	dc	5a	49	69	ca	c3	78	13	9b	45	3a	18	a4	f7	05	da	74	1a	a8	8f	d9	cd	8a	c6	43	2a	16	5d	de	91	64	32	60	ab	52	14	61	36	6c	17	bd	b5	ac	62	d8	19	97	e3	3b	7e	fc	4d	d2	11	be	5c	df	b1	6b	af	0c	6a	d4	
+
+内部函数=23174500
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=651,Other=28
+Overall cycles with Rotated Shift=1379, without Rotated Shift=2681
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=93,Other=4
+Overall cycles with Rotated Shift=197, without Rotated Shift=383
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=231,Other=28
+Overall cycles with Rotated Shift=511, without Rotated Shift=973
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=33,Other=4
+Overall cycles with Rotated Shift=73, without Rotated Shift=139
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=50e7d,Pno=61
+输出表：
+00	f0	b5	79	8a	17	0a	bb	51	4d	11	dc	19	e4	21	be	1a	d0	3e	6b	a2	31	6d	4e	26	0e	d1	29	85	df	e2	6f	91	44	b8	06	87	e1	30	90	ff	a8	59	ef	75	b9	98	15	1e	80	41	dd	82	2c	bf	ae	c4	60	12	d5	35	ab	5e	96	e0	01	2b	78	42	c1	39	8c	49	e9	10	6c	68	95	81	7e	6a	54	f6	3a	20	9a	36	38	18	b6	c2	ee	2f	e8	e5	c6	a9	9e	cd	64	73	ec	1c	c7	45	f8	cc	c8	d6	fd	02	33	4a	fc	aa	97	9b	f5	f9	cb	24	05	37	5c	61	d9	0c	2d	7b	8b	a5	ce	e7	db	62	d7	3b	d2	de	ca	32	af	0b	a3	53	5f	7d	76	3c	58	47	ed	b0	23	86	e3	56	e6	74	07	69	8e	6e	4f	0d	99	04	d4	14	3f	55	27	43	f3	5b	c3	65	40	77	09	c0	b1	93	7c	46	b7	ac	03	a4	7a	92	89	cf	fa	a7	ad	83	5a	a0	22	4c	bc	9d	4b	34	5d	28	88	f4	ea	a1	94	70	da	fb	52	ba	66	fe	c5	63	d3	48	67	f7	f1	1b	c9	25	d8	3d	08	f2	16	9c	b3	8f	8d	2a	57	9f	1d	13	84	b2	0f	b4	72	2e	1f	bd	a6	7f	eb	71	50	
+
+内部函数=42417889
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=665,Other=28
+Overall cycles with Rotated Shift=1407, without Rotated Shift=2737
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=95,Other=4
+Overall cycles with Rotated Shift=201, without Rotated Shift=391
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=245,Other=28
+Overall cycles with Rotated Shift=539, without Rotated Shift=1029
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=35,Other=4
+Overall cycles with Rotated Shift=77, without Rotated Shift=147
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=4285f,Pno=3e
+输出表：
+00	10	ad	d6	80	d8	47	2e	df	b7	ef	c3	85	8b	73	fd	db	f1	2a	e5	56	af	0a	4f	f3	b4	cc	95	38	e9	44	51	fa	75	78	14	ed	45	90	c9	31	48	a2	b1	61	5d	7d	3e	33	eb	13	ba	f7	76	41	2b	59	b5	b6	b0	88	dd	9f	01	e4	ab	ea	8f	f0	a8	f5	d9	aa	92	1f	b9	53	a6	8a	27	4c	e6	a4	5a	72	83	12	03	8c	b2	89	3d	c2	d5	e7	26	18	f4	ec	8d	f8	4e	a7	35	a3	2d	dc	40	7a	e3	96	7b	e0	e8	6a	64	b8	91	02	43	6d	cb	3b	46	98	c5	c0	99	0e	5b	2c	52	24	1b	9e	2f	9d	16	7c	c7	c4	57	cf	3f	84	6b	70	58	55	ce	0f	19	bf	f9	23	22	08	1e	7f	fb	97	6c	81	66	1c	ae	1a	4d	21	6e	f6	d3	b3	07	e1	c8	34	5e	49	d4	9a	62	17	30	71	8e	86	60	e2	04	15	bd	0c	29	74	3a	68	4a	da	d1	28	0d	50	82	1d	a1	d7	06	79	87	67	f2	9c	a0	0b	37	ee	a5	11	ca	65	be	42	de	94	d2	d0	3c	ac	93	a9	7e	bc	32	54	20	25	6f	36	fe	9b	c6	cd	fc	5c	ff	c1	05	39	09	77	63	bb	4b	69	5f	
+
+内部函数=34877374
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=504,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2072
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=72,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=296
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=406, without Rotated Shift=770
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=58, without Rotated Shift=110
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=3efb,Pno=1
+输出表：
+00	bc	1c	58	be	9d	9b	0a	40	50	14	98	47	04	8d	fb	84	30	3a	b3	a4	d9	d4	65	23	91	d6	ce	93	74	6c	f7	22	6d	05	b8	2e	3e	28	eb	4c	34	6a	a7	ad	a1	0e	f0	3f	5b	ef	fe	9f	7f	68	96	5d	70	44	76	a5	a6	99	c8	c0	5f	7b	f5	36	73	09	2d	f9	15	52	e4	63	59	b5	df	db	21	e7	2a	a9	b2	bb	e9	94	3b	e1	46	ff	79	c9	5a	ee	78	5e	b6	1b	c2	9c	b0	54	92	b9	c4	cb	8f	ab	08	90	42	49	88	75	3c	ba	f6	de	e0	02	c3	bf	26	c1	d8	41	29	13	c6	11	38	fa	5c	7a	45	e3	d0	cf	24	07	d2	2c	31	33	b1	c5	62	27	37	55	69	ea	cd	82	af	85	0b	e8	39	25	0f	bd	c7	7c	ed	f4	43	6b	dd	19	da	6e	ae	ac	81	ca	4b	06	e5	66	2b	8a	fd	f1	9e	8b	1f	cc	f2	32	9a	80	83	4a	48	64	7d	d3	f3	d1	2f	b4	67	77	a8	95	60	86	a3	e2	1a	51	4e	b7	87	17	61	10	fc	12	8c	e6	dc	1e	8e	7e	4d	1d	a0	a2	6f	18	d7	97	0c	4f	0d	89	ec	d5	f8	3d	20	72	03	56	57	35	01	71	16	53	aa	
+
+内部函数=2063745
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=6720,XOR=6986
+Overall GE=29875.02
+Software Cycles: AND=420,XOR=448,RotatedShift=784,Other=28
+Overall cycles with Rotated Shift=1680, without Rotated Shift=3248
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=60,XOR=68
+Overall GE=281.76
+Software Cycles: AND=60,XOR=64,RotatedShift=112,Other=4
+Overall cycles with Rotated Shift=240, without Rotated Shift=464
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=1120,XOR=1246
+Overall GE=5159.84
+Software Cycles: AND=140,XOR=168,RotatedShift=266,Other=28
+Overall cycles with Rotated Shift=602, without Rotated Shift=1134
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=160,XOR=178
+Overall GE=737.12
+Software Cycles: AND=20,XOR=24,RotatedShift=38,Other=4
+Overall cycles with Rotated Shift=86, without Rotated Shift=162
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=1d77a,Pno=23
+输出表：
+00	f2	06	58	e0	cc	41	87	cb	26	a1	40	2b	96	77	9a	52	c0	ca	e2	08	fa	2e	ad	ae	72	67	b3	63	ab	d4	6c	60	da	80	b9	7d	ce	d7	5a	5d	0e	b0	78	89	04	33	aa	7a	fe	17	03	34	f3	97	39	1a	47	86	c1	83	cf	c9	ec	1e	0a	0c	4e	c5	11	c3	53	e4	e9	4c	b4	01	99	73	c7	bf	9c	91	76	c8	2a	07	c4	49	44	1c	19	48	7f	29	23	c6	a8	35	20	cd	4a	7b	90	68	df	f1	fb	a9	0f	02	b7	12	2c	36	ef	57	f5	37	d3	55	fd	f7	95	54	ed	d8	e8	b2	42	5f	dc	05	0d	6b	1d	e1	32	f8	be	3b	a5	b8	61	5b	1b	3f	14	94	5e	10	eb	de	a6	f9	3a	f4	92	d6	8a	70	9f	18	bb	a4	21	d9	7c	62	e7	d5	31	6d	ba	74	69	38	3e	84	28	98	46	8d	71	9b	dd	45	b6	bc	4d	88	16	51	bd	27	79	30	22	3d	d2	c2	09	75	6a	2d	a7	65	7e	d0	db	6f	43	8e	d1	e3	85	8f	1f	b1	af	15	ff	93	ac	50	8c	5c	25	81	13	64	e6	59	66	2f	8b	a3	24	f0	a0	fc	a2	82	9d	ee	0b	4b	ea	3c	4f	9e	56	6e	e5	f6	b5	
+
+内部函数=15449379
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4382
+Overall GE=18433.38
+Software Cycles: AND=252,XOR=280,RotatedShift=483,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2009
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=56
+Overall GE=209.64
+Software Cycles: AND=36,XOR=40,RotatedShift=69,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=287
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=826
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=399, without Rotated Shift=749
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=118
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=57, without Rotated Shift=107
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=36e33,Pno=7
+输出表：
+00	16	ba	56	27	48	cf	d9	e9	67	a6	c1	2a	ef	12	d4	0e	8c	ea	6f	03	7a	60	73	bf	33	5b	1f	f8	e4	52	34	ff	ec	bd	2d	c0	fe	75	20	37	9d	24	f9	15	1d	e6	17	d8	86	3f	21	c4	62	92	39	a2	8f	8a	bc	93	09	01	6d	f0	58	7b	55	be	59	68	23	53	a5	43	41	35	11	3d	f1	06	98	7f	d2	c3	54	b6	80	eb	aa	44	af	36	f3	2e	e2	22	47	f4	2f	90	fa	89	40	0f	e7	a3	f2	ab	ce	9f	83	b0	61	95	63	b2	dd	72	ae	df	79	1c	1a	88	0c	c8	fc	a1	91	a9	d7	c5	b1	70	bb	8e	3b	3e	5c	07	69	fb	42	84	da	b3	94	2c	d3	9c	cb	6e	e8	1e	dc	f7	04	10	0b	ad	1b	9a	c7	6a	f6	f5	ee	57	e3	49	18	b9	ed	4d	78	cc	25	5f	28	50	a4	45	d1	d6	b8	0a	76	7e	a8	e1	26	a7	99	4f	97	e5	51	5e	85	5a	14	7d	3a	c2	8b	9b	db	8d	c9	31	6c	b4	19	7c	13	ac	82	30	d5	77	29	4c	4b	6b	65	2b	08	4a	a0	c6	38	4e	96	b7	ca	87	64	d0	9e	81	32	74	e0	fd	46	5d	71	66	b5	de	02	3c	0d	05	cd	
+
+内部函数=28776839
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4830
+Overall GE=19629.54
+Software Cycles: AND=252,XOR=308,RotatedShift=476,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2016
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=60
+Overall GE=220.32
+Software Cycles: AND=36,XOR=44,RotatedShift=68,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=288
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=1050
+Overall GE=3813.6
+Software Cycles: AND=84,XOR=140,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=434, without Rotated Shift=798
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=150
+Overall GE=544.8
+Software Cycles: AND=12,XOR=20,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=62, without Rotated Shift=114
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=5d9f7,Pno=6e
+输出表：
+00	99	0a	f6	c0	98	67	2a	bc	05	3a	69	ca	0b	61	68	9b	fa	93	bf	dd	1b	fd	3d	49	a4	ce	9a	06	01	cf	c3	ee	d7	e6	e0	3b	44	2f	a6	75	65	23	f0	eb	5e	1d	02	70	0e	37	b7	e2	4f	4b	82	47	a0	6f	14	42	de	46	26	e5	b3	ec	e8	40	19	ba	c2	a9	2b	be	78	92	df	6b	16	fb	f8	54	9f	5d	20	9e	a1	84	d6	ff	27	71	b4	15	ea	d2	89	50	b8	4a	d9	41	b6	97	24	56	af	a7	03	8c	3e	33	8b	1a	d5	6d	85	d3	ab	5c	cb	6a	c1	c5	ae	a3	8a	2c	30	04	db	11	73	fc	a8	64	58	29	aa	1c	4c	7f	ed	c9	e4	8e	90	ad	76	c8	09	52	e1	35	95	34	7a	e9	7e	5b	12	59	91	bb	7b	63	83	1e	4e	43	d8	d0	4d	9c	dc	25	96	f4	5f	0d	31	bd	7c	f5	e3	60	17	55	a5	5a	0c	3c	22	7d	86	f9	b1	3f	88	72	cc	36	53	79	21	28	c7	d1	f1	45	66	ac	f7	f3	2d	57	10	74	08	8d	a2	6c	18	48	ef	87	8f	62	80	cd	07	9d	0f	51	da	38	13	c4	39	b5	b2	b0	c6	fe	f2	1f	b9	e7	94	d4	2e	77	32	6e	81	
+
+内部函数=49085422
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5810
+Overall GE=24490.62
+Software Cycles: AND=336,XOR=364,RotatedShift=644,Other=28
+Overall cycles with Rotated Shift=1372, without Rotated Shift=2660
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=80
+Overall GE=293.76
+Software Cycles: AND=48,XOR=52,RotatedShift=92,Other=4
+Overall cycles with Rotated Shift=196, without Rotated Shift=380
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1078
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=224,Other=28
+Overall cycles with Rotated Shift=504, without Rotated Shift=952
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=154
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=32,Other=4
+Overall cycles with Rotated Shift=72, without Rotated Shift=136
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=76f2c,Pno=52
+输出表：
+00	46	df	5d	66	89	94	3a	33	ec	f9	24	28	9b	6a	a9	25	f6	fb	d5	cf	54	e2	e8	8b	aa	70	f5	93	0c	d8	12	6d	dc	08	48	13	8c	e9	23	44	17	c0	62	61	1a	d1	53	d0	63	7d	87	c2	2d	78	d9	e0	43	60	09	01	8a	fc	85	a5	ef	bf	84	10	bc	6c	21	8f	65	ca	1e	90	31	e4	29	88	4d	3c	50	0d	64	0b	95	db	ac	18	e6	2f	cb	9a	57	39	36	5a	b5	97	b6	51	f7	0a	f8	a1	f2	38	3e	9f	6b	83	b0	79	20	a8	ff	45	af	4b	2a	8e	c8	55	a0	a2	7a	04	3d	b7	ce	32	a6	92	9c	0e	77	a3	e5	5b	3f	30	f0	dd	ab	5e	ee	b1	b9	86	2e	c4	b3	4f	d3	bd	69	bb	ed	11	fd	34	75	58	c5	cc	71	d2	4e	cd	7c	6f	1b	ba	7e	e1	59	47	b4	be	81	26	16	1f	8d	74	c6	b8	5c	4a	7f	7b	da	03	3b	52	f1	35	98	80	96	c3	0f	82	9d	eb	a7	15	d6	72	49	ea	c9	67	4c	ae	c1	2c	40	ad	56	37	07	19	73	76	b2	02	d7	1c	27	f4	14	42	6e	fe	22	2b	c7	06	99	9e	a4	41	de	68	fa	d4	f3	e7	e3	05	5f	91	1d	
+
+内部函数=62363218
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=616,Other=28
+Overall cycles with Rotated Shift=1344, without Rotated Shift=2576
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=88,Other=4
+Overall cycles with Rotated Shift=192, without Rotated Shift=368
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=210,Other=28
+Overall cycles with Rotated Shift=490, without Rotated Shift=910
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=30,Other=4
+Overall cycles with Rotated Shift=70, without Rotated Shift=130
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=e931,Pno=29
+输出表：
+00	8b	3e	f6	0c	f0	5d	ba	20	a8	40	93	cf	b4	01	34	86	7b	d6	4e	9c	79	88	a1	67	62	f4	b2	e3	3b	1c	81	fb	eb	b9	f1	7f	de	74	db	82	4f	95	06	a9	a6	39	32	b0	49	72	bd	33	cb	b1	6f	8f	8e	27	65	e1	42	ad	d0	ce	44	46	c7	1f	e2	0b	0a	50	9e	b5	08	e8	7a	af	fd	da	45	e6	18	bf	d2	48	5b	9a	df	66	8c	16	2c	4a	d1	dd	68	13	9b	94	a2	7c	be	c0	f9	cd	6d	14	f2	97	9d	c9	60	cc	6a	25	ff	d9	0e	c1	aa	29	26	36	ed	f8	61	57	17	4d	21	51	98	3d	92	e4	2a	3c	30	75	07	8a	6c	1e	b3	c5	83	28	52	5e	12	3a	a0	96	b7	5a	15	bc	22	0f	63	43	58	87	5c	ec	ab	2d	a7	89	a3	80	f7	8d	19	47	04	bb	fc	2b	6e	1a	c4	a5	c8	4b	03	1d	d7	24	0d	b6	dc	2f	2e	78	c2	70	ef	ae	e9	7e	5f	99	b8	ca	3f	c3	6b	fe	85	69	11	54	23	31	f3	ac	09	64	c6	ee	35	05	38	e7	56	fa	f5	91	71	e0	4c	59	53	77	55	9f	73	1b	a4	02	ea	d3	d5	84	7d	90	d4	d8	e5	10	41	76	37	
+
+内部函数=7641257
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=658,Other=28
+Overall cycles with Rotated Shift=1400, without Rotated Shift=2716
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=94,Other=4
+Overall cycles with Rotated Shift=200, without Rotated Shift=388
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=238,Other=28
+Overall cycles with Rotated Shift=532, without Rotated Shift=1008
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=34,Other=4
+Overall cycles with Rotated Shift=76, without Rotated Shift=144
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=3f7c,Pno=32
+输出表：
+00	e0	11	5d	f5	8c	a6	d6	34	74	c7	80	c5	5a	a0	32	37	75	14	19	d8	8a	a7	77	73	2d	87	82	2a	ea	1e	25	16	5c	71	04	ae	b1	f2	8b	36	fd	a3	2b	30	62	0a	22	54	55	c4	9d	9b	3c	d3	3d	43	ad	dc	1b	26	f7	8e	c2	56	93	cb	de	e7	44	ef	45	7a	e5	db	fc	4c	fb	0b	6f	46	d0	7b	89	53	4e	cc	63	ab	fa	d1	ac	10	59	a1	4b	cd	d5	76	ee	78	e8	b5	9e	3f	70	1c	ba	03	6c	c1	6d	64	b4	bf	5e	2f	6e	40	a9	95	c3	d2	94	29	4f	8f	38	99	3a	b9	35	21	4d	ff	dd	69	bb	f1	57	e2	6a	67	fe	86	b0	15	eb	f8	41	42	b6	61	91	9a	f9	31	18	47	98	49	96	17	e4	08	84	a8	72	1a	1f	6b	be	1d	92	b3	02	07	bc	88	f4	c0	c6	06	f6	2e	ca	20	58	a2	81	8d	79	39	0f	3e	83	bd	c9	05	9f	d7	13	68	5f	23	7f	0e	df	4a	e3	f3	e9	cf	7c	c8	85	a5	d9	da	b7	ce	0c	ed	e6	7e	af	33	24	b2	60	a4	7d	3b	28	27	01	66	48	50	90	f0	12	52	51	9c	aa	2c	5b	0d	e1	b8	97	65	09	ec	d4	
+
+内部函数=2080306
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=658,Other=28
+Overall cycles with Rotated Shift=1400, without Rotated Shift=2716
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=94,Other=4
+Overall cycles with Rotated Shift=200, without Rotated Shift=388
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=238,Other=28
+Overall cycles with Rotated Shift=532, without Rotated Shift=1008
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=34,Other=4
+Overall cycles with Rotated Shift=76, without Rotated Shift=144
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=51920,Pno=49
+输出表：
+00	85	d2	51	25	8e	c4	e1	f0	24	4c	b8	d1	14	3b	38	8f	f1	db	a3	03	04	41	bd	39	63	c6	3c	8d	34	be	0f	a1	c8	c2	6d	60	65	49	70	26	7d	c3	9a	e7	1a	92	46	09	f4	37	53	cf	f2	c1	67	f6	2c	cc	a6	eb	8a	1d	6c	a5	a9	3d	57	91	4a	77	5d	5b	8b	4f	dc	1b	3f	ed	72	fa	e6	bb	95	40	2f	f3	ea	e2	b0	af	2e	da	54	83	1c	61	b5	fd	55	32	7e	fc	06	27	d6	1e	31	68	4d	7a	7f	fb	a8	86	3a	59	c9	1f	ab	ef	52	84	a7	ba	35	dd	cb	98	0a	df	94	50	ee	fe	bc	89	9c	08	36	82	5e	62	c7	07	56	b7	64	87	73	e0	9d	16	10	17	42	47	f7	de	c5	9b	6b	11	4b	21	6f	05	7b	29	ff	5a	01	7c	93	66	18	19	45	aa	58	33	e3	e9	b1	e8	76	b9	69	a0	5c	bf	75	2a	5f	23	79	f9	d4	43	78	ac	30	22	4e	12	0d	ae	44	97	0e	c0	ca	d9	15	99	0c	6e	b2	2b	a4	a2	f8	e4	02	ce	b3	e5	28	13	d3	f5	3e	d7	8c	2d	81	b4	20	ad	48	0b	9f	71	88	74	ec	b6	6a	cd	90	d8	d0	96	d5	9e	80	
+
+内部函数=42766409
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=637,Other=28
+Overall cycles with Rotated Shift=1379, without Rotated Shift=2653
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=91,Other=4
+Overall cycles with Rotated Shift=197, without Rotated Shift=379
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=231,Other=28
+Overall cycles with Rotated Shift=525, without Rotated Shift=987
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=33,Other=4
+Overall cycles with Rotated Shift=75, without Rotated Shift=141
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=98,Sno=1dcd4,Pno=6e
+输出表：
+00	37	3c	84	2d	80	ae	d5	95	c5	96	e5	23	33	e7	0c	c3	86	4e	a3	f2	b0	f6	5d	63	fc	ed	69	66	6f	aa	18	1b	c6	08	9e	bb	85	fe	6e	98	04	de	50	d6	43	45	e3	8f	a9	c4	df	3a	82	46	0e	0d	55	2c	4a	22	cd	83	c9	10	6d	e1	64	29	dd	a6	1c	a8	7a	bd	a2	f4	ee	ec	8b	36	0b	d4	da	f7	52	3d	67	d0	e0	9c	ff	35	2b	a0	16	4f	5e	4c	5f	e4	8e	b5	ea	c7	8a	19	91	5b	42	ef	17	fb	e8	7f	c2	d8	01	b1	87	62	25	65	24	79	70	ba	6b	a7	ab	31	88	09	30	bc	26	72	11	f8	e2	be	d7	1e	4b	d2	d9	8d	e9	21	34	92	41	eb	ad	93	14	27	7d	b3	cf	0a	e6	28	68	d3	c0	77	a5	59	8c	13	73	97	71	3b	75	49	cb	d1	20	1d	39	f9	a1	fa	b7	76	1f	94	5a	b9	48	74	ce	81	f3	ca	9d	7b	40	9b	51	32	a4	7e	06	03	38	5c	53	2e	44	db	3e	f5	b8	dc	af	b4	57	1a	c1	ac	4d	6a	f1	9a	2f	12	56	05	15	07	0f	99	02	bf	2a	cc	58	89	61	54	60	c8	3f	78	fd	9f	b2	6c	47	f0	90	7c	b6	
+
+内部函数=15624814
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4914
+Overall GE=19853.82
+Software Cycles: AND=252,XOR=308,RotatedShift=504,Other=28
+Overall cycles with Rotated Shift=1092, without Rotated Shift=2100
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=72
+Overall GE=252.36
+Software Cycles: AND=36,XOR=44,RotatedShift=72,Other=4
+Overall cycles with Rotated Shift=156, without Rotated Shift=300
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=1078
+Overall GE=3813.6
+Software Cycles: AND=84,XOR=140,RotatedShift=196,Other=28
+Overall cycles with Rotated Shift=448, without Rotated Shift=840
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=154
+Overall GE=544.8
+Software Cycles: AND=12,XOR=20,RotatedShift=28,Other=4
+Overall cycles with Rotated Shift=64, without Rotated Shift=120
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=437a4,Pno=67
+输出表：
+00	93	6f	a2	17	8c	4a	60	ec	5a	96	6c	ee	fe	38	69	26	bc	02	2a	b1	29	ea	e6	80	1b	27	84	98	d9	4c	86	d5	3f	2b	2c	18	66	59	b3	ac	15	5f	5d	a7	c5	9d	23	b2	82	53	a5	08	36	05	3a	e0	2e	e5	f1	c8	48	5e	f4	cf	ca	0e	d4	06	ef	d2	51	0c	cc	67	a1	7a	63	3b	0f	ed	73	20	39	fa	bb	7e	78	9b	d8	54	55	f7	56	30	70	dd	35	ba	f8	c2	fb	da	1a	db	dc	2d	cd	21	af	37	91	42	ad	de	16	7f	5b	92	6d	24	83	1c	9a	3e	8a	0b	75	c6	57	8f	f2	03	f6	d1	cb	14	22	c3	a9	0a	0d	47	31	77	b5	be	8b	58	72	81	b9	74	6e	64	76	4f	a6	49	b6	7d	c0	c1	68	3c	fc	6b	f5	eb	95	d7	e7	90	50	aa	09	bf	c9	11	ce	94	f9	e8	ab	b0	1f	1e	d0	07	b8	e9	41	a3	43	9f	ff	6a	40	c4	a8	ae	44	65	2f	85	34	b7	01	a0	87	25	9c	46	f0	62	b4	e4	e3	a4	61	89	5c	8e	9e	e1	45	97	4d	13	fd	df	3d	19	7b	04	d3	10	f3	28	79	33	1d	88	d6	32	8d	52	99	bd	71	12	c7	e2	4b	7c	4e	
+
+内部函数=35377767
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4690
+Overall GE=19255.74
+Software Cycles: AND=252,XOR=294,RotatedShift=490,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2044
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=70
+Overall GE=247.02
+Software Cycles: AND=36,XOR=42,RotatedShift=70,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=292
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=966
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=420, without Rotated Shift=784
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=138
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=60, without Rotated Shift=112
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=76fdb,Pno=25
+输出表：
+00	9e	08	bf	4c	d4	20	03	b1	65	99	58	1b	e8	de	66	e5	a0	2d	8b	6e	2f	fc	ac	3b	48	02	ee	70	91	f3	f6	88	2e	c5	53	c8	29	c7	9a	f5	43	bd	46	30	52	c9	a3	8f	4b	75	25	ae	6a	2c	61	2b	93	fd	5d	19	74	f8	9f	5b	37	ec	17	28	e7	26	b0	cd	11	39	9c	a5	41	10	cc	c0	01	e2	8d	b8	7f	a8	eb	f7	ed	1f	4a	7d	31	be	b3	23	45	e4	8c	51	d2	92	54	94	4f	82	3d	ab	a7	7b	cf	d8	0a	5a	67	f4	35	21	85	fb	98	24	84	ce	c6	dd	c1	04	87	13	c2	d5	05	55	d9	50	b2	34	44	64	97	d0	33	9d	7e	22	81	e1	78	f0	f9	3e	60	fa	79	83	e3	bc	6c	ca	6b	a4	6f	cb	0c	5e	2a	36	af	1a	95	7c	d1	49	77	5f	68	b7	09	e9	c4	14	dc	3f	56	9b	4e	5c	42	d3	b4	76	a1	1d	96	06	a6	15	a9	71	0f	db	3c	df	4d	72	ef	27	07	16	80	fe	e6	ad	b5	c3	38	3a	ff	d6	47	f1	12	d7	ea	32	7a	59	8a	18	ba	62	f2	0b	69	86	40	73	da	63	b9	aa	57	1e	0d	1c	b6	89	e0	6d	8e	bb	90	a2	0e	
+
+内部函数=62385573
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=616,Other=28
+Overall cycles with Rotated Shift=1344, without Rotated Shift=2576
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=88,Other=4
+Overall cycles with Rotated Shift=192, without Rotated Shift=368
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=210,Other=28
+Overall cycles with Rotated Shift=490, without Rotated Shift=910
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=30,Other=4
+Overall cycles with Rotated Shift=70, without Rotated Shift=130
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=5defc,Pno=76
+输出表：
+00	9f	e4	67	a0	da	8e	a7	64	3c	7b	e7	66	43	0c	f8	24	c5	47	a9	5c	be	4c	fc	54	d2	b4	a1	95	71	cb	fb	d1	1b	87	bf	3a	1c	14	91	19	26	c7	f2	9c	1a	79	7f	cf	c0	ac	56	77	1d	ee	0e	d4	6c	6a	50	08	78	57	8d	c4	ce	0d	21	dd	e0	30	80	ca	6e	17	98	af	12	60	93	a5	11	92	0f	e5	ae	97	d3	b8	18	fd	b0	3b	f9	ef	33	41	fe	49	58	b7	03	86	6f	bb	2c	51	b1	b9	6b	99	0a	f1	82	76	31	20	4d	bd	cc	94	32	90	22	1e	0b	37	85	ba	04	fa	a2	7d	a8	2b	7e	61	4e	e9	8f	a4	b2	10	cd	2e	36	09	c1	d8	dc	4f	74	15	34	d0	06	48	73	6d	55	9b	3e	7a	7c	5f	de	63	e1	ab	ff	eb	ad	62	53	44	e6	52	81	96	ed	f0	c8	07	45	46	28	27	39	ec	d6	42	b5	5e	13	a6	02	01	69	89	a3	f6	aa	8b	bc	70	16	d5	3f	d7	df	f7	5d	25	59	35	f4	b3	9e	b6	e3	c9	40	88	ea	38	8c	c2	e2	3d	c3	9d	65	84	83	5a	05	1f	29	e8	f3	2d	c6	db	d9	68	9a	2a	2f	4b	4a	5b	23	8a	75	72	f5	
+
+内部函数=49249910
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=476,Other=28
+Overall cycles with Rotated Shift=1036, without Rotated Shift=1988
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=68,Other=4
+Overall cycles with Rotated Shift=148, without Rotated Shift=284
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=168,Other=28
+Overall cycles with Rotated Shift=392, without Rotated Shift=728
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=24,Other=4
+Overall cycles with Rotated Shift=56, without Rotated Shift=104
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=2e24f,Pno=76
+输出表：
+00	55	9d	e1	e2	f2	66	38	51	fb	cb	aa	44	27	04	06	48	9e	70	6c	62	5f	4f	7d	b4	31	f3	c5	7a	b1	36	11	12	2c	f1	8a	88	eb	ab	cc	3d	34	33	1f	45	25	c9	bc	14	ef	f5	64	bb	50	da	5b	37	9b	ad	8b	71	54	21	c3	0d	2b	57	47	a9	8e	4e	ff	a3	80	a2	39	6f	9c	9f	13	fc	78	3f	1c	17	68	2a	5e	e5	40	65	db	af	b8	63	e9	d3	77	e7	f6	56	b6	72	0c	93	a8	d4	ac	c0	e0	90	22	83	02	42	5d	67	60	92	46	ec	19	8d	16	05	5a	cd	59	91	f9	24	ba	01	fe	9a	0e	5c	76	03	be	97	53	c1	6b	b7	ce	0f	2e	61	15	bd	cf	de	73	7f	0a	7e	c7	8c	43	dd	82	1d	28	18	b3	20	6e	3e	e8	b9	74	f4	c4	e6	ee	32	df	10	f0	41	d9	6d	a7	99	0b	b5	09	d2	a0	29	08	84	69	d8	d0	bf	d1	dc	4b	94	2f	4c	e3	7b	07	1b	ed	98	a1	d6	c8	26	ca	b2	4a	c6	35	49	2d	c2	96	a5	1e	58	1a	ae	52	75	3c	4d	30	b0	fa	7c	6a	a4	23	3b	87	8f	95	ea	a6	f8	86	81	89	d7	85	f7	e4	fd	79	3a	d5	
+
+内部函数=24193014
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4690
+Overall GE=19255.74
+Software Cycles: AND=252,XOR=294,RotatedShift=518,Other=28
+Overall cycles with Rotated Shift=1092, without Rotated Shift=2128
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=70
+Overall GE=247.02
+Software Cycles: AND=36,XOR=42,RotatedShift=74,Other=4
+Overall cycles with Rotated Shift=156, without Rotated Shift=304
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=966
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=196,Other=28
+Overall cycles with Rotated Shift=434, without Rotated Shift=826
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=138
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=28,Other=4
+Overall cycles with Rotated Shift=62, without Rotated Shift=118
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=ef9a,Pno=4c
+输出表：
+00	f7	12	52	b6	ce	04	f4	a1	b1	5f	8a	33	d4	d9	68	0d	bb	83	d3	6a	cb	d6	87	99	f2	59	d5	5a	7b	b8	98	2e	e4	cf	92	4c	32	0f	58	d0	39	13	3d	37	66	c4	ff	55	fd	b7	31	e2	d2	67	10	eb	48	b3	71	20	b2	4e	cd	d8	f6	ca	f9	84	ae	8b	90	96	64	5d	94	e9	53	2b	4f	25	93	51	61	d1	0a	22	9f	fb	36	c3	85	47	a4	03	9a	46	79	60	e1	0b	2a	16	de	57	5b	3e	7f	c0	88	8c	e8	5c	26	ee	0c	3c	be	9b	7e	6c	c1	1c	11	63	21	1b	a2	89	65	4a	dd	14	76	cc	aa	f3	4d	24	74	70	a7	17	49	72	27	9c	30	73	3a	c5	8f	ac	c7	bd	ec	b0	1f	5e	a5	19	62	e6	42	7d	41	dc	e3	c8	f5	4b	34	2c	54	6f	3b	f1	fc	45	f8	7c	a9	7a	a8	ef	78	a3	35	77	9e	c9	97	db	82	6d	fe	bc	e5	ab	0e	95	06	8d	86	c6	f0	e7	9d	18	ad	e0	af	c2	b4	da	80	ed	91	05	69	15	29	07	44	08	df	6e	6b	2f	81	75	23	8e	28	01	1d	40	2d	1e	bf	43	50	02	1a	09	b9	d7	38	a0	ea	b5	56	a6	3f	ba	fa	
+
+内部函数=7851340
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=693,Other=28
+Overall cycles with Rotated Shift=1435, without Rotated Shift=2821
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=99,Other=4
+Overall cycles with Rotated Shift=205, without Rotated Shift=403
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=259,Other=28
+Overall cycles with Rotated Shift=553, without Rotated Shift=1071
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=37,Other=4
+Overall cycles with Rotated Shift=79, without Rotated Shift=153
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=6c286,Pno=5b
+输出表：
+00	d9	c5	53	b7	c2	5b	1e	02	5a	87	3b	eb	ce	8e	9c	65	75	e3	c6	24	d0	06	46	6b	88	4b	0d	a0	b4	bd	77	0a	19	cb	26	94	0e	1b	76	f2	c8	85	6d	ff	57	22	29	e6	5e	bc	03	32	0c	e8	e7	ae	36	ba	e2	7f	43	17	d1	64	52	ca	14	66	ed	72	a2	10	dd	bf	d3	33	20	a3	98	5f	be	1d	b8	21	31	0f	6c	b3	2b	b5	04	c9	ea	d7	a6	39	78	f7	f8	37	f0	95	9f	2c	6f	45	3f	8a	ac	67	a7	6e	7b	4c	fd	ee	c3	27	3a	f5	d4	3c	58	73	68	25	23	9d	2d	f4	fa	5d	62	4e	ab	cc	b2	c1	e9	f9	a4	7e	30	ef	d6	51	f1	a8	93	c4	c7	50	79	90	7d	8b	47	12	70	ec	df	ad	cf	54	80	92	2f	28	f3	97	1f	08	07	41	74	a1	09	71	11	40	da	16	9e	01	af	49	fb	1a	5c	2e	55	e1	6a	bb	81	89	fe	a9	59	4f	a5	82	8d	0b	e5	1c	f6	3d	18	56	05	7a	99	48	84	8f	3e	fc	38	4a	4d	b0	34	86	b1	9b	cd	7c	b6	d8	db	60	e0	d2	91	2a	c0	b9	9a	63	69	44	d5	de	13	96	dc	35	61	8c	42	83	e4	aa	15	
+
+内部函数=56705883
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5586
+Overall GE=23892.54
+Software Cycles: AND=336,XOR=350,RotatedShift=637,Other=28
+Overall cycles with Rotated Shift=1351, without Rotated Shift=2625
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=78
+Overall GE=288.42
+Software Cycles: AND=48,XOR=50,RotatedShift=91,Other=4
+Overall cycles with Rotated Shift=193, without Rotated Shift=375
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=966
+Overall GE=3888.64
+Software Cycles: AND=112,XOR=126,RotatedShift=217,Other=28
+Overall cycles with Rotated Shift=483, without Rotated Shift=917
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=138
+Overall GE=555.52
+Software Cycles: AND=16,XOR=18,RotatedShift=31,Other=4
+Overall cycles with Rotated Shift=69, without Rotated Shift=131
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=44075,Pno=5d
+输出表：
+00	83	98	d1	a2	6f	68	1f	20	39	a0	05	32	9f	41	f1	e6	2f	91	07	42	b7	63	89	16	6b	e3	ce	1b	80	6e	7c	f2	57	c5	95	81	b3	09	04	e9	cc	d8	44	77	cf	ca	8b	10	37	5b	e1	58	9a	01	85	ff	2d	87	70	43	99	27	28	97	49	a8	8f	61	f3	38	8a	fe	f8	48	4e	9d	b8	0f	96	cb	b2	1d	aa	eb	78	a4	dc	ec	02	5c	79	ac	ee	a6	3b	90	5d	36	56	4d	59	19	8c	ba	26	9b	30	12	d7	53	62	e5	21	7d	84	9c	7e	c8	25	11	74	52	64	a5	22	82	e0	2c	3e	2e	71	46	4b	31	33	0d	b0	e4	d4	d5	e2	66	af	69	6c	14	8e	7f	92	f5	76	ae	54	8d	a3	3c	7b	75	1c	de	72	0c	c2	ed	ef	15	c3	9e	ad	0e	a1	5e	03	55	60	f7	ea	b6	f4	c0	4c	da	65	1e	86	fb	dd	4f	29	b1	50	c6	47	17	06	24	a7	34	cd	0b	51	08	b5	bc	fa	b9	a9	2a	35	5f	23	5a	88	d9	94	d0	e7	93	bf	b4	d3	40	67	13	3f	bd	3a	3d	c4	d2	d6	f6	6d	be	73	bb	ab	df	0a	18	fd	db	fc	2b	c1	f9	6a	f0	e8	c7	1a	45	7a	4a	c9	
+
+内部函数=35666653
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4690
+Overall GE=19255.74
+Software Cycles: AND=252,XOR=294,RotatedShift=525,Other=28
+Overall cycles with Rotated Shift=1099, without Rotated Shift=2149
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=70
+Overall GE=247.02
+Software Cycles: AND=36,XOR=42,RotatedShift=75,Other=4
+Overall cycles with Rotated Shift=157, without Rotated Shift=307
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=966
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=203,Other=28
+Overall cycles with Rotated Shift=441, without Rotated Shift=847
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=138
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=29,Other=4
+Overall cycles with Rotated Shift=63, without Rotated Shift=121
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=77738,Pno=32
+输出表：
+00	af	86	ee	d1	ea	1d	a5	8a	55	13	11	e4	41	d2	24	d0	a0	88	6a	94	d9	46	48	ac	a4	07	b8	f3	ff	ca	fc	ae	66	f1	d4	ef	e6	7a	c1	a3	44	79	7f	a9	f4	e3	01	95	aa	28	53	2f	3d	67	5c	99	8d	a1	4f	4c	b6	d7	a6	fb	5b	93	22	64	eb	df	09	65	bc	39	6e	5a	69	87	a7	9e	6d	20	c0	ad	f8	02	f6	fe	78	2a	9d	63	a8	92	f9	50	27	3b	8b	76	42	29	8f	49	90	f0	70	bf	cd	62	0a	de	34	89	6b	33	83	5f	2b	52	2c	7e	e2	91	d3	81	ba	7c	25	85	f2	1c	98	06	26	32	2d	6f	18	40	37	1b	84	57	b2	dc	23	43	38	e9	14	1a	4a	4d	9b	80	7d	10	05	fa	21	35	ce	73	c7	0c	e0	12	6c	31	0b	60	0f	1e	51	b3	1f	97	75	82	45	fd	36	7b	d5	3a	c9	d6	f7	9a	0d	b9	47	3e	9c	be	bb	30	c3	ec	cb	15	71	58	cf	96	8e	5e	8c	4b	08	9f	c6	b7	e7	ab	e8	b1	17	c4	ed	dd	54	56	2e	f5	4e	e5	b5	72	a2	d8	3c	c8	19	61	c2	77	cc	da	03	db	b0	04	bd	74	0e	68	b4	e1	59	5d	16	3f	c5	
+
+内部函数=62626866
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=6174
+Overall GE=25462.5
+Software Cycles: AND=336,XOR=392,RotatedShift=644,Other=28
+Overall cycles with Rotated Shift=1400, without Rotated Shift=2688
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=72
+Overall GE=272.4
+Software Cycles: AND=48,XOR=56,RotatedShift=92,Other=4
+Overall cycles with Rotated Shift=200, without Rotated Shift=384
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1274
+Overall GE=4785.76
+Software Cycles: AND=112,XOR=168,RotatedShift=238,Other=28
+Overall cycles with Rotated Shift=546, without Rotated Shift=1022
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=182
+Overall GE=683.68
+Software Cycles: AND=16,XOR=24,RotatedShift=34,Other=4
+Overall cycles with Rotated Shift=78, without Rotated Shift=146
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=2ead8,Pno=45
+输出表：
+00	a2	52	9a	de	36	82	3b	75	fb	4f	4a	96	3e	08	f6	79	10	9c	6a	64	fd	f1	65	f5	06	ae	3a	53	0c	7c	a7	b9	eb	28	74	f7	25	41	01	c1	b8	6b	51	c8	b3	ff	39	b4	19	d1	ed	e0	df	bf	47	4e	a8	2e	8e	ee	fe	26	e2	12	d5	9b	e7	b2	04	7f	09	6e	5d	02	fa	31	07	2d	49	a0	b6	ea	88	0b	0e	13	c2	22	d2	a3	81	8f	d3	7b	97	cc	0a	32	84	42	30	83	d7	a4	0d	8b	3c	ab	63	a9	72	29	d6	e4	1d	16	af	ad	c6	a6	05	2c	73	6d	ce	b1	03	3d	da	9f	f8	92	d8	aa	f0	86	70	61	78	40	cd	46	e5	cb	38	80	56	37	5e	fc	7e	58	bc	87	60	68	ba	ef	1a	91	54	14	dd	44	b5	2b	8a	ac	5c	55	71	cf	ca	66	7d	57	e9	33	d4	4d	7a	c0	bb	23	6f	c3	0f	db	d9	34	c5	1f	18	17	98	76	8c	85	94	e3	20	1b	5a	48	9e	89	f9	a5	3f	4b	2a	93	e6	24	b7	59	35	99	c9	90	50	1e	77	a1	b0	95	15	4c	f3	11	69	27	9d	c4	e8	45	21	f2	2f	1c	8d	bd	43	be	c7	6c	d0	e1	dc	5f	62	5b	ec	67	f4	
+
+内部函数=24472645
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=693,Other=28
+Overall cycles with Rotated Shift=1435, without Rotated Shift=2821
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=99,Other=4
+Overall cycles with Rotated Shift=205, without Rotated Shift=403
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=259,Other=28
+Overall cycles with Rotated Shift=553, without Rotated Shift=1071
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=37,Other=4
+Overall cycles with Rotated Shift=79, without Rotated Shift=153
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=77954,Pno=70
+输出表：
+00	85	58	eb	6a	1e	53	27	5a	6d	ed	af	90	9d	61	76	52	a5	da	cd	bf	88	aa	a7	41	f4	e2	7e	fe	b3	e3	0a	05	20	a2	11	98	44	39	3c	b4	5c	d5	8a	3d	fb	78	82	8d	09	d1	f2	38	7a	60	04	65	64	c9	1b	08	56	10	15	de	23	c4	8f	f8	7f	dc	2f	a3	c2	3b	ab	19	74	d6	42	f6	e8	80	72	d7	49	0c	d4	69	b6	63	5b	47	b7	7b	92	96	28	12	d3	0b	13	ce	79	2b	9f	54	b5	30	7d	c6	0f	5e	36	50	cf	57	a1	bd	e5	16	7c	ec	e7	e0	31	e4	40	c7	ba	26	d0	24	f5	ef	d9	89	4c	2e	ca	b0	07	66	ae	b1	8e	fd	c8	97	e1	d8	5f	ff	83	1c	71	c3	bb	68	75	6f	95	37	1d	e6	91	2d	4e	8b	9c	81	55	02	9e	0e	84	22	c0	67	17	ac	4b	46	6b	dd	94	e9	3f	f9	c1	25	8c	db	21	a0	f3	03	51	1a	73	0d	01	a9	5d	34	ea	a8	9b	a4	1f	4a	29	6c	b8	b9	f1	ee	59	fa	ad	33	9a	77	bc	99	be	6e	df	45	4f	f0	2c	86	06	48	35	a6	cc	87	3e	fc	18	43	d2	b2	70	c5	14	4d	93	62	32	3a	2a	cb	f7	
+
+内部函数=62696048
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=6174
+Overall GE=25462.5
+Software Cycles: AND=336,XOR=392,RotatedShift=700,Other=28
+Overall cycles with Rotated Shift=1456, without Rotated Shift=2856
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=72
+Overall GE=272.4
+Software Cycles: AND=48,XOR=56,RotatedShift=100,Other=4
+Overall cycles with Rotated Shift=208, without Rotated Shift=408
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1274
+Overall GE=4785.76
+Software Cycles: AND=112,XOR=168,RotatedShift=266,Other=28
+Overall cycles with Rotated Shift=574, without Rotated Shift=1106
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=182
+Overall GE=683.68
+Software Cycles: AND=16,XOR=24,RotatedShift=38,Other=4
+Overall cycles with Rotated Shift=82, without Rotated Shift=158
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=3a0e0,Pno=3d
+输出表：
+00	48	c4	5f	a4	d4	6a	b4	0f	82	23	80	50	df	1f	9a	f4	db	de	5d	b1	13	51	3b	04	ca	9d	e8	30	f5	cc	54	9e	3d	a5	61	68	d5	85	78	f0	74	02	12	bd	f7	93	b9	da	41	dd	ab	55	a9	26	08	dc	8a	0b	bc	e3	62	63	f1	86	37	7e	1c	c5	1b	b2	96	b6	87	06	cf	94	ed	17	14	6e	19	d9	01	f9	7f	70	a6	65	ae	d3	e7	22	1e	58	d0	36	29	bf	d1	f8	a1	aa	47	71	ef	33	4b	a2	1d	42	32	91	9c	4d	c3	8f	4a	39	25	eb	af	43	ba	35	7c	d6	6c	60	53	ac	b7	fb	0d	66	98	52	45	7b	7a	9f	5a	ea	be	4e	05	ee	f6	4c	6f	31	c1	46	c8	ce	a8	9b	77	44	b8	89	76	72	75	2c	57	e4	84	fd	49	0e	97	d8	f3	ff	e2	3a	6b	95	e6	40	c2	7d	83	07	8c	21	24	11	8b	79	99	b3	f2	c6	6d	81	34	2a	92	0c	c7	5b	e0	2f	d2	ec	3f	3c	3e	c9	a0	15	1a	fc	2e	2d	5e	e9	18	38	0a	a3	fe	09	d7	b0	56	fa	bb	59	16	e5	5c	e1	73	20	4f	2b	cd	cb	90	b5	a7	10	03	88	27	64	8d	8e	69	67	c0	ad	28	
+
+内部函数=30437437
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=6034
+Overall GE=25088.7
+Software Cycles: AND=336,XOR=378,RotatedShift=686,Other=28
+Overall cycles with Rotated Shift=1428, without Rotated Shift=2800
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=82
+Overall GE=299.1
+Software Cycles: AND=48,XOR=54,RotatedShift=98,Other=4
+Overall cycles with Rotated Shift=204, without Rotated Shift=400
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1190
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=252,Other=28
+Overall cycles with Rotated Shift=546, without Rotated Shift=1050
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=170
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=36,Other=4
+Overall cycles with Rotated Shift=78, without Rotated Shift=150
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=6621,Pno=73
+输出表：
+00	10	d4	41	99	5b	53	e5	7c	e0	e2	ee	f8	6a	c9	56	93	07	55	80	4f	f5	cb	7e	81	b9	bd	d2	a8	aa	31	b4	ad	51	95	09	28	b6	2e	22	17	65	f3	cd	df	63	27	ed	14	a9	9f	3a	19	0e	e7	d0	06	7b	39	fe	87	bf	18	50	e8	bb	e4	05	e3	82	6d	36	db	96	23	b2	62	1a	68	48	c1	60	eb	86	c8	4a	44	89	ba	1b	76	38	b8	f4	f7	3e	02	1e	25	98	7d	ca	58	ec	a5	e1	9a	8f	8a	cc	a6	01	d7	78	cf	9c	34	7f	32	ff	2c	49	43	69	26	24	a7	73	ae	4b	b7	c7	b0	72	20	2b	0a	9b	42	13	1c	ab	f9	0d	f2	da	03	8d	4d	30	37	dd	fa	d6	92	9d	1f	5c	5e	2a	3b	fd	a0	11	4e	6e	a2	52	9e	c3	ce	d8	04	90	3d	2d	75	3c	0c	91	f0	d5	7a	a1	b1	c0	5f	66	c5	57	bc	88	5a	45	a3	15	6c	67	c2	64	de	08	71	33	af	70	59	a4	fc	e6	5d	46	54	94	84	83	35	be	6b	8b	c6	21	0f	ef	b5	b3	ac	d3	8c	d1	47	16	3f	4c	8e	dc	0b	c4	fb	f1	85	ea	77	1d	d9	74	12	97	79	40	29	f6	6f	61	e9	2f	
+
+内部函数=3346675
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=483,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2009
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=69,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=287
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=399, without Rotated Shift=749
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=57, without Rotated Shift=107
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=2ee67,Pno=10
+输出表：
+00	05	92	94	64	99	19	79	e8	0a	c5	ce	ea	af	53	97	93	e6	06	44	26	7b	2d	bb	e1	27	9f	40	dc	f3	1d	12	86	c1	7e	6d	91	8a	57	78	60	8c	bd	3f	3c	9d	75	10	13	61	e7	28	8b	eb	37	73	b9	4c	11	56	ff	48	01	a1	63	6f	1a	87	5d	dd	1b	33	c8	81	bf	72	76	58	95	b7	c9	30	8e	c2	2b	f6	03	d5	4a	15	07	ec	cf	f7	df	6e	49	47	f8	d2	70	c0	7c	82	f9	b5	2f	7d	ef	68	21	fb	ed	fe	4d	43	9a	ac	89	04	e9	f1	e3	32	39	a7	14	08	b0	6c	3d	0e	f4	2e	d0	d7	71	1f	67	7f	24	84	fc	d4	c6	1c	c7	cc	cb	4b	5c	45	51	6b	16	96	b4	69	42	f2	29	31	d9	36	4e	3a	ca	a8	35	a3	83	bc	fd	5e	a4	9e	b2	23	b8	a5	be	a2	ee	d3	aa	c4	de	50	54	25	62	da	e0	41	b1	d6	e4	f0	9c	8d	fa	09	0f	0b	a0	6a	cd	85	a6	3e	7a	1e	e2	9b	55	17	ab	d8	34	59	f5	0d	a9	66	d1	98	b6	02	b3	20	90	ba	0c	77	5b	c3	e5	65	5f	ad	46	52	74	2c	ae	38	88	2a	5a	4f	80	3b	22	18	8f	db	
+
+内部函数=24589200
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4522
+Overall GE=18807.18
+Software Cycles: AND=252,XOR=294,RotatedShift=490,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2044
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=46
+Overall GE=182.94
+Software Cycles: AND=36,XOR=42,RotatedShift=70,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=292
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=910
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=420, without Rotated Shift=784
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=130
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=60, without Rotated Shift=112
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=53d84,Pno=15
+输出表：
+00	36	06	dd	2b	bc	19	66	17	68	b0	85	82	73	47	39	03	74	cc	1d	f2	44	d9	4b	0e	7b	10	72	81	7f	84	d4	6d	d7	8a	5d	20	a4	f9	b2	95	e9	f4	5a	c0	fe	01	4a	08	3c	9f	fb	52	3a	e4	8c	14	af	ef	a7	9e	78	cf	f0	2a	09	d2	db	f8	86	c8	61	ae	05	d8	2c	21	c9	77	8f	a9	42	e2	b9	32	b3	83	89	df	34	f7	f3	bb	a6	49	6f	b7	4f	ba	e1	62	48	57	23	b8	cb	1b	69	c3	d3	94	e5	4e	97	53	46	2d	f5	18	87	de	6b	7e	ed	04	41	7a	d0	2e	dc	ec	3b	b4	45	a1	6a	93	58	0c	99	ab	1a	5c	8e	ac	50	98	9a	b1	6e	38	9c	8b	4d	60	c7	9b	54	43	3d	30	ea	25	a8	9d	3e	f6	11	65	bf	4c	5f	e0	96	16	1f	eb	c2	28	64	15	12	d5	55	cd	75	71	26	02	59	a0	40	f1	6c	fa	e7	e3	8d	13	ca	a3	92	79	0a	70	1c	24	37	e6	b5	fd	63	ce	ff	35	0f	5e	c4	d1	88	1e	c5	56	a2	29	c6	80	be	aa	7d	2f	0b	0d	27	ee	a5	07	bd	d6	ad	67	90	91	5b	33	3f	76	22	da	b6	e8	31	c1	fc	51	7c	
+
+内部函数=43958805
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4382
+Overall GE=18433.38
+Software Cycles: AND=252,XOR=280,RotatedShift=511,Other=28
+Overall cycles with Rotated Shift=1071, without Rotated Shift=2093
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=56
+Overall GE=209.64
+Software Cycles: AND=36,XOR=40,RotatedShift=73,Other=4
+Overall cycles with Rotated Shift=153, without Rotated Shift=299
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=826
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=189,Other=28
+Overall cycles with Rotated Shift=413, without Rotated Shift=791
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=118
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=27,Other=4
+Overall cycles with Rotated Shift=59, without Rotated Shift=113
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=10a9c,Pno=67
+输出表：
+00	b3	a5	0c	7c	d0	8b	b8	96	a8	a0	27	09	81	36	28	12	6e	10	66	f1	83	26	01	5f	40	3a	fc	d3	7e	ae	20	65	74	0a	c9	0d	9a	30	9f	78	92	b7	87	05	d4	a7	8a	13	4d	a9	03	f6	69	67	61	7d	25	16	19	a6	de	6c	29	dc	91	9b	71	55	53	e2	8f	cf	3e	aa	0e	58	31	44	ba	07	1c	ee	77	e1	e0	a1	90	8c	63	52	98	93	17	18	84	d5	89	4c	3b	b2	72	b9	d8	70	3d	06	43	97	57	f4	e3	5d	f9	5c	41	b0	21	33	db	ed	47	c3	c4	42	38	f7	eb	62	ad	a4	e9	cb	86	c1	0b	7b	fa	dd	2c	50	f8	2f	e5	11	6b	68	f0	7f	23	a2	fe	2b	bf	c7	e7	64	da	df	8e	5b	04	88	e6	34	d1	95	b1	1d	51	46	8d	75	ea	85	6f	2d	ac	b5	54	4e	39	ec	08	d6	9c	f2	49	f3	22	73	ef	fd	1f	ca	7a	bc	9e	35	1e	d2	c8	c2	37	56	79	24	af	3f	c0	bd	3c	2e	b4	ff	cd	76	59	9d	bb	ab	94	1b	32	be	80	6a	ce	82	15	cc	99	e4	d7	02	c5	4a	5e	48	b6	45	14	f5	60	fb	c6	4b	6d	e8	d9	0f	2a	a3	5a	1a	4f	
+
+内部函数=8736359
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=483,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2009
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=69,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=287
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=399, without Rotated Shift=749
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=57, without Rotated Shift=107
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=209c2,Pno=6b
+输出表：
+00	94	87	7e	ff	70	d5	26	1a	81	ba	ea	c0	f8	40	3f	a2	5c	8d	dd	34	cc	a7	3c	2c	4e	f4	55	90	f7	50	eb	82	d7	98	5f	ac	86	0a	88	47	f9	cd	4c	e6	46	e9	d4	96	08	28	be	3a	67	9b	a4	37	b1	11	19	58	3e	83	e1	85	fa	4f	f0	b4	75	5d	31	1f	1d	b7	43	b9	f5	7a	e0	71	8f	7b	10	4b	44	65	e3	52	f1	ca	64	21	38	d8	39	79	91	ec	41	c2	35	ce	0c	09	ab	f6	99	93	1b	57	b8	b3	fc	a3	01	e2	cf	36	a1	c3	fd	66	07	4a	6a	32	a9	bb	14	1c	95	a0	69	03	e8	d1	59	63	ee	da	df	e5	fe	18	49	2e	56	8b	2a	6e	54	c1	48	3b	8e	d6	a5	d2	8c	92	3d	bc	9c	33	04	c7	84	72	c9	8a	6f	02	af	77	0d	a8	80	b0	2d	73	9d	ef	61	12	23	27	c4	6b	42	c6	c8	05	2f	ed	bf	53	13	15	7c	97	25	e7	b2	d3	6d	0b	17	9e	68	6c	e4	9f	60	db	9a	de	24	22	0f	74	aa	51	2b	20	06	fb	89	d0	62	0e	ae	16	bd	d9	7d	b5	7f	78	a6	ad	5a	cb	f2	5e	5b	29	1e	30	b6	45	c5	76	4d	f3	dc	
+
+内部函数=17097067
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=504,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2072
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=72,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=296
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=406, without Rotated Shift=770
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=58, without Rotated Shift=110
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=60221,Pno=61
+输出表：
+00	35	46	a8	74	d9	1d	b1	55	83	28	30	16	ff	88	65	5b	3e	b3	7b	7e	b5	4c	37	85	68	e3	67	f0	ba	49	53	fd	86	a6	9d	af	7d	c8	ca	09	aa	7c	b0	fb	1e	6f	63	dc	97	8c	90	e7	0b	0c	5a	ee	2c	22	26	a0	4d	5c	03	b8	93	50	45	c6	73	4f	23	e9	42	92	f5	43	02	cf	cc	b6	8f	58	dd	f8	fa	25	06	21	1f	11	c2	9e	a5	9b	e2	79	3a	76	61	7f	29	e0	9f	ac	44	f3	bc	1c	1a	c7	0f	62	70	41	2d	6a	2e	e4	8a	f2	94	15	bd	32	3d	12	3c	56	a7	ad	c5	ae	57	fe	db	4a	e6	ab	e1	51	d5	98	fc	f9	17	d8	27	d7	a2	4b	8b	87	60	ef	38	96	c0	e5	f1	82	ce	9c	84	78	b9	eb	18	f4	5f	91	36	07	d6	8e	c4	da	39	1b	19	c9	95	48	ea	34	24	6d	f6	47	14	71	0e	6c	f7	2a	d3	d2	df	4e	5e	69	31	01	3f	b2	2f	ec	e8	ed	3b	8d	2b	bb	33	d1	13	d4	c3	cb	d0	6b	20	59	5d	a4	de	bf	08	99	7a	40	10	89	be	05	0d	72	81	c1	04	52	75	6e	b7	77	66	a9	cd	0a	a1	a3	9a	b4	80	54	64	
+
+内部函数=50401505
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=651,Other=28
+Overall cycles with Rotated Shift=1379, without Rotated Shift=2681
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=93,Other=4
+Overall cycles with Rotated Shift=197, without Rotated Shift=383
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=231,Other=28
+Overall cycles with Rotated Shift=511, without Rotated Shift=973
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=33,Other=4
+Overall cycles with Rotated Shift=73, without Rotated Shift=139
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=6e1b0,Pno=1a
+输出表：
+00	83	11	69	dd	45	c2	a2	a3	8e	b4	6f	46	0e	e5	42	fb	f1	1a	48	59	5f	99	33	5c	9a	4b	01	32	25	5d	bf	c8	3b	12	95	1c	24	52	0c	be	7d	65	ab	3a	d0	85	49	64	51	07	f5	ea	6a	c1	b6	ec	71	3f	ce	87	e2	62	5a	50	f4	f6	8f	7c	cb	ad	c4	ee	1e	73	58	4d	76	60	9c	63	b8	13	e9	e3	56	a7	f9	30	2e	88	af	81	e0	91	ef	4c	40	66	16	86	54	1f	4a	b0	b7	2c	47	18	b2	a4	97	de	72	89	08	d4	2d	d7	fa	84	bd	29	6c	dc	8b	26	c9	39	d8	93	79	d9	28	53	ed	bc	4e	03	6d	f3	9f	4f	f0	2b	9d	c0	ca	fe	0a	5b	8d	a6	74	f2	37	06	41	31	3d	02	82	96	cf	98	c7	09	a8	ae	34	e6	b5	17	fd	94	1d	21	61	04	57	7e	5e	d3	a1	3e	92	44	7a	df	ac	cc	78	9e	da	6e	c5	9b	b1	35	e7	1b	75	7b	0b	e8	38	19	8c	f8	db	90	a0	ba	3c	aa	14	0d	7f	b3	cd	ff	e1	2a	d1	36	bb	2f	c3	6b	0f	c6	e4	fc	22	68	80	70	d5	23	55	a9	43	d6	8a	d2	b9	20	05	27	a5	f7	77	67	10	15	eb	
+
+内部函数=57727002
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4382
+Overall GE=18433.38
+Software Cycles: AND=252,XOR=280,RotatedShift=511,Other=28
+Overall cycles with Rotated Shift=1071, without Rotated Shift=2093
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=56
+Overall GE=209.64
+Software Cycles: AND=36,XOR=40,RotatedShift=73,Other=4
+Overall cycles with Rotated Shift=153, without Rotated Shift=299
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=826
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=189,Other=28
+Overall cycles with Rotated Shift=413, without Rotated Shift=791
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=118
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=27,Other=4
+Overall cycles with Rotated Shift=59, without Rotated Shift=113
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=79138,Pno=b
+输出表：
+00	c2	64	fa	a2	e8	40	a6	87	ce	47	43	4f	b9	88	3d	1e	9f	cd	7b	5e	44	32	f9	6e	19	1b	d7	96	ae	8f	86	9a	ed	ab	a4	2c	d5	dd	7c	f1	07	7a	cc	53	eb	35	ba	16	bc	78	b4	03	aa	83	9c	d2	f8	e5	d6	f0	14	24	da	8c	08	59	65	11	46	a0	80	b3	38	ee	0e	3a	54	a5	5c	c9	c7	c4	70	21	5a	ef	58	4d	60	39	8b	8d	50	ec	ea	10	61	1d	ac	93	34	ca	22	2a	77	3c	20	17	c8	82	fb	18	a9	71	0a	90	04	f2	ad	e1	bf	66	13	57	63	f5	dc	91	2b	c1	51	b0	c6	3b	d3	48	97	df	5b	95	2e	9d	76	e9	33	fe	e7	28	3e	be	06	b2	e2	b6	d0	01	92	bb	4b	1f	d1	f4	6a	cb	e3	89	0c	fd	73	27	62	23	99	02	ff	9b	4a	1c	15	81	4e	de	a7	72	0d	2f	49	7f	5f	09	45	4c	c0	f6	79	6c	bd	85	6f	1a	84	6b	31	52	6d	75	25	f7	fc	e6	36	3f	a1	68	98	f3	41	7e	d8	e4	0b	29	8e	67	a3	d9	05	c5	d4	af	cf	42	37	b5	2d	b8	9e	5d	56	30	c3	b1	55	69	26	e0	12	74	94	7d	db	8a	a8	b7	0f	
+
+内部函数=63478795
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4158
+Overall GE=17835.3
+Software Cycles: AND=252,XOR=266,RotatedShift=469,Other=28
+Overall cycles with Rotated Shift=1015, without Rotated Shift=1953
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=54
+Overall GE=204.3
+Software Cycles: AND=36,XOR=38,RotatedShift=67,Other=4
+Overall cycles with Rotated Shift=145, without Rotated Shift=279
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=714
+Overall GE=2916.48
+Software Cycles: AND=84,XOR=98,RotatedShift=161,Other=28
+Overall cycles with Rotated Shift=371, without Rotated Shift=693
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=102
+Overall GE=416.64
+Software Cycles: AND=12,XOR=14,RotatedShift=23,Other=4
+Overall cycles with Rotated Shift=53, without Rotated Shift=99
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=6e1b5,Pno=73
+输出表：
+00	a7	10	dd	d8	db	94	a6	5b	8f	33	6c	23	e7	f8	8e	11	6f	f4	30	ef	da	ba	16	24	ea	17	85	59	2a	66	3d	b0	a8	d6	2e	61	13	c5	4b	cb	2c	6d	0a	ec	0b	5a	4a	d4	80	b3	5c	47	22	a4	b9	4e	65	50	c9	91	63	90	cf	7a	58	8a	af	6e	84	b4	76	f3	c0	4f	74	f9	57	21	3b	b2	e5	1b	36	bb	f5	b6	ff	5d	83	a1	6b	45	ad	fc	62	01	68	35	77	d1	39	ac	28	1d	02	73	49	dc	40	52	a0	be	86	70	c2	88	20	67	0f	9e	8d	53	7e	9c	ab	c4	69	a5	92	71	89	2b	41	29	06	3f	0d	a2	a3	04	95	d5	d3	a9	ee	82	26	1e	79	f1	93	72	c6	b1	03	5f	d7	15	43	e1	c7	e3	46	b7	31	de	60	fd	cc	7d	c3	12	08	48	44	f7	38	51	9b	e8	32	ce	e4	2f	bf	aa	0c	56	9a	2d	3c	df	98	c8	78	fb	9d	3e	f6	97	b8	8c	cd	99	7c	1f	27	7b	fa	e6	6a	14	e2	8b	ed	09	f0	d9	f2	5e	b5	42	07	bd	c1	96	75	d2	d0	25	1c	4c	54	1a	0e	e0	3a	18	e9	34	9f	05	ae	81	fe	ca	37	eb	7f	64	bc	87	19	4d	55	
+
+内部函数=57727731
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=483,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2009
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=69,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=287
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=399, without Rotated Shift=749
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=57, without Rotated Shift=107
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=30204,Pno=7
+输出表：
+00	27	c1	24	4f	99	1e	23	46	29	ca	89	47	e3	c0	77	b4	8b	a9	0e	75	94	98	8f	68	c4	18	76	67	f4	a5	ae	7d	73	74	3c	34	de	a2	08	3a	95	93	a1	fe	c2	6d	dd	62	df	ce	d3	c8	7b	b8	53	21	06	e8	ac	4b	e6	bc	03	5f	91	ee	d2	52	17	78	57	a8	9c	c3	4e	ed	e0	2f	55	4a	d1	0f	b6	87	c9	b7	cd	5b	e7	72	83	12	d6	14	7f	6f	09	b0	d9	f2	0c	be	8c	5d	16	a0	bf	85	f0	2d	ad	0b	9e	f5	26	38	56	aa	79	6c	dc	f7	ea	8a	3b	a3	2b	b9	af	6b	37	39	88	5a	2c	a4	30	3e	6e	9f	9b	66	97	41	fa	81	10	f3	da	25	50	a6	c5	49	32	e2	ab	35	f6	b2	2a	7a	3d	db	13	fb	9a	b5	e1	1d	8e	bd	54	44	02	cb	43	b1	60	e4	eb	11	0d	3f	40	b3	42	e5	04	48	07	2e	15	84	70	4d	92	64	69	cf	1b	05	86	0a	96	19	65	61	71	58	f8	6a	ba	22	fd	fc	f9	cc	20	bb	1c	7e	a7	01	e9	80	8d	33	1f	31	4c	d0	ef	45	51	28	c7	c6	82	d5	5e	7c	5c	36	63	90	f1	d4	9d	59	1a	d7	ec	ff	d8	
+
+内部函数=25231879
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4606
+Overall GE=19031.46
+Software Cycles: AND=252,XOR=294,RotatedShift=525,Other=28
+Overall cycles with Rotated Shift=1099, without Rotated Shift=2149
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=58
+Overall GE=214.98
+Software Cycles: AND=36,XOR=42,RotatedShift=75,Other=4
+Overall cycles with Rotated Shift=157, without Rotated Shift=307
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=938
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=203,Other=28
+Overall cycles with Rotated Shift=441, without Rotated Shift=847
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=134
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=29,Other=4
+Overall cycles with Rotated Shift=63, without Rotated Shift=121
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=54ef2,Pno=4a
+输出表：
+00	91	10	b8	71	47	c3	b3	bc	58	75	d1	96	a2	ce	dd	70	6e	b5	1c	dc	8d	e8	52	de	98	d3	88	51	db	f2	0b	33	1e	bf	93	bb	ff	01	e7	08	12	36	fa	c8	ea	54	e5	49	4e	95	0a	ac	20	3b	f8	a6	5b	e6	a1	c1	ed	a7	07	3a	13	7a	37	0f	7d	7b	45	6f	04	be	aa	d2	b6	59	c9	df	48	4f	84	80	9f	8a	26	6a	e1	cc	e2	3e	fc	62	d4	5f	c6	44	3c	d9	e3	7f	e9	4a	cf	9a	99	c5	05	61	c0	1f	19	a5	56	d7	0d	92	2e	3f	c7	b1	b9	8f	ca	5e	74	50	43	9c	ee	03	15	f5	fd	60	8c	5a	53	6c	9b	2f	3d	78	ad	ec	1d	5d	d5	41	35	c4	ba	9e	a0	87	f7	94	b0	cb	2b	a4	90	ab	0c	06	21	09	8e	81	c2	2a	31	29	22	89	85	42	64	f0	77	86	6d	1b	e0	eb	8b	69	82	fb	7c	6b	af	97	17	38	11	02	7e	39	f6	79	d0	4d	28	cd	ef	b2	55	bd	fe	24	66	e4	68	30	f1	a9	14	2c	b7	0e	f4	76	4c	23	16	a3	da	40	4b	65	73	b4	25	83	5c	34	18	2d	9d	f3	63	ae	67	d8	1a	a8	d6	46	32	27	57	f9	72	
+
+内部函数=44529994
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=644,Other=28
+Overall cycles with Rotated Shift=1372, without Rotated Shift=2660
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=92,Other=4
+Overall cycles with Rotated Shift=196, without Rotated Shift=380
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=224,Other=28
+Overall cycles with Rotated Shift=504, without Rotated Shift=952
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=32,Other=4
+Overall cycles with Rotated Shift=72, without Rotated Shift=136
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=46a52,Pno=7c
+输出表：
+00	cc	51	ab	c2	6a	72	b4	21	46	d1	36	ff	4e	ca	3f	8d	5d	d3	dd	7a	49	b1	b8	1b	05	74	23	10	91	92	8c	1e	30	98	59	2b	a2	e5	93	09	fc	53	f7	bf	c8	78	e0	99	b7	8a	28	ad	5b	fa	e8	d4	8b	63	60	07	f3	19	c5	7c	12	11	5a	65	62	17	27	4b	57	82	77	39	f9	06	de	37	58	0b	f1	87	52	08	aa	a4	71	4f	42	fe	d2	16	c0	b2	14	31	45	b3	af	2d	3e	67	34	d7	f8	04	6b	13	15	48	d5	bc	89	e1	38	61	0e	54	cd	70	50	ee	fb	fd	9d	2f	69	68	2e	f5	7b	d0	5f	b5	01	35	bb	b9	d8	d6	a5	9f	5e	0d	7d	8f	be	90	66	88	a8	9c	a6	24	3d	9a	1d	e6	c6	26	64	a9	33	03	ba	ac	79	55	ec	47	a3	b6	bd	25	02	7f	ea	22	ae	81	cb	0c	0a	c7	1a	a1	0f	6f	c4	3b	20	3c	40	e3	a7	eb	f0	c3	41	f4	dc	3a	73	c1	6c	32	4c	8e	e9	84	f2	ce	f6	97	b0	6e	18	ef	d9	4d	4a	7e	e2	76	2c	a0	db	ed	df	96	43	85	86	5c	83	95	c9	e7	9b	1f	56	cf	80	94	2a	da	29	e4	6d	75	9e	44	1c	
+
+内部函数=37038460
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=6034
+Overall GE=25088.7
+Software Cycles: AND=336,XOR=378,RotatedShift=630,Other=28
+Overall cycles with Rotated Shift=1372, without Rotated Shift=2632
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=82
+Overall GE=299.1
+Software Cycles: AND=48,XOR=54,RotatedShift=90,Other=4
+Overall cycles with Rotated Shift=196, without Rotated Shift=376
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1190
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=224,Other=28
+Overall cycles with Rotated Shift=518, without Rotated Shift=966
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=170
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=32,Other=4
+Overall cycles with Rotated Shift=74, without Rotated Shift=138
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=60c35,Pno=52
+输出表：
+00	72	20	8d	0a	a0	be	a7	7a	9d	19	8f	4d	ad	54	6d	d4	fd	43	93	71	c2	92	db	b2	39	84	ef	4a	e6	79	36	e9	2a	14	fa	56	29	5c	a4	e4	86	2b	45	e7	4c	3f	26	2f	a2	23	77	53	ae	74	ce	35	aa	d5	c9	25	22	6f	c6	d2	de	8b	3e	55	59	66	c7	61	cd	b1	75	96	6e	fb	dc	7c	8c	94	34	37	3d	27	e2	21	58	d9	d6	b6	99	33	c8	1c	40	d8	af	65	73	42	1a	32	8a	ca	3c	c5	0b	0f	bf	a8	97	4f	41	bd	a6	46	51	6b	9f	88	2d	49	7b	63	df	30	f7	67	44	83	e1	18	ea	4e	7d	38	d7	11	09	fc	ee	a3	17	b7	13	98	91	ac	ec	cb	01	0e	a1	da	2c	ed	1b	05	9b	e8	1f	7e	76	3a	7f	89	a5	b0	5f	eb	87	f8	1d	0c	b9	70	5e	68	0d	ba	10	5b	e0	64	5d	f9	f2	06	31	e5	80	78	cf	b8	f0	c1	bb	5a	57	d0	a9	cc	4b	3b	12	15	16	02	6c	d1	81	85	fe	62	f4	9c	ff	b5	08	50	07	60	c4	c3	90	28	95	48	47	82	9e	c0	6a	f6	dd	f3	b3	bc	1e	f1	8e	ab	b4	2e	e3	69	d3	f5	03	24	04	52	9a	
+
+内部函数=50731730
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4606
+Overall GE=19031.46
+Software Cycles: AND=252,XOR=294,RotatedShift=525,Other=28
+Overall cycles with Rotated Shift=1099, without Rotated Shift=2149
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=58
+Overall GE=214.98
+Software Cycles: AND=36,XOR=42,RotatedShift=75,Other=4
+Overall cycles with Rotated Shift=157, without Rotated Shift=307
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=938
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=203,Other=28
+Overall cycles with Rotated Shift=441, without Rotated Shift=847
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=134
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=29,Other=4
+Overall cycles with Rotated Shift=63, without Rotated Shift=121
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=21c05,Pno=20
+输出表：
+00	70	4c	db	f4	a3	d2	cb	9a	34	8d	69	09	a1	86	3d	e2	74	10	59	c1	f9	5a	dd	d3	97	49	0b	2c	c5	42	16	ab	73	f6	b6	3e	d0	1a	61	ae	fb	84	7e	6b	17	a6	30	c0	82	e3	31	aa	62	df	cc	2a	89	63	e6	a5	2b	3a	83	0c	1d	19	43	a7	b4	bc	a2	a8	75	76	87	58	11	b8	2f	12	b9	e1	56	ce	37	90	24	b5	13	5f	60	5d	5b	c3	4a	2d	02	28	57	20	6f	22	95	3f	03	a9	44	b3	ba	9b	40	25	1c	78	d4	15	ee	06	ac	8b	35	bd	48	50	6e	71	99	ad	cd	e9	c7	55	32	7b	05	d9	92	0a	e7	04	bf	81	da	4d	80	1b	ed	cf	c6	6d	fd	fc	f7	b0	8a	68	4e	6c	64	bb	af	fe	fa	1e	8f	2e	e4	eb	0d	47	29	65	96	de	88	e0	8c	7c	dc	77	94	23	d7	46	ef	c8	b2	27	9f	e5	b1	8e	ff	d8	5e	d5	1f	36	4b	4f	53	d1	52	c9	9d	7a	ea	72	39	7d	79	9e	c4	9c	f1	08	b7	3c	21	54	66	93	26	45	07	a4	41	51	be	7f	c2	38	e8	5c	d6	a0	f8	ec	f2	67	ca	91	14	f0	85	f5	3b	18	f3	01	0f	98	6a	33	0e	
+
+内部函数=17695392
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4074
+Overall GE=17611.02
+Software Cycles: AND=252,XOR=266,RotatedShift=497,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2037
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=42
+Overall GE=172.26
+Software Cycles: AND=36,XOR=38,RotatedShift=71,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=291
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=686
+Overall GE=2916.48
+Software Cycles: AND=84,XOR=98,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=385, without Rotated Shift=735
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=98
+Overall GE=416.64
+Software Cycles: AND=12,XOR=14,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=55, without Rotated Shift=105
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=87f3,Pno=6b
+输出表：
+00	40	3f	50	e4	c1	07	e0	79	49	97	d1	12	f8	af	5d	e3	eb	7a	8e	d0	8a	61	b2	85	f0	fb	0b	2e	53	99	3a	d8	ec	86	30	fc	dd	21	b3	17	25	1d	4f	44	e9	95	14	35	6b	90	1c	59	6e	78	fa	c0	04	ee	c4	ea	87	0a	ed	e5	ca	19	7e	81	45	d3	cb	da	66	65	9d	1e	20	ba	31	cd	51	2b	72	b8	10	38	94	58	43	56	03	1f	9a	d7	27	9b	77	de	d6	83	df	26	be	68	e1	74	60	a3	6d	8c	28	2d	98	ae	0f	c8	09	6f	16	91	01	a4	48	b9	b0	f2	52	63	2f	5f	8f	5a	89	ab	24	a0	76	db	a8	aa	5e	9f	fd	3d	4a	b6	d9	b1	cf	71	d2	69	c5	c3	67	84	b4	e7	ad	a6	a1	32	fe	06	0c	7d	c2	54	57	18	15	0e	42	f3	70	11	46	f7	dc	3b	3e	e8	8b	4d	bb	f5	55	3c	4b	13	33	82	75	93	47	e6	a5	a7	b7	2a	62	36	bc	1a	1b	b5	c9	88	80	c7	bd	9c	d5	7b	ef	5b	8d	0d	39	96	23	64	f4	9e	6a	37	5c	4e	08	a2	41	a9	29	d4	34	73	c6	ce	22	cc	f1	2c	f9	e2	7c	02	05	f6	ff	92	ac	6c	4c	7f	bf	
+
+内部函数=4454891
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5586
+Overall GE=23892.54
+Software Cycles: AND=336,XOR=350,RotatedShift=665,Other=28
+Overall cycles with Rotated Shift=1379, without Rotated Shift=2709
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=78
+Overall GE=288.42
+Software Cycles: AND=48,XOR=50,RotatedShift=95,Other=4
+Overall cycles with Rotated Shift=197, without Rotated Shift=387
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=966
+Overall GE=3888.64
+Software Cycles: AND=112,XOR=126,RotatedShift=231,Other=28
+Overall cycles with Rotated Shift=497, without Rotated Shift=959
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=138
+Overall GE=555.52
+Software Cycles: AND=16,XOR=18,RotatedShift=33,Other=4
+Overall cycles with Rotated Shift=71, without Rotated Shift=137
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=3c5b4,Pno=31
+输出表：
+00	74	78	70	69	c4	9e	83	a4	b9	d0	ae	3a	e3	87	81	1d	e6	5b	52	8f	9d	4b	96	b2	c8	2f	77	0d	f5	de	89	ff	1e	a9	cf	12	27	8b	73	e4	dc	fd	c6	f8	42	3e	01	e8	d8	1f	fb	29	85	3b	8a	7a	5e	df	d3	92	98	f3	2a	3d	c1	14	5c	d4	ba	06	5a	17	51	4d	18	bc	91	7f	6a	0b	2b	ee	10	23	82	7d	8e	30	b4	ec	8c	3c	49	a5	f1	0e	bf	45	1a	f6	38	cd	9f	ad	31	2e	b6	20	2c	fa	36	6f	88	7b	d6	02	4e	db	e5	6b	16	a0	6d	19	25	f9	f0	b5	5d	7e	32	ed	66	43	46	aa	ca	9b	65	33	f2	ef	b7	48	eb	21	15	99	d2	95	4a	da	fc	fe	41	e0	cb	08	64	34	ea	72	8d	47	9c	c0	d1	57	67	76	4c	97	6c	e7	ce	24	ab	75	f4	bd	71	63	53	04	0a	56	35	39	b1	b3	62	05	07	1b	9a	90	50	a3	c2	40	c3	af	b8	cc	a1	22	3f	94	6e	37	54	e2	be	11	c5	93	bb	60	a8	26	c7	0f	09	86	d7	a2	79	28	ac	80	a6	b0	59	f7	03	1c	dd	84	0c	7c	a7	61	d5	4f	2d	13	d9	44	e9	c9	55	68	5f	58	e1	
+
+内部函数=31644209
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4606
+Overall GE=19031.46
+Software Cycles: AND=252,XOR=294,RotatedShift=525,Other=28
+Overall cycles with Rotated Shift=1099, without Rotated Shift=2149
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=58
+Overall GE=214.98
+Software Cycles: AND=36,XOR=42,RotatedShift=75,Other=4
+Overall cycles with Rotated Shift=157, without Rotated Shift=307
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=938
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=203,Other=28
+Overall cycles with Rotated Shift=441, without Rotated Shift=847
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=134
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=29,Other=4
+Overall cycles with Rotated Shift=63, without Rotated Shift=121
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=46be9,Pno=26
+输出表：
+00	22	1c	ea	66	76	71	b2	a9	4f	27	ed	72	f1	c3	07	a1	3a	e8	80	4a	a3	a5	9c	ce	b9	ae	dd	f9	33	d7	90	b3	a0	ba	62	85	a2	34	5f	89	7b	2c	46	49	3f	1f	5e	a8	8c	aa	e6	83	44	f4	bc	98	f7	b4	e9	3c	29	21	2a	b0	8f	b8	04	5a	3e	77	ab	79	6f	9e	fc	af	58	23	eb	b1	17	fe	53	61	5b	e3	f5	f3	e0	38	75	73	93	50	02	3b	87	d2	05	1a	65	26	7e	57	2e	7d	d4	96	6d	6e	b7	0b	ec	d6	63	d1	10	4d	68	a6	2d	0f	a4	c2	74	1e	a7	be	95	c4	ad	12	ff	ca	ee	9f	df	88	8a	f6	82	4e	e7	d5	3d	36	47	40	54	84	39	78	b6	5c	e5	35	94	18	fa	6c	97	45	bb	7c	09	0a	b5	2b	cc	c9	1b	cf	4c	f8	86	67	2f	f0	f2	0c	81	8d	bd	d3	08	d9	56	e4	d0	55	6b	8e	14	69	31	1d	9b	59	fd	c8	43	7f	db	13	c1	fb	ef	30	41	19	11	e2	37	25	01	03	0e	d8	da	99	28	48	24	51	e1	5d	92	32	8b	60	64	20	16	6a	4b	cd	de	c0	9d	91	c5	bf	0d	15	c6	06	7a	52	c7	cb	70	9a	dc	42	ac	
+
+内部函数=37090470
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=637,Other=28
+Overall cycles with Rotated Shift=1379, without Rotated Shift=2653
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=91,Other=4
+Overall cycles with Rotated Shift=197, without Rotated Shift=379
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=231,Other=28
+Overall cycles with Rotated Shift=525, without Rotated Shift=987
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=33,Other=4
+Overall cycles with Rotated Shift=75, without Rotated Shift=141
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=6ecad,Pno=32
+输出表：
+00	1e	9d	65	0d	e1	5b	11	42	30	36	27	3a	c0	32	98	77	b7	9f	4d	a5	0c	b6	bc	d1	f0	81	e0	2b	79	6f	d2	ab	08	25	b3	ed	04	8a	2c	34	3e	60	2f	fb	be	5f	5c	20	4e	e4	50	95	f4	8c	b1	3d	a4	7f	83	cc	f2	52	ce	cb	f3	cd	c1	53	fa	41	ec	64	a2	45	21	93	e9	bf	43	86	eb	db	16	e3	24	bd	5d	47	c2	f6	7d	c3	0e	a0	63	ea	94	9e	55	6b	7c	6d	51	97	b4	3c	c8	9b	ad	2a	18	48	2d	0a	88	73	a8	d3	df	99	f1	d0	f9	59	1f	0b	15	69	33	1c	4b	e2	c5	62	74	ff	90	d6	29	c4	72	84	06	cf	1a	54	85	78	ba	dc	bb	03	ac	39	3b	af	1b	d4	07	c7	ef	dd	6e	91	fe	e5	05	68	6c	40	d8	9a	c9	38	02	3f	de	26	f5	92	a9	75	8f	22	66	57	b5	a6	ee	e6	e7	7e	7a	d5	10	0f	17	8e	67	14	4f	b8	96	89	87	aa	71	01	44	a3	d7	49	28	ae	4c	1d	a7	37	12	e8	6a	56	58	8d	13	b2	80	82	23	fd	09	f8	76	da	9c	d9	5a	b9	b0	70	a1	fc	46	4a	19	61	8b	31	c6	35	f7	5e	7b	2e	ca	
+
+内部函数=58087090
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=679,Other=28
+Overall cycles with Rotated Shift=1407, without Rotated Shift=2765
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=97,Other=4
+Overall cycles with Rotated Shift=201, without Rotated Shift=395
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=245,Other=28
+Overall cycles with Rotated Shift=525, without Rotated Shift=1015
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=35,Other=4
+Overall cycles with Rotated Shift=75, without Rotated Shift=145
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=5587c,Pno=29
+输出表：
+00	02	8f	85	1b	73	2c	6e	cc	d5	be	83	82	11	34	47	f1	7b	e8	c9	b2	98	67	a4	5c	3d	52	c7	de	9e	4e	44	86	56	a5	17	ad	e6	8c	aa	f6	f4	41	c2	c6	14	b7	e7	35	31	6a	15	a9	4a	a1	cf	c5	fc	d4	a0	9c	f3	a8	f5	fd	ce	78	7f	bd	54	1e	8b	af	58	20	3b	42	0c	5a	2d	a7	ed	c1	09	49	bf	a6	72	d7	25	ee	e5	2a	3f	13	28	c8	0b	2b	b5	24	71	ae	ab	4b	bc	fe	07	26	94	f9	9f	40	87	f0	7d	2e	36	81	90	dd	8a	7e	04	ea	9a	60	4f	3a	0a	51	22	7a	1a	39	93	69	43	6d	88	c4	50	c3	d9	f2	55	a2	8d	0d	f8	12	fb	cb	74	d2	5b	6c	3e	32	ca	46	4c	2f	30	23	4d	18	5e	9d	06	d1	75	96	64	38	91	0f	c0	da	e4	d3	b3	df	ec	b4	e3	63	01	d8	db	5f	eb	6f	45	dc	97	7c	bb	48	99	84	ac	89	33	16	a3	66	8e	29	e1	68	37	f7	61	76	03	08	fa	6b	62	1c	1f	b9	ef	57	53	77	cd	95	b0	59	0e	d0	80	b8	92	9b	27	b6	05	d6	21	ba	19	65	5d	1d	e2	ff	b1	10	3c	79	70	e0	e9	
+
+内部函数=44842537
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=658,Other=28
+Overall cycles with Rotated Shift=1400, without Rotated Shift=2716
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=94,Other=4
+Overall cycles with Rotated Shift=200, without Rotated Shift=388
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=238,Other=28
+Overall cycles with Rotated Shift=532, without Rotated Shift=1008
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=34,Other=4
+Overall cycles with Rotated Shift=76, without Rotated Shift=144
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=13438,Pno=58
+输出表：
+00	7e	e5	8d	13	ee	6d	86	e2	7c	81	43	79	01	94	8e	cc	45	f0	69	aa	5e	51	61	ec	03	2f	ed	8b	92	18	66	12	98	9f	df	fa	5b	96	55	c3	b5	2d	57	06	71	4b	a9	65	2b	f8	ef	a8	c5	59	29	b6	b8	04	39	eb	c4	6e	88	1d	fd	ff	0c	d1	e8	d5	c0	a2	2e	37	16	0a	54	74	99	90	31	e1	4a	bc	ea	e3	38	e0	d3	42	1c	9a	a6	4e	ca	41	e7	f7	1b	73	a1	be	32	35	cf	b4	77	28	5f	f9	93	02	cb	c6	d4	72	7f	5c	a3	60	44	33	b3	7a	07	5d	82	0f	d2	3a	68	70	c7	9c	e9	af	0b	da	9b	c9	11	09	3c	14	b0	ae	ce	bd	56	64	a7	27	4d	fe	67	a4	de	8a	3e	6a	26	6f	f2	f4	30	dd	a0	6b	63	52	4f	b2	62	bf	7d	0d	cd	97	e6	75	47	d7	85	9d	9e	91	22	49	08	a5	0e	25	bb	83	8c	20	17	d0	3b	fb	36	1f	d9	34	19	7b	40	21	c2	ad	b7	76	80	89	2a	46	b9	87	c8	fc	78	58	15	ac	2c	f6	3f	f5	ab	1e	e4	23	dc	ba	24	53	b1	95	1a	50	db	d6	f1	8f	84	48	5a	c1	d8	10	3d	f3	4c	6c	05	
+
+内部函数=10099800
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=658,Other=28
+Overall cycles with Rotated Shift=1400, without Rotated Shift=2716
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=94,Other=4
+Overall cycles with Rotated Shift=200, without Rotated Shift=388
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=238,Other=28
+Overall cycles with Rotated Shift=532, without Rotated Shift=1008
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=34,Other=4
+Overall cycles with Rotated Shift=76, without Rotated Shift=144
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=8f41,Pno=1f
+输出表：
+00	85	e2	0f	95	2e	0b	ea	a0	38	da	10	6f	63	4e	47	c6	3f	b7	d1	0d	b6	ca	7b	dd	48	9c	28	64	22	91	1e	03	53	31	04	c4	06	e0	2d	11	e6	bd	6d	76	b0	5b	77	1b	c0	26	15	fc	3e	27	d8	df	6a	59	ab	96	02	7d	b1	8f	79	e9	af	cc	60	8d	86	a7	0a	52	a9	8e	70	68	39	08	cb	de	69	0e	89	db	45	be	46	72	f6	82	ef	1a	44	ec	75	09	56	d0	35	7e	81	54	2b	e7	01	9d	fa	29	58	ad	f5	17	9b	83	8c	dc	24	7c	7a	b9	a3	a1	51	d9	88	25	33	40	57	92	ba	5e	8a	99	34	e3	5d	e4	94	c1	07	c5	4a	9e	3c	ac	cd	c8	c7	55	b3	a4	fb	62	74	12	9a	3a	49	37	87	d6	20	d5	66	1c	9f	a2	e8	f3	3d	e5	43	32	f0	42	78	23	1f	2f	8b	4b	f1	5f	eb	2c	21	c2	c9	16	65	a6	50	05	ce	4d	67	c3	b4	4c	98	93	fd	61	bb	a8	97	19	5c	bc	2a	36	3b	7f	f9	14	13	b2	d4	80	fe	f4	b8	b5	1d	ee	90	ed	f7	ff	84	5a	ae	71	6b	0c	41	73	18	cf	d2	f2	aa	e1	4f	a5	30	6e	d3	bf	f8	d7	6c	
+
+内部函数=4694175
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=6034
+Overall GE=25088.7
+Software Cycles: AND=336,XOR=378,RotatedShift=686,Other=28
+Overall cycles with Rotated Shift=1428, without Rotated Shift=2800
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=82
+Overall GE=299.1
+Software Cycles: AND=48,XOR=54,RotatedShift=98,Other=4
+Overall cycles with Rotated Shift=204, without Rotated Shift=400
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1190
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=252,Other=28
+Overall cycles with Rotated Shift=546, without Rotated Shift=1050
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=170
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=36,Other=4
+Overall cycles with Rotated Shift=78, without Rotated Shift=150
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=471d6,Pno=64
+输出表：
+00	03	92	b7	02	18	c7	2d	49	50	80	f1	95	60	8c	fa	11	08	8b	01	c5	39	e4	61	27	4d	9b	5a	0b	ae	2f	f0	84	47	8a	eb	f6	7d	d2	85	b2	6b	e1	94	99	b1	6f	28	40	e2	6c	fd	c6	a4	cf	9a	69	86	1d	88	16	65	38	29	cd	2e	81	7a	74	30	de	ef	54	3b	04	43	68	ad	da	f5	7b	22	66	dc	56	19	9c	fc	53	2a	9d	d6	41	64	0c	48	67	a8	79	15	07	f3	c9	f7	a5	98	fb	d9	5d	1c	f4	82	b8	6e	a9	93	09	1f	ba	3d	0f	5f	be	d4	89	9e	a3	0d	36	24	db	e9	ab	55	4a	b9	f9	e5	77	3f	fe	a1	33	71	a7	9f	2c	06	58	23	26	1b	4c	8e	78	25	0e	ce	f8	ac	57	42	b5	1a	4e	cc	b6	c1	73	37	72	4b	c0	35	ed	e8	1e	52	3e	97	dd	5b	aa	cb	b3	c8	d7	5e	e3	7c	a0	63	45	3c	d5	51	31	a2	44	ca	5c	91	b0	76	c3	0a	90	14	2b	7e	83	12	62	ff	87	df	ea	59	8d	32	13	d3	10	bc	ee	af	6d	75	c2	3a	96	8f	c4	6a	4f	bd	70	21	d0	e7	17	f2	bf	20	e6	b4	ec	a6	d8	34	d1	7f	bb	05	46	e0	
+
+内部函数=37284708
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=616,Other=28
+Overall cycles with Rotated Shift=1344, without Rotated Shift=2576
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=88,Other=4
+Overall cycles with Rotated Shift=192, without Rotated Shift=368
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=210,Other=28
+Overall cycles with Rotated Shift=490, without Rotated Shift=910
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=30,Other=4
+Overall cycles with Rotated Shift=70, without Rotated Shift=130
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=7b7ed,Pno=7c
+输出表：
+00	a9	f9	cd	2c	08	45	2d	10	50	34	86	41	f0	ce	31	f4	22	0b	bb	38	fc	7c	ca	4d	1e	83	c8	a1	d1	e5	1f	02	d7	6b	1b	4f	4a	35	f3	40	61	6f	a4	57	32	cc	6e	72	fb	07	65	27	60	29	90	c2	1a	b9	67	69	c5	d5	6a	42	db	44	58	88	f6	e4	12	93	11	04	24	4c	21	55	59	c9	7d	7b	8c	1c	da	73	ba	fe	d6	bf	5b	af	20	ab	75	fd	77	05	c0	7e	dc	8d	ec	a6	16	5f	99	7a	2a	4e	39	91	ad	4b	9d	2f	be	b0	ee	a5	5d	54	d9	95	e0	b7	de	89	3f	e3	3a	37	0e	e7	36	92	df	63	a2	1d	0c	d2	eb	33	78	ef	8f	2b	c7	b5	43	8a	5c	e1	49	ff	85	9e	28	d0	e6	80	06	f5	70	c6	96	87	76	9a	c1	0f	79	c3	ac	71	fa	97	cf	17	09	25	a3	b8	47	a0	98	56	bd	b6	d3	52	d4	03	d8	dd	18	f8	5a	66	68	ed	13	46	6c	3b	a7	9f	f2	bc	aa	0d	b1	b3	8e	a8	3c	e2	f1	6d	e9	81	b4	14	94	19	84	3e	ea	48	2e	5e	c4	26	30	cb	01	0a	ae	74	64	51	82	7f	8b	53	f7	e8	9c	9b	62	3d	23	15	b2	
+
+内部函数=64747260
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4690
+Overall GE=19255.74
+Software Cycles: AND=252,XOR=294,RotatedShift=518,Other=28
+Overall cycles with Rotated Shift=1092, without Rotated Shift=2128
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=70
+Overall GE=247.02
+Software Cycles: AND=36,XOR=42,RotatedShift=74,Other=4
+Overall cycles with Rotated Shift=156, without Rotated Shift=304
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=966
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=196,Other=28
+Overall cycles with Rotated Shift=434, without Rotated Shift=826
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=138
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=28,Other=4
+Overall cycles with Rotated Shift=62, without Rotated Shift=118
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=6f58f,Pno=68
+输出表：
+00	cd	5c	af	9a	d4	4c	75	7c	5d	f5	97	c4	6e	50	d2	80	90	e4	92	45	b6	27	c0	f3	ee	13	e5	e2	c8	2a	b1	24	de	72	ac	4a	dc	dd	be	02	c5	51	10	37	e8	a5	7d	07	4e	e0	c9	60	14	0f	c7	67	96	35	d0	15	77	22	fd	7e	e6	6a	57	f9	58	ba	31	59	61	1a	d8	e1	a6	7a	cc	54	65	25	2c	d1	06	c3	db	44	e7	68	99	ca	b0	f1	d6	c6	12	63	53	b5	5a	29	17	1e	a4	94	3f	f0	1b	46	11	da	1d	4b	f4	1c	43	d7	e3	6f	fe	78	81	34	b2	41	3a	8a	d9	88	64	79	3b	bc	40	ec	f6	26	a8	42	52	fb	39	09	ce	70	a9	4f	84	d5	23	6b	03	c1	16	a3	76	32	6c	ef	0c	19	b3	47	69	fa	6d	ab	05	f8	8c	ff	20	0a	33	b9	71	3d	87	08	5e	a1	7b	d3	5f	48	9e	cf	bf	df	93	3e	89	9d	ea	aa	b4	85	95	2d	62	ad	04	18	8f	55	9b	36	82	ed	c2	bd	2e	01	b8	a0	a7	ae	30	2f	2b	0e	74	7f	91	4d	9f	eb	28	f2	8d	bb	8b	56	0b	66	b7	98	83	e9	5b	38	49	0d	f7	cb	a2	86	fc	21	1f	9c	3c	73	8e	
+
+内部函数=58378216
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5950
+Overall GE=24864.42
+Software Cycles: AND=336,XOR=378,RotatedShift=658,Other=28
+Overall cycles with Rotated Shift=1400, without Rotated Shift=2716
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=70
+Overall GE=267.06
+Software Cycles: AND=48,XOR=54,RotatedShift=94,Other=4
+Overall cycles with Rotated Shift=200, without Rotated Shift=388
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1162
+Overall GE=4486.72
+Software Cycles: AND=112,XOR=154,RotatedShift=238,Other=28
+Overall cycles with Rotated Shift=532, without Rotated Shift=1008
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=166
+Overall GE=640.96
+Software Cycles: AND=16,XOR=22,RotatedShift=34,Other=4
+Overall cycles with Rotated Shift=76, without Rotated Shift=144
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=94d0,Pno=4a
+输出表：
+00	5d	4c	bc	c8	45	38	23	1f	6a	ba	49	02	2c	19	93	e5	e6	f4	a2	3d	d2	98	80	1d	5e	d5	fe	c9	54	c1	d8	35	43	de	af	ed	f5	ee	eb	3f	66	b2	04	34	a5	fb	88	f6	69	90	01	bf	db	6e	a8	0e	f3	92	05	ae	41	84	cb	07	c3	d6	a4	31	b6	ad	56	81	94	60	73	ac	ef	c2	ec	d9	67	7d	51	f1	8f	83	2f	b1	12	37	f7	7f	3e	a6	e4	72	91	a7	ab	d3	97	4e	e0	f0	2b	65	e3	e7	26	5c	50	9b	21	53	59	13	c0	22	1e	7c	87	6c	a3	4f	c7	20	df	c5	a0	d7	57	9d	f2	1b	9a	9f	85	8c	14	82	39	42	29	dd	7a	27	cf	75	76	c6	4a	fd	3a	d1	6d	68	15	09	06	7b	c4	55	47	2d	e9	4b	61	d0	0f	5a	9e	58	0a	8d	74	aa	2a	03	32	5f	7e	18	fc	0d	46	b4	8a	0c	64	e1	e8	b0	78	fa	6f	ca	1a	70	5b	0b	9c	1c	b9	48	24	ff	a1	77	3c	99	2e	79	dc	bd	11	40	4d	a9	33	25	e2	b3	16	89	cd	17	ea	f9	d4	b8	36	6b	3b	cc	96	44	10	bb	30	8b	b7	63	be	b5	95	28	8e	52	da	08	86	71	ce	f8	62	
+
+内部函数=4876362
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=644,Other=28
+Overall cycles with Rotated Shift=1372, without Rotated Shift=2660
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=92,Other=4
+Overall cycles with Rotated Shift=196, without Rotated Shift=380
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=224,Other=28
+Overall cycles with Rotated Shift=504, without Rotated Shift=952
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=32,Other=4
+Overall cycles with Rotated Shift=72, without Rotated Shift=136
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=13f29,Pno=19
+输出表：
+00	bf	60	f6	f9	fb	14	96	dc	70	f3	24	d8	49	53	06	f0	bb	da	33	7c	98	36	45	2b	c6	5d	55	1f	67	7e	d6	e5	46	04	9b	dd	81	bc	ad	5a	68	c7	72	50	86	91	b0	71	8b	d2	0f	e4	cb	8a	6a	c4	0c	c8	41	aa	3e	39	ac	1c	47	0a	c2	be	c9	2d	cf	16	c1	a8	87	54	f8	1b	a9	3a	13	26	69	e1	db	65	bd	95	5b	34	e0	8d	3c	25	9f	2c	43	fa	fe	b5	c0	6f	d1	c5	44	1e	a0	08	a4	f2	1a	e9	4e	40	ce	d3	63	9e	15	12	75	4d	37	61	ae	7d	3b	b3	79	99	0e	88	9c	09	80	b9	74	51	e2	e3	e7	7b	6e	77	f1	57	ab	8e	a3	05	48	2e	23	56	29	76	9d	94	93	84	89	7f	5e	1d	9a	20	fc	b2	85	a5	b6	a6	0d	22	27	01	fd	4a	2a	ca	82	ba	19	11	7a	6c	18	d5	73	3f	cc	6d	a2	4c	6b	eb	42	ec	de	90	ff	35	ed	b7	83	30	59	d4	f5	4f	ef	64	df	21	92	78	02	32	d7	31	e8	af	cd	4b	03	3d	10	17	d0	5f	ee	38	66	97	2f	a7	f4	07	0b	b8	a1	b1	d9	8c	f7	28	5c	b4	8f	ea	c3	52	58	62	e6	
+
+内部函数=10458265
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=623,Other=28
+Overall cycles with Rotated Shift=1351, without Rotated Shift=2597
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=89,Other=4
+Overall cycles with Rotated Shift=193, without Rotated Shift=371
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=217,Other=28
+Overall cycles with Rotated Shift=497, without Rotated Shift=931
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=31,Other=4
+Overall cycles with Rotated Shift=71, without Rotated Shift=133
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=23dd1,Pno=49
+输出表：
+00	70	65	d2	a1	7e	b0	c9	0a	0e	03	bd	3c	8c	43	83	f6	ce	f8	cf	50	3e	c8	1b	6c	b1	82	42	1e	53	e8	b2	fe	55	51	35	99	b8	6d	75	25	10	1c	62	46	16	4c	e6	61	02	e2	72	32	ee	db	cb	7d	54	9a	4d	17	63	ae	37	7c	6e	2d	76	f7	60	57	ed	a8	fd	d1	da	15	7b	28	20	bf	89	d9	8b	21	ad	4a	af	34	0d	04	dc	66	92	2c	b6	94	d0	c2	c7	8e	27	98	49	48	59	ef	de	3a	5d	11	f1	6b	86	3f	5c	84	d6	c0	a3	ca	eb	fb	6f	f2	ba	d8	8a	c4	22	0f	0b	be	b9	2a	44	e9	5f	e1	24	81	40	b7	88	c1	8f	aa	f0	fa	f4	6a	19	69	7f	ea	a9	2f	e0	cd	d5	9d	9f	e7	09	36	a2	4b	80	74	8d	23	e4	18	13	06	2b	f5	1d	2e	7a	ab	47	ec	d7	df	3d	77	d3	31	90	29	b4	cc	45	fc	14	07	c6	a7	91	73	1f	68	12	b5	dd	0c	ac	56	38	e3	c5	f9	d4	26	5e	87	41	9b	9e	ff	33	01	64	85	39	05	a0	93	5b	e5	a5	67	71	78	a6	52	97	79	a4	c3	4e	1a	96	3b	95	5a	30	08	b3	9c	4f	bb	bc	58	f3	
+
+内部函数=18802889
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4830
+Overall GE=19629.54
+Software Cycles: AND=252,XOR=308,RotatedShift=539,Other=28
+Overall cycles with Rotated Shift=1127, without Rotated Shift=2205
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=60
+Overall GE=220.32
+Software Cycles: AND=36,XOR=44,RotatedShift=77,Other=4
+Overall cycles with Rotated Shift=161, without Rotated Shift=315
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=1050
+Overall GE=3813.6
+Software Cycles: AND=84,XOR=140,RotatedShift=217,Other=28
+Overall cycles with Rotated Shift=469, without Rotated Shift=903
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=150
+Overall GE=544.8
+Software Cycles: AND=12,XOR=20,RotatedShift=31,Other=4
+Overall cycles with Rotated Shift=67, without Rotated Shift=129
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=241ee,Pno=49
+输出表：
+00	cc	9c	3f	b2	36	61	7a	71	34	52	e8	2b	b6	55	f6	ee	09	c9	47	3a	c8	59	8d	3d	c2	da	d0	51	a5	4c	39	e5	ba	e6	94	41	50	d3	ce	a0	0f	3c	2e	ad	93	53	20	9a	1c	9e	65	13	8f	c7	1a	b5	0a	bf	2c	02	b9	45	0d	7c	66	ff	a7	e2	c1	86	63	58	fd	23	bd	33	70	29	05	5b	14	fc	f5	48	81	bc	98	df	79	eb	89	73	6d	7d	95	d4	1d	0e	15	0b	9b	22	84	6f	ae	96	35	6b	03	07	10	99	e1	b4	e0	25	dd	f2	4a	cf	77	cd	8a	b3	56	38	7e	fb	d5	69	b1	b8	f4	f0	21	a2	fe	92	76	04	e9	1b	a3	62	aa	57	85	fa	4b	d6	f3	ca	db	88	46	72	83	e7	8b	2a	80	6c	b0	18	a8	8c	c6	c5	d7	3e	16	19	30	01	f8	68	c4	1f	6a	d2	7f	2d	5d	54	24	87	dc	11	d9	5c	26	5f	31	a1	17	75	a9	f9	b7	43	ac	74	37	0c	4f	f1	f7	7b	90	28	40	ea	82	ab	de	60	bb	ec	3b	27	ed	d1	78	c3	42	91	d8	ef	67	97	4d	1e	44	06	12	4e	64	5a	a4	c0	9d	8e	af	49	32	e4	e3	08	a6	cb	2f	9f	be	5e	6e	
+
+内部函数=18937673
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4830
+Overall GE=19629.54
+Software Cycles: AND=252,XOR=308,RotatedShift=539,Other=28
+Overall cycles with Rotated Shift=1127, without Rotated Shift=2205
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=60
+Overall GE=220.32
+Software Cycles: AND=36,XOR=44,RotatedShift=77,Other=4
+Overall cycles with Rotated Shift=161, without Rotated Shift=315
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=1050
+Overall GE=3813.6
+Software Cycles: AND=84,XOR=140,RotatedShift=217,Other=28
+Overall cycles with Rotated Shift=469, without Rotated Shift=903
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=150
+Overall GE=544.8
+Software Cycles: AND=12,XOR=20,RotatedShift=31,Other=4
+Overall cycles with Rotated Shift=67, without Rotated Shift=129
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=63ddd,Pno=4f
+输出表：
+00	17	db	2b	09	53	ad	69	be	62	33	c4	a3	58	c5	06	35	e7	b1	31	1f	a8	2a	3b	21	98	ea	fd	59	89	66	91	25	cc	26	e2	9a	d5	03	4b	b3	f0	1b	3e	ae	fb	56	ff	57	48	38	d4	71	12	54	7e	67	ed	a1	af	e9	8c	b4	e4	8f	20	7c	c9	16	c2	18	27	a7	f8	aa	fc	cf	6d	a9	3c	3a	37	9d	8a	3f	f5	ca	ba	40	fa	51	c3	14	6b	c0	92	34	1a	82	77	d1	b2	24	93	72	7a	96	b8	2c	d7	4a	64	ab	07	08	79	87	6f	d9	0f	e6	75	e0	5e	f4	5b	42	2e	eb	f7	f9	32	d3	61	97	8e	b7	8d	05	dd	9c	1d	ec	c7	ac	a4	bd	d6	10	52	01	28	95	c6	04	0d	5f	b0	5d	6e	e1	15	29	0a	bb	49	5a	7f	f3	d0	7d	13	19	6a	74	44	02	c8	50	3d	60	0c	ef	47	5c	68	bf	84	0b	22	2d	43	7b	4f	cb	78	de	2f	46	c1	4e	30	f2	e3	99	63	b6	86	85	73	9e	a6	b5	70	4d	65	81	dc	9b	36	94	45	ce	e8	11	b9	83	8b	d2	a2	e5	a0	f1	ee	9f	fe	1e	39	90	cd	4c	df	da	f6	d8	0e	bc	23	a5	76	1c	6c	88	41	80	55	
+
+内部函数=52358863
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=511,Other=28
+Overall cycles with Rotated Shift=1071, without Rotated Shift=2093
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=73,Other=4
+Overall cycles with Rotated Shift=153, without Rotated Shift=299
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=189,Other=28
+Overall cycles with Rotated Shift=413, without Rotated Shift=791
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=27,Other=4
+Overall cycles with Rotated Shift=59, without Rotated Shift=113
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=57823,Pno=3e
+输出表：
+00	d6	20	ad	c1	d0	6b	29	9c	5d	57	c7	c0	b8	52	71	7d	78	ba	a0	a7	06	d8	99	60	dc	bc	c6	a4	2c	2d	f0	6f	51	3e	9e	84	38	5b	68	c8	94	9d	69	7a	9b	87	3d	33	23	5f	75	b0	4a	e9	ac	1c	59	5c	98	67	ce	8d	fc	ef	df	b7	0f	e6	f8	a1	8f	55	e3	25	76	50	28	c2	05	32	15	48	36	12	bd	d9	2f	17	ec	d2	08	f4	a8	31	10	3f	cc	b4	a6	f7	13	7e	11	c4	46	35	f2	dd	22	96	4d	6a	b5	b6	34	3a	85	c5	18	da	73	4f	89	72	bb	42	1b	04	8b	6c	d1	90	e5	63	d3	3c	be	54	6e	58	6d	49	2e	de	24	8a	4e	e0	61	d5	ca	7c	97	c9	b2	d4	56	27	f9	a9	41	d7	cb	aa	c3	cd	62	39	21	07	03	e4	43	14	b3	bf	0a	b9	53	65	a3	19	30	74	01	26	0b	e8	0e	ff	82	86	3b	47	fe	8c	cf	ab	f3	2b	45	95	93	e2	af	16	81	1a	fa	ea	f1	37	1e	83	4c	79	a5	1f	7b	92	b1	db	fd	70	88	5e	2a	40	fb	e1	7f	0d	9f	ae	91	9a	09	f5	ed	44	e7	ee	02	1d	a2	80	f6	64	0c	8e	66	77	5a	4b	eb	
+
+内部函数=45879742
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=455,Other=28
+Overall cycles with Rotated Shift=1015, without Rotated Shift=1925
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=65,Other=4
+Overall cycles with Rotated Shift=145, without Rotated Shift=275
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=161,Other=28
+Overall cycles with Rotated Shift=385, without Rotated Shift=707
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=23,Other=4
+Overall cycles with Rotated Shift=55, without Rotated Shift=101
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=63fc5,Pno=5b
+输出表：
+00	d7	6d	91	fe	1a	e8	ec	36	9f	ff	f1	e2	5a	38	17	96	9e	47	c8	97	5f	43	f4	a1	24	a8	cf	4b	49	a4	9a	f7	a6	2a	f6	77	6b	1b	7a	63	bb	85	13	79	09	65	0e	fc	71	fb	54	21	ce	46	8f	68	1f	5d	2c	98	f3	5b	3e	62	e0	07	15	3a	ee	2d	a9	84	52	0c	d1	c5	6f	e6	d6	80	18	f5	c0	95	66	83	6c	c9	ed	8c	67	bf	c2	37	e3	11	b4	b8	12	5c	fd	41	89	7c	9d	ea	d0	14	4d	a2	1e	7f	50	d2	25	d3	df	92	3d	b6	58	d8	69	ef	e5	bc	b1	b2	70	4a	db	48	27	56	99	16	94	1c	ad	93	20	9c	be	dd	a7	04	32	e4	f8	8b	74	cb	f9	08	ac	9b	0a	61	40	6e	42	7e	44	10	19	b3	26	34	ba	8d	0f	b5	8e	87	3f	72	05	64	7b	bd	81	4f	4e	06	82	aa	78	e9	60	e1	88	ae	eb	57	c1	73	90	75	fa	ca	23	de	b9	e7	3c	c3	03	33	3b	28	31	c4	b0	29	cc	d9	d4	f0	8a	76	b7	1d	c7	0b	35	0d	2f	2b	a3	f2	7d	86	a0	ab	59	51	22	d5	c6	dc	6a	55	a5	2e	cd	da	4c	45	53	39	af	30	02	5e	01	
+
+内部函数=52421339
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5586
+Overall GE=23892.54
+Software Cycles: AND=336,XOR=350,RotatedShift=630,Other=28
+Overall cycles with Rotated Shift=1344, without Rotated Shift=2604
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=78
+Overall GE=288.42
+Software Cycles: AND=48,XOR=50,RotatedShift=90,Other=4
+Overall cycles with Rotated Shift=192, without Rotated Shift=372
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=966
+Overall GE=3888.64
+Software Cycles: AND=112,XOR=126,RotatedShift=210,Other=28
+Overall cycles with Rotated Shift=476, without Rotated Shift=896
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=138
+Overall GE=555.52
+Software Cycles: AND=16,XOR=18,RotatedShift=30,Other=4
+Overall cycles with Rotated Shift=68, without Rotated Shift=128
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=70bca,Pno=40
+输出表：
+00	c5	61	ca	38	fc	7d	68	1d	da	09	22	5c	4e	cb	92	90	bd	4d	06	1a	be	9e	a8	54	35	c3	67	ad	07	12	b2	f0	dc	78	fd	b6	c1	d4	e1	31	a7	53	8f	01	fb	25	de	f1	73	83	3b	b9	e3	ea	cc	96	42	3c	58	a3	63	5b	02	b0	0d	ff	08	75	76	b1	36	5a	20	98	46	91	2c	79	87	ba	e2	3f	32	93	e6	b8	d8	d7	89	66	fa	94	2f	1c	18	03	30	5d	50	0c	0b	4a	99	51	16	71	d3	ef	d0	24	85	e7	9d	cd	b5	88	0e	19	ce	80	e8	f3	62	14	55	72	49	29	d1	df	c9	f8	a6	db	44	27	8a	aa	a9	52	6a	af	5f	0a	c2	6f	a0	9b	ee	f6	ab	f7	95	eb	d5	6d	6b	c0	b3	bb	5e	2a	65	1e	f9	48	a2	34	7a	9c	b4	41	84	d9	47	86	05	c8	e9	1b	c7	3d	e5	8e	57	ed	3e	2d	40	ec	f4	cf	37	43	bc	9a	39	77	2e	ac	d2	c6	0f	45	a5	04	60	7b	70	e0	74	11	d6	7e	b7	13	fe	f5	7c	82	6c	e4	8b	15	c4	23	26	3a	7f	81	8d	59	69	64	dd	28	97	33	9f	4b	4c	21	2b	f2	a4	a1	6e	10	8c	4f	56	ae	17	1f	bf	
+
+内部函数=59106624
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4298
+Overall GE=18209.1
+Software Cycles: AND=252,XOR=280,RotatedShift=504,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2072
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=44
+Overall GE=177.6
+Software Cycles: AND=36,XOR=40,RotatedShift=72,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=296
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=798
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=406, without Rotated Shift=770
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=114
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=58, without Rotated Shift=110
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=63fc5,Pno=79
+输出表：
+00	d0	2d	cf	93	92	12	9d	09	5c	ff	17	26	16	9a	db	8f	da	d1	6c	1f	0a	f5	ce	80	4a	8c	03	c9	7f	2c	b8	90	22	6e	0f	0e	b4	87	3e	63	8e	e6	7d	98	c5	49	94	fc	9b	aa	dc	3b	9f	02	88	72	97	9e	b1	10	4d	d8	a5	06	68	9c	a8	f6	3c	e5	e9	84	5a	13	1d	36	34	a2	fa	c4	18	07	c8	fe	66	4c	40	4b	bc	04	75	dd	e8	a1	a7	3d	2f	23	de	b3	32	41	c6	83	15	f7	86	14	6f	c1	44	ed	ac	d2	af	ca	bd	d6	b5	f2	a6	d3	4e	e2	6d	20	a4	fb	a3	c2	79	48	eb	b0	99	52	d7	c3	65	76	64	43	fd	37	38	ec	ba	33	21	47	56	96	35	0b	4f	df	5f	f0	0c	2a	bb	b6	1e	f1	5d	62	6b	d9	b9	8d	3a	11	a0	1b	f3	e0	05	f8	08	71	3f	55	69	5b	46	73	78	cd	50	e1	cb	2e	27	c0	85	7e	53	31	5e	ea	ab	24	be	2b	ee	58	d5	e4	0d	28	ef	29	e3	bf	cc	51	d4	25	7c	59	7b	8b	60	f4	f9	a9	ae	e7	81	b2	57	77	42	74	95	70	6a	91	01	54	1c	c7	7a	67	45	19	b7	ad	8a	39	61	30	82	1a	89	
+
+内部函数=52421369
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5586
+Overall GE=23892.54
+Software Cycles: AND=336,XOR=350,RotatedShift=630,Other=28
+Overall cycles with Rotated Shift=1344, without Rotated Shift=2604
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=78
+Overall GE=288.42
+Software Cycles: AND=48,XOR=50,RotatedShift=90,Other=4
+Overall cycles with Rotated Shift=192, without Rotated Shift=372
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=966
+Overall GE=3888.64
+Software Cycles: AND=112,XOR=126,RotatedShift=210,Other=28
+Overall cycles with Rotated Shift=476, without Rotated Shift=896
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=138
+Overall GE=555.52
+Software Cycles: AND=16,XOR=18,RotatedShift=30,Other=4
+Overall cycles with Rotated Shift=68, without Rotated Shift=128
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=4b8de,Pno=5d
+输出表：
+00	9f	b9	17	3e	73	d8	df	15	14	f1	9a	23	b4	18	a6	7e	2c	06	2d	34	81	75	74	ce	8a	03	41	3d	07	4c	9d	39	6e	9c	72	96	d3	f4	7d	be	78	a3	22	3a	09	29	0f	7c	86	de	80	94	4d	08	95	20	87	ad	ca	a8	12	47	67	aa	a9	fb	49	d2	05	99	98	2b	6c	82	69	37	db	1e	5e	dc	91	4f	4b	38	ab	60	e8	ec	62	8c	04	fc	36	d7	85	0d	f6	d9	f7	d0	2e	53	3c	f5	a0	c6	6a	52	ed	a7	e9	93	c5	1b	45	f2	9e	26	13	7f	11	c9	f9	c1	19	31	bc	c8	70	16	71	3b	a2	3f	84	77	7a	2f	0b	b1	25	7b	5d	27	8f	40	4a	ee	51	c7	ac	5c	f0	ea	1a	6f	0e	4e	bf	af	46	5f	cf	8e	21	8b	c4	1f	ae	92	cb	90	63	0a	b3	65	9b	eb	54	f3	56	e1	cc	5b	c2	89	e2	66	5a	0c	01	b5	30	e5	1c	fe	43	6b	c3	b7	e0	dd	a5	1d	68	44	88	64	35	b6	f8	ba	bd	b8	da	28	55	bb	a4	02	48	57	e3	c0	2a	fd	32	fa	e4	e7	33	76	42	ff	d6	58	24	97	61	d1	cd	d5	10	b0	79	ef	8d	a1	59	e6	6d	83	50	b2	d4	
+
+内部函数=39612253
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=504,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2072
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=72,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=296
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=406, without Rotated Shift=770
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=58, without Rotated Shift=110
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=57e2a,Pno=64
+输出表：
+00	8b	cb	32	c2	75	fa	8c	d8	26	fe	5b	fb	cc	1c	10	1b	a1	0a	30	31	d7	e1	74	ba	80	bb	0c	8a	a3	4a	c5	4d	69	2b	36	84	9f	ec	a8	8f	98	f6	2f	4c	ff	35	dc	37	59	f2	f4	38	96	6b	be	e2	73	9d	9a	d5	d4	01	af	76	7b	1f	ea	34	e0	2c	f8	66	87	8d	12	a7	a4	fd	e3	58	d2	25	c4	05	0d	11	d0	b2	06	60	23	b9	44	7a	5a	e4	b5	82	da	63	e9	62	7c	52	70	f3	c3	86	0e	89	3a	93	14	56	39	09	ad	95	2a	71	7f	c7	9b	3b	4b	eb	ca	2e	40	d9	72	24	df	f7	90	4f	68	2d	5e	07	ae	3e	47	19	81	dd	5f	53	02	7e	79	97	db	41	1e	0b	18	78	04	e6	6e	08	1d	13	27	f5	5c	de	15	cf	c9	9c	b4	bf	a5	3f	9e	16	ed	c0	bc	03	f9	b6	92	22	48	ef	6f	49	4e	f1	57	fc	83	d1	45	cd	6a	ac	43	6d	3c	b8	c6	55	a9	5d	e7	1a	28	88	54	e8	a2	ee	33	8e	7d	a0	ab	99	85	c1	0f	91	20	e5	ce	aa	c8	d6	65	b3	6c	67	b7	51	d3	94	50	64	b0	bd	29	77	f0	3d	46	42	61	17	a6	21	b1	
+
+内部函数=46077284
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4606
+Overall GE=19031.46
+Software Cycles: AND=252,XOR=294,RotatedShift=525,Other=28
+Overall cycles with Rotated Shift=1099, without Rotated Shift=2149
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=58
+Overall GE=214.98
+Software Cycles: AND=36,XOR=42,RotatedShift=75,Other=4
+Overall cycles with Rotated Shift=157, without Rotated Shift=307
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=938
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=203,Other=28
+Overall cycles with Rotated Shift=441, without Rotated Shift=847
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=134
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=29,Other=4
+Overall cycles with Rotated Shift=63, without Rotated Shift=121
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=7dbb4,Pno=2
+输出表：
+00	c8	38	6f	d6	5e	ce	8f	c0	62	e2	0b	c5	6c	ff	e9	57	bd	3b	b5	77	fd	d7	7d	d2	50	01	ab	8a	94	83	0a	1d	20	b8	6a	ca	63	04	de	21	1e	76	a9	39	fa	72	7a	0c	1f	05	32	1c	f8	c4	ec	92	78	e0	ac	9b	26	4d	a0	65	c6	b0	5a	6e	41	25	9f	54	b9	ba	87	cb	2e	2b	29	d5	84	7f	f9	5f	8b	c2	52	f3	56	03	88	70	e8	5c	ad	2f	4a	a7	43	fc	34	bf	45	b6	eb	23	18	40	f0	b7	12	51	1b	46	9d	89	4c	df	35	47	f6	b2	48	60	02	3f	c3	bc	2d	17	4f	aa	7b	31	82	97	f4	b4	15	ae	b1	e3	4b	f1	61	2c	1a	e1	d1	c7	9c	10	11	db	a6	2a	fb	f5	0d	0e	69	7e	ee	cf	da	8d	fe	cd	24	b3	90	e5	e4	8c	3e	55	ef	19	cc	bb	13	a4	af	a2	81	dd	d4	3c	be	86	73	42	85	16	f2	80	06	f7	6d	68	74	22	d3	4e	79	e6	5d	5b	95	a3	30	9a	ed	a5	44	37	67	75	08	14	dc	7c	3d	d0	09	8e	a1	58	d8	c9	98	ea	0f	6b	49	a8	27	99	91	96	71	53	07	93	9e	e7	36	28	3a	d9	66	64	33	59	c1	
+
+内部函数=65919490
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4074
+Overall GE=17611.02
+Software Cycles: AND=252,XOR=266,RotatedShift=497,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2037
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=42
+Overall GE=172.26
+Software Cycles: AND=36,XOR=38,RotatedShift=71,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=291
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=686
+Overall GE=2916.48
+Software Cycles: AND=84,XOR=98,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=385, without Rotated Shift=735
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=98
+Overall GE=416.64
+Software Cycles: AND=12,XOR=14,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=55, without Rotated Shift=105
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=4c21d,Pno=5e
+输出表：
+00	c0	3b	fa	b3	80	ff	d1	85	8d	84	3f	c4	69	a3	29	f5	d5	45	f3	ea	8c	30	a2	9e	7b	9f	e4	8e	66	be	e5	53	83	6f	b1	a8	91	64	86	0c	a4	5f	34	fc	20	bb	75	dd	b4	60	e7	78	3a	4b	02	2a	ad	2e	e1	56	bd	8a	79	5d	3e	4d	40	33	e0	b9	f4	b7	cd	27	f1	7e	6b	bc	0e	03	d0	31	6c	1c	65	09	d6	dc	90	c7	a9	10	18	bf	63	22	0b	df	58	1b	42	12	ae	6d	ef	d3	eb	68	70	44	01	ed	e9	46	52	e8	05	a5	cc	0a	a6	8b	3d	81	c9	db	15	b2	5e	f0	55	d9	ba	a1	50	0d	11	94	c1	fd	14	3c	04	a7	99	fe	0f	5a	ee	23	4c	d2	06	7d	41	1a	f8	77	49	96	76	7a	74	b8	48	54	1f	07	e6	da	08	2c	25	97	6a	c6	f7	d8	9b	cb	b0	c8	1d	c5	51	57	72	ca	d7	24	aa	9d	1e	b6	e3	73	71	61	67	5c	4a	26	38	c3	a0	36	b5	19	93	ab	89	88	28	32	2b	9a	d4	59	8f	de	95	6e	43	4e	9c	98	13	87	17	4f	cf	7c	fb	5b	c2	f2	92	af	35	21	82	39	37	f6	ac	7f	ec	47	2d	62	16	e2	ce	2f	f9	
+
+内部函数=39915230
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4466
+Overall GE=18657.66
+Software Cycles: AND=252,XOR=280,RotatedShift=483,Other=28
+Overall cycles with Rotated Shift=1043, without Rotated Shift=2009
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=68
+Overall GE=241.68
+Software Cycles: AND=36,XOR=40,RotatedShift=69,Other=4
+Overall cycles with Rotated Shift=149, without Rotated Shift=287
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=854
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=175,Other=28
+Overall cycles with Rotated Shift=399, without Rotated Shift=749
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=122
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=25,Other=4
+Overall cycles with Rotated Shift=57, without Rotated Shift=107
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=1655c,Pno=40
+输出表：
+00	51	d6	2a	e2	19	21	b7	0e	22	30	91	a6	82	99	da	cc	eb	81	13	3e	95	88	6e	50	f1	e7	8f	b9	97	9a	0a	42	7d	be	17	41	0c	2d	33	d5	ce	4e	92	1f	df	7b	59	53	48	8e	b1	04	0b	db	8a	5c	3f	93	7c	b0	f5	29	bb	a1	45	c3	64	a5	98	18	fd	65	40	09	02	2f	5d	31	ef	5a	7a	9c	de	4b	63	35	ed	34	cd	67	6b	c9	03	1e	f6	d9	6a	a3	1d	32	ff	6c	69	b3	85	86	ae	1c	e6	b6	a4	58	bd	b2	01	5b	61	9f	25	68	77	23	f9	bf	3b	cb	3d	fb	d4	37	c1	3a	1a	fa	90	c4	5f	c2	8d	bc	3c	c5	e3	fe	f7	ac	9b	8b	80	a2	dd	af	8c	4d	76	dc	75	b8	b4	2b	c6	07	f2	c7	f0	73	ca	44	87	e1	12	a8	7e	06	54	4c	a7	57	79	08	9e	96	a9	05	fc	28	6d	60	4a	aa	d7	ba	ea	43	2c	e0	74	9d	62	38	14	46	d1	f3	cf	ec	ad	94	24	83	15	5e	e9	d0	27	16	0d	70	56	36	26	39	7f	e4	52	1b	78	ee	b5	d8	49	2e	66	84	47	c0	e8	6f	d3	f4	f8	4f	c8	d2	a0	71	0f	11	10	55	20	89	72	ab	e5	
+
+内部函数=11710016
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4298
+Overall GE=18209.1
+Software Cycles: AND=252,XOR=280,RotatedShift=511,Other=28
+Overall cycles with Rotated Shift=1071, without Rotated Shift=2093
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=44
+Overall GE=177.6
+Software Cycles: AND=36,XOR=40,RotatedShift=73,Other=4
+Overall cycles with Rotated Shift=153, without Rotated Shift=299
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=798
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=189,Other=28
+Overall cycles with Rotated Shift=413, without Rotated Shift=791
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=114
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=27,Other=4
+Overall cycles with Rotated Shift=59, without Rotated Shift=113
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=c478,Pno=3b
+输出表：
+00	f7	a0	ff	72	7c	a8	37	88	f1	5c	ce	80	d8	a7	0a	46	70	d7	f9	9e	55	7b	4f	03	05	c3	c5	89	6b	39	83	82	fc	eb	dd	bd	42	3a	19	6f	47	ec	71	d4	a9	b4	0f	ea	6c	5d	61	4b	fe	b8	77	30	ed	a4	c0	c9	58	35	98	f5	07	a1	d2	15	f2	f4	12	1c	e7	fd	52	d3	c1	9f	4c	bb	5e	74	c8	1d	97	50	fa	59	b2	3c	18	91	85	13	64	75	b3	f8	02	6e	1f	5b	e2	aa	fb	56	b0	cd	b9	ae	9c	dc	ad	08	29	81	26	be	49	d1	cb	1a	11	c6	b1	34	f0	73	e3	76	3f	68	9a	63	41	7e	27	ee	bc	ab	8f	66	7d	b6	23	8c	df	8e	79	cc	54	44	36	25	1e	ca	0d	45	3e	e9	6a	24	16	92	db	60	e5	5f	38	f6	10	0b	e6	3d	8b	e4	d5	93	53	06	cf	d9	de	1b	32	48	17	43	57	33	ba	6d	bf	2c	01	af	d0	2b	3b	2a	a6	8d	99	a2	21	84	4a	04	c7	c2	da	ac	96	e8	51	9b	2e	62	86	7f	d6	5a	2f	c4	7a	e1	09	a3	28	ef	69	78	90	65	67	4d	94	0e	b5	0c	14	8a	95	40	9d	b7	e0	2d	4e	31	a5	f3	20	22	87	
+
+内部函数=6437947
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4690
+Overall GE=19255.74
+Software Cycles: AND=252,XOR=294,RotatedShift=497,Other=28
+Overall cycles with Rotated Shift=1071, without Rotated Shift=2065
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=70
+Overall GE=247.02
+Software Cycles: AND=36,XOR=42,RotatedShift=71,Other=4
+Overall cycles with Rotated Shift=153, without Rotated Shift=295
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=966
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=189,Other=28
+Overall cycles with Rotated Shift=427, without Rotated Shift=805
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=138
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=27,Other=4
+Overall cycles with Rotated Shift=61, without Rotated Shift=115
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=17478,Pno=7c
+输出表：
+00	db	7b	89	02	b2	40	11	4b	78	0f	8e	e5	3e	ce	4a	5e	9e	35	d5	d0	f2	e9	da	28	94	8a	7f	ba	a5	fc	44	af	b5	9a	ef	8c	47	46	a9	93	19	ae	fe	8d	08	20	f9	ec	bd	6b	c6	bf	de	5f	5d	c9	9c	b1	51	ed	3a	ad	ea	f0	e8	74	a6	1e	2c	81	fd	45	79	4f	eb	56	95	62	a7	57	cb	06	6d	5b	41	55	c1	f5	14	1a	d2	13	a0	76	d7	f8	31	39	3c	88	91	25	d8	99	df	18	9f	be	d6	75	33	97	60	dc	dd	22	8f	2f	70	86	63	6a	48	b3	4c	c3	96	7c	68	2b	24	66	d3	29	a4	0b	5a	38	fa	3b	f7	50	3f	87	c4	2e	16	6e	c8	69	f4	7d	27	f3	65	03	26	58	37	ac	61	d1	0d	2d	b6	e0	10	07	cc	c0	0e	71	e6	ab	32	72	4d	9d	1d	f6	21	12	92	09	cd	b4	36	b0	05	0c	9b	34	3d	e2	a2	e3	e7	a1	73	bc	b8	d4	fb	cf	c2	23	f1	ff	4e	49	e1	d9	54	1c	84	30	bb	59	ca	c5	64	01	53	83	04	77	e4	17	82	a8	1f	aa	90	5c	b7	2a	98	7e	c7	ee	6f	7a	15	0a	67	1b	6c	8b	80	42	43	85	b9	52	a3	
+
+内部函数=12205180
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4690
+Overall GE=19255.74
+Software Cycles: AND=252,XOR=294,RotatedShift=518,Other=28
+Overall cycles with Rotated Shift=1092, without Rotated Shift=2128
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=70
+Overall GE=247.02
+Software Cycles: AND=36,XOR=42,RotatedShift=74,Other=4
+Overall cycles with Rotated Shift=156, without Rotated Shift=304
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=966
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=196,Other=28
+Overall cycles with Rotated Shift=434, without Rotated Shift=826
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=138
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=28,Other=4
+Overall cycles with Rotated Shift=62, without Rotated Shift=118
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=17ad3,Pno=26
+输出表：
+00	85	d7	dd	f8	86	92	3d	7f	27	6b	11	76	f1	8b	e4	d5	3e	99	ac	7d	b2	12	cd	28	73	93	47	a9	be	d1	c9	2c	44	14	59	ab	ec	35	13	e5	10	da	0c	e9	4b	c4	40	a6	50	55	2b	37	a7	e3	ba	ed	46	b0	5b	6d	6f	03	34	45	23	aa	22	31	db	d2	60	9a	72	f4	d9	dc	a2	4f	3a	17	7a	88	fb	21	32	d8	43	4a	3c	24	38	6c	4c	f0	62	d4	83	94	74	61	ca	49	67	fd	51	78	e6	57	36	5c	a3	66	16	c6	cb	7b	71	ae	4e	29	f9	d0	1d	58	1e	b4	6a	2e	e2	5d	96	e0	81	64	91	98	ef	5f	42	f5	30	77	0f	df	79	9d	0e	3b	c0	8f	1c	b9	52	09	c7	9e	39	b6	15	a4	89	6e	48	0b	5e	70	a0	d6	01	7c	bd	e7	b7	8d	9f	d3	9b	f2	e8	05	fe	8a	b1	33	eb	07	53	80	b8	f6	c1	9c	2d	0a	90	08	63	b3	84	69	87	5a	97	68	a5	cf	c5	56	1f	bc	02	18	e1	c3	2a	f7	19	ce	41	1a	bb	0d	cc	3f	4d	ff	fc	04	20	fa	82	1b	25	54	7e	8c	ee	de	a8	c8	af	b5	95	ad	65	bf	c2	26	06	2f	75	ea	f3	a1	8e	
+
+内部函数=12413350
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=6174
+Overall GE=25462.5
+Software Cycles: AND=336,XOR=392,RotatedShift=700,Other=28
+Overall cycles with Rotated Shift=1456, without Rotated Shift=2856
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=72
+Overall GE=272.4
+Software Cycles: AND=48,XOR=56,RotatedShift=100,Other=4
+Overall cycles with Rotated Shift=208, without Rotated Shift=408
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1274
+Overall GE=4785.76
+Software Cycles: AND=112,XOR=168,RotatedShift=266,Other=28
+Overall cycles with Rotated Shift=574, without Rotated Shift=1106
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=182
+Overall GE=683.68
+Software Cycles: AND=16,XOR=24,RotatedShift=38,Other=4
+Overall cycles with Rotated Shift=82, without Rotated Shift=158
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=18014,Pno=d
+输出表：
+00	5e	ea	e2	9a	dc	1e	40	e1	f5	11	59	a5	80	e6	48	8c	fc	6f	73	b9	98	f2	1a	78	55	88	38	68	63	bb	d5	67	50	ae	b8	28	6d	2c	39	3c	17	33	b5	97	56	8d	d4	a2	b3	5b	4f	12	62	f6	32	84	95	7c	10	3b	5c	18	d6	c2	0a	5a	14	dd	a6	5d	9e	a7	69	c3	81	41	35	c0	a0	d8	4c	e5	05	b0	d7	fa	c5	29	3a	61	c8	be	a1	ab	ff	fb	0e	fd	f8	26	cb	9d	90	f7	e0	a9	1f	4a	72	0d	47	85	f0	b7	91	46	54	df	5f	da	aa	c4	f1	2b	06	f4	e8	6b	af	66	cd	8a	7d	58	19	4e	2f	9c	22	c6	ba	b4	de	71	03	c7	6c	e4	75	c1	23	bf	01	93	d0	b1	53	bd	ad	24	b2	ef	ac	db	82	0c	07	fe	77	1b	7a	15	ce	30	70	cc	2e	99	92	43	49	d1	27	d3	89	86	65	94	64	16	8b	25	3d	a4	eb	21	ee	51	b6	ca	0b	3e	7e	20	57	f9	3f	2a	13	74	f3	1c	8e	08	09	e7	cf	8f	d9	60	31	e3	ed	45	6e	37	36	9f	79	4b	7f	a3	bc	4d	c9	6a	04	9b	83	e9	1d	2d	96	a8	0f	34	d2	76	44	02	87	ec	7b	52	42	
+
+内部函数=12585485
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4606
+Overall GE=19031.46
+Software Cycles: AND=252,XOR=294,RotatedShift=525,Other=28
+Overall cycles with Rotated Shift=1099, without Rotated Shift=2149
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=58
+Overall GE=214.98
+Software Cycles: AND=36,XOR=42,RotatedShift=75,Other=4
+Overall cycles with Rotated Shift=157, without Rotated Shift=307
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=938
+Overall GE=3514.56
+Software Cycles: AND=84,XOR=126,RotatedShift=203,Other=28
+Overall cycles with Rotated Shift=441, without Rotated Shift=847
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=134
+Overall GE=502.08
+Software Cycles: AND=12,XOR=18,RotatedShift=29,Other=4
+Overall cycles with Rotated Shift=63, without Rotated Shift=121
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=180c7,Pno=45
+输出表：
+00	2e	1d	a5	a8	4e	dc	b5	78	8b	bf	19	d4	65	fe	1c	3b	31	96	42	bb	ab	ff	91	0d	d9	4f	f9	f5	34	aa	17	49	9b	2a	ac	81	e1	01	1e	d3	04	60	a9	f0	de	eb	df	64	c0	5a	26	d0	7f	5b	e3	3d	13	3f	52	37	da	b4	6b	4a	2d	c4	9d	74	a7	57	4c	fc	a0	f6	e2	9f	b7	54	80	a3	66	ef	b0	1f	27	44	e8	69	3c	56	6d	86	24	ca	14	cf	8d	25	53	50	db	0e	18	8a	88	c3	ae	bd	06	e5	a6	c8	22	a1	92	0b	b8	73	3a	46	d5	d2	ee	7b	71	62	2f	39	e0	76	ad	75	ec	9c	97	2c	b1	10	36	48	02	1b	6e	99	72	58	b3	fd	d1	f2	cb	82	28	c2	e4	6c	90	0f	6f	03	94	05	4d	d6	7c	a4	08	70	51	4b	cc	33	fb	45	16	11	40	85	83	d7	77	30	43	9a	09	be	bc	67	38	84	a2	41	c5	8f	98	5c	c7	9e	5e	61	68	5d	0c	d8	2b	ed	ce	e6	e7	15	7e	b6	b9	8e	07	af	79	0a	b2	f4	fa	87	1a	f7	59	23	12	dd	cd	6a	ea	29	93	c6	5f	35	7d	3e	7a	32	89	c9	e9	20	8c	f3	f8	47	95	21	55	63	ba	f1	c1	
+
+内部函数=12608453
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=5376,XOR=5726
+Overall GE=24266.34
+Software Cycles: AND=336,XOR=364,RotatedShift=644,Other=28
+Overall cycles with Rotated Shift=1372, without Rotated Shift=2660
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=48,XOR=68
+Overall GE=261.72
+Software Cycles: AND=48,XOR=52,RotatedShift=92,Other=4
+Overall cycles with Rotated Shift=196, without Rotated Shift=380
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=896,XOR=1050
+Overall GE=4187.68
+Software Cycles: AND=112,XOR=140,RotatedShift=224,Other=28
+Overall cycles with Rotated Shift=504, without Rotated Shift=952
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=128,XOR=150
+Overall GE=598.24
+Software Cycles: AND=16,XOR=20,RotatedShift=32,Other=4
+Overall cycles with Rotated Shift=72, without Rotated Shift=136
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=18408,Pno=68
+输出表：
+00	88	3f	b3	0d	6c	0c	54	8f	97	0f	e5	46	bb	85	ac	34	82	8d	da	a1	3b	ea	c1	b7	b8	bc	c0	be	48	a8	f4	d1	2e	61	e6	86	63	d3	96	3a	51	b6	69	09	3c	ef	2c	cc	ab	f8	f5	04	66	e0	23	77	55	6f	25	26	79	d6	7f	d0	e3	81	15	a0	c9	7b	dd	ee	9c	0a	0e	2f	5e	c4	20	70	cb	7e	47	39	76	c8	ad	8b	cd	13	56	17	1b	90	60	f7	50	e4	92	05	1e	a7	a4	43	c5	7d	ff	8c	4f	73	5d	d4	f2	35	ae	49	7c	1f	bf	af	87	0b	b5	ec	4a	08	02	5f	8a	d2	75	de	89	e1	f0	d8	27	30	db	74	71	24	03	4d	cf	df	aa	b2	ba	7a	1a	f3	64	42	5b	2b	9f	84	53	01	18	d5	bd	98	2d	d9	06	52	6b	5c	f6	8e	16	fb	eb	59	4e	ca	72	9b	5a	38	80	36	31	1d	e2	d7	c6	37	a3	ed	95	78	28	b1	c7	a5	fe	9a	83	e8	29	22	68	a6	fa	10	67	32	6d	57	fd	dc	a2	e7	fc	3d	99	58	44	9e	2a	c3	c2	40	f9	e9	3e	f1	11	65	21	45	6e	ce	14	07	6a	b0	9d	94	4c	41	4b	12	19	1c	33	91	62	93	b9	b4	a9	
+
+内部函数=12715112
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=4032,XOR=4382
+Overall GE=18433.38
+Software Cycles: AND=252,XOR=280,RotatedShift=504,Other=28
+Overall cycles with Rotated Shift=1064, without Rotated Shift=2072
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=36,XOR=56
+Overall GE=209.64
+Software Cycles: AND=36,XOR=40,RotatedShift=72,Other=4
+Overall cycles with Rotated Shift=152, without Rotated Shift=296
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=672,XOR=826
+Overall GE=3215.52
+Software Cycles: AND=84,XOR=112,RotatedShift=182,Other=28
+Overall cycles with Rotated Shift=406, without Rotated Shift=770
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=96,XOR=118
+Overall GE=459.36
+Software Cycles: AND=12,XOR=16,RotatedShift=26,Other=4
+Overall cycles with Rotated Shift=58, without Rotated Shift=110
+******************
+
+
+
+
+
+
+******************
+diff=8,nL=96,Sno=18d0f,Pno=70
+输出表：
+00	78	b3	ee	ca	90	da	34	ed	d3	a7	80	91	53	47	1f	d1	3b	82	5c	c8	dc	21	8f	bb	26	4b	3e	d2	7a	b5	0b	7d	fd	11	01	c9	57	d9	2f	bf	98	8a	33	3f	24	cb	e1	44	08	87	97	09	8b	4f	94	92	b7	58	9a	46	56	73	e6	cf	4a	af	c0	16	a2	35	ec	9e	88	a5	df	36	32	65	70	c5	b4	86	d7	38	85	27	74	49	cc	93	aa	07	25	6f	79	9d	77	8c	e5	e4	95	7b	5e	f7	c1	81	cd	71	a0	13	39	75	54	0d	fe	5b	30	bd	15	b1	c6	3d	14	a8	1a	ce	c3	7e	04	bc	83	52	05	f6	0a	c2	1d	8d	b2	67	db	29	37	10	fc	b6	2c	b9	9c	c7	1b	ad	2a	5d	f3	19	4c	89	ef	b8	d6	31	23	f2	69	e7	6c	e0	be	45	e8	5f	e3	28	1e	ea	8e	2b	f5	96	22	2d	48	9b	a9	68	4d	63	7c	a1	51	6e	64	66	6a	02	f8	50	55	d8	3a	60	a3	ae	18	84	59	62	ff	a4	72	dd	03	b0	e9	0f	12	ba	c4	f1	eb	06	1c	d5	42	d0	41	43	a6	5a	fa	7f	e2	f9	ab	17	2e	76	6d	20	4e	de	f4	0c	f0	40	99	3c	d4	61	ac	0e	6b	9f	fb	
+
+内部函数=13010928
+Worst Case TI Raw Implementation:
+Hardware(In theory): AND=2688,XOR=3262
+Overall GE=13198.5
+Software Cycles: AND=168,XOR=210,RotatedShift=357,Other=28
+Overall cycles with Rotated Shift=763, without Rotated Shift=1477
+Worst Case TI 1 bit Implementation:
+Hardware(In theory): AND=24,XOR=46
+Overall GE=162.9
+Software Cycles: AND=24,XOR=30,RotatedShift=51,Other=4
+Overall cycles with Rotated Shift=109, without Rotated Shift=211
+Worst Case Unprotected Raw Implementation:
+Hardware(In theory): AND=448,XOR=714
+Overall GE=2542.4
+Software Cycles: AND=56,XOR=98,RotatedShift=147,Other=28
+Overall cycles with Rotated Shift=329, without Rotated Shift=623
+Worst Case Unprotected Round-based Implementation:
+Hardware(In theory): AND=64,XOR=102
+Overall GE=363.2
+Software Cycles: AND=8,XOR=14,RotatedShift=21,Other=4
+Overall cycles with Rotated Shift=47, without Rotated Shift=89
+******************
+
+
+
+
+
+
+mindiff=8,max non-linear=98

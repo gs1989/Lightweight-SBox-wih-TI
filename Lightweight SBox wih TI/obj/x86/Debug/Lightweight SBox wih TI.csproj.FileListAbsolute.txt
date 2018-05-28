@@ -3,3 +3,8 @@ C:\Gits\TI Sbox\Lightweight SBox wih TI\bin\Debug\Lightweight SBox wih TI.pdb
 C:\Gits\TI Sbox\Lightweight SBox wih TI\obj\x86\Debug\Lightweight SBox wih TI.csprojResolveAssemblyReference.cache
 C:\Gits\TI Sbox\Lightweight SBox wih TI\obj\x86\Debug\Lightweight SBox wih TI.exe
 C:\Gits\TI Sbox\Lightweight SBox wih TI\obj\x86\Debug\Lightweight SBox wih TI.pdb
+C:\PHD works\Projects\Lightweight SBox wih TI\Gits\Lightweight SBox wih TI\obj\x86\Debug\Lightweight SBox wih TI.csprojResolveAssemblyReference.cache
+C:\PHD works\Projects\Lightweight SBox wih TI\Gits\Lightweight SBox wih TI\bin\Debug\Lightweight SBox wih TI.exe
+C:\PHD works\Projects\Lightweight SBox wih TI\Gits\Lightweight SBox wih TI\bin\Debug\Lightweight SBox wih TI.pdb
+C:\PHD works\Projects\Lightweight SBox wih TI\Gits\Lightweight SBox wih TI\obj\x86\Debug\Lightweight SBox wih TI.exe
+C:\PHD works\Projects\Lightweight SBox wih TI\Gits\Lightweight SBox wih TI\obj\x86\Debug\Lightweight SBox wih TI.pdb
