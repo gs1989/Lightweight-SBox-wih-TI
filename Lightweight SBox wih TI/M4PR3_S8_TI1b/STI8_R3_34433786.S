@@ -1,5 +1,5 @@
-.func TI_S
-TI_S:
+.func TI_S_Shares
+TI_S_:
 push {lr}
 push {r4-r7}
 nop
@@ -10,289 +10,284 @@ nop
 nop
 nop
 nop
-   str r0,[r1,#0]
-   mov r7,r0
-   ands r7,r2
-   lsrs r7,#1
+   movs r3,#0
    mov r4,r0
-   ands r4,r3
-   lsrs r4,#1
-   lsls r5,r4,#3
-   eors r5,r4
-   eors r7,r5
-   nop
-   str r7,[r1,#4]
-   mov r4,r0
-   mov r5,r7
    movs r6,#4
-   rors r0,r5
-   nop
-   str r0,[r1,#8]
-   rors r7,r5
-   nop
-   str r7,[r1,#12]
-   rors r0,r5
-   nop
-   str r0,[r1,#16]
-   rors r7,r5
-   nop
-   str r7,[r1,#20]
-   rors r0,r5
-   nop
-   str r0,[r1,#24]
-   rors r7,r5
-   nop
-   str r7,[r1,#28]
-   rors r0,r5
-   nop
-   str r0,[r1,#32]
-   rors r7,r5
-   nop
-   str r7,[r1,#36]
-   rors r0,r5
-   nop
-   str r0,[r1,#40]
-   rors r7,r5
-   nop
-   str r7,[r1,#44]
-   rors r0,r5
-   nop
-   str r0,[r1,#48]
-   rors r7,r5
-   nop
-   str r7,[r1,#52]
-   rors r0,r5
-   nop
-   str r0,[r1,#56]
-   rors r7,r5
-   nop
-   str r7,[r1,#60]
-   movs r0,#0
-   nop
-   ldr r2,[r1,#8]
-   eors r0,r2
-   nop
-   ldr r2,[r1,#24]
-   eors r0,r2
-   nop
-   ldr r2,[r1,#48]
-   eors r0,r2
-   nop
-   ldr r2,[r1,#4]
-   nop
-   ldr r3,[r1,#8]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#12]
-   nop
-   ldr r3,[r1,#16]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#20]
-   nop
-   ldr r3,[r1,#24]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#44]
-   nop
-   ldr r3,[r1,#48]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#0]
-   nop
-   ldr r3,[r1,#8]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#8]
-   nop
-   ldr r3,[r1,#16]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#16]
-   nop
-   ldr r3,[r1,#24]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#40]
-   nop
-   ldr r3,[r1,#48]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#0]
-   nop
-   ldr r3,[r1,#12]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#4]
-   nop
-   ldr r3,[r1,#16]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#8]
-   nop
-   ldr r3,[r1,#20]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#12]
-   nop
-   ldr r3,[r1,#24]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#16]
-   nop
-   ldr r3,[r1,#28]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#40]
-   nop
-   ldr r3,[r1,#52]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#0]
-   nop
-   ldr r3,[r1,#16]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#8]
-   nop
-   ldr r3,[r1,#24]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#0]
-   nop
-   ldr r3,[r1,#20]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#8]
-   nop
-   ldr r3,[r1,#28]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#12]
-   nop
-   ldr r3,[r1,#32]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#8]
-   nop
-   ldr r3,[r1,#32]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#4]
-   nop
-   ldr r3,[r1,#32]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#8]
-   nop
-   ldr r3,[r1,#36]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#12]
-   nop
-   ldr r3,[r1,#40]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#0]
-   nop
-   ldr r3,[r1,#32]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#8]
-   nop
-   ldr r3,[r1,#40]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#0]
-   nop
-   ldr r3,[r1,#36]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#8]
-   nop
-   ldr r3,[r1,#44]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#20]
-   nop
-   ldr r3,[r1,#56]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#16]
-   nop
-   ldr r3,[r1,#56]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#4]
-   nop
-   ldr r3,[r1,#48]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#12]
-   nop
-   ldr r3,[r1,#56]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#16]
-   nop
-   ldr r3,[r1,#60]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#0]
-   nop
-   ldr r3,[r1,#48]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#8]
-   nop
-   ldr r3,[r1,#56]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#0]
-   nop
-   ldr r3,[r1,#52]
-   ands r2,r3
-   eors r0,r2
-   nop
-   ldr r2,[r1,#8]
-   nop
-   ldr r3,[r1,#60]
-   ands r2,r3
-   eors r0,r2
+   rors r4,r6
+   eors r3,r4
+   mov r4,r0
+   movs r6,#12
+   rors r4,r6
+   eors r3,r4
+   mov r4,r0
+   movs r6,#24
+   rors r4,r6
+   eors r3,r4
+   mov r4,r0
+   mov r5,r0
+   movs r6,#4
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#4
+   rors r4,r6
+   mov r5,r0
+   movs r6,#8
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#8
+   rors r4,r6
+   mov r5,r0
+   movs r6,#12
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#20
+   rors r4,r6
+   mov r5,r0
+   movs r6,#24
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   mov r5,r0
+   movs r6,#8
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#4
+   rors r4,r6
+   mov r5,r0
+   movs r6,#12
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#24
+   rors r4,r6
+   mov r5,r1
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#28
+   rors r4,r6
+   mov r5,r1
+   movs r6,#4
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#4
+   rors r4,r6
+   mov r5,r0
+   movs r6,#16
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#28
+   rors r4,r6
+   mov r5,r1
+   movs r6,#8
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   mov r5,r0
+   movs r6,#16
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#4
+   rors r4,r6
+   mov r5,r0
+   movs r6,#20
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#16
+   rors r4,r6
+   mov r5,r1
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#20
+   rors r4,r6
+   mov r5,r1
+   movs r6,#4
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#8
+   rors r4,r6
+   mov r5,r0
+   movs r6,#28
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#16
+   rors r4,r6
+   mov r5,r1
+   movs r6,#4
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   mov r5,r0
+   movs r6,#24
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#4
+   rors r4,r6
+   mov r5,r0
+   movs r6,#28
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#8
+   rors r4,r6
+   mov r5,r1
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#12
+   rors r4,r6
+   mov r5,r1
+   movs r6,#4
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#4
+   rors r4,r6
+   mov r5,r1
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#8
+   rors r4,r6
+   mov r5,r1
+   movs r6,#4
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#12
+   rors r4,r6
+   mov r5,r1
+   movs r6,#8
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#24
+   rors r4,r6
+   mov r5,r1
+   movs r6,#20
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   mov r5,r1
+   movs r6,#4
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#4
+   rors r4,r6
+   mov r5,r1
+   movs r6,#8
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#8
+   rors r4,r6
+   mov r5,r1
+   movs r6,#12
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#20
+   rors r4,r6
+   mov r5,r1
+   movs r6,#24
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   mov r5,r1
+   movs r6,#8
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#4
+   rors r4,r6
+   mov r5,r1
+   movs r6,#12
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#4
+   rors r4,r6
+   mov r5,r1
+   movs r6,#16
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   mov r5,r1
+   movs r6,#16
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#4
+   rors r4,r6
+   mov r5,r1
+   movs r6,#20
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#8
+   rors r4,r6
+   mov r5,r1
+   movs r6,#28
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   mov r5,r1
+   movs r6,#24
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+   mov r4,r0
+   movs r6,#4
+   rors r4,r6
+   mov r5,r1
+   movs r6,#28
+   rors r5,r6
+   ands r4,r5
+   eors r3,r4
+mov r0,r3
 nop
 nop
 nop
@@ -304,56 +299,45 @@ nop
 pop {r4-r7}
 pop {pc}
 .endfunc
-Pmask=88880808
-.func TI_P
-TI_P:
+Pmask=11110101
+.func TI_P_shares
+TI_P_shares:
 push {lr}
-   movs r5,#0 
-   mov r4,r3 
-   mov r6,r2 
-   ands r4,r0 
-   ands r6,r4 
-   lsrs r6,#31 
-   muls r6,r1 
-   lsls r4,#4 
-   eors r4,r6 
-   eors r5,r4 
-   lsrs r1,#1 
+push {r4-r7}
+   movs r3,#0 
+   movs r2,#1 
+   lsls r2,#4 
+   subs r2,#1 
+   lsls r2,#28 
+   ands r2,r0 
+   lsrs r2,#28 
+   movs r4,#1 
+   movs r5,r2 
+   ands r5,r4 
+   muls r5,r1 
+   eors r3,r5 
+   lsls r1,#1 
    lsrs r2,#1 
-   lsrs r3,#1 
-   mov r4,r3 
-   mov r6,r2 
-   ands r4,r0 
-   ands r6,r4 
-   lsrs r6,#30 
-   muls r6,r1 
-   lsls r4,#4 
-   eors r4,r6 
-   eors r5,r4 
-   lsrs r1,#1 
+   movs r5,r2 
+   ands r5,r4 
+   muls r5,r1 
+   eors r3,r5 
+   lsls r1,#1 
    lsrs r2,#1 
-   lsrs r3,#1 
-   mov r4,r3 
-   mov r6,r2 
-   ands r4,r0 
-   ands r6,r4 
-   lsrs r6,#29 
-   muls r6,r1 
-   lsls r4,#4 
-   eors r4,r6 
-   eors r5,r4 
-   lsrs r1,#1 
+   movs r5,r2 
+   ands r5,r4 
+   muls r5,r1 
+   eors r3,r5 
+   lsls r1,#1 
    lsrs r2,#1 
-   lsrs r3,#1 
-   mov r4,r3 
-   mov r6,r2 
-   ands r4,r0 
-   ands r6,r4 
-   lsrs r6,#28 
-   muls r6,r1 
-   lsls r4,#4 
-   eors r4,r6 
-   eors r5,r4 
-   mov r0,r5 
+   movs r5,r2 
+   ands r5,r4 
+   muls r5,r1 
+   eors r3,r5 
+   lsls r1,#1 
+   lsrs r2,#1 
+   lsls r0,#4 
+   eors r0,r3 
+pop {r4-r7}
 pop {pc}
 .endfunc

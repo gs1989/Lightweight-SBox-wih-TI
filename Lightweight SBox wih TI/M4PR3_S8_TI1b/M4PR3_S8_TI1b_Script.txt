@@ -1,0 +1,28 @@
+set search_path "/eda/synopsys/B-2008.09/dpaTest /eda/synopsys/B-2008.09/dw/sim_ver /eda/synopsys/B-2008.09/dw/syn_ver /eda/synopsys/B-2008.09/libraries/syn"
+set synthetic_library generic.sdb
+set target_library "fast.db slow.db"
+set link_library "fast.db slow.db dw_foundation.sldb"
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR3_S8_TI1b/STI8_R3_34433786.v"}
+compile_ultra
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR3_S8_TI1b/areareport_34433786.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR3_S8_TI1b/STI8_R3_34441753.v"}
+compile_ultra
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR3_S8_TI1b/areareport_34441753.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR3_S8_TI1b/STI8_R3_53762252.v"}
+compile_ultra
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR3_S8_TI1b/areareport_53762252.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR3_S8_TI1b/STI8_R3_54600495.v"}
+compile_ultra
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR3_S8_TI1b/areareport_54600495.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR3_S8_TI1b/STI8_R3_40865094.v"}
+compile_ultra
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR3_S8_TI1b/areareport_40865094.txt"
+remove_design -designs
+read_file -format verilog {"/mnt/hgfs/share/Circular/M4PR3_S8_TI1b/STI8_R3_64876239.v"}
+compile_ultra
+report_area > "/mnt/hgfs/share/Circular/areareports/M4PR3_S8_TI1b/areareport_64876239.txt"
+remove_design -designs
