@@ -1716,7 +1716,7 @@ namespace Lightweight_SBox_wih_TI
                 {
                     if(j==0 && i!=size-1)
                     {
-                        matr[i,j]=(uint)((((P>>(size-1-j))&0x01)>0)?1:0);
+                        matr[i,j]=(uint)((((P>>(size-1-i))&0x01)>0)?1:0);
                     }
                     else
                     {
@@ -1731,9 +1731,9 @@ namespace Lightweight_SBox_wih_TI
             bm.SetValue(matr);
             bm.LeftMultiplyMatrix(bm);
             bm.GetValue(matr);
-            sw.WriteLine("input[3:0] in;");
-            sw.WriteLine("output[3:0] out;");
-            sw.WriteLine("wire[3:0] out;");
+            sw.WriteLine("input[{0}:0] in;",size-1);
+            sw.WriteLine("output[{0}:0] out;", size-1);
+            sw.WriteLine("wire[{0}:0] out;", size-1);
             for(int i=0;i<size;i++)
             {
                  sw.Write("assign out[{0}]=",size-1-i);
@@ -2873,7 +2873,7 @@ namespace Lightweight_SBox_wih_TI
             sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
             int Psize = 0x1 << (size - 1);
             long length = Stable.Length * (Psize);
-            Parallel.For(0, length, new ParallelOptions { MaxDegreeOfParallelism = 1 }, num =>
+            Parallel.For(0, length, new ParallelOptions { MaxDegreeOfParallelism = 4 }, num =>
             {
                 if ((num & 0xffff) == 0)
                 {
@@ -2900,9 +2900,9 @@ namespace Lightweight_SBox_wih_TI
                     OneRoundTrans_SITIM4P(table, Stable[Sno], Pno);
                 }
                 //Remove Last P
-                //OneRoundTrans_SITIM4P_Last(table, Stable[Sno]);
+                OneRoundTrans_SITIM4P_Last(table, Stable[Sno]);
                 //Keep Last P
-                OneRoundTrans_SITIM4P(table, Stable[Sno], Pno);
+                //OneRoundTrans_SITIM4P(table, Stable[Sno], Pno);
                 if (!CheckPermutaion(table))
                 {
                     System.Console.WriteLine("Error!");

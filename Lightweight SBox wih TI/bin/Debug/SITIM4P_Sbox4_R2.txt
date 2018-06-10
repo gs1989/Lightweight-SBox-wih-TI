@@ -1,0 +1,482 @@
+round=2,size=4,shift=3
+******************
+diff=4,nL=4,Sno=0,Pno=7
+Full S Table:
+00	04	08	0a	0f	0c	06	09	01	0e	0b	0d	07	05	03	02	
+
+Num of S=7
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=24,RotatedShift=40,Cycles=180
+Software Cycles of P: Cycles=116
+Overall cycles=888, Average=111
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=24,RotatedShift=40,Cycles=100
+Software Cycles of P: Cycles=116
+Overall cycles=648, Average=81
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=8,RotatedShift=12,Cycles=60
+Software Cycles of P: Cycles=116
+Overall cycles=176, Average=22
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=8,RotatedShift=12,Cycles=36
+Software Cycles of P: Cycles=116
+Overall cycles=152, Average=19
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=1,Pno=7
+Full S Table:
+00	08	02	0c	04	0d	0b	0e	0f	05	09	0a	07	06	03	01	
+
+Num of S=15
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=184
+Software Cycles of P: Cycles=116
+Overall cycles=900, Average=112.5
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=100
+Software Cycles of P: Cycles=116
+Overall cycles=648, Average=81
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=64
+Software Cycles of P: Cycles=116
+Overall cycles=180, Average=22.5
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=36
+Software Cycles of P: Cycles=116
+Overall cycles=152, Average=19
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=2,Pno=7
+Full S Table:
+00	0f	04	0d	01	03	0b	05	02	09	0e	0c	0a	06	07	08	
+
+Num of S=23
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=184
+Software Cycles of P: Cycles=116
+Overall cycles=900, Average=112.5
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=100
+Software Cycles of P: Cycles=116
+Overall cycles=648, Average=81
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=64
+Software Cycles of P: Cycles=116
+Overall cycles=180, Average=22.5
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=36
+Software Cycles of P: Cycles=116
+Overall cycles=152, Average=19
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=3,Pno=7
+Full S Table:
+00	0a	04	02	0c	08	05	07	09	01	06	0d	03	0f	0e	0b	
+
+Num of S=31
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=196
+Software Cycles of P: Cycles=116
+Overall cycles=936, Average=117
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=108
+Software Cycles of P: Cycles=116
+Overall cycles=672, Average=84
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=76
+Software Cycles of P: Cycles=116
+Overall cycles=192, Average=24
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=44
+Software Cycles of P: Cycles=116
+Overall cycles=160, Average=20
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=4,Pno=7
+Full S Table:
+00	01	0f	0d	02	07	05	09	08	0e	06	0c	03	0b	0a	04	
+
+Num of S=39
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=184
+Software Cycles of P: Cycles=116
+Overall cycles=900, Average=112.5
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=100
+Software Cycles of P: Cycles=116
+Overall cycles=648, Average=81
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=64
+Software Cycles of P: Cycles=116
+Overall cycles=180, Average=22.5
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=36
+Software Cycles of P: Cycles=116
+Overall cycles=152, Average=19
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=5,Pno=7
+Full S Table:
+00	08	06	02	0c	03	04	0d	05	09	01	0e	0a	0b	0f	07	
+
+Num of S=47
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=196
+Software Cycles of P: Cycles=116
+Overall cycles=936, Average=117
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=108
+Software Cycles of P: Cycles=116
+Overall cycles=672, Average=84
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=76
+Software Cycles of P: Cycles=116
+Overall cycles=192, Average=24
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=44
+Software Cycles of P: Cycles=116
+Overall cycles=160, Average=20
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=6,Pno=7
+Full S Table:
+00	03	06	0c	0a	02	04	0f	01	05	09	0b	08	0d	07	0e	
+
+Num of S=55
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=196
+Software Cycles of P: Cycles=116
+Overall cycles=936, Average=117
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=108
+Software Cycles of P: Cycles=116
+Overall cycles=672, Average=84
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=76
+Software Cycles of P: Cycles=116
+Overall cycles=192, Average=24
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=44
+Software Cycles of P: Cycles=116
+Overall cycles=160, Average=20
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=7,Pno=7
+Full S Table:
+00	03	05	0a	02	0c	06	0e	09	01	04	0f	08	07	0b	0d	
+
+Num of S=63
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=28,RotatedShift=46,Cycles=200
+Software Cycles of P: Cycles=116
+Overall cycles=948, Average=118.5
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=28,RotatedShift=46,Cycles=108
+Software Cycles of P: Cycles=116
+Overall cycles=672, Average=84
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=12,RotatedShift=18,Cycles=80
+Software Cycles of P: Cycles=116
+Overall cycles=196, Average=24.5
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=12,RotatedShift=18,Cycles=44
+Software Cycles of P: Cycles=116
+Overall cycles=160, Average=20
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=10,Pno=7
+Full S Table:
+00	04	08	07	0f	03	0e	06	01	09	0b	0d	0a	05	0c	02	
+
+Num of S=135
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=24,RotatedShift=40,Cycles=180
+Software Cycles of P: Cycles=116
+Overall cycles=888, Average=111
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=24,RotatedShift=40,Cycles=100
+Software Cycles of P: Cycles=116
+Overall cycles=648, Average=81
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=8,RotatedShift=12,Cycles=60
+Software Cycles of P: Cycles=116
+Overall cycles=176, Average=22
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=8,RotatedShift=12,Cycles=36
+Software Cycles of P: Cycles=116
+Overall cycles=152, Average=19
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=11,Pno=7
+Full S Table:
+00	08	02	07	04	0d	05	0e	0f	0b	06	0a	03	09	0c	01	
+
+Num of S=143
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=184
+Software Cycles of P: Cycles=116
+Overall cycles=900, Average=112.5
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=100
+Software Cycles of P: Cycles=116
+Overall cycles=648, Average=81
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=64
+Software Cycles of P: Cycles=116
+Overall cycles=180, Average=22.5
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=36
+Software Cycles of P: Cycles=116
+Overall cycles=152, Average=19
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=12,Pno=7
+Full S Table:
+00	0f	04	0a	01	0c	06	05	02	0b	0e	03	0d	09	07	08	
+
+Num of S=151
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=184
+Software Cycles of P: Cycles=116
+Overall cycles=900, Average=112.5
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=100
+Software Cycles of P: Cycles=116
+Overall cycles=648, Average=81
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=64
+Software Cycles of P: Cycles=116
+Overall cycles=180, Average=22.5
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=36
+Software Cycles of P: Cycles=116
+Overall cycles=152, Average=19
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=13,Pno=7
+Full S Table:
+00	0a	04	0c	03	08	01	07	06	05	09	0d	02	0f	0e	0b	
+
+Num of S=159
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=196
+Software Cycles of P: Cycles=116
+Overall cycles=936, Average=117
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=108
+Software Cycles of P: Cycles=116
+Overall cycles=672, Average=84
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=76
+Software Cycles of P: Cycles=116
+Overall cycles=192, Average=24
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=44
+Software Cycles of P: Cycles=116
+Overall cycles=160, Average=20
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=14,Pno=7
+Full S Table:
+00	01	0f	0c	02	07	0e	06	08	05	09	03	0d	0b	0a	04	
+
+Num of S=167
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=184
+Software Cycles of P: Cycles=116
+Overall cycles=900, Average=112.5
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=24,RotatedShift=42,Cycles=100
+Software Cycles of P: Cycles=116
+Overall cycles=648, Average=81
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=64
+Software Cycles of P: Cycles=116
+Overall cycles=180, Average=22.5
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=8,RotatedShift=14,Cycles=36
+Software Cycles of P: Cycles=116
+Overall cycles=152, Average=19
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=15,Pno=7
+Full S Table:
+00	08	09	0a	03	0c	06	0d	05	04	01	0e	02	0b	0f	07	
+
+Num of S=175
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=196
+Software Cycles of P: Cycles=116
+Overall cycles=936, Average=117
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=108
+Software Cycles of P: Cycles=116
+Overall cycles=672, Average=84
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=76
+Software Cycles of P: Cycles=116
+Overall cycles=192, Average=24
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=44
+Software Cycles of P: Cycles=116
+Overall cycles=160, Average=20
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=16,Pno=7
+Full S Table:
+00	0c	09	08	0a	02	05	0f	01	04	06	0b	03	0d	07	0e	
+
+Num of S=183
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=196
+Software Cycles of P: Cycles=116
+Overall cycles=936, Average=117
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=28,RotatedShift=44,Cycles=108
+Software Cycles of P: Cycles=116
+Overall cycles=672, Average=84
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=76
+Software Cycles of P: Cycles=116
+Overall cycles=192, Average=24
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=12,RotatedShift=16,Cycles=44
+Software Cycles of P: Cycles=116
+Overall cycles=160, Average=20
+******************
+
+
+
+
+
+
+******************
+diff=4,nL=4,Sno=17,Pno=7
+Full S Table:
+00	0c	05	08	02	03	01	0e	06	09	04	0f	0a	07	0b	0d	
+
+Num of S=191
+Software Cost: ARM M0
+Software Cycles of S: AND=24,XOR=28,RotatedShift=46,Cycles=200
+Software Cycles of P: Cycles=116
+Overall cycles=948, Average=118.5
+Software Cost: ARM M3
+Software Cycles of S: AND=24,XOR=28,RotatedShift=46,Cycles=108
+Software Cycles of P: Cycles=116
+Overall cycles=672, Average=84
+Unprotected Implementation:
+Software Cost: ARM M0
+Software Cycles of S: AND=8,XOR=12,RotatedShift=18,Cycles=80
+Software Cycles of P: Cycles=116
+Overall cycles=196, Average=24.5
+Software Cost: ARM M3
+Software Cycles of S: AND=8,XOR=12,RotatedShift=18,Cycles=44
+Software Cycles of P: Cycles=116
+Overall cycles=160, Average=20
+******************
+
+
+
+
+
+
+mindiff=4,max non-linear=4
