@@ -1,0 +1,4 @@
+set search_path "/eda/synopsys/B-2008.09/dpaTest /eda/synopsys/B-2008.09/dw/sim_ver /eda/synopsys/B-2008.09/dw/syn_ver /eda/synopsys/B-2008.09/libraries/syn"
+set synthetic_library generic.sdb
+set target_library "fast.db slow.db"
+set link_library "fast.db slow.db dw_foundation.sldb"

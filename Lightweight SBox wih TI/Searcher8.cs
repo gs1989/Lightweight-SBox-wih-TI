@@ -1698,7 +1698,7 @@ namespace Lightweight_SBox_wih_TI
             int[] ANF = MoebiusTrans(size * (shares - 1), TT);
             //Compute ANF terms
             ANFterm[] anf = ConvertANF(ANF, shares);
-            sw.WriteLine("input in[{0}:0];", (shares - 1) * size);
+            sw.WriteLine("input[{0}:0] in;", (shares - 1) * size-1);
             sw.WriteLine("output out;");
             sw.WriteLine("wire out;");
             for (int i = 0; i < anf.Length; i++)
@@ -2220,6 +2220,15 @@ namespace Lightweight_SBox_wih_TI
                     table[i] = ((table[i] << 1) & ((0x1 << size) - 1));
             }
         }
+        //SITI+*4P
+        public void OneRoundTrans_SITIM4P_Last(int[] table, int[] S)
+        {
+
+            for (int i = 0; i < len; i++)
+            {
+                table[i] = S[table[i]];
+            }
+        }
         //SITI+MatrixP
         public void OneRoundTrans_SITIMatrixP(int[] table, int[] S, int FieldNo,int MultiNo)
         {
@@ -2252,6 +2261,39 @@ namespace Lightweight_SBox_wih_TI
                 table[i] = S[table[i]];
                 table[i] = LinearP(PMatrix, table[i], size);
             }
+        }
+        public int Shift(int x, int size, int shift)
+        {
+            int y = 0;
+            for (int i = 0; i < size; i++)
+            {
+                if (GetBit(x, i) == 1)
+                    y=SetBit(y, (i + shift) % size);
+            }
+            return y;
+        }
+        //Shift Bias Test: Test the bias of S(x<<<i)^S(x)<<<i
+        public double[] SIBias(int[] Stable, int size)
+        {
+            double[] BiasCount = new double[size];
+            for (int shift = 1; shift < size; shift++)
+            {
+                double[] bitcount = new double[size];
+                for (int x = 0; x < Stable.Length; x++)
+                {
+                    int xp = Shift(x, size, shift);
+                    int yp = Shift(Stable[x], size, shift);
+                    int diff = yp ^ Stable[xp];
+                    for (int i = 0; i < size; i++)
+                        if (GetBit(diff, i) == 1)
+                            bitcount[i]=bitcount[i]+1;
+                }
+                for (int i = 0; i < size; i++)
+                    bitcount[i] = Math.Abs(bitcount[i] / Stable.Length - 0.5);
+                Array.Sort(bitcount);
+                BiasCount[shift] = bitcount[bitcount.Length-1];
+            }
+            return BiasCount;
         }
         //SITI 4 bit Sbox搜索,添加常数
         //Results: 存在15-15的定差分，无论增加多少轮，如何增加常数或者增加线性变换，都不能破坏定差分
@@ -2794,7 +2836,7 @@ namespace Lightweight_SBox_wih_TI
             sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
             int Psize = 0x1 << (size - 1);
             long length = Stable.Length * (Psize);
-            Parallel.For(7, length, new ParallelOptions { MaxDegreeOfParallelism = 1 }, num =>
+            Parallel.For(34433786, length, new ParallelOptions { MaxDegreeOfParallelism = 4 }, num =>
             {
                 if ((num & 0xffff) == 0)
                 {
@@ -2816,10 +2858,11 @@ namespace Lightweight_SBox_wih_TI
                     table[i] = i;
                 }
 
-                for (int i = 0; i < round; i++)
+                for (int i = 0; i < round-1; i++)
                 {
                     OneRoundTrans_SITIM4P(table, Stable[Sno], Pno);
                 }
+                OneRoundTrans_SITIM4P_Last(table, Stable[Sno]);
                 if (!CheckPermutaion(table))
                 {
                     System.Console.WriteLine("Error!");
@@ -2872,25 +2915,16 @@ namespace Lightweight_SBox_wih_TI
                             return;
                         }
                         //WriteObfuscatedTable_SharedGroup(TITT, "SharedSbox.c", shares);
+                        byte[] TITTb=TTTransformation(TITT);
+                        double[] bias = SIBias(table, size);
+                        Array.Sort(bias);
+                        System.Console.WriteLine("Largest Shift Bias={0}", bias[bias.Length - 1]);
 
-                        FileStream fss = new FileStream("tt.txt", FileMode.Create);
-                        StreamWriter sws = new StreamWriter(fss);
-                       //Inverse Indexes in TITT for ABC synthesis
-                        int[] TITT1 = new int[TITT.Length];
-                        for (int m = 0; m < TITT.Length; m++)
-                        {
-                            TITT1[TITT.Length - 1 - m] = TITT[m];
-                        }
-                        byte[] TITTb=TTTransformation(TITT1);
-                        string q = BitConverter.ToString(TITTb).Replace("-", string.Empty);
-                        sws.WriteLine("{0}", q);
-                        TITTb = TTTransformation(TITT);
-                        sws.Close();
-                        fss.Close();
+
                          //Write ASM TI implementation
                        // Print_TI1b_ASM(path, num, sname, 3, TITTb);
                        // Print_TI1b_ASM_SharesGroup(path, num, sname, 3, TITTb,Pno);
-                        Print_TI1b_Verilog(path, num, sname, 3, TITTb, Pno);
+                       // Print_TI1b_Verilog(path, num, sname, 3, TITTb, Pno);
                        
                         //评估代价
                         WriteSIM4PCost_TI1b(sw, TITTb, Pno);
