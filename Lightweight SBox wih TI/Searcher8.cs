@@ -1964,9 +1964,17 @@ namespace Lightweight_SBox_wih_TI
         }
         public void PrintScript(StreamWriter swScript,string pathname,string Sname,long num)
         {
-            swScript.WriteLine("read_file -format verilog {\"/mnt/hgfs/share/Circular/"+pathname+"/"+String.Format(Sname+"{0}_R{1}_{2}.v",size,round,num)+"\"}");
+            String filenameS = String.Format(Sname + "S{0}_R{1}_{2}.v", size, round, num);
+            swScript.WriteLine("read_file -format verilog {\"/mnt/hgfs/share/Circular/"+pathname+"/"+filenameS+"\"}");
             swScript.WriteLine("compile_ultra");
             swScript.WriteLine("report_area > \"/mnt/hgfs/share/Circular/areareports/"+pathname+"/areareport_" + num + ".txt\"");
+            string list = "";
+            for (int i = 0; i < size * 2; i++)
+                if (i != 2 * size - 1)
+                    list += String.Format("in[{0}] ", i);
+                else
+                    list += String.Format("in[{0}]", i);
+            swScript.WriteLine("report_timing -from {"+list+"} -to {out} > \"/mnt/hgfs/share/Circular/delayreports/" + pathname + "/delayreport_" + num + ".txt\"");
             swScript.WriteLine("remove_design -designs");
         }
         //验证TITable还原后能否得到原始表
@@ -2906,11 +2914,8 @@ namespace Lightweight_SBox_wih_TI
             sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
             int Psize = 0x1 << (size - 1);
             long length = Stable.Length * (Psize);
-<<<<<<< HEAD
-            Parallel.For(34433786, length, new ParallelOptions { MaxDegreeOfParallelism = 4 }, num =>
-=======
+
             Parallel.For(0, length, new ParallelOptions { MaxDegreeOfParallelism = 4 }, num =>
->>>>>>> origin/master
             {
                 if ((num & 0xffff) == 0)
                 {
@@ -2936,14 +2941,11 @@ namespace Lightweight_SBox_wih_TI
                 {
                     OneRoundTrans_SITIM4P(table, Stable[Sno], Pno);
                 }
-<<<<<<< HEAD
-                OneRoundTrans_SITIM4P_Last(table, Stable[Sno]);
-=======
+                //OneRoundTrans_SITIM4P_Last(table, Stable[Sno]);
                 //Remove Last P
                 OneRoundTrans_SITIM4P_Last(table, Stable[Sno]);
                 //Keep Last P
                 //OneRoundTrans_SITIM4P(table, Stable[Sno], Pno);
->>>>>>> origin/master
                 if (!CheckPermutaion(table))
                 {
                     System.Console.WriteLine("Error!");
@@ -2993,7 +2995,6 @@ namespace Lightweight_SBox_wih_TI
                             System.Console.WriteLine("TI Sbox results Incorrect!");
                             return;
                         }
-<<<<<<< HEAD
                         //WriteObfuscatedTable_SharedGroup(TITT, "SharedSbox.c", shares);
                         byte[] TITTb=TTTransformation(TITT);
                         double[] bias = SIBias(table, size);
@@ -3005,14 +3006,10 @@ namespace Lightweight_SBox_wih_TI
                        // Print_TI1b_ASM(path, num, sname, 3, TITTb);
                        // Print_TI1b_ASM_SharesGroup(path, num, sname, 3, TITTb,Pno);
                        // Print_TI1b_Verilog(path, num, sname, 3, TITTb, Pno);
-=======
-
-                        byte[] TITTb=TTTransformation(TITT);
                         
                          //Write ASM TI implementation
                         Print_TI1b_ASM_SharesGroup(path, num, sname, 3, TITTb,Pno);
                         Print_TI1b_Verilog(path, num, sname, 3, TITTb, Pno);
->>>>>>> origin/master
                        
                         //评估代价
                         WriteSIM4PSoftwareCost_TI1b(sw, TITTb, Pno);
