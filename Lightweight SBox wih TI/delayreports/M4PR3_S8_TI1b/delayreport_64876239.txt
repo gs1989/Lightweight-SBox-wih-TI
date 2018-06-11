@@ -1,0 +1,49 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : STIS8_R3_64876239
+Version: B-2008.09
+Date   : Mon Jun 11 14:10:37 2018
+****************************************
+
+Operating Conditions: fast   Library: fast
+Wire Load Model Mode: segmented
+
+  Startpoint: in[7] (input port)
+  Endpoint: out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  STIS8_R3_64876239  TSMC18_Conservative   fast
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  in[7] (in)                               0.00       0.00 r
+  U4/Y (INVX1)                             0.12       0.12 f
+  U58/Y (OAI221XL)                         0.24       0.36 r
+  U57/Y (AOI21X1)                          0.02       0.38 f
+  U56/Y (AOI31X1)                          0.10       0.48 r
+  U55/Y (AOI21X1)                          0.03       0.51 f
+  U54/Y (AOI31X1)                          0.06       0.57 r
+  U53/Y (XOR2XL)                           0.14       0.71 f
+  U52/Y (XNOR2XL)                          0.19       0.90 r
+  U48/Y (XOR2XL)                           0.14       1.04 f
+  U47/Y (AOI21X1)                          0.08       1.12 r
+  U46/Y (AOI31X1)                          0.04       1.15 f
+  U40/Y (XNOR2XL)                          0.14       1.30 r
+  U39/Y (XNOR2XL)                          0.16       1.46 f
+  U27/Y (XNOR2XL)                          0.13       1.59 f
+  U11/Y (XNOR2XL)                          0.13       1.72 r
+  out (out)                                0.00       1.72 r
+  data arrival time                                   1.72
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

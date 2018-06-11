@@ -1,0 +1,51 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : STIS8_R3_34441753
+Version: B-2008.09
+Date   : Mon Jun 11 14:10:03 2018
+****************************************
+
+Operating Conditions: fast   Library: fast
+Wire Load Model Mode: segmented
+
+  Startpoint: in[7] (input port)
+  Endpoint: out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  STIS8_R3_34441753  TSMC18_Conservative   fast
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  in[7] (in)                               0.00       0.00 f
+  U41/Y (NAND2X1)                          0.07       0.07 r
+  U40/Y (AOI21X1)                          0.03       0.10 f
+  U39/Y (AOI31X1)                          0.05       0.16 r
+  U38/Y (XOR2XL)                           0.14       0.30 f
+  U37/Y (XNOR2XL)                          0.19       0.49 r
+  U35/Y (XOR2XL)                           0.14       0.63 f
+  U34/Y (AOI21X1)                          0.07       0.70 r
+  U33/Y (AOI31X1)                          0.05       0.75 f
+  U89/Y (NAND2X1)                          0.08       0.83 r
+  U90/Y (OAI21XL)                          0.06       0.89 f
+  U91/Y (AOI21X1)                          0.08       0.97 r
+  U92/Y (AOI31X1)                          0.04       1.01 f
+  U94/Y (XNOR2X1)                          0.15       1.16 r
+  U99/Y (XNOR2X1)                          0.11       1.26 f
+  U100/Y (AOI21X1)                         0.07       1.33 r
+  U101/Y (AOI31X1)                         0.04       1.37 f
+  U107/Y (XNOR2X1)                         0.12       1.49 r
+  out (out)                                0.00       1.49 r
+  data arrival time                                   1.49
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

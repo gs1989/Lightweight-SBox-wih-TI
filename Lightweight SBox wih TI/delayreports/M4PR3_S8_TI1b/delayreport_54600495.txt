@@ -1,0 +1,52 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : STIS8_R3_54600495
+Version: B-2008.09
+Date   : Mon Jun 11 14:10:20 2018
+****************************************
+
+Operating Conditions: fast   Library: fast
+Wire Load Model Mode: segmented
+
+  Startpoint: in[1] (input port)
+  Endpoint: out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  STIS8_R3_54600495  TSMC18_Conservative   fast
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  in[1] (in)                               0.00       0.00 r
+  U8/Y (INVX1)                             0.06       0.06 f
+  U50/Y (OAI221XL)                         0.22       0.28 r
+  U49/Y (AOI21X1)                          0.02       0.30 f
+  U48/Y (AOI31X1)                          0.10       0.40 r
+  U47/Y (AOI21X1)                          0.03       0.43 f
+  U46/Y (AOI31X1)                          0.06       0.49 r
+  U45/Y (XOR2XL)                           0.14       0.63 f
+  U44/Y (XNOR2XL)                          0.19       0.82 r
+  U38/Y (XOR2XL)                           0.14       0.96 f
+  U37/Y (AOI21X1)                          0.07       1.03 r
+  U36/Y (AOI31X1)                          0.04       1.07 f
+  U97/Y (XNOR2X1)                          0.15       1.22 r
+  U98/Y (XNOR2X1)                          0.11       1.33 f
+  U106/Y (XNOR2X1)                         0.14       1.46 r
+  U107/Y (XNOR2X1)                         0.11       1.57 f
+  U108/Y (XOR2X1)                          0.15       1.72 r
+  U109/Y (AOI21X1)                         0.03       1.75 f
+  U110/Y (AOI31X1)                         0.04       1.80 r
+  out (out)                                0.00       1.80 r
+  data arrival time                                   1.80
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

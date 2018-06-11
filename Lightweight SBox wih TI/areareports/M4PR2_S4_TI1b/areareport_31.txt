@@ -1,0 +1,25 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : area
+Design : STIS4_R2_31
+Version: B-2008.09
+Date   : Mon Jun 11 03:39:13 2018
+****************************************
+
+Library(s) Used:
+
+    fast (File: /eda/synopsys/B-2008.09/dpaTest/fast.db)
+
+Number of ports:                9
+Number of nets:                28
+Number of cells:               20
+Number of references:           9
+
+Combinational area:        312.681602
+Noncombinational area:       0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:           312.681602
+Total area:                 undefined
+1
