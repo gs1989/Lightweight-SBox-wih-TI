@@ -862,7 +862,7 @@ namespace Lightweight_SBox_wih_TI
         }
         //根据ANF评估代价
         //ANF中AND的数量和XOR的数量
-        //cost[0]:AND的数量;cost[1]:XOR的数量;cost[2]:Shift的数量；cost[3]:其他指令
+        //cost[0]:AND的数量;cost[1]:XOR的数量;cost[2]:Shift的数量;cost[3]:M0 Cycle总和
         public int[] ANFCost_Software(byte[] TT,int size)
         {
             int[] ANF = MoebiusTrans(size, TT);
@@ -880,14 +880,26 @@ namespace Lightweight_SBox_wih_TI
                     {
                         Cost[0]++;
                         if ((i & 0x01) == 0)//没有x0
+                        {
                             Cost[2] = Cost[2] + 2;
+                            Cost[3] = Cost[3] + 8;//Mov+Shift+Mov+Shift+AND+EOR
+                        }
                         else//有一个是x0
+                        {
                             Cost[2] = Cost[2] + 1;
+                            Cost[3] = Cost[3] + 6;//Mov+Mov+Shift+AND+EOR
+                        }
                     }
                     if (HW(i, size) == 1)//1次项
                     {
                         if ((i & 0x01) == 0)//不是x0
+                        {
                             Cost[2] = Cost[2] + 1;
+                            Cost[3] = Cost[3] + 4;//Mov+Shift+EOR
+                        }
+                        else
+                            Cost[3] = Cost[3] + 2;//Mov+EOR
+
                     }
                 }
             }
@@ -913,76 +925,65 @@ namespace Lightweight_SBox_wih_TI
         //评估整体unprotecked Sbox的实现代价
         public void WriteSIM4PCost_Unprotected(StreamWriter sw,byte[] TT,int Pno)
         {
-            sw.WriteLine("Worst Case Unprotected Raw Implementation:");
-            int[] HardwareCost=ANFCost_Hardware(TT,size);
-            int[] SoftwareCost=ANFCost_Software(TT,size);
-            int[] Temp=M4Cost_Software(Pno);
-            for(int i=0;i<4;i++)
-                SoftwareCost[i]+=Temp[i];
-            double sumHard=HardwareCost[0]*1.67+HardwareCost[1]*2.67;
-            double sumSoft_Rs=SoftwareCost[0]+SoftwareCost[1]+SoftwareCost[2]+SoftwareCost[3];
-            double sumSoft_NoRs=SoftwareCost[0]+SoftwareCost[1]+SoftwareCost[2]*3+SoftwareCost[3];
-            HardwareCost[1]=HardwareCost[1]+M4Cost_Hardware(Pno);
-            sw.WriteLine("Hardware(In theory): AND={0},XOR={1}",HardwareCost[0]*round,HardwareCost[1]*round);
-            sw.WriteLine("Overall GE={0}", sumHard * round);
-            sw.WriteLine("Software Cycles: AND={0},XOR={1},RotatedShift={2},Other={3}", SoftwareCost[0] * round, SoftwareCost[1] * round, SoftwareCost[2] * round, SoftwareCost[3] * round);
-            sw.WriteLine("Overall cycles with Rotated Shift={0}, without Rotated Shift={1}", sumSoft_Rs * round, sumSoft_NoRs * round);
-            sw.WriteLine("Worst Case Unprotected Round-based Implementation:");
-            sw.WriteLine("Hardware(In theory): AND={0},XOR={1}", HardwareCost[0], HardwareCost[1]);
-            sw.WriteLine("Overall GE={0}", sumHard);
-            sw.WriteLine("Software Cycles: AND={0},XOR={1},RotatedShift={2},Other={3}", SoftwareCost[0], SoftwareCost[1], SoftwareCost[2], SoftwareCost[3]);
-            sw.WriteLine("Overall cycles with Rotated Shift={0}, without Rotated Shift={1}", sumSoft_Rs, sumSoft_NoRs );
+            
+            sw.WriteLine("Unprotected Implementation:");
+            sw.WriteLine("Software Cost: ARM M0");
+            int[] SoftwareCost = ANFCost_Software(TT, size);
+            sw.WriteLine("Software Cycles of S: AND={0},XOR={1},RotatedShift={2},Cycles={3}", SoftwareCost[0] * round, SoftwareCost[1] * round, SoftwareCost[2] * round, SoftwareCost[3] * round);
+            int ScostM0 = SoftwareCost[3] * round;
+            int ScostM3 = (SoftwareCost[3] - SoftwareCost[2] * 2) * round;
+            int sliceblock = 32 / size;
+            int Pcost = (6 * sliceblock + 10) * (round - 1);
+            int AllCostM0 = (ScostM0 + 2 * Pcost);
+            int AllCostM3 = (ScostM3 + 2 * Pcost);
+            sw.WriteLine("Software Cycles of P: Cycles={0}", 2 * Pcost);
+            sw.WriteLine("Overall cycles={0}, Average={1}", AllCostM0, AllCostM0 / (double)sliceblock);
+
+            sw.WriteLine("Software Cost: ARM M3");
+            sw.WriteLine("Software Cycles of S: AND={0},XOR={1},RotatedShift={2},Cycles={3}", SoftwareCost[0] * round, SoftwareCost[1] * round, SoftwareCost[2] * round, ScostM3);
+            sw.WriteLine("Software Cycles of P: Cycles={0}", 2 * Pcost);
+            sw.WriteLine("Overall cycles={0}, Average={1}", AllCostM3, AllCostM3 / (double)sliceblock);
+
             sw.Flush();
         }
         //评估整体unprotecked Sbox的实现代价
-        public void WriteSIM4PCost_TI1b(StreamWriter sw, byte[] TT1b, int Pno)
+        public void WriteSIM4PSoftwareCost_TI1b(StreamWriter sw, byte[] TT1b, int Pno)
         {
             int shares = 3;
-            sw.WriteLine("Worst Case TI Raw Implementation:");
-            int[] HardwareCost = ANFCost_Hardware(TT1b,size*(shares-1));
-            HardwareCost[1] = HardwareCost[1] + shares * M4Cost_Hardware(Pno);
+            sw.WriteLine("Software Cost: ARM M0");
+
             int[] SoftwareCost = ANFCost_Software(TT1b, size * (shares - 1));
-            int[] Temp = M4Cost_Software(Pno);
-            for (int i = 0; i < 4; i++)
-                SoftwareCost[i] += Temp[i];
-            double sumHard = HardwareCost[0] * 1.67 + HardwareCost[1] * 2.67;
-            double sumSoft_Rs = SoftwareCost[0] + SoftwareCost[1] + SoftwareCost[2] + SoftwareCost[3];
-            double sumSoft_NoRs = SoftwareCost[0] + SoftwareCost[1] + SoftwareCost[2] * 3 + SoftwareCost[3];
+            sw.WriteLine("Software Cycles of S: AND={0},XOR={1},RotatedShift={2},Cycles={3}", SoftwareCost[0] * round, SoftwareCost[1] * round, SoftwareCost[2] * round, SoftwareCost[3] * round);
+            int ScostM0 = SoftwareCost[3]*round;
+            int ScostM3 = (SoftwareCost[3] - SoftwareCost[2] * 2) * round;
+            int sliceblock = 32 / size;
+            int Pcost = (6 * sliceblock + 10) * (round - 1);
+            int AllCostM0 = shares * (ScostM0 + 2 * Pcost);
+            int AllCostM3 = shares * (ScostM3 + 2 * Pcost);
+            sw.WriteLine("Software Cycles of P: Cycles={0}", 2 * Pcost);
+            sw.WriteLine("Overall cycles={0}, Average={1}", AllCostM0, AllCostM0 / (double)sliceblock);
             
-            sw.WriteLine("Hardware(In theory): AND={0},XOR={1}", HardwareCost[0] * round, HardwareCost[1] * round);
-            sw.WriteLine("Overall GE={0}", sumHard * round);
-            sw.WriteLine("Software Cycles: AND={0},XOR={1},RotatedShift={2},Other={3}", SoftwareCost[0] * round, SoftwareCost[1] * round, SoftwareCost[2] * round, SoftwareCost[3] * round);
-            sw.WriteLine("Overall cycles with Rotated Shift={0}, without Rotated Shift={1}", sumSoft_Rs * round, sumSoft_NoRs * round);
-            
-            sw.WriteLine("Worst Case TI 1 bit Implementation:");
-            HardwareCost = ANFCost_Hardware_1b(TT1b, size * (shares - 1));
-            HardwareCost[1] = HardwareCost[1] + shares * M4Cost_Hardware(Pno);
-            sumHard = HardwareCost[0] * 1.67 + HardwareCost[1] * 2.67;
-            sw.WriteLine("Hardware(In theory): AND={0},XOR={1}", HardwareCost[0], HardwareCost[1]);
-            sw.WriteLine("Overall GE={0}", sumHard);
-            sw.WriteLine("Software Cycles: AND={0},XOR={1},RotatedShift={2},Other={3}", SoftwareCost[0], SoftwareCost[1], SoftwareCost[2], SoftwareCost[3]);
-            sw.WriteLine("Overall cycles with Rotated Shift={0}, without Rotated Shift={1}", sumSoft_Rs, sumSoft_NoRs);
+            sw.WriteLine("Software Cost: ARM M3");
+            sw.WriteLine("Software Cycles of S: AND={0},XOR={1},RotatedShift={2},Cycles={3}", SoftwareCost[0] * round, SoftwareCost[1] * round, SoftwareCost[2] * round, ScostM3);
+            sw.WriteLine("Software Cycles of P: Cycles={0}", 2 * Pcost);
+            sw.WriteLine("Overall cycles={0}, Average={1}", AllCostM3, AllCostM3 / (double)sliceblock);
+
             sw.Flush();
         }
-        //用Verilog写出未保护的Sbox
+        //用txt写出S表
         public void Print_FullSbox_Unprotected(string path, int[] Sbox,long num,string sname)
         {
-            String filename=String.Format( path+sname+"{0}_R{1}_{2}.v",size,round,num);
+            String filename=String.Format( path+sname+"{0}_R{1}_{2}.txt",size,round,num);
             FileStream fs = new FileStream(filename, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             
-            sw.WriteLine("module S{0}_R{1}_{2}(in,out);",size,round,num );
-            sw.WriteLine("  input[{0}:0] in;", size - 1);
-            sw.WriteLine("  output[{0}:0] out;", size - 1);
-            sw.WriteLine("  reg[{0}:0] out;", size - 1);
-            sw.WriteLine("  always@(in)");
-            sw.WriteLine("  begin");
-            sw.WriteLine("    case(in)");
+
             for (int i = 0; i < Sbox.Length; i++)
-                sw.WriteLine("   {0}: out<={1};", i, Sbox[i]);
-            sw.WriteLine(" endcase");
-            sw.WriteLine("end");
-            sw.WriteLine("endmodule");
+                if(i!=Sbox.Length-1)
+                   sw.Write("{0},", Sbox[i]);
+                else
+                    sw.Write("{0}", Sbox[i]);
+
             sw.Close();
             fs.Close();
         }
@@ -1453,10 +1454,10 @@ namespace Lightweight_SBox_wih_TI
             {
                 if (anf[i].d == 1)//linear term
                 {
-                    if (anf[i].base_index >= 4)//share 1
+                    if (anf[i].base_index >= size)//share 1
                     {
                         sw.WriteLine("   mov r4,r1");
-                        if(anf[i].base_index!=4)
+                        if (anf[i].base_index != size)
                         {
                             sw.WriteLine("   movs r6,#{0}",(anf[i].base_index-4)*slice_block);
                             sw.WriteLine("   rors r4,r6");
@@ -1477,12 +1478,12 @@ namespace Lightweight_SBox_wih_TI
                 }
                 else//only deal with degree 2 funcitons
                 {
-                    if (anf[i].base_index >= 4)//share 1
+                    if (anf[i].base_index >= size)//share 1
                     {
                         sw.WriteLine("   mov r4,r1");
-                        if (anf[i].base_index != 4)
+                        if (anf[i].base_index != size)
                         {
-                            sw.WriteLine("   movs r6,#{0}", (anf[i].base_index - 4) * slice_block);
+                            sw.WriteLine("   movs r6,#{0}", (anf[i].base_index - size) * slice_block);
                             sw.WriteLine("   rors r4,r6");
                             sub++;
                         }
@@ -1497,12 +1498,12 @@ namespace Lightweight_SBox_wih_TI
                             sub++;
                         }
                     }
-                    if ((anf[i].base_index + anf[i].other_index[0]) >= 4)//share 1
+                    if ((anf[i].base_index + anf[i].other_index[0]) >= size)//share 1
                     {
                         sw.WriteLine("   mov r5,r1");
-                        if ((anf[i].base_index + anf[i].other_index[0]) != 4)
+                        if ((anf[i].base_index + anf[i].other_index[0]) != size)
                         {
-                            sw.WriteLine("   movs r6,#{0}", ((anf[i].base_index + anf[i].other_index[0]) - 4) * slice_block);
+                            sw.WriteLine("   movs r6,#{0}", ((anf[i].base_index + anf[i].other_index[0]) - size) * slice_block);
                             sw.WriteLine("   rors r5,r6");
                             sub++;
                         }
@@ -1571,13 +1572,26 @@ namespace Lightweight_SBox_wih_TI
             sw.WriteLine(".endfunc");
         }
         //Write the P function in Sbox
-        public void WriteASM_P_Shares(StreamWriter sw, int shares)
+        public void WriteASM_P_Shares(StreamWriter sw, int shares,int Pno)
         {
+            int sliceblock = 32 / size;
+            int P = (Pno << 1) ^ 0x01;
+            int Pmask = 0;
+            int t = P;
+            for (int i = 0; i < size; i++)
+            {
+                if ((t & 0x01) == 1)
+                {
+                    Pmask = Pmask ^ (0x1 << (i * sliceblock));
+                }
+                t = t >> 1;
+            }
+            sw.WriteLine("Pmask={0:x}", Pmask);
             sw.WriteLine(".func TI_P_shares");
             sw.WriteLine("TI_P_shares:");
             sw.WriteLine("push {lr}");
             sw.WriteLine("push {r4-r7}");
-            int sliceblock = 32/size;
+
             //r0 as the sharedinput
             //r1 as the lowest bit version of Pmask 0'x01010101
             //r2 as the highest block bits of r0 
@@ -1688,9 +1702,57 @@ namespace Lightweight_SBox_wih_TI
             FileStream fs = new FileStream(filename, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             WriteASM_S_SharesGroup(sw, shares, TT);
-            WriteASM_P_Shares(sw, shares);
+            WriteASM_P_Shares(sw, shares,Pno);
             sw.Close();
             fs.Close();
+        }
+        public void WriteVerilog_P(StreamWriter sw, int shares, int Pno)
+        {
+            int P = (Pno<<1)^0x01;
+            uint[,] matr=new uint[size,size];
+            for(int i=0;i<size;i++)
+            {
+                for(int j=0;j<size;j++)
+                {
+                    if(j==0 && i!=size-1)
+                    {
+                        matr[i,j]=(uint)((((P>>(size-1-i))&0x01)>0)?1:0);
+                    }
+                    else
+                    {
+                        if(j==((i+1)%size))
+                             matr[i,j]=(uint)1;
+                        else
+                            matr[i,j]=(uint)0;
+                    }
+                }
+            }
+            BinaryMatrix bm=new BinaryMatrix((uint)size,(uint)size);
+            bm.SetValue(matr);
+            bm.LeftMultiplyMatrix(bm);
+            bm.GetValue(matr);
+            sw.WriteLine("input[{0}:0] in;",size-1);
+            sw.WriteLine("output[{0}:0] out;", size-1);
+            sw.WriteLine("wire[{0}:0] out;", size-1);
+            for(int i=0;i<size;i++)
+            {
+                 sw.Write("assign out[{0}]=",size-1-i);
+                bool start=true;
+                for(int j=0;j<size;j++)
+                {
+                    if(matr[i,j]==1)
+                    {
+                        if(start)
+                            sw.Write("in[{0}]",size-1-j);
+                        else
+                            sw.Write("^in[{0}]",size-1-j);
+                        start=false;
+                    }
+                    
+                }
+                sw.WriteLine(";");
+            }
+            sw.WriteLine("endmodule");
         }
         //Write the S function in Sbox
         public void WriteVerilog_S(StreamWriter sw, int shares, byte[] TT)
@@ -1722,7 +1784,7 @@ namespace Lightweight_SBox_wih_TI
                     sw.Write("term_{0}^", i);
                 else
                     sw.WriteLine("term_{0};\n", i);
-            sw.Write("endmodule");
+            sw.WriteLine("endmodule");
         }
         //用Verilog写出硬件实现TI的代码
         //用sharesgroup分组
@@ -1730,15 +1792,23 @@ namespace Lightweight_SBox_wih_TI
         {
 
             //Write the ASM
-            String filename = String.Format(path + sname + "{0}_R{1}_{2}.v", size, round, num);
-            FileStream fs = new FileStream(filename, FileMode.Create);
-            String modulename = String.Format(sname + "{0}_R{1}_{2}", size, round, num);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine("module  {0}(in,out);", modulename);
-            WriteVerilog_S(sw, shares, TT);
+            String filenameS = String.Format(path + sname + "S{0}_R{1}_{2}.v", size, round, num);
+            FileStream fsS = new FileStream(filenameS, FileMode.Create);
+            String filenameP = String.Format(path + sname + "P{0}_R{1}_{2}.v", size, round, num);
+            FileStream fsP = new FileStream(filenameP, FileMode.Create);
+            String Smodulename = String.Format(sname + "S{0}_R{1}_{2}", size, round, num);
+            String Pmodulename = String.Format(sname + "P{0}_R{1}_{2}", size, round, num);
+            StreamWriter swS = new StreamWriter(fsS);
+            StreamWriter swP = new StreamWriter(fsP);
+            swS.WriteLine("module  {0}(in,out);", Smodulename);
+            WriteVerilog_S(swS, shares, TT);
+            swP.WriteLine("module  {0}(in,out);", Pmodulename);
+            WriteVerilog_P(swP, shares, Pno);
             //WriteASM_P_Shares(sw, shares);
-            sw.Close();
-            fs.Close();
+            swS.Close();
+            fsS.Close();
+            swP.Close();
+            fsP.Close();
         }
         //用C写出软件实现TI的代码
         public void Print_TI1b_C(string path, long num, string sname, int shares, byte[] TT)
@@ -1895,7 +1965,7 @@ namespace Lightweight_SBox_wih_TI
         public void PrintScript(StreamWriter swScript,string pathname,string Sname,long num)
         {
             swScript.WriteLine("read_file -format verilog {\"/mnt/hgfs/share/Circular/"+pathname+"/"+String.Format(Sname+"{0}_R{1}_{2}.v",size,round,num)+"\"}");
-            swScript.WriteLine("compile -exact_map");
+            swScript.WriteLine("compile_ultra");
             swScript.WriteLine("report_area > \"/mnt/hgfs/share/Circular/areareports/"+pathname+"/areareport_" + num + ".txt\"");
             swScript.WriteLine("remove_design -designs");
         }
@@ -2836,7 +2906,11 @@ namespace Lightweight_SBox_wih_TI
             sw.WriteLine("round={0},size={1},shift={2}", round, size, shift);
             int Psize = 0x1 << (size - 1);
             long length = Stable.Length * (Psize);
+<<<<<<< HEAD
             Parallel.For(34433786, length, new ParallelOptions { MaxDegreeOfParallelism = 4 }, num =>
+=======
+            Parallel.For(0, length, new ParallelOptions { MaxDegreeOfParallelism = 4 }, num =>
+>>>>>>> origin/master
             {
                 if ((num & 0xffff) == 0)
                 {
@@ -2862,7 +2936,14 @@ namespace Lightweight_SBox_wih_TI
                 {
                     OneRoundTrans_SITIM4P(table, Stable[Sno], Pno);
                 }
+<<<<<<< HEAD
                 OneRoundTrans_SITIM4P_Last(table, Stable[Sno]);
+=======
+                //Remove Last P
+                OneRoundTrans_SITIM4P_Last(table, Stable[Sno]);
+                //Keep Last P
+                //OneRoundTrans_SITIM4P(table, Stable[Sno], Pno);
+>>>>>>> origin/master
                 if (!CheckPermutaion(table))
                 {
                     System.Console.WriteLine("Error!");
@@ -2894,11 +2975,11 @@ namespace Lightweight_SBox_wih_TI
                         count++;
                         sw.WriteLine("******************");
                         sw.WriteLine("diff={0},nL={1},Sno={2:x},Pno={3:x}", diff, nonLinear, Sno,Pno);
-                        sw.WriteLine("输出表：");
+                        sw.WriteLine("Full S Table:");
                         for (int j = 0; j < (0x1 << size); j++)
                             sw.Write("{0:x2}\t", table[j]);
                         sw.WriteLine("\n");
-                        sw.WriteLine("内部函数={0}", num);
+                        sw.WriteLine("Num of S={0}", num);
 
                         //Get TI bit
                         int[] ANF = MoebiusTrans(size, TT[Sno]);//Get ANF
@@ -2906,14 +2987,13 @@ namespace Lightweight_SBox_wih_TI
                         TI_wrapper tw = new TI_wrapper(size, shares, ANF);
                         tw.Compute_From_ANF();
                        
-                        //int[] TITT = tw.Get_TruthTable_F1();
                         int[] TITT = tw.Get_TruthTable_F1_SharesGroup();
                         if (!VerifyTITable_SharesGroup(TITT, Stable[Sno], shares))
-                        //if (!VerifyTITable(TITT, Stable[Sno], shares))
                         {
                             System.Console.WriteLine("TI Sbox results Incorrect!");
                             return;
                         }
+<<<<<<< HEAD
                         //WriteObfuscatedTable_SharedGroup(TITT, "SharedSbox.c", shares);
                         byte[] TITTb=TTTransformation(TITT);
                         double[] bias = SIBias(table, size);
@@ -2925,9 +3005,17 @@ namespace Lightweight_SBox_wih_TI
                        // Print_TI1b_ASM(path, num, sname, 3, TITTb);
                        // Print_TI1b_ASM_SharesGroup(path, num, sname, 3, TITTb,Pno);
                        // Print_TI1b_Verilog(path, num, sname, 3, TITTb, Pno);
+=======
+
+                        byte[] TITTb=TTTransformation(TITT);
+                        
+                         //Write ASM TI implementation
+                        Print_TI1b_ASM_SharesGroup(path, num, sname, 3, TITTb,Pno);
+                        Print_TI1b_Verilog(path, num, sname, 3, TITTb, Pno);
+>>>>>>> origin/master
                        
                         //评估代价
-                        WriteSIM4PCost_TI1b(sw, TITTb, Pno);
+                        WriteSIM4PSoftwareCost_TI1b(sw, TITTb, Pno);
                         WriteSIM4PCost_Unprotected(sw, TT[Sno], Pno);
                         sw.WriteLine("******************");
                         sw.WriteLine("\n");
@@ -2935,9 +3023,7 @@ namespace Lightweight_SBox_wih_TI
                         sw.WriteLine("\n");
                         sw.Flush();
                         //写出Sbox
-                        //Print_FullSbox_Unprotected(path, table, num,sname);
-                        //Print_SI1bit_Unprotected(path, Stable[Sno], num, sname);
-                         Print_TI1b(path, TITT, num,sname,3);
+                        Print_FullSbox_Unprotected(path, table, num,sname);
                         //写出脚本
                         PrintScript(swScript,pathname, sname, num);
                     }
