@@ -1,0 +1,37 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : STIP8_R3_34441753
+Version: B-2008.09
+Date   : Tue Jun 12 02:33:31 2018
+****************************************
+
+Operating Conditions: fast   Library: fast
+Wire Load Model Mode: segmented
+
+  Startpoint: in[7] (input port)
+  Endpoint: out[5] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  STIP8_R3_34441753  TSMC18_Conservative   fast
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  in[7] (in)                               0.00       0.00 f
+  U1/Y (INVX1)                             0.09       0.09 r
+  U7/Y (AOI22X1)                           0.06       0.15 f
+  U4/Y (XOR2X1)                            0.12       0.27 r
+  out[5] (out)                             0.00       0.27 r
+  data arrival time                                   0.27
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

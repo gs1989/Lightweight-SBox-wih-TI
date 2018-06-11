@@ -1,0 +1,36 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : STIP4_R2_55
+Version: B-2008.09
+Date   : Tue Jun 12 02:37:22 2018
+****************************************
+
+Operating Conditions: fast   Library: fast
+Wire Load Model Mode: segmented
+
+  Startpoint: in[2] (input port)
+  Endpoint: out[0] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  STIP4_R2_55        TSMC18_Conservative   fast
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  in[2] (in)                               0.00       0.00 f
+  U1/Y (INVX1)                             0.09       0.09 r
+  U4/Y (MXI2X1)                            0.04       0.12 f
+  out[0] (out)                             0.00       0.12 f
+  data arrival time                                   0.12
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
