@@ -71,6 +71,15 @@ namespace Lightweight_SBox_wih_TI
                 table[i] = table[i] & limit;
             }
         }
+        //循环右移1位
+        int ShiftRight1(int varNum, int table)
+        {
+            int limit = (0x1 << varNum) - 1;
+            int table_new = (table >> 1) | ((table & 0x01) << (varNum - 1));
+                table_new = table_new & limit;
+
+                return table_new;
+        }
         //由ANF计算真值表
         byte[] InvMoebiusTrans(int varNum, int[] ANF)
         {
@@ -153,6 +162,32 @@ namespace Lightweight_SBox_wih_TI
             return true;
         }
 
+        //检查置换性
+        //按表大小循环，出现重复即终止
+        bool CheckPerm_Fast(int varNum, byte[] TT)
+        {
+            int len = 0x1 << varNum;
+            bool[] Table = new bool[len];
+
+            for (int i = 0; i < len; i++)
+            {
+                int input = i;
+                int output = 0;
+                for (int j = 0; j < varNum; j++)
+                {
+                    if (GetBit(TT, input) == 1)
+                        output = SetBit(output, j);
+                    //循环右移1位
+                    if (j != varNum - 1)
+                        input=ShiftRight1(varNum, input);
+                }
+                if (Table[output])
+                    return false;//重复
+                else
+                    Table[output] = true;
+            }
+            return true;
+        }
         //检查含有x0的项,且ANF[0]==0
         bool Checkx0(int[] ANF, int varNum)
         {
@@ -331,16 +366,17 @@ namespace Lightweight_SBox_wih_TI
             long count_ti_balanced_shares = 0;//TI后某bit的s个shares满足平衡性的
             long count_ti_perm = 0; //TI后满足置换性的
             ConcurrentQueue<byte[]> cq = new ConcurrentQueue<byte[]>();
-            Thread td=new Thread(()=>{this.WriteFlush(bw,cq,ref count_ti_perm);});
+            Thread td=new Thread(()=>{this.WriteFlush(bw,cq,ref count);});
             td.Start();
             //主循环
-            Parallel.For(0, SearchSpace, new ParallelOptions { MaxDegreeOfParallelism = 1 }, num =>
+            Parallel.For(0, SearchSpace, new ParallelOptions { MaxDegreeOfParallelism = 4 }, num =>
+            //for(long num=SearchSpace*no/div;num<SearchSpace*(no+1)/div;num++)
             {
                 int[] ANF = new int[(0x1 << size)];
                 //过程输出
                 if ((num & 0xfffff) == 0)
                 {
-                    System.Console.WriteLine("num={0:x},x0F={1},BalancedF={2},PermF={3},TI_BalancedF={6},TI_BalancedSharesF={7},TI_PermF={8},Allf={4},percent={5}%", num, count_x0, count_balanced, count_perm, count, 100 * num / (double)SearchSpace, count_ti_balanced_bit, count_ti_balanced_shares, count_ti_perm);
+                    System.Console.WriteLine("num={0:x},x0F={1},BalancedF={2},PermF={3},TI_BalancedF={6},TI_BalancedSharesF={7},TI_PermF={8},Allf={4},percent={5}%", num, count_x0, count_balanced, count_perm, count, 100 * num / (double)SearchSpace, count_ti_balanced_bit, count_ti_balanced_shares, count);
                 }
                 //从num中获取ANF
                 for (int i = 0; i < SearchLen; i++)
@@ -356,6 +392,7 @@ namespace Lightweight_SBox_wih_TI
                 if (!Checkx0(ANF, size))
                     return;
                 Interlocked.Increment(ref count_x0);
+                //count_x0++;
                 //从ANF获得真值表
                 byte[] TT = InvMoebiusTrans(size, ANF);
 
@@ -363,36 +400,43 @@ namespace Lightweight_SBox_wih_TI
                 if (!CheckBalanced(size, TT))
                     return;
                 Interlocked.Increment(ref count_balanced);
+                //count_balanced++;
                 //检查置换性
                 if (!CheckPerm(size, TT))
                     return;
                 Interlocked.Increment(ref count_perm);
-                //CheckPerm(size, TT);
+                //count_perm++;
+                CheckPerm(size, TT);
+
+
                 //检查TI
                 SharedTransformation sf = new SharedTransformation(degree + 1, size, ANF);
                 //检查TI后单bit的平衡性
                 if (!sf.BitBalance())
                     return;
-                //Interlocked.Increment(ref count_ti_balanced_bit);
+                Interlocked.Increment(ref count_ti_balanced_bit);
+                //count_ti_balanced_bit++;
                 //检查TI后某个bit的S个share的平衡性
                 if (!sf.SharedBitBalance())
                     return;
                 Interlocked.Increment(ref count_ti_balanced_shares);
+                //count_ti_balanced_shares++;
                 if (!sf.Permutation())
                     return;
-
+                //count_ti_perm++;
+                
                 //写出相关真值表
                 cq.Enqueue(TT);
-                //string hex = BitConverter.ToString(TT).Replace("-", string.Empty);
-                //Interlocked.Increment(ref count_ti_perm);
-                //Interlocked.Increment(ref count);
-                //lock (bw)
-                //{
-                //    //System.Console.WriteLine("d={1},TT={0}", hex, ANFdegree(ANF, size));
-                //    //sw.WriteLine("{0}", hex);
-                //    bw.Write(TT);
-                //    bw.Flush();
-                //}
+                string hex = BitConverter.ToString(TT).Replace("-", string.Empty);
+                Interlocked.Increment(ref count_ti_perm);
+                Interlocked.Increment(ref count);
+                lock (bw)
+                {
+                    //System.Console.WriteLine("d={1},TT={0}", hex, ANFdegree(ANF, size));
+                    //sw.WriteLine("{0}", hex);
+                    bw.Write(TT);
+                    bw.Flush();
+                }
 
             });
             Thread.Sleep(10000);

@@ -803,7 +803,7 @@ namespace Lightweight_SBox_wih_TI
             //根据Pno确定第一列前n-1个值
             for (int i = 0; i < size - 1; i++)
             {
-                Pmatrix[i][0] = GetBit(Pno, i);
+                Pmatrix[i][0] = GetBit(Pno, size-2-i);
             }
             return Pmatrix;
         }
@@ -976,13 +976,20 @@ namespace Lightweight_SBox_wih_TI
             String filename=String.Format( path+sname+"{0}_R{1}_{2}.txt",size,round,num);
             FileStream fs = new FileStream(filename, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
-            
+
 
             for (int i = 0; i < Sbox.Length; i++)
-                if(i!=Sbox.Length-1)
-                   sw.Write("{0},", Sbox[i]);
+            {
+                if (i % 16 == 0)
+                {
+                    sw.WriteLine("\\hline");
+                    sw.Write("\\textbf{{{0}}}   &  ",(i/16).ToString("x1"));
+                }
+                if (i%16 != 15)
+                    sw.Write("  {0:x2}  &", Sbox[i]);
                 else
-                    sw.Write("{0}", Sbox[i]);
+                    sw.WriteLine("  {0:x2}  \\\\", Sbox[i]);
+            }
 
             sw.Close();
             fs.Close();
@@ -2915,7 +2922,7 @@ namespace Lightweight_SBox_wih_TI
             int Psize = 0x1 << (size - 1);
             long length = Stable.Length * (Psize);
 
-            Parallel.For(0, length, new ParallelOptions { MaxDegreeOfParallelism = 4 }, num =>
+            Parallel.For(64876239, length, new ParallelOptions { MaxDegreeOfParallelism = 1 }, num =>
             {
                 if ((num & 0xffff) == 0)
                 {
@@ -3020,7 +3027,8 @@ namespace Lightweight_SBox_wih_TI
                         sw.WriteLine("\n");
                         sw.Flush();
                         //写出Sbox
-                        Print_FullSbox_Unprotected(path, table, num,sname);
+                        //Print_FullSbox_Unprotected(path, table, num,sname);
+                        Print_FullSbox_Unprotected(path, Stable[Sno], num, sname);    
                         //写出脚本
                         PrintScript(swScript,pathname, sname, num);
                     }
